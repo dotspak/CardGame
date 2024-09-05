@@ -1,0 +1,38 @@
+Basic Gameplay
+The main currency of the game is "tokens." Players can accumulate an unlimited number of tokens and spend as many as they like during their turn. Tokens can be earned in several ways:
+
+    Automatic Gain: 1 token is automatically awarded at the start of each turn.
+    Defeating Creatures: When a player's creature slays an opponent's creature, the player earns tokens equal to the defeated creature's cost. Note that tokens are not awarded for destroying off-site cards.
+    Special Card Conditions: Certain cards may provide additional ways to earn tokens.
+
+At the start of each turn, the player must draw a card. Players can hold a maximum of 5 cards in their hand at any time. If a card is discarded from the hand, it is placed at the bottom of the deck unless otherwise specified. When a creature or off-site card is destroyed, it is also placed at the bottom of the deck in the order it was destroyed. This creates an endless cycle of cards within the deck.
+
+Players can perform actions in any order they choose during their turn, but they must draw a card first. For example, a player might choose to attack with a creature, play two cards, then attack with their remaining creatures. The player can continue acting until they declare the end of their turn.
+
+When a player takes damage, they lose 1 life from a total of 10, regardless of the damage inflicted by the attacking creature. Off-site cards, unless specified otherwise, cannot deal damage to players. The game continues until only one player remains.
+Deck Building
+
+Decks contain 20 cards, with a limit of 2 cards with the same name per deck. There are no restrictions on the number of cards of a particular type that can be included. For instance, a deck could consist entirely of 20 creatures.
+
+Creatures
+Creatures are arranged on a 5x1 grid. By default, when a creature attacks, it can target an adjacent tile with a creature or the player/off-site cards if the space directly in front is empty. When attacking off-site cards, creatures must target the front-most card.
+
+Each turn, a creature can either attack or move. When moving, a creature can either move to an adjacent empty space or swap places with an adjacent creature. Creatures cannot attack on the turn they are summoned but can still move. Creatures do not passively regain health. When a creature is destroyed, it is moved to the bottom of the deck.
+Off-Site Cards
+
+There are 2 slots available for off-site cards. When an off-site card is played, it must occupy the back-most slot. Generally only specific off-site cards can be played in this zone, but some cards have the option to be played there. These two slots have specific roles: the first card played is generally intended to be kept alive, while the second card is meant to protect the first. If an off-site card has an attack value, it can only attack creatures but can target any tile.
+
+Spell Cards
+Spells are special cards that trigger effects when played. For example, a fireball spell might deal 3 damage to a creature. By default, spells can only be used on the player's turn, but spells with the "Instant" keyword can be used at any point during the game. Spells are discarded to the bottom of the deck in the order they are used. Unless specified otherwise, spells can be used on any creature or off-site card.
+Effect Cards
+
+Effect cards are special cards that can be attached to creatures or off-site cards, granting them additional abilities or bonuses, such as +2 damage. When the card with an attached effect is discarded, the effect card is exiled (removed from the game) instead of being discarded and cannot be used again unless specified otherwise.
+Keywords
+
+    Jumpy: This creature can move to any empty space on the board.
+    Flying: This creature can attack the opponent directly if the front-facing creature is not Flying. Flying creatures can still be attacked by grounded creatures
+    Wide: This creature can attack any creature on the opponent's board.
+    Swift: This creature can attack immediately after being summoned.
+    Agile: This creature can both move and attack in the same turn.
+    Instant: This card can be played in response to any action an opponent takes.
+    Crush: This creature can only attack the player, but also does not need to kill the card in front.
