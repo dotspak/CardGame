@@ -1,7 +1,11 @@
-Flying		Cannot interact with a non-flying creature
+Positive Keywords
+Flying		Cannot attack or block a non-flying creature
 Agile		Can move to any open space on the grid
+Energetic	Creature can move and attack in one turn
 Bleed		Deals double damage to the player
 Haste		Creature can immediately act
-Fragile 	Creature dies after attacking
 Instant		Can be used at any time
-Effect		Is equipped to a creature/off-site
+
+Negative Keywords
+Fragile 	Creature dies after attacking
+Static		Creature cannot move
