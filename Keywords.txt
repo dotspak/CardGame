@@ -5,7 +5,10 @@ Energetic	Creature can move and attack in one turn
 Bleed		Deals double damage to the player
 Haste		Creature can immediately act
 Instant		Can be used at any time
+Immortal	Cannot take damage
+Shield X	X instances of damage are ignored
 
 Negative Keywords
 Fragile 	Creature dies after attacking
 Static		Creature cannot move
+Sealed		Cannot deal damage
