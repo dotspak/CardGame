@@ -6,9 +6,12 @@ Bleed		Deals double damage to the player
 Haste		Creature can immediately act
 Instant		Can be used at any time
 Immortal	Cannot take damage
-Shield X	X instances of damage are ignored
 
 Negative Keywords
 Fragile 	Creature dies after attacking
 Static		Creature cannot move
 Sealed		Cannot deal damage
+
+Counters
+Shield		Ignore damage taken, then remove a counter
+Sick		At the start of the turn, remove 1 counter. The card perishes when the sick counters hit 0
