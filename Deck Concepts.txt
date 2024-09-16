@@ -1,6 +1,0 @@
-Metamorphosis Deck
-Set type - DECK:
-Core Cards:
-Bugs that get stronger as time goes on
-Bug that can clone itself at instant speed [3]
-Off-site with constant bug spawn
