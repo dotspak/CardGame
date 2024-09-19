@@ -1,0 +1,27 @@
+200 Cards Per Set:
+
+100 Creatures
+45 Spells
+40 OfF-Sites
+15 Titans
+
+5 Themes
+
+Per theme:
+20 Creatures
+9 Spells
+8 Off-Sites
+3 Titans
+
+Themes:
+Birds
+	Crows
+Space
+	Moon, Mars
+Ghost
+	Ghost Crads
+Unknown
+	Door, Man
+Golems
+	The golems
+	
