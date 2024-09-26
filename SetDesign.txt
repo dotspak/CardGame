@@ -1,27 +1,16 @@
-200 Cards Per Set:
+150 Cards
 
-100 Creatures
-45 Spells
-40 OfF-Sites
-15 Titans
+Ghost Archetype - Based around playing with the graveyard
 
-5 Themes
+Celestial Archetype - Based around consistency and keeping things alive
 
-Per theme:
-20 Creatures
-9 Spells
-8 Off-Sites
-3 Titans
+Golem Archetype - Based around using special effects to win
 
-Themes:
-Birds
-	Crows
-Space
-	Moon, Mars
-Ghost
-	Ghost Crads
-Unknown
-	Door, Man
-Golems
-	The golems
-	
+Plague - Based around fast beat down
+
+32 Per Archetype:
+18 Creatures
+8 Spells
+6 off-sites
+
+22 Randos
