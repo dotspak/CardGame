@@ -1,0 +1,26 @@
+Monolith Clone Deck
+Off-Sites (4):
+	Monolith
+	Portal
+	Totem of Life
+	Totem of Prayer
+
+Units (10):
+	Clone Element
+	Tomb Crawler
+	Jester
+	Deconstructor
+	Formal Wizard
+	The Moon
+	Living Home
+	Onyx Defender
+	Phase Beast
+	Cauldron of Chaos
+
+Spells (6):
+	Message From Mars
+	Sacrificial Knife
+	Blood Rage
+	Powder
+	Grave Digger
+	Barrier Insert
