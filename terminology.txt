@@ -1,0 +1,49 @@
+--------------------------------------------------
+Pyramids
+--------------------------------------------------
+Discard Pyramid:
+Remove
+	Sacrifices, Destroy, Swapping
+Perish
+	Combat damage, Sick
+Discard
+	All of the above
+
+Erase
+	Send to the void
+
+Play Pyramid:
+Summon
+	Paying Cost, Rituals
+Play
+	No cost, no rituals
+
+--------------------------------------------------
+Keywords
+--------------------------------------------------
+Flying
+	If the opposing card is not also flying or defender, these cards 	cannot block each other in combat.
+Bleed
+	Player who receives damage from this card takes 2 hits.
+Defender
+	This unit may automatically move to an open space being attacked, and
+	can block flying units. Defenders deal 0 damage if they choose to 	attack.
+Agile
+	This unit can move to any open space or swap with any other unit on 	your grid when they move.
+Static
+	This unit cannot move or swap with another unit.
+Haste
+	This unit can attack on the first turn they're put into play.
+Rooted
+	This card cannot be swapped with another card.
+Fragile
+	If this card survives combat, they perish. If this card has a shield 	counter, decrement it instead.
+
+--------------------------------------------------
+Counters
+--------------------------------------------------
+Shield
+	This card ignores damage taken, and loses a shield counter instead.
+	Aside from fragile, shield counters do not prevent a card from 	perishing.
+Sick
+	When a card has any amount of sick counters, they are considered 	infected. At the start of your turn, an infected card loses a sick 	counter. If their sick counters ever hits 0, the card perishes.
