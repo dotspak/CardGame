@@ -2,15 +2,14 @@
 Pyramids
 --------------------------------------------------
 Discard Pyramid:
-Remove
-	Sacrifices, Destroy, Swapping
-Perish
-	Combat damage, Sick
-Discard
-	All of the above
-
+Dismiss
+	A card is instantly sent to the graveyard
 Erase
-	Send to the void
+	A card is instantly sent to the void
+Perish
+	A card perishes when they lose all of their force. 
+Discard
+	Either dismissed or perished
 
 Play Pyramid:
 Summon
