@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://ue75e2dk8505"]
+[gd_scene load_steps=5 format=3 uid="uid://ue75e2dk8505"]
 
 [ext_resource type="Script" path="res://src/tool_draft.gd" id="1_fy8k3"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s66ln"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_740c7"]
 bg_color = Color(0, 0, 0, 0.392157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5jqok"]
+bg_color = Color(0, 0, 0, 0.392157)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ssbxr"]
+font_size = 40
 
 [node name="DraftTool" type="Control"]
 layout_mode = 3
@@ -14,51 +20,85 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fy8k3")
 
-[node name="pack1" type="RichTextLabel" parent="."]
+[node name="packs" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="1" type="RichTextLabel" parent="packs"]
 layout_mode = 0
-offset_top = 128.0
-offset_right = 256.0
-offset_bottom = 648.0
-theme_override_styles/background = SubResource("StyleBoxFlat_s66ln")
+offset_left = 16.0
+offset_top = 112.0
+offset_right = 272.0
+offset_bottom = 632.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_740c7")
 bbcode_enabled = true
 
-[node name="pack2" type="RichTextLabel" parent="."]
+[node name="2" type="RichTextLabel" parent="packs"]
 layout_mode = 0
-offset_left = 272.0
-offset_top = 128.0
-offset_right = 528.0
-offset_bottom = 648.0
-theme_override_styles/background = SubResource("StyleBoxFlat_s66ln")
+offset_left = 288.0
+offset_top = 112.0
+offset_right = 544.0
+offset_bottom = 632.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_740c7")
 bbcode_enabled = true
 
-[node name="pack3" type="RichTextLabel" parent="."]
+[node name="3" type="RichTextLabel" parent="packs"]
 layout_mode = 0
-offset_left = 544.0
-offset_top = 128.0
-offset_right = 800.0
-offset_bottom = 648.0
-theme_override_styles/background = SubResource("StyleBoxFlat_s66ln")
+offset_left = 560.0
+offset_top = 112.0
+offset_right = 816.0
+offset_bottom = 632.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_740c7")
+bbcode_enabled = true
+
+[node name="4" type="RichTextLabel" parent="packs"]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 112.0
+offset_right = 1088.0
+offset_bottom = 632.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_740c7")
 bbcode_enabled = true
 
 [node name="PackRollText" type="Label" parent="."]
 layout_mode = 0
-offset_right = 102.0
-offset_bottom = 40.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 128.0
+offset_bottom = 56.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_5jqok")
 text = "Packs to Roll:"
+horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextEdit" type="TextEdit" parent="PackRollText"]
+[node name="TextEdit" type="LineEdit" parent="PackRollText"]
 layout_mode = 0
-offset_left = 128.0
-offset_right = 152.0
+offset_left = 120.0
+offset_right = 200.0
 offset_bottom = 40.0
-text = "0"
+text = "4"
+alignment = 1
+max_length = 1
+virtual_keyboard_type = 2
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="PackRollText"]
 layout_mode = 0
 offset_top = 48.0
-offset_right = 152.0
+offset_right = 200.0
 offset_bottom = 80.0
 text = "Roll Packs"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="PackRollText2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 16.0
+offset_right = 1088.0
+offset_bottom = 96.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_5jqok")
+text = "Draft Game Tool"
+label_settings = SubResource("LabelSettings_ssbxr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="PackRollText/Button" to="." method="_on_button_pressed"]
