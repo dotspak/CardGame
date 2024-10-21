@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" path="res://src/tool_draft.gd" id="1_fy8k3"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_740c7"]
-bg_color = Color(0, 0, 0, 0.392157)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5jqok"]
 bg_color = Color(0, 0, 0, 0.392157)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ssbxr"]
 font_size = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_740c7"]
+bg_color = Color(0, 0, 0, 0.392157)
 
 [node name="DraftTool" type="Control"]
 layout_mode = 3
@@ -19,6 +19,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fy8k3")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 16.0
+offset_right = 1088.0
+offset_bottom = 96.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_5jqok")
+text = "Draft Game Tool"
+label_settings = SubResource("LabelSettings_ssbxr")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="packs" type="Control" parent="."]
 anchors_preset = 0
@@ -88,17 +100,5 @@ offset_top = 48.0
 offset_right = 200.0
 offset_bottom = 80.0
 text = "Roll Packs"
-
-[node name="PackRollText2" type="Label" parent="."]
-layout_mode = 0
-offset_left = 232.0
-offset_top = 16.0
-offset_right = 1088.0
-offset_bottom = 96.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_5jqok")
-text = "Draft Game Tool"
-label_settings = SubResource("LabelSettings_ssbxr")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [connection signal="pressed" from="PackRollText/Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://cfh847rjr0ujr"]
+
+[ext_resource type="Script" path="res://src/card.gd" id="1_17q2c"]
+
+[resource]
+script = ExtResource("1_17q2c")
+name = "Last Mass"
+card_type = 0
+rarity = 2

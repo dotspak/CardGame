@@ -72,6 +72,7 @@ func generate_pack() -> Array[String]:
 		output.append("[color=" + Database.rareColors[c.rarity] + "]" + c.name + "\n")
 	return output
 
+# gets a random card from the database
 func roll_card(rarity : int = 0, type : int = 0) -> Card:
 	return Database.rand_search(type, rarity)
 
@@ -98,10 +99,7 @@ func _on_button_pressed() -> void:
 		n.text = ""
 	for i in int(packNum.text):
 		var textField : RichTextLabel = find_child("packs").find_child(str(i+1))
-		textField.text += str(randi())
-		continue
-		
-		var cards : Array[String] = generate_pack()
-		for s : String in cards:
+		var pack : Array[String] = generate_pack()
+		for s : String in pack:
 			textField.text += s
 

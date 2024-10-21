@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://bhsnyqsq40q0o"]
+
+[ext_resource type="Script" path="res://src/card.gd" id="1_s6a84"]
+
+[resource]
+script = ExtResource("1_s6a84")
+name = "Door To Nowhere"
+card_type = 1
+rarity = 2

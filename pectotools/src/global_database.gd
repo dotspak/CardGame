@@ -11,7 +11,9 @@ enum RARITY { BASIC, RARE, SUPER_RARE, DIVINE_RARE}
 }
 
 func rand_search(type : int = 0, rarity : int = RARITY.BASIC) -> Card:
-	return database[type_to_string(type)][rarity_to_string(rarity)].duplicate().shuffle()
+	var result : Array = database[type_to_string(type)][rarity_to_string(rarity)].duplicate()
+	result.shuffle()
+	return result[0]
 
 # converts ints into readale strings
 func rarity_to_string(r : int) -> String:
