@@ -15,6 +15,7 @@ class_name Drafter
 @onready var packNum : LineEdit = $PackRollText/TextEdit
 
 var typeTotals : Array[int] = [0,0,0]
+var database : Dictionary = Database.database.duplicate()
 
 func generate_pack() -> Array[String]:
 	var pack : Array[Card] = []
@@ -74,7 +75,13 @@ func generate_pack() -> Array[String]:
 
 # gets a random card from the database
 func roll_card(rarity : int = 0, type : int = 0) -> Card:
-	return Database.rand_search(type, rarity)
+	var result : Array = database[
+		Database.type_to_string(type)][
+			Database.rarity_to_string(rarity)].duplicate()
+	result.shuffle()
+	var card : Card = result[0].duplicate()
+	database[Database.type_to_string(type)][Database.rarity_to_string(rarity)].erase(card)
+	return card
 
 # checks if each total has the minimum amount of cards required per type
 func check_totals() -> Array[int]:
@@ -102,4 +109,3 @@ func _on_button_pressed() -> void:
 		var pack : Array[String] = generate_pack()
 		for s : String in pack:
 			textField.text += s
-
