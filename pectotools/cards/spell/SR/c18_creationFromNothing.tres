@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://dlulj6vubh1j6"]
+
+[ext_resource type="Script" path="res://src/card.gd" id="1_prvld"]
+
+[resource]
+script = ExtResource("1_prvld")
+name = "Creation From Nothing"
+type = 2
+rarity = 2

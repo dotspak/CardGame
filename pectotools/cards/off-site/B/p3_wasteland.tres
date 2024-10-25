@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://dd420j1j0vvnf"]
+
+[ext_resource type="Script" path="res://src/card.gd" id="1_xulwb"]
+
+[resource]
+script = ExtResource("1_xulwb")
+name = "Wasteland"
+type = 1
+rarity = 0

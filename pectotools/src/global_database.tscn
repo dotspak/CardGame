@@ -1,49 +1,78 @@
-[gd_scene load_steps=25 format=3 uid="uid://bc2d68dhd73dv"]
+[gd_scene load_steps=71 format=3 uid="uid://bc2d68dhd73dv"]
 
 [ext_resource type="Script" path="res://src/global_database.gd" id="1_tjflw"]
-[ext_resource type="Resource" uid="uid://cjdmpjtvxvtkt" path="res://cards/Basic/jester.tres" id="2_eojn8"]
-[ext_resource type="Resource" uid="uid://cw2pwvpw80cv6" path="res://cards/Basic/onion.tres" id="3_v1v2s"]
-[ext_resource type="Resource" uid="uid://bof56pecpqev6" path="res://cards/Basic/tombCrawler.tres" id="4_e2dej"]
-[ext_resource type="Resource" uid="uid://dqarwxeoykaik" path="res://cards/Basic/twistedGolem.tres" id="5_rvxkw"]
-[ext_resource type="Resource" uid="uid://dd8v7clvxm2um" path="res://cards/Basic/morgue.tres" id="6_11uf8"]
-[ext_resource type="Resource" uid="uid://b8o1cd2vm7r2u" path="res://cards/Rare/bottomDweller.tres" id="6_kp8m3"]
-[ext_resource type="Resource" uid="uid://c1oybiils5c7r" path="res://cards/Basic/paleMask.tres" id="7_fh38l"]
-[ext_resource type="Resource" uid="uid://bwehp10l8ij8u" path="res://cards/Rare/ghostSpellcaster.tres" id="7_jf2tm"]
-[ext_resource type="Resource" uid="uid://q7qb6voxnc47" path="res://cards/Basic/closeCall.tres" id="8_2evda"]
-[ext_resource type="Resource" uid="uid://l6ebmpxviegt" path="res://cards/Rare/phaseBeast.tres" id="8_p3t3f"]
-[ext_resource type="Resource" uid="uid://b03hk4qktakgf" path="res://cards/Basic/graveDigger.tres" id="9_8umf3"]
-[ext_resource type="Resource" uid="uid://b4xs3bbcq12w1" path="res://cards/Super-Rare/lastMass.tres" id="9_wvhph"]
-[ext_resource type="Resource" uid="uid://vd21gikbrtiv" path="res://cards/Divine-Rare/cauldron.tres" id="10_4nfyv"]
-[ext_resource type="Resource" uid="uid://ckn7t75yqna7k" path="res://cards/Basic/possess.tres" id="10_grcax"]
-[ext_resource type="Resource" uid="uid://ckckbpad2hosq" path="res://cards/Divine-Rare/spiritualWarlord.tres" id="11_8ml4s"]
-[ext_resource type="Resource" uid="uid://j8b1pkxk8c8f" path="res://cards/Rare/witheringShrine.tres" id="14_3n4nx"]
-[ext_resource type="Resource" uid="uid://evtoy0obkfrv" path="res://cards/Super-Rare/corruptedPiece.tres" id="15_swabp"]
-[ext_resource type="Resource" uid="uid://bhsnyqsq40q0o" path="res://cards/Super-Rare/doorToNowhere.tres" id="16_sjj2r"]
-[ext_resource type="Resource" uid="uid://c8uikk60t1a3r" path="res://cards/Super-Rare/meltingIdol.tres" id="17_tni1x"]
-[ext_resource type="Resource" uid="uid://pl87mkkoeqcj" path="res://cards/Rare/knife.tres" id="21_k2gsl"]
-[ext_resource type="Resource" uid="uid://j5ssfs5xap36" path="res://cards/Rare/melt.tres" id="22_ape2k"]
-[ext_resource type="Resource" uid="uid://cut5o2vgixjev" path="res://cards/Rare/reapTheDead.tres" id="23_tatpd"]
-[ext_resource type="Resource" uid="uid://dthf1y28i0ohd" path="res://cards/Super-Rare/fleshboundRitual.tres" id="24_p63bq"]
+[ext_resource type="Script" path="res://src/card.gd" id="2_6uv84"]
+[ext_resource type="Resource" uid="uid://cjdmpjtvxvtkt" path="res://cards/unit/B/g1_jester.tres" id="3_2rxw3"]
+[ext_resource type="Resource" uid="uid://dqarwxeoykaik" path="res://cards/unit/B/g2_twistedGolem.tres" id="4_j54ik"]
+[ext_resource type="Resource" uid="uid://bof56pecpqev6" path="res://cards/unit/B/g15_tombCrawler.tres" id="5_qe3aq"]
+[ext_resource type="Resource" uid="uid://b8o1cd2vm7r2u" path="res://cards/unit/B/g19_bottomDweller.tres" id="6_qoi71"]
+[ext_resource type="Resource" uid="uid://cw2pwvpw80cv6" path="res://cards/unit/B/g24_onion.tres" id="7_4mao4"]
+[ext_resource type="Resource" uid="uid://vd21gikbrtiv" path="res://cards/unit/DR/g17_cauldron.tres" id="8_ob8we"]
+[ext_resource type="Resource" uid="uid://ckckbpad2hosq" path="res://cards/unit/DR/g21_spiritualWarlord.tres" id="9_hnbx1"]
+[ext_resource type="Resource" uid="uid://l6ebmpxviegt" path="res://cards/unit/R/g16_phaseBeast.tres" id="10_qihlt"]
+[ext_resource type="Resource" uid="uid://bwehp10l8ij8u" path="res://cards/unit/R/g20_ghostSpellcaster.tres" id="11_4xgo5"]
+[ext_resource type="Resource" uid="uid://b4xs3bbcq12w1" path="res://cards/unit/SR/g3_lastMass.tres" id="12_2kdsf"]
+[ext_resource type="Resource" uid="uid://cie3fgifr3jwp" path="res://cards/unit/B/c10_saturnBear.tres" id="13_fd8uq"]
+[ext_resource type="Resource" uid="uid://pl87mkkoeqcj" path="res://cards/spell/B/g6_knife.tres" id="13_gvfub"]
+[ext_resource type="Resource" uid="uid://q7qb6voxnc47" path="res://cards/spell/B/g7_closeCall.tres" id="14_il6vp"]
+[ext_resource type="Resource" uid="uid://c6tm6exrljtd" path="res://cards/unit/B/c11_womanFromVenus.tres" id="14_p70ph"]
+[ext_resource type="Resource" uid="uid://ckn7t75yqna7k" path="res://cards/spell/B/g8_possess.tres" id="15_mo8gn"]
+[ext_resource type="Resource" uid="uid://vbvlftvlyelr" path="res://cards/unit/B/c19_blueStar.tres" id="15_pdirq"]
+[ext_resource type="Resource" uid="uid://b03hk4qktakgf" path="res://cards/spell/B/g10_graveDigger.tres" id="16_1ou7s"]
+[ext_resource type="Resource" uid="uid://dl6b6hu1nfo1c" path="res://cards/unit/B/c21_pomaceousGuardian.tres" id="16_xypyf"]
+[ext_resource type="Resource" uid="uid://dnic0qrmuapa0" path="res://cards/unit/B/p13_ratMother.tres" id="17_e7e3a"]
+[ext_resource type="Resource" uid="uid://cut5o2vgixjev" path="res://cards/spell/R/g9_reapTheDead.tres" id="17_nav3x"]
+[ext_resource type="Resource" uid="uid://8g3s4c26gsue" path="res://cards/unit/B/p15_greenOrb.tres" id="18_2x877"]
+[ext_resource type="Resource" uid="uid://j5ssfs5xap36" path="res://cards/spell/R/g18_melt.tres" id="18_mgeuc"]
+[ext_resource type="Resource" uid="uid://dthf1y28i0ohd" path="res://cards/spell/SR/g22_fleshboundRitual.tres" id="19_uyioa"]
+[ext_resource type="Resource" uid="uid://csgl0khn5q8v5" path="res://cards/unit/B/p19_ashMoth.tres" id="19_xmw3m"]
+[ext_resource type="Resource" uid="uid://b1lhcd4ognnpt" path="res://cards/unit/B/p20_plagueEgg.tres" id="20_4kwpl"]
+[ext_resource type="Resource" uid="uid://dd8v7clvxm2um" path="res://cards/off-site/B/g4_morgue.tres" id="20_t7vhe"]
+[ext_resource type="Resource" uid="uid://cay04nrav1vxa" path="res://cards/unit/B/p22_fungalGuardian.tres" id="21_73pe5"]
+[ext_resource type="Resource" uid="uid://cfh847rjr0ujr" path="res://cards/off-site/B/g12_ectoPlasm.tres" id="21_ws3lx"]
+[ext_resource type="Resource" uid="uid://evtoy0obkfrv" path="res://cards/off-site/B/g14_corruptedPiece.tres" id="22_blg87"]
+[ext_resource type="Resource" uid="uid://ct6tdt5s7xk37" path="res://cards/unit/DR/c6_theMoon.tres" id="22_u4d0c"]
+[ext_resource type="Resource" uid="uid://c11p8ne1urm5x" path="res://cards/unit/DR/c16_blackHole.tres" id="23_8irst"]
+[ext_resource type="Resource" uid="uid://c1oybiils5c7r" path="res://cards/off-site/R/g11_paleMask.tres" id="23_xve6a"]
+[ext_resource type="Resource" uid="uid://j8b1pkxk8c8f" path="res://cards/off-site/R/g23_witheringShrine.tres" id="24_qa77h"]
+[ext_resource type="Resource" uid="uid://c7tqxo2nu2q4q" path="res://cards/unit/DR/p1_emptyMan.tres" id="24_xhfru"]
+[ext_resource type="Resource" uid="uid://bhsnyqsq40q0o" path="res://cards/off-site/SR/g5_doorToNowhere.tres" id="25_tlhsp"]
+[ext_resource type="Resource" uid="uid://cphofs3aduwd7" path="res://cards/unit/DR/p11_doctor.tres" id="25_u8sv2"]
+[ext_resource type="Resource" uid="uid://c8uikk60t1a3r" path="res://cards/off-site/SR/g13_meltingIdol.tres" id="26_skfet"]
+[ext_resource type="Resource" uid="uid://c74cr565xpskx" path="res://cards/unit/DR/p12_toxician.tres" id="26_vwrde"]
+[ext_resource type="Resource" uid="uid://def2wyr0h1dn7" path="res://cards/unit/R/c1_formalWizard.tres" id="27_4y884"]
+[ext_resource type="Resource" uid="uid://bumoxolacjjqy" path="res://cards/unit/R/c15_banishWatcher.tres" id="28_5q6f8"]
+[ext_resource type="Resource" uid="uid://65qtbsnaapqw" path="res://cards/unit/R/p8_mogOfTheBog.tres" id="29_8wtu5"]
+[ext_resource type="Resource" uid="uid://c2kvm6ejqbkhu" path="res://cards/unit/SR/c2_cloneElement.tres" id="30_f82pg"]
+[ext_resource type="Resource" uid="uid://ciioh0rymco2d" path="res://cards/unit/SR/p16_conjoined.tres" id="31_a6up1"]
+[ext_resource type="Resource" uid="uid://sfx5h4ghwe6t" path="res://cards/spell/B/c13_heatDeath.tres" id="39_2rsfx"]
+[ext_resource type="Resource" uid="uid://coqf35fdahhrc" path="res://cards/spell/B/c14_dyingStar.tres" id="40_whht1"]
+[ext_resource type="Resource" uid="uid://be7knpoao7jlc" path="res://cards/spell/B/p5_wormWood.tres" id="41_p8bv4"]
+[ext_resource type="Resource" uid="uid://csa722in604eo" path="res://cards/spell/B/p6_itGetsWorse.tres" id="42_ctuj6"]
+[ext_resource type="Resource" uid="uid://ctx2wmto182sx" path="res://cards/spell/B/p7_mutation.tres" id="43_k845v"]
+[ext_resource type="Resource" uid="uid://dn23nic3f1wdp" path="res://cards/spell/B/p9_theCure.tres" id="44_kyq38"]
+[ext_resource type="Resource" uid="uid://ditykkgedmxmu" path="res://cards/spell/R/c9_borderOfLife.tres" id="45_lsdyy"]
+[ext_resource type="Resource" uid="uid://co0gf4fpv7ies" path="res://cards/spell/R/p4_powder.tres" id="46_n7an5"]
+[ext_resource type="Resource" uid="uid://e1fwcgqrh1kq" path="res://cards/spell/R/p10_pinCushion.tres" id="47_2spwv"]
+[ext_resource type="Resource" uid="uid://d30j0tnn1awqa" path="res://cards/spell/R/p18_healthFromSickness.tres" id="48_0k65t"]
+[ext_resource type="Resource" uid="uid://io3ofad8kcs8" path="res://cards/spell/SR/c8_messageFromMars.tres" id="49_g7gxh"]
+[ext_resource type="Resource" uid="uid://dlulj6vubh1j6" path="res://cards/spell/SR/c18_creationFromNothing.tres" id="50_pj67t"]
+[ext_resource type="Resource" uid="uid://kgoa03d0p8rc" path="res://cards/off-site/B/c4_container.tres" id="58_ip4as"]
+[ext_resource type="Resource" uid="uid://bwsmqb0c2jduw" path="res://cards/off-site/B/c5_totemOfLife.tres" id="59_yofmo"]
+[ext_resource type="Resource" uid="uid://crv2hk5xvgyeo" path="res://cards/off-site/B/c22_ringGenerator.tres" id="60_7cn1r"]
+[ext_resource type="Resource" uid="uid://dd420j1j0vvnf" path="res://cards/off-site/B/p3_wasteland.tres" id="61_4krad"]
+[ext_resource type="Resource" uid="uid://cbctvccanm6hv" path="res://cards/off-site/DR/c17_sunBox.tres" id="62_lfh8a"]
+[ext_resource type="Resource" uid="uid://buhw8w885tr38" path="res://cards/off-site/R/c3_theSeal.tres" id="63_k0us4"]
+[ext_resource type="Resource" uid="uid://dx3vhfgjupq2c" path="res://cards/off-site/R/c12_warOnPluto.tres" id="64_ndhhq"]
+[ext_resource type="Resource" uid="uid://dw1heq2oge1yg" path="res://cards/off-site/R/c20_moonAngel.tres" id="65_x1plx"]
+[ext_resource type="Resource" uid="uid://bfm8ke1pyyuvy" path="res://cards/off-site/R/p2_pheromoneDen.tres" id="66_ahl7o"]
+[ext_resource type="Resource" uid="uid://bwwpr2vfcfgjy" path="res://cards/off-site/R/p14_doomsdayBarrel.tres" id="67_80khw"]
+[ext_resource type="Resource" uid="uid://beievjuv25gk" path="res://cards/off-site/SR/c7_portal.tres" id="68_028la"]
+[ext_resource type="Resource" uid="uid://147laaonx0ng" path="res://cards/off-site/SR/p17_temporaryRelief.tres" id="69_7scph"]
+[ext_resource type="Resource" uid="uid://chtri2v0ofe8r" path="res://cards/off-site/SR/p21_infectionMisdirection.tres" id="70_cxgmg"]
 
 [node name="Database" type="Node"]
 script = ExtResource("1_tjflw")
-database = {
-"Off-Site": {
-"Basic": [ExtResource("6_11uf8"), ExtResource("7_fh38l")],
-"Divine-Rare": [],
-"Rare": [ExtResource("14_3n4nx")],
-"Super-Rare": [ExtResource("15_swabp"), ExtResource("16_sjj2r"), ExtResource("17_tni1x")]
-},
-"Spell": {
-"Basic": [ExtResource("8_2evda"), ExtResource("9_8umf3"), ExtResource("10_grcax")],
-"Divine-Rare": [],
-"Rare": [ExtResource("21_k2gsl"), ExtResource("22_ape2k"), ExtResource("23_tatpd")],
-"Super-Rare": [ExtResource("24_p63bq")]
-},
-"Unit": {
-"Basic": [ExtResource("2_eojn8"), ExtResource("3_v1v2s"), ExtResource("4_e2dej"), ExtResource("5_rvxkw")],
-"Divine-Rare": [ExtResource("10_4nfyv"), ExtResource("11_8ml4s")],
-"Rare": [ExtResource("6_kp8m3"), ExtResource("7_jf2tm"), ExtResource("8_p3t3f")],
-"Super-Rare": [ExtResource("9_wvhph")]
-}
-}
+units = Array[ExtResource("2_6uv84")]([ExtResource("3_2rxw3"), ExtResource("4_j54ik"), ExtResource("5_qe3aq"), ExtResource("6_qoi71"), ExtResource("7_4mao4"), ExtResource("8_ob8we"), ExtResource("9_hnbx1"), ExtResource("10_qihlt"), ExtResource("11_4xgo5"), ExtResource("12_2kdsf"), ExtResource("13_fd8uq"), ExtResource("14_p70ph"), ExtResource("15_pdirq"), ExtResource("16_xypyf"), ExtResource("17_e7e3a"), ExtResource("18_2x877"), ExtResource("19_xmw3m"), ExtResource("20_4kwpl"), ExtResource("21_73pe5"), ExtResource("22_u4d0c"), ExtResource("23_8irst"), ExtResource("24_xhfru"), ExtResource("25_u8sv2"), ExtResource("26_vwrde"), ExtResource("27_4y884"), ExtResource("28_5q6f8"), ExtResource("29_8wtu5"), ExtResource("30_f82pg"), ExtResource("31_a6up1")])
+spells = Array[ExtResource("2_6uv84")]([ExtResource("13_gvfub"), ExtResource("14_il6vp"), ExtResource("15_mo8gn"), ExtResource("16_1ou7s"), ExtResource("17_nav3x"), ExtResource("18_mgeuc"), ExtResource("19_uyioa"), ExtResource("39_2rsfx"), ExtResource("40_whht1"), ExtResource("41_p8bv4"), ExtResource("42_ctuj6"), ExtResource("43_k845v"), ExtResource("44_kyq38"), ExtResource("45_lsdyy"), ExtResource("46_n7an5"), ExtResource("47_2spwv"), ExtResource("48_0k65t"), ExtResource("49_g7gxh"), ExtResource("50_pj67t")])
+offSites = Array[ExtResource("2_6uv84")]([ExtResource("20_t7vhe"), ExtResource("21_ws3lx"), ExtResource("22_blg87"), ExtResource("23_xve6a"), ExtResource("24_qa77h"), ExtResource("25_tlhsp"), ExtResource("26_skfet"), ExtResource("58_ip4as"), ExtResource("59_yofmo"), ExtResource("60_7cn1r"), ExtResource("61_4krad"), ExtResource("62_lfh8a"), ExtResource("63_k0us4"), ExtResource("64_ndhhq"), ExtResource("65_x1plx"), ExtResource("66_ahl7o"), ExtResource("67_80khw"), ExtResource("68_028la"), ExtResource("69_7scph"), ExtResource("70_cxgmg")])

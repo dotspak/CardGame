@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://dn23nic3f1wdp"]
+
+[ext_resource type="Script" path="res://src/card.gd" id="1_3yim5"]
+
+[resource]
+script = ExtResource("1_3yim5")
+name = "The Cure"
+type = 2
+rarity = 0

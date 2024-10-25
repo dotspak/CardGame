@@ -19,6 +19,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fy8k3")
+layout = [["B", "U"], ["B", "U"], ["B", "U"], ["B", "S"], ["B", "S"], ["B", "O"], ["B", "?"], ["B", "?"], ["R", "?"], ["R", "?"], ["R", "?"], ["SR", "?"]]
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 0
