@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://da7hcvgusybdv"]
+
+[ext_resource type="Script" path="res://src/card.gd" id="1_prqvn"]
+
+[resource]
+script = ExtResource("1_prqvn")
+name = "Marlita Red to Blue"
+type = 0
+rarity = 2

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://cilolpdy0at4e"]
+
+[ext_resource type="Script" path="res://src/card.gd" id="1_mb7ym"]
+
+[resource]
+script = ExtResource("1_mb7ym")
+name = "Skeleton"
+type = 0
+rarity = 0

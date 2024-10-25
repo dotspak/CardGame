@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://b6obu1ie11euy"]
+
+[ext_resource type="Script" path="res://src/card.gd" id="1_rhcru"]
+
+[resource]
+script = ExtResource("1_rhcru")
+name = "Spelcular Golem"
+type = 0
+rarity = 2

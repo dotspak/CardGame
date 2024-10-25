@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://fr342hrbjvvo"]
+
+[ext_resource type="Script" path="res://src/card.gd" id="1_45ktl"]
+
+[resource]
+script = ExtResource("1_45ktl")
+name = "Flock"
+type = 2
+rarity = 0
