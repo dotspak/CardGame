@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://c7tqxo2nu2q4q"]
+
+[ext_resource type="Script" path="res://src/card.gd" id="1_88wcs"]
+
+[resource]
+script = ExtResource("1_88wcs")
+name = "Empty Man"
+type = 0
+rarity = 3

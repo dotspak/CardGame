@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://cdc137oyv56vd"]
+
+[ext_resource type="Script" path="res://src/card.gd" id="1_0ygly"]
+
+[resource]
+script = ExtResource("1_0ygly")
+name = "Soul Lantern"
+type = 0
+rarity = 0

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://ckiys62utwwy6"]
+
+[ext_resource type="Script" path="res://src/card.gd" id="1_yyt4d"]
+
+[resource]
+script = ExtResource("1_yyt4d")
+name = "Reconstruction"
+type = 2
+rarity = 3

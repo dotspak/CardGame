@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://c8uikk60t1a3r"]
+
+[ext_resource type="Script" path="res://src/card.gd" id="1_a4utp"]
+
+[resource]
+script = ExtResource("1_a4utp")
+name = "Melting Idol"
+type = 1
+rarity = 2

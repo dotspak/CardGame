@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://bwsmqb0c2jduw"]
+
+[ext_resource type="Script" path="res://src/card.gd" id="1_8a17p"]
+
+[resource]
+script = ExtResource("1_8a17p")
+name = "Mercury Pool"
+type = 1
+rarity = 0

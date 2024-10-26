@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://cgaa6i34m13nr"]
+
+[ext_resource type="Script" path="res://src/card.gd" id="1_7pq4b"]
+
+[resource]
+script = ExtResource("1_7pq4b")
+name = "Lesser Crow"
+type = 0
+rarity = 0

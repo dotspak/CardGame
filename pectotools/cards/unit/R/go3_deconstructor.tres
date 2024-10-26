@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://p0qohlou1jg"]
+
+[ext_resource type="Script" path="res://src/card.gd" id="1_gxnb6"]
+
+[resource]
+script = ExtResource("1_gxnb6")
+name = "Deconstructor"
+type = 0
+rarity = 1

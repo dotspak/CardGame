@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://17kcy8aol35e"]
+
+[ext_resource type="Script" path="res://src/card.gd" id="1_8agm8"]
+
+[resource]
+script = ExtResource("1_8agm8")
+name = "Barrier Insert"
+type = 2
+rarity = 0

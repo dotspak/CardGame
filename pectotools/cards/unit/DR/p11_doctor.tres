@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://cphofs3aduwd7"]
+
+[ext_resource type="Script" path="res://src/card.gd" id="1_frll1"]
+
+[resource]
+script = ExtResource("1_frll1")
+name = "Doctor"
+type = 0
+rarity = 3

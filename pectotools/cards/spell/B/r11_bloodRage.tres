@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://bm23lgmhgaqay"]
+
+[ext_resource type="Script" path="res://src/card.gd" id="1_k6inp"]
+
+[resource]
+script = ExtResource("1_k6inp")
+name = "Blood Rage"
+type = 2
+rarity = 0

@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://j8b1pkxk8c8f"]
-
-[ext_resource type="Script" path="res://src/card.gd" id="1_jsdoh"]
-
-[resource]
-script = ExtResource("1_jsdoh")
-name = "WIthering Shrine"
-card_type = 1
-rarity = 1
