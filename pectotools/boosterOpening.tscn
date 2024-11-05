@@ -11,26 +11,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wu0pl")
 
-[node name="pack" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 480.0
-offset_top = 176.0
-offset_right = -480.0
-offset_bottom = -216.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.392157)
-
-[node name="shown" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 136.0
+offset_right = 704.0
+offset_bottom = 176.0
+text = "You got a cool pack!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="nextCardButton" type="Button" parent="."]
 layout_mode = 0
@@ -40,14 +29,26 @@ offset_right = 672.0
 offset_bottom = 496.0
 text = "Next Card"
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 448.0
-offset_top = 128.0
-offset_right = 704.0
-offset_bottom = 184.0
-text = "You got a cool pack!"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="pack" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.416667
+anchor_top = 0.271605
+anchor_right = 0.583333
+anchor_bottom = 0.666667
+offset_top = 1.52588e-05
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.392157)
+metadata/_edit_use_anchors_ = true
+
+[node name="shown" type="Control" parent="."]
+layout_mode = 1
+anchor_right = 0.166667
+anchor_bottom = 0.395062
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="nextCardButton" to="." method="_on_next_card_button_pressed"]

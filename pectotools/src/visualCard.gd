@@ -9,5 +9,15 @@ func _ready() -> void:
     expand_mode = EXPAND_IGNORE_SIZE
     stretch_mode = STRETCH_KEEP_ASPECT_CENTERED
     custom_minimum_size = Vector2(192, 256)
+    pivot_offset = custom_minimum_size / 2
     size = custom_minimum_size
     texture = card.img
+    clip_children = CLIP_CHILDREN_AND_DRAW
+    mouse_entered.connect(hover)
+    mouse_exited.connect(unHover)
+
+    if card.rarity > 1:
+        add_child(load("res://assets/particleMaterials/cardSparkle.tscn").instantiate())
+
+func hover() -> void: scale = Vector2.ONE * 2
+func unHover() -> void: scale = Vector2.ONE
