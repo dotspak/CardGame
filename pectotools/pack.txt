@@ -1,0 +1,12 @@
+[color=FFAAFF] O : Portal
+[color=FFAA00] U : Deconstructor
+[color=FFAAFF] U : Living Home
+[color=FFAAFF] O : Melting Idol
+[color=FFFFFF] U : Rat Mother
+[color=FFFFFF] U : Twisted Golem
+[color=FFFFFF] O : Wasteland
+[color=FFFFFF] S : Rock Throw
+[color=FFFFFF] S : Close Call
+[color=FFFFFF] U : Marlita Black
+[color=FFFFFF] U : Ash Moth
+[color=FFFFFF] U : Marlita Yellow

@@ -91,3 +91,11 @@ func pack_toString(pack : Array[Card]) -> Array[String]:
 		"[color=" + Database.rareColors[c.rarity] + "] " 
 		+ Database.type_to_string[c.type] + " : "+ c.name + "\n")
 	return output
+
+func save_to_txtFile(pack : Array[String]) -> void:
+	var file = FileAccess.open("res://pack.txt", FileAccess.WRITE)
+	var output : String = ""
+	for s :String in pack:
+		output += s
+	file.store_string(output)
+	file.close()

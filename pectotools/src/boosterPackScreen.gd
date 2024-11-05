@@ -10,6 +10,7 @@ const cardBack : PackedScene = preload("res://assets/cardBack.tscn")
 
 func _ready() -> void: 
 	pack = drafter.generate_pack()
+	drafter.save_to_txtFile(drafter.pack_toString(pack))
 	for c : Card in pack:
 		var vCard : VisualCard = VisualCard.new(c)
 		$pack.add_child(vCard)
