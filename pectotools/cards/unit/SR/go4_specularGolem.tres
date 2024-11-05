@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://b6obu1ie11euy"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://b6obu1ie11euy"]
 
+[ext_resource type="Texture2D" uid="uid://blufh6w33dmtq" path="res://cards/images/070specularRobot.png" id="1_r7thx"]
 [ext_resource type="Script" path="res://src/card.gd" id="1_rhcru"]
 
 [resource]
@@ -7,3 +8,4 @@ script = ExtResource("1_rhcru")
 name = "Spelcular Golem"
 type = 0
 rarity = 2
+img = ExtResource("1_r7thx")

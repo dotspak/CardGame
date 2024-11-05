@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://ditykkgedmxmu"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://ditykkgedmxmu"]
 
+[ext_resource type="Texture2D" uid="uid://dc1idt1mmr11k" path="res://cards/images/042borderLife.png" id="1_5r7wm"]
 [ext_resource type="Script" path="res://src/card.gd" id="1_uk1o6"]
 
 [resource]
@@ -7,3 +8,4 @@ script = ExtResource("1_uk1o6")
 name = "Border Of Life"
 type = 2
 rarity = 1
+img = ExtResource("1_5r7wm")

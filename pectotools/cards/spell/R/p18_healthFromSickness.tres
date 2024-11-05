@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://d30j0tnn1awqa"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://d30j0tnn1awqa"]
 
+[ext_resource type="Texture2D" uid="uid://fyc12rdi17cp" path="res://cards/images/066healthSick.png" id="1_b0my1"]
 [ext_resource type="Script" path="res://src/card.gd" id="1_w378p"]
 
 [resource]
@@ -7,3 +8,4 @@ script = ExtResource("1_w378p")
 name = "Health From Sickness"
 type = 2
 rarity = 1
+img = ExtResource("1_b0my1")

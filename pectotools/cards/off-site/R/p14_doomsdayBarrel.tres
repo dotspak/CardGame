@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://bwwpr2vfcfgjy"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://bwwpr2vfcfgjy"]
 
 [ext_resource type="Script" path="res://src/card.gd" id="1_ej3tu"]
+[ext_resource type="Texture2D" uid="uid://dqco63yjtntn0" path="res://cards/images/057barrel.png" id="1_hoa6d"]
 
 [resource]
 script = ExtResource("1_ej3tu")
 name = "Doomsday Barrel"
 type = 1
 rarity = 1
+img = ExtResource("1_hoa6d")

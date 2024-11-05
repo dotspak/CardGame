@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://cuhc03w1xckrj"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://cuhc03w1xckrj"]
 
 [ext_resource type="Script" path="res://src/card.gd" id="1_7wakg"]
+[ext_resource type="Texture2D" uid="uid://c1lo7epmhw3my" path="res://cards/images/072livingHome.png" id="1_rjfcc"]
 
 [resource]
 script = ExtResource("1_7wakg")
 name = "Living Home"
 type = 0
 rarity = 2
+img = ExtResource("1_rjfcc")

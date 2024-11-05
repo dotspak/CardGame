@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://dl6b6hu1nfo1c"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://dl6b6hu1nfo1c"]
 
+[ext_resource type="Texture2D" uid="uid://imcxbxm5ywdk" path="res://cards/images/026redStar.png" id="1_kqxkb"]
 [ext_resource type="Script" path="res://src/card.gd" id="1_wxyci"]
 
 [resource]
 script = ExtResource("1_wxyci")
-name = "Pomaceous Guardian"
+name = "Red Star"
 type = 0
 rarity = 0
+img = ExtResource("1_kqxkb")

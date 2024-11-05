@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://p0qohlou1jg"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://p0qohlou1jg"]
 
 [ext_resource type="Script" path="res://src/card.gd" id="1_gxnb6"]
+[ext_resource type="Texture2D" uid="uid://dg8vc3bjs7ylo" path="res://cards/images/069deconstructor.png" id="1_vo40p"]
 
 [resource]
 script = ExtResource("1_gxnb6")
 name = "Deconstructor"
 type = 0
 rarity = 1
+img = ExtResource("1_vo40p")

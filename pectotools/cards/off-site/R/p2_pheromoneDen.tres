@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://bfm8ke1pyyuvy"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://bfm8ke1pyyuvy"]
 
+[ext_resource type="Texture2D" uid="uid://bfvq3c5kw8oli" path="res://cards/images/056sexyCave.png" id="1_nap07"]
 [ext_resource type="Script" path="res://src/card.gd" id="1_oktno"]
 
 [resource]
@@ -7,3 +8,4 @@ script = ExtResource("1_oktno")
 name = "Pheromone Den"
 type = 1
 rarity = 1
+img = ExtResource("1_nap07")

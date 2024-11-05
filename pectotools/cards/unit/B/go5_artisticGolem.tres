@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://bo0susfdjs2x6"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://bo0susfdjs2x6"]
 
+[ext_resource type="Texture2D" uid="uid://ca0oj0bgoawf6" path="res://cards/images/071artisticGolem.png" id="1_puhb1"]
 [ext_resource type="Script" path="res://src/card.gd" id="1_qflqk"]
 
 [resource]
@@ -7,3 +8,4 @@ script = ExtResource("1_qflqk")
 name = "Artistic Golem"
 type = 0
 rarity = 0
+img = ExtResource("1_puhb1")

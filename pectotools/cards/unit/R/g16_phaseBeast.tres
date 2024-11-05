@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://l6ebmpxviegt"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://l6ebmpxviegt"]
 
 [ext_resource type="Script" path="res://src/card.gd" id="1_dmi8v"]
+[ext_resource type="Texture2D" uid="uid://b7km77p5a42ay" path="res://cards/images/004phaseBeast.png" id="1_pbf1y"]
 
 [resource]
 script = ExtResource("1_dmi8v")
 name = "Phase Beast"
-card_type = 0
+type = 0
 rarity = 1
+img = ExtResource("1_pbf1y")

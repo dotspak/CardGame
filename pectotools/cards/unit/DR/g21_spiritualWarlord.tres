@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://ckckbpad2hosq"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://ckckbpad2hosq"]
 
+[ext_resource type="Texture2D" uid="uid://dts13mb2bhewl" path="res://cards/images/007spritWarlord.png" id="1_ity3w"]
 [ext_resource type="Script" path="res://src/card.gd" id="1_vfecf"]
 
 [resource]
 script = ExtResource("1_vfecf")
 name = "Spiritual Warlord"
-card_type = 0
+type = 0
 rarity = 3
+img = ExtResource("1_ity3w")

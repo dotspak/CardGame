@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://cg250rk1vyj4n"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://cg250rk1vyj4n"]
 
 [ext_resource type="Script" path="res://src/card.gd" id="1_6sumd"]
+[ext_resource type="Texture2D" uid="uid://ck4lj6f46m5sd" path="res://cards/images/114crowAlchemy.png" id="1_f18m3"]
 
 [resource]
 script = ExtResource("1_6sumd")
 name = "Crow Alchemy"
 type = 2
 rarity = 1
+img = ExtResource("1_f18m3")

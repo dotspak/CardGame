@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://d3pb1yu2oqvno"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://d3pb1yu2oqvno"]
 
+[ext_resource type="Texture2D" uid="uid://57amjmjb2877" path="res://cards/images/081vein.png" id="1_nt66d"]
 [ext_resource type="Script" path="res://src/card.gd" id="1_rjres"]
 
 [resource]
@@ -7,3 +8,4 @@ script = ExtResource("1_rjres")
 name = "Gold Vein"
 type = 1
 rarity = 1
+img = ExtResource("1_nt66d")

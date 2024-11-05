@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://coqf35fdahhrc"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://coqf35fdahhrc"]
 
 [ext_resource type="Script" path="res://src/card.gd" id="1_7xyp2"]
+[ext_resource type="Texture2D" uid="uid://ugvgp2do8cb5" path="res://cards/images/041dyingStar.png" id="1_j67iv"]
 
 [resource]
 script = ExtResource("1_7xyp2")
 name = "Dying Star"
 type = 2
 rarity = 0
+img = ExtResource("1_j67iv")

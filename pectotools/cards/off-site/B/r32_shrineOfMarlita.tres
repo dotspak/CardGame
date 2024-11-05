@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://bjiaaq88f0ynn"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://bjiaaq88f0ynn"]
 
+[ext_resource type="Texture2D" uid="uid://cwwglcke03d0x" path="res://cards/images/111marlitaShrine.png" id="1_ag4ls"]
 [ext_resource type="Script" path="res://src/card.gd" id="1_rs51p"]
 
 [resource]
@@ -7,3 +8,4 @@ script = ExtResource("1_rs51p")
 name = "Shrine of Marlita"
 type = 1
 rarity = 0
+img = ExtResource("1_ag4ls")

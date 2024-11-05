@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://dd8v7clvxm2um"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://dd8v7clvxm2um"]
 
+[ext_resource type="Texture2D" uid="uid://bdscak82ben6u" path="res://cards/images/009morgue.png" id="1_anav6"]
 [ext_resource type="Script" path="res://src/card.gd" id="1_prn2j"]
 
 [resource]
@@ -7,3 +8,4 @@ script = ExtResource("1_prn2j")
 name = "Morgue"
 type = 1
 rarity = 0
+img = ExtResource("1_anav6")

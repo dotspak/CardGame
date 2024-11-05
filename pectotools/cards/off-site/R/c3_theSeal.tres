@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://buhw8w885tr38"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://buhw8w885tr38"]
 
+[ext_resource type="Texture2D" uid="uid://ck81mnivfafka" path="res://cards/images/035shield.png" id="1_46wqy"]
 [ext_resource type="Script" path="res://src/card.gd" id="1_o8kno"]
 
 [resource]
@@ -7,3 +8,4 @@ script = ExtResource("1_o8kno")
 name = "The Seal"
 type = 1
 rarity = 1
+img = ExtResource("1_46wqy")

@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://bof56pecpqev6"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://bof56pecpqev6"]
 
+[ext_resource type="Texture2D" uid="uid://bxac3bi48oemf" path="res://cards/images/002tombCrawler.png" id="1_bkw37"]
 [ext_resource type="Script" path="res://src/card.gd" id="1_de2ho"]
 
 [resource]
 script = ExtResource("1_de2ho")
 name = "Tomb Crawler"
-card_type = 0
+type = 0
 rarity = 0
+img = ExtResource("1_bkw37")

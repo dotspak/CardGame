@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://dnic0qrmuapa0"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://dnic0qrmuapa0"]
 
+[ext_resource type="Texture2D" uid="uid://dv8xw81pd8c8h" path="res://cards/images/045rat.png" id="1_i14bx"]
 [ext_resource type="Script" path="res://src/card.gd" id="1_wjkgd"]
 
 [resource]
@@ -7,3 +8,4 @@ script = ExtResource("1_wjkgd")
 name = "Rat Mother"
 type = 0
 rarity = 0
+img = ExtResource("1_i14bx")

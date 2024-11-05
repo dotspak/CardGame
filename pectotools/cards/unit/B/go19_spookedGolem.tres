@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://bcycb3yg01oao"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://bcycb3yg01oao"]
 
 [ext_resource type="Script" path="res://src/card.gd" id="1_grdq2"]
+[ext_resource type="Texture2D" uid="uid://m8hbgee48p5m" path="res://cards/images/076spookedGolem.png" id="1_nmmpy"]
 
 [resource]
 script = ExtResource("1_grdq2")
 name = "Spooked Golem"
 type = 0
 rarity = 0
+img = ExtResource("1_nmmpy")

@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://co3nxul53bkgs"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://co3nxul53bkgs"]
 
+[ext_resource type="Texture2D" uid="uid://kyou53edqxym" path="res://cards/images/067pebble.png" id="1_kcy3n"]
 [ext_resource type="Script" path="res://src/card.gd" id="1_mhx5h"]
 
 [resource]
@@ -7,3 +8,4 @@ script = ExtResource("1_mhx5h")
 name = "Pebble"
 type = 0
 rarity = 1
+img = ExtResource("1_kcy3n")

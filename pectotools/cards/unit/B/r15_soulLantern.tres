@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://cdc137oyv56vd"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://cdc137oyv56vd"]
 
 [ext_resource type="Script" path="res://src/card.gd" id="1_0ygly"]
+[ext_resource type="Texture2D" uid="uid://dl4cstdentlsc" path="res://cards/images/099soulLantern.png" id="1_u5uq8"]
 
 [resource]
 script = ExtResource("1_0ygly")
 name = "Soul Lantern"
 type = 0
 rarity = 0
+img = ExtResource("1_u5uq8")

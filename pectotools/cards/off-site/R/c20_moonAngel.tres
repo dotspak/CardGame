@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://dw1heq2oge1yg"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://dw1heq2oge1yg"]
 
 [ext_resource type="Script" path="res://src/card.gd" id="1_cmiu0"]
+[ext_resource type="Texture2D" uid="uid://d0t3gv570fllt" path="res://cards/images/037moonAngel.png" id="1_q3dri"]
 
 [resource]
 script = ExtResource("1_cmiu0")
 name = "Moon Angel"
 type = 1
 rarity = 1
+img = ExtResource("1_q3dri")

@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://dthf1y28i0ohd"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://dthf1y28i0ohd"]
 
+[ext_resource type="Texture2D" uid="uid://bjme71wbp7asb" path="res://cards/images/022fleshbound.png" id="1_02vo5"]
 [ext_resource type="Script" path="res://src/card.gd" id="1_jn0sw"]
 
 [resource]
@@ -7,3 +8,4 @@ script = ExtResource("1_jn0sw")
 name = "Fleshbound Ritual"
 type = 2
 rarity = 2
+img = ExtResource("1_02vo5")

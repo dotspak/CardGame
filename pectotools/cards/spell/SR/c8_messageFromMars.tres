@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://io3ofad8kcs8"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://io3ofad8kcs8"]
 
 [ext_resource type="Script" path="res://src/card.gd" id="1_7hrjq"]
+[ext_resource type="Texture2D" uid="uid://d4dah078ujqoo" path="res://cards/images/043mars.png" id="1_ve2ym"]
 
 [resource]
 script = ExtResource("1_7hrjq")
 name = "Message From Mars"
 type = 2
 rarity = 2
+img = ExtResource("1_ve2ym")

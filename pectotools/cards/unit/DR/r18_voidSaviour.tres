@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://q7bwegf4ihcp"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://q7bwegf4ihcp"]
 
 [ext_resource type="Script" path="res://src/card.gd" id="1_h8y1d"]
+[ext_resource type="Texture2D" uid="uid://c6nqmw4t5b2c2" path="res://cards/images/100voidSaviour.png" id="1_p376j"]
 
 [resource]
 script = ExtResource("1_h8y1d")
 name = "Void Saviour"
 type = 0
 rarity = 3
+img = ExtResource("1_p376j")

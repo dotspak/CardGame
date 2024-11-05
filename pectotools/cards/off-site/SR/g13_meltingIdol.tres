@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://c8uikk60t1a3r"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://c8uikk60t1a3r"]
 
 [ext_resource type="Script" path="res://src/card.gd" id="1_a4utp"]
+[ext_resource type="Texture2D" uid="uid://cq0qjqkqf485" path="res://cards/images/015midol.png" id="1_ildsm"]
 
 [resource]
 script = ExtResource("1_a4utp")
 name = "Melting Idol"
 type = 1
 rarity = 2
+img = ExtResource("1_ildsm")

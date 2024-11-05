@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://bwehp10l8ij8u"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://bwehp10l8ij8u"]
 
 [ext_resource type="Script" path="res://src/card.gd" id="1_5vft2"]
+[ext_resource type="Texture2D" uid="uid://bdkjdlt75g8ep" path="res://cards/images/005gSpellcaster.png" id="1_gmh63"]
 
 [resource]
 script = ExtResource("1_5vft2")
 name = "Ghost Spellcaster"
-card_type = 0
+type = 0
 rarity = 1
+img = ExtResource("1_gmh63")

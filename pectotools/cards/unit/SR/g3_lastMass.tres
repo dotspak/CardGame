@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://b4xs3bbcq12w1"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://b4xs3bbcq12w1"]
 
+[ext_resource type="Texture2D" uid="uid://do6vw1362e3lk" path="res://cards/images/006lastMass.png" id="1_bvcsb"]
 [ext_resource type="Script" path="res://src/card.gd" id="1_eq0lx"]
 
 [resource]
 script = ExtResource("1_eq0lx")
 name = "Last Mass"
-card_type = 0
+type = 0
 rarity = 2
+img = ExtResource("1_bvcsb")

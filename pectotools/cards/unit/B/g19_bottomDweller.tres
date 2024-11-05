@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://b8o1cd2vm7r2u"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://b8o1cd2vm7r2u"]
 
 [ext_resource type="Script" path="res://src/card.gd" id="1_0rudv"]
+[ext_resource type="Texture2D" uid="uid://cpw7hw8losgcr" path="res://cards/images/003bottomDweller.png" id="1_5x388"]
 
 [resource]
 script = ExtResource("1_0rudv")
 name = "Bottom Dweller"
 type = 0
 rarity = 0
+img = ExtResource("1_5x388")

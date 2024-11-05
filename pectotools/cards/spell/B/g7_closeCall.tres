@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://q7qb6voxnc47"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://q7qb6voxnc47"]
 
 [ext_resource type="Script" path="res://src/card.gd" id="1_6hfg1"]
+[ext_resource type="Texture2D" uid="uid://dbhkpma8fpwu7" path="res://cards/images/017closeCall.png" id="1_27two"]
 
 [resource]
 script = ExtResource("1_6hfg1")
 name = "Close Call"
 type = 2
 rarity = 0
+img = ExtResource("1_27two")

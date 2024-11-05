@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://bhwy4oh82xxku"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://bhwy4oh82xxku"]
 
 [ext_resource type="Script" path="res://src/card.gd" id="1_vu5ho"]
+[ext_resource type="Texture2D" uid="uid://cki2km36ngi1" path="res://cards/images/101mW.png" id="1_yk58s"]
 
 [resource]
 script = ExtResource("1_vu5ho")
 name = "Marlita White"
 type = 0
 rarity = 0
+img = ExtResource("1_yk58s")

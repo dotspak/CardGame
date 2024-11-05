@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://da7hcvgusybdv"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://da7hcvgusybdv"]
 
+[ext_resource type="Texture2D" uid="uid://dnjg7vopkkxwj" path="res://cards/images/106mRtoB.png" id="1_h3h3p"]
 [ext_resource type="Script" path="res://src/card.gd" id="1_prqvn"]
 
 [resource]
@@ -7,3 +8,4 @@ script = ExtResource("1_prqvn")
 name = "Marlita Red to Blue"
 type = 0
 rarity = 2
+img = ExtResource("1_h3h3p")

@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://duf1y55veut13"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://duf1y55veut13"]
 
+[ext_resource type="Texture2D" uid="uid://b1cv58ha68red" path="res://cards/images/122madnessRitual.png" id="1_5s187"]
 [ext_resource type="Script" path="res://src/card.gd" id="1_l0oba"]
 
 [resource]
@@ -7,3 +8,4 @@ script = ExtResource("1_l0oba")
 name = "Madness Ritual"
 type = 2
 rarity = 1
+img = ExtResource("1_5s187")

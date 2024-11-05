@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://dulxsae7mnkhn"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://dulxsae7mnkhn"]
 
 [ext_resource type="Script" path="res://src/card.gd" id="1_ve1g8"]
+[ext_resource type="Texture2D" uid="uid://cykbavvbv228e" path="res://cards/images/123lastChance.png" id="1_xqtsu"]
 
 [resource]
 script = ExtResource("1_ve1g8")
 name = "Last Chance"
 type = 2
 rarity = 3
+img = ExtResource("1_xqtsu")

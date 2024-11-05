@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://balsyxir3jyjo"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://balsyxir3jyjo"]
 
+[ext_resource type="Texture2D" uid="uid://c0n85n406mfd" path="res://cards/images/096yummyCrow.png" id="1_1tfqy"]
 [ext_resource type="Script" path="res://src/card.gd" id="1_b7vxn"]
 
 [resource]
@@ -7,3 +8,4 @@ script = ExtResource("1_b7vxn")
 name = "Crow Devourer"
 type = 0
 rarity = 2
+img = ExtResource("1_1tfqy")

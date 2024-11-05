@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://djsqju77ee15k"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://djsqju77ee15k"]
 
+[ext_resource type="Texture2D" uid="uid://c518mb8t4lrgn" path="res://cards/images/112marlitaHome.png" id="1_a2o3s"]
 [ext_resource type="Script" path="res://src/card.gd" id="1_jamw0"]
 
 [resource]
@@ -7,3 +8,4 @@ script = ExtResource("1_jamw0")
 name = "Home of Marlita"
 type = 1
 rarity = 0
+img = ExtResource("1_a2o3s")

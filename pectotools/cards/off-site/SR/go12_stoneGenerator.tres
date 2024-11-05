@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://d3upd0prs4dc2"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://d3upd0prs4dc2"]
 
 [ext_resource type="Script" path="res://src/card.gd" id="1_b270l"]
+[ext_resource type="Texture2D" uid="uid://emywujfj3j7j" path="res://cards/images/082generator.png" id="1_nfigk"]
 
 [resource]
 script = ExtResource("1_b270l")
 name = "Stone Generator"
 type = 1
 rarity = 2
+img = ExtResource("1_nfigk")

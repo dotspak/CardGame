@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://b03hk4qktakgf"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://b03hk4qktakgf"]
 
 [ext_resource type="Script" path="res://src/card.gd" id="1_dluri"]
+[ext_resource type="Texture2D" uid="uid://cpxqkj1ibvmpr" path="res://cards/images/019graveDig.png" id="1_mr6x3"]
 
 [resource]
 script = ExtResource("1_dluri")
 name = "Grave Digger"
 type = 2
 rarity = 0
+img = ExtResource("1_mr6x3")
