@@ -11,6 +11,17 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wu0pl")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.890912, 0.232765, 0.168977, 1)
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 448.0
@@ -24,14 +35,13 @@ vertical_alignment = 1
 [node name="nextCardButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 480.0
-offset_top = 448.0
+offset_top = 528.0
 offset_right = 672.0
-offset_bottom = 496.0
+offset_bottom = 576.0
 text = "Next Card"
 
-[node name="pack" type="ColorRect" parent="."]
+[node name="pack" type="Control" parent="."]
 layout_mode = 1
-anchors_preset = -1
 anchor_left = 0.416667
 anchor_top = 0.271605
 anchor_right = 0.583333
@@ -39,7 +49,6 @@ anchor_bottom = 0.666667
 offset_top = 1.52588e-05
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.392157)
 metadata/_edit_use_anchors_ = true
 
 [node name="shown" type="Control" parent="."]
@@ -50,5 +59,24 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
+
+[node name="displayResult" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -112.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 6
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
 
 [connection signal="pressed" from="nextCardButton" to="." method="_on_next_card_button_pressed"]

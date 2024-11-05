@@ -19,5 +19,10 @@ func _ready() -> void:
     if card.rarity > 1:
         add_child(load("res://assets/particleMaterials/cardSparkle.tscn").instantiate())
 
-func hover() -> void: scale = Vector2.ONE * 2
-func unHover() -> void: scale = Vector2.ONE
+func hover() -> void:
+    create_tween().tween_property(self, "scale", Vector2(2,2), 0.1)
+    z_index = 1
+
+func unHover() -> void: 
+    create_tween().tween_property(self, "scale", Vector2.ONE, 0.1)
+    z_index = 0
