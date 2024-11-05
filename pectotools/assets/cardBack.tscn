@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cy438eofoios7"]
+
+[ext_resource type="Texture2D" uid="uid://bpwhl5d8gc87o" path="res://assets/cardBack.png" id="1_ba7xp"]
+
+[node name="TextureRect" type="TextureRect"]
+offset_right = 192.0
+offset_bottom = 256.0
+texture = ExtResource("1_ba7xp")
+expand_mode = 1
+stretch_mode = 5

@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://10yvji30ubtj"]
+
+[ext_resource type="Material" uid="uid://cjt3gnmciyd6y" path="res://assets/particleMaterials/basicMaterial.tres" id="1_2e5ob"]
+[ext_resource type="Texture2D" uid="uid://b5qhvwatmqlmd" path="res://assets/starParticle.png" id="2_drvjb"]
+[ext_resource type="Script" path="res://src/rarityParticles.gd" id="3_np2al"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_tp4lx"]
+blend_mode = 1
+
+[node name="rarityParticles" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_tp4lx")
+position = Vector2(576, 296)
+emitting = false
+amount = 50
+process_material = ExtResource("1_2e5ob")
+texture = ExtResource("2_drvjb")
+lifetime = 0.7
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+script = ExtResource("3_np2al")

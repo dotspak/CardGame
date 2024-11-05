@@ -1,12 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://xwpgort1epl6"]
+[gd_scene load_steps=2 format=3 uid="uid://xwpgort1epl6"]
 
-[ext_resource type="Texture2D" uid="uid://bwv8h2seruiin" path="res://cards/images/151.png" id="1_v0e8c"]
 [ext_resource type="Script" path="res://src/boosterPackScreen.gd" id="1_wu0pl"]
-[ext_resource type="Texture2D" uid="uid://bj3gvj2berwcc" path="res://cards/images/118bloodRage.png" id="3_ohkmw"]
-[ext_resource type="Texture2D" uid="uid://td1uk2x526bw" path="res://cards/images/109voidWorld.png" id="4_w7bgw"]
-[ext_resource type="Texture2D" uid="uid://bwasbowqrk67" path="res://cards/images/107crowNest.png" id="5_flou3"]
-[ext_resource type="Texture2D" uid="uid://0lj6sx21sqns" path="res://cards/images/104mY.png" id="6_w78do"]
-[ext_resource type="Texture2D" uid="uid://d4dah078ujqoo" path="res://cards/images/043mars.png" id="7_7h2jg"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -17,79 +11,18 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wu0pl")
 
-[node name="pack" type="Control" parent="."]
+[node name="pack" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 480.0
+offset_top = 176.0
+offset_right = -480.0
+offset_bottom = -216.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="card6" type="TextureRect" parent="pack"]
-custom_minimum_size = Vector2(192, 256)
-layout_mode = 2
-offset_left = 480.0
-offset_top = 192.0
-offset_right = 672.0
-offset_bottom = 448.0
-texture = ExtResource("7_7h2jg")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="card2" type="TextureRect" parent="pack"]
-custom_minimum_size = Vector2(192, 256)
-layout_mode = 2
-offset_left = 480.0
-offset_top = 192.0
-offset_right = 672.0
-offset_bottom = 448.0
-texture = ExtResource("3_ohkmw")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="card3" type="TextureRect" parent="pack"]
-custom_minimum_size = Vector2(192, 256)
-layout_mode = 2
-offset_left = 480.0
-offset_top = 192.0
-offset_right = 672.0
-offset_bottom = 448.0
-texture = ExtResource("4_w7bgw")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="card4" type="TextureRect" parent="pack"]
-custom_minimum_size = Vector2(192, 256)
-layout_mode = 2
-offset_left = 480.0
-offset_top = 192.0
-offset_right = 672.0
-offset_bottom = 448.0
-texture = ExtResource("5_flou3")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="card5" type="TextureRect" parent="pack"]
-custom_minimum_size = Vector2(192, 256)
-layout_mode = 2
-offset_left = 480.0
-offset_top = 192.0
-offset_right = 672.0
-offset_bottom = 448.0
-texture = ExtResource("6_w78do")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="card" type="TextureRect" parent="pack"]
-custom_minimum_size = Vector2(192, 256)
-layout_mode = 2
-offset_left = 480.0
-offset_top = 192.0
-offset_right = 672.0
-offset_bottom = 448.0
-texture = ExtResource("1_v0e8c")
-expand_mode = 1
-stretch_mode = 5
+color = Color(0, 0, 0, 0.392157)
 
 [node name="shown" type="Control" parent="."]
 layout_mode = 1
@@ -102,9 +35,9 @@ grow_vertical = 2
 [node name="nextCardButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 480.0
-offset_top = 464.0
+offset_top = 448.0
 offset_right = 672.0
-offset_bottom = 512.0
+offset_bottom = 496.0
 text = "Next Card"
 
 [node name="Label" type="Label" parent="."]
