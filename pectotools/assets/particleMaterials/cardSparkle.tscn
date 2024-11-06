@@ -6,15 +6,16 @@
 blend_mode = 1
 
 [sub_resource type="Gradient" id="Gradient_apm0u"]
-offsets = PackedFloat32Array(0.205418, 0.532731, 0.740406)
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0.297968, 0.580135, 0.772009)
 colors = PackedColorArray(0, 0.567436, 0.978931, 1, 0.924679, 1, 0, 1, 1, 0, 0.148209, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_7npll"]
 gradient = SubResource("Gradient_apm0u")
 
 [sub_resource type="Gradient" id="Gradient_ixr2e"]
-offsets = PackedFloat32Array(0, 0.801354, 1)
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+offsets = PackedFloat32Array(0, 0.435666, 0.801354, 1)
+colors = PackedColorArray(1, 1, 1, 0, 3, 3, 3, 1, 3, 3, 3, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_nq30m"]
 gradient = SubResource("Gradient_ixr2e")

@@ -23,6 +23,7 @@ func set_pack_layout(l : Array) -> void: layout = l
 
 # returns a pack of card resources
 func generate_pack(reverse : bool = true) -> Array[Card]:
+	randomize()
 	database = Database.instance_database()
 	var pack : Array[Card] = []
 	var counter : int = 1
@@ -57,7 +58,9 @@ func roll_card(rarity : int = 0, type : int = 0) -> Card:
 		Database.type_to_string[type]][
 			Database.rarity_to_string[rarity]]
 	result.shuffle()
-	return result.pop_front()
+	var card : Card = result[randi_range(0, result.size() - 1)]
+	result.erase(card)
+	return card
 
 # checks if each total has the minimum amount of cards required per type
 func check_totals() -> Array[int]:

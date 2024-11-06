@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://xwpgort1epl6"]
+[gd_scene load_steps=3 format=3 uid="uid://xwpgort1epl6"]
 
 [ext_resource type="Script" path="res://src/boosterPackScreen.gd" id="1_wu0pl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jfj78"]
+font_color = Color(0, 0, 0, 1)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -29,6 +32,7 @@ offset_top = 136.0
 offset_right = 704.0
 offset_bottom = 176.0
 text = "You got a cool pack!"
+label_settings = SubResource("LabelSettings_jfj78")
 horizontal_alignment = 1
 vertical_alignment = 1
 
