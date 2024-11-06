@@ -1,0 +1,41 @@
+Possible Rulesets for Resources:
+------------------------------------------------------------
+Every turn, your souls are set to 0. You may play as many cards from your hand in face-down position
+as you want each turn into open unit zones. You may then sacrifice any cards in unit spaces at any time
+during your turn to gain 1 soul. Cards in face down position are treated as if that space is empty. 
+If you were to play a card on top of a face down card, it is immediately sacrificed and you gain 1 soul.
+
+------------------------------------------------------------
+LEVEL UP SYSTEM
+------------------------------------------------------------
+Every turn, your souls are reset to 0. To gain resources in this ruleset, you must sacrifice a unit, where every unit gives souls equal to their cost when they perish. If a unit perishes during your opponent's turn, you gain their souls at the start of your next turn.
+
+Offerings:
+Every turn you can play up to 3 offerings in open unit slots. Offerings are always units with 0 force and no text. When you sacrifice an offering you gain 1 soul, and they act as if they were 1 cost units for levelling up. You are allowed to use anything to represent these, so long as all 3 offerings are the same. 
+
+Levelling Up: (similar to evolution in Pokémon)
+You can place a unit on top of another unit if the incoming unit has 1 higher cost than the target. For example, if you have a 1 cost unit on the grid, you can place a 2 cost unit on it for free. This is known as a level up. You do not receive souls when levelling up, and you cannot swap a unit the first turn they enter play. Pebbles can be swapped out immediately. When you swap out a card, you place it on top of the previous card. You can use any skills of stacked cards. You keep any attached equipment to the previous unit. All stacked cards are discarded when the unit perishes. When a unit who levelled up is sacrificed, you only gain souls equal to the top most card.
+
+Notes:
+Null/Icon units count as 0 cost units, but cannot be levelled up.
+Off-sites cannot be sacrificed for souls.
+
+
+
+------------------------------------------------------------
+Phases:
+------------------------------------------------------------
+Start -> Standby
+	Set souls to 0, draw cards until you have your hand size, activate units
+
+Standby -> Combat / End 
+	Phase where the current player can play cards
+
+Combat -> Standby
+	When the current player dictates a card's attack. Each card has its own attack phase.
+	When a player uses a skill, this also enters the combat phase for that card.
+
+End -> Start
+	When the current player declares their turn to be over. Current player must exile down 
+	to the hand size.
+
