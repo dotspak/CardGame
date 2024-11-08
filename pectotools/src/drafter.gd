@@ -7,9 +7,9 @@ class_name Drafter
 # Types:
 # 	U = unit, S = spell, O = off-site, ? = random
 @export var layout : Array = [
-	["B", "U"], ["B", "U"], ["B", "U"], # basic units
-	["B", "S"], ["B", "S"], # basic spells
-	["B", "O"], # basic off-sites
+	["B", "U"], ["B", "O"], ["B", "S"], # basic units
+	["B", "?"], ["B", "?"], # basic spells
+	["B", "?"], # basic off-sites
 	["B", "?"], ["B", "?"], # basic randoms
 	["R", "?"], ["R", "?"], ["R", "?"], # rares
 	["SR", "?"] # super-rare
