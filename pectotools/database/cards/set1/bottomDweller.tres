@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitCard" load_steps=3 format=3 uid="uid://3sfk4se0uap0"]
+
+[ext_resource type="Texture2D" uid="uid://cfmjte1b0d6bx" path="res://assets/cardArt/bottomDweller.png" id="1_m1yf8"]
+[ext_resource type="Script" path="res://src/cardResources/card_unit.gd" id="1_xffln"]
+
+[resource]
+script = ExtResource("1_xffln")
+force = 1
+bonus = 0
+shield = false
+infect = 0
+name = "Bottom Dweller"
+cost = "0"
+rarity = 0
+img = ExtResource("1_m1yf8")
+description = "You may play this card from the discard pile when a unit you control perishes."
+keywords = Array[int]([])

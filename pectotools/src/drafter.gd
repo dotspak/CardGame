@@ -90,9 +90,8 @@ func random_type() -> String:
 
 func pack_toString(pack : Array[Card]) -> Array[String]:
 	var output : Array[String] = []
-	for c : Card in pack: output.append(
-		"[color=" + Database.rareColors[c.rarity] + "] " 
-		+ Database.type_to_string[c.type] + " : "+ c.name + "\n")
+	for c : Card in pack: 
+		output.append("[color=" + Global.rarityColors[c.rarity] + "] " + " : "+ c.name + "\n")
 	return output
 
 func save_to_txtFile(pack : Array[String]) -> void:

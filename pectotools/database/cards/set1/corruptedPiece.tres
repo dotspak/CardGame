@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="OffSiteCard" load_steps=3 format=3 uid="uid://b3tgpw8h5psbx"]
+
+[ext_resource type="Script" path="res://src/cardResources/card_offSite.gd" id="1_7bjxx"]
+[ext_resource type="Texture2D" uid="uid://bbtpx105ise1b" path="res://assets/cardArt/piece.png" id="1_n14y8"]
+
+[resource]
+script = ExtResource("1_7bjxx")
+force = 1
+bonus = 0
+shield = false
+infect = 0
+name = "Corrupted Piece"
+cost = "0"
+rarity = 0
+img = ExtResource("1_n14y8")
+description = ""
+keywords = Array[int]([])

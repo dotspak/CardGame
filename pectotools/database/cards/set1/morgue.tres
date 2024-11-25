@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="OffSiteCard" load_steps=3 format=3 uid="uid://by381uss2nnnf"]
+
+[ext_resource type="Script" path="res://src/cardResources/card_offSite.gd" id="1_a6ukh"]
+[ext_resource type="Texture2D" uid="uid://c6ksyadn3dbcs" path="res://assets/cardArt/morgue.png" id="1_euhr8"]
+
+[resource]
+script = ExtResource("1_a6ukh")
+force = 1
+bonus = 0
+shield = false
+infect = 0
+name = "Morgue"
+cost = "0"
+rarity = 0
+img = ExtResource("1_euhr8")
+description = ""
+keywords = Array[int]([])

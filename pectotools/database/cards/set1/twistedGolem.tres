@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitCard" load_steps=3 format=3 uid="uid://vwt2xcmtm77i"]
+
+[ext_resource type="Texture2D" uid="uid://bgi58e84y04xu" path="res://assets/cardArt/twistedGolem.png" id="1_bvwcc"]
+[ext_resource type="Script" path="res://src/cardResources/card_unit.gd" id="1_e7xlf"]
+
+[resource]
+script = ExtResource("1_e7xlf")
+force = 1
+bonus = 0
+shield = false
+infect = 0
+name = "Twisted Golem"
+cost = "1"
+rarity = 0
+img = ExtResource("1_bvwcc")
+description = "{trigger:perish} Gain ***. Does not trigger on level up."
+keywords = Array[int]([])

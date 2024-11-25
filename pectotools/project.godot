@@ -13,15 +13,19 @@ config_version=5
 config/name="PectoTools"
 run/main_scene="res://src/tool_draft.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://assets/icons/gameIcon.svg"
 
 [autoload]
 
-Database="*res://src/global_database.tscn"
+Global="*res://src/globals.gd"
 
 [display]
 
 window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/resource_databases/editor_only/plugin.cfg")
 
 [file_customization]
 

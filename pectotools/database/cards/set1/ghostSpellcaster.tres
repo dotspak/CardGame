@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitCard" load_steps=3 format=3 uid="uid://cx77vkoatupwf"]
+
+[ext_resource type="Script" path="res://src/cardResources/card_unit.gd" id="1_2sfwr"]
+[ext_resource type="Texture2D" uid="uid://cd6eu48fd3k3g" path="res://assets/cardArt/gSpellcaster.png" id="1_8bpok"]
+
+[resource]
+script = ExtResource("1_2sfwr")
+force = 1
+bonus = 0
+shield = false
+infect = 0
+name = "Ghost Spellcaster"
+cost = "0"
+rarity = 0
+img = ExtResource("1_8bpok")
+description = ""
+keywords = Array[int]([])

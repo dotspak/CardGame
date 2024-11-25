@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitCard" load_steps=3 format=3 uid="uid://n322m727f86t"]
+
+[ext_resource type="Texture2D" uid="uid://b7o026ug3au4k" path="res://assets/cardArt/jester.png" id="1_cvu0f"]
+[ext_resource type="Script" path="res://src/cardResources/card_unit.gd" id="1_dworh"]
+
+[resource]
+script = ExtResource("1_dworh")
+force = 1
+bonus = 0
+shield = false
+infect = 0
+name = "Jester"
+cost = "0"
+rarity = 0
+img = ExtResource("1_cvu0f")
+description = ""
+keywords = Array[int]([])

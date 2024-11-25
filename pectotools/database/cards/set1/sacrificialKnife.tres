@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SpellCard" load_steps=2 format=3 uid="uid://b3q54a1rk7m57"]
+
+[ext_resource type="Script" path="res://src/cardResources/card_spell.gd" id="1_kuoy2"]
+
+[resource]
+script = ExtResource("1_kuoy2")
+type = 0
+uses = 0
+name = "Sacrificial Knife"
+cost = "0"
+rarity = 0
+description = ""
+keywords = Array[int]([])

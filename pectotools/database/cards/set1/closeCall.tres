@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SpellCard" load_steps=2 format=3 uid="uid://b224bldymqcr0"]
+
+[ext_resource type="Script" path="res://src/cardResources/card_spell.gd" id="1_ifwej"]
+
+[resource]
+script = ExtResource("1_ifwej")
+type = 0
+uses = 0
+name = "Close Call"
+cost = "0"
+rarity = 0
+description = ""
+keywords = Array[int]([])

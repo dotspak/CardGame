@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="OffSiteCard" load_steps=3 format=3 uid="uid://411c043a8x14"]
+
+[ext_resource type="Script" path="res://src/cardResources/card_offSite.gd" id="1_elkl3"]
+[ext_resource type="Texture2D" uid="uid://ddelpdutcmyb8" path="res://assets/cardArt/ectoplasm.png" id="1_te83o"]
+
+[resource]
+script = ExtResource("1_elkl3")
+force = 1
+bonus = 0
+shield = false
+infect = 0
+name = "Ectoplasm"
+cost = "0"
+rarity = 0
+img = ExtResource("1_te83o")
+description = ""
+keywords = Array[int]([])

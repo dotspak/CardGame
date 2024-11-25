@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SpellCard" load_steps=2 format=3 uid="uid://8rer2lviuqvb"]
+
+[ext_resource type="Script" path="res://src/cardResources/card_spell.gd" id="1_8ke4l"]
+
+[resource]
+script = ExtResource("1_8ke4l")
+type = 0
+uses = 0
+name = "Possess"
+cost = "0"
+rarity = 0
+description = ""
+keywords = Array[int]([])
