@@ -39,9 +39,16 @@ Unit Movement
 
 0 Force Rule
 
-- Cards can now enter with 0 force. If a card enters with 0 force, they do not perish and instead act as if they were 1 force but deal no damage. 
+- Cards can now enter with 0 force. If a card enters with 0 force, they do not perish and instead act as if they were 1 force but deal no damage.
 - If a card enters with more than 0 force and their force goes to 0 or less, they still perish. 
 - This also applies if a 0 force card goes above 0 force.
+
+Sick Status
+
+- Cards you control that are sick now take damage at the start of your turn instead of the end.
+- This is more inline with other card games that have similar mechanics and I think it is overall more clear.
+- This should also hopefully buff the plague archetype a bit as they were largely negatively effected by the removal of summoning sickness.
+- With this change you can now preemptively sicken cards and then immediately deal the damage when you pass your turn instead of the opposite.
 
 Flying
 
