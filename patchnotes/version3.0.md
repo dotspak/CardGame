@@ -1,78 +1,100 @@
 # Pecto V3.0 (experimental) Patch Notes
+
 ## Updates to Ruleset
+
 ### Less significant rules
+
 Mulligan Rules
+
 - You may now legally mulligan after receiving your hand.
 - When you mulligan, you draw a new hand of 5 cards, but lose 1 life each time you do.
 
 Swap Mechanic
+
 - Removed.
 - This mechanic only really caused confusion and annoying complicated rules for the little use it got, so its being removed entirely.
 
 Unit Position Change
+
 - Reverted to only allowing unit movement to adjacent slots, unless you have the flying keyword. Flying allows you to move anywhere on your grid. 
 - This change hopes to promote more strategy instead of moving your unit to the opposite side the minute the unit is threatened. This also buffs flying units, as they are being unintentionally nerfed.
 
 ### General Rule Changes
+
 Tokens
+
 - Reworded to instead follow the format: Token Type Force:X/Keywords
 
 Force
+
 - Now reverted back to a previous rendition where force = attack and health. This will hopefully encourage more fights (as it did when it was in the game) and also cause strong units to be able to be killed without hard removal.
 - For offsites, force only indicates health. Some offsites can still do damage but only if it stats in their text "Deals X damage in combat".
 
 Bonus/DMG Stat
+
 - Removed entirely
 - Previously existed at the same time as force, but it was confusing and typically any card that added bonus instead of force was basically unplayable.
 
 New Card Draw
+
 - At any point during your turn, you may lose 1 LVL to draw a card.
 - This change hopes to make card draw less of an issue late game when your deck is nearing its end. Often games start off very explosive and end up stalling out, so hopefully this will fix that somewhat.
 
 ### Unit Rule Changes
+
 Removed Keywords
+
 - Haste
 - Agile
 - Sidestep
 - First-strike (renamed to Quick)
 
 Summoning Sickness
+
 - Removed.
 - You may now attack the same turn a unit is summoned, unless they enter inactive. You cannot attack on the first turn.
 - This change hopes to greatly promote aggressive play, as well as just being less confusing overall.
 - To compensate for this, most units that previously had haste are receiving quick instead, as it was only previously on the "Locust" card.
 
 ### Offsite Rule Changes
+
 Offsite Blocking
+
 - Offsites now only block units in the middle row, but you can no longer choose whether to block or not, you must block if able. To compensate, a lot of offsites will be receiving more health than previous patches.
 - Flying units still ignore offsites when attacking; however, some offsites have been given flying which allows them to block flying units.
 
 ## Card Updates
+
 Since all cards are getting changed to reflected the reversion back to 1 stat (force), not every card will be listed as there would be over 200 changes. Only notable buffs/nerfs/reworks will be listed here.
 
 New Cards:
+
 - Units
-    - Shelled Fiend
-    - Smoke Beetle (reworked Smoke card)
-    - Cicada
+
+  - Shelled Fiend
+  - Smoke Beetle (reworked Smoke card)
+  - Cicada
 
 - Spells
-    - Death Pact
-    - Swarm
-    - Card Dispenser
-    - Shatter (reworked)
-    - Burn (replacing shatter)
+
+  - Death Pact
+  - Swarm
+  - Card Dispenser
+  - Shatter (reworked)
+  - Burn (replacing shatter)
 
 - Offsites
-    - Tunnel of White Wind
+
+  - Tunnel of White Wind
 
 Removed Cards:
+
 - Units
-    - Smoke
+  - Smoke
 
 Updated Cards:
 - Units
-    - Cauldron Of Chaos
+  - Cauldron Of Chaos
         - Reworked to be a strong but strange card draw card.
         - LVL reduced to 6.
         - Force reduced to 6.
