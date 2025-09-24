@@ -85,6 +85,10 @@ Notable changes because of this system change.
 - Offsites can still be damaged.
 - Note: you can still attack the player if you want, but no damage will be dealt. This can be effective for victory triggers (Killer Bee, Clone Element, etc).
 
+### Plague Archetype/Sick Counters
+
+The plague archetype has been completely redone. Sick counters have been removed from the game, and are instead replaced with the keyword sick. Sick now makes the card lose half of its force at the start of the turn rounded up (meaning it'll kill 1 force units). Due to this, plague cards have been reworked or update accordingly. Some cards are leaving the archetype, like Plague Egg (now Evil Egg) and conjoined to become much more generic.
+
 ## Card Updates
 
 Since every single card is being changed in some way with this update, no cards will be included here. I will only mention some changes to the bee archetype, and a few specific things.
