@@ -1,0 +1,18 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dklws6or0v1o2"]
+
+[ext_resource type="FontFile" uid="uid://1kd62leqiy8y" path="res://assets/fonts/AveriaLibre-Bold.ttf" id="1_ubhg7"]
+
+[resource]
+default_font = ExtResource("1_ubhg7")
+default_font_size = 24
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 4
+Label/constants/shadow_offset_x = 2
+Label/constants/shadow_offset_y = 2
+Label/constants/shadow_outline_size = 4
+RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 1)
+RichTextLabel/constants/outline_size = 4
+RichTextLabel/constants/shadow_offset_x = 2
+RichTextLabel/constants/shadow_offset_y = 2
+RichTextLabel/constants/shadow_outline_size = 4

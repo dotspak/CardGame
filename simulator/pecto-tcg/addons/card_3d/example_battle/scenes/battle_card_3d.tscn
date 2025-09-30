@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://4dl436anjvr6"]
+
+[ext_resource type="PackedScene" uid="uid://dxpc2iac0hjpw" path="res://addons/card_3d/scenes/card_3d.tscn" id="1_xagun"]
+[ext_resource type="Script" uid="uid://byfh4iocnlp5n" path="res://addons/card_3d/example_battle/scripts/battle_card_3d.gd" id="2_icem3"]
+[ext_resource type="PackedScene" uid="uid://uqcqlr8xi5yc" path="res://scenes/cardTemplates/card_pectoCard.tscn" id="3_dpukg"]
+[ext_resource type="PackedScene" uid="uid://c4c6pl5m22jp2" path="res://scenes/cardTemplates/card_back.tscn" id="4_tvvh7"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_2hv15"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_56e7o"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_2hv15")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_tvvh7"]
+viewport_path = NodePath("frontViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2hv15"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_tvvh7")
+
+[node name="BattleCard3D" instance=ExtResource("1_xagun")]
+script = ExtResource("2_icem3")
+id = ""
+front_material_path = ""
+damage = 0
+health = 0
+
+[node name="CardBackMesh" parent="CardMesh" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_56e7o")
+
+[node name="CardFrontMesh" parent="CardMesh" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_2hv15")
+
+[node name="CardText" type="Label3D" parent="CardMesh" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.875, 0.001)
+modulate = Color(0, 0, 0, 1)
+font_size = 60
+autowrap_mode = 3
+width = 400.0
+
+[node name="frontViewport" type="SubViewport" parent="." index="2"]
+transparent_bg = true
+size = Vector2i(750, 1050)
+
+[node name="PectoCard" parent="frontViewport" index="0" instance=ExtResource("3_dpukg")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = -325.0
+offset_right = 325.0
+offset_bottom = 950.0
+grow_vertical = 1
+
+[node name="SubViewport" type="SubViewport" parent="." index="3"]
+transparent_bg = true
+size = Vector2i(750, 1050)
+
+[node name="cardBack" parent="SubViewport" index="0" instance=ExtResource("4_tvvh7")]

@@ -1,0 +1,439 @@
+[gd_scene load_steps=28 format=3 uid="uid://uqcqlr8xi5yc"]
+
+[ext_resource type="Texture2D" uid="uid://b1f2r0svmhmej" path="res://assets/textTexture.png" id="1_0gidb"]
+[ext_resource type="Texture2D" uid="uid://dhsjltd4wwk1r" path="res://assets/set1/abstractWizard2.png" id="1_tkaek"]
+[ext_resource type="Texture2D" uid="uid://de5nr31l6262q" path="res://assets/unitIcon5.png" id="2_0rjee"]
+[ext_resource type="Texture2D" uid="uid://bsidin4i266kj" path="res://assets/levelIcon.png" id="3_mn7ii"]
+[ext_resource type="FontFile" uid="uid://1kd62leqiy8y" path="res://assets/fonts/AveriaLibre-Bold.ttf" id="3_tong0"]
+[ext_resource type="FontFile" uid="uid://bamyp0uasi0pc" path="res://assets/fonts/AveriaLibre-Italic.ttf" id="5_0gidb"]
+[ext_resource type="FontFile" uid="uid://fpqgiu5d1pkr" path="res://assets/fonts/Higher Jump.ttf" id="5_jv68f"]
+[ext_resource type="FontFile" uid="uid://rhkjenklfug8" path="res://assets/fonts/AveriaLibre-Regular.ttf" id="6_tong0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3h312"]
+bg_color = Color(0.10980392, 0.10980392, 0.10980392, 1)
+corner_radius_top_left = 48
+corner_radius_top_right = 48
+corner_radius_bottom_right = 48
+corner_radius_bottom_left = 48
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_y3ai7"]
+blend_mode = 2
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_tong0"]
+blend_mode = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jv68f"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+border_width_left = 50
+border_width_top = 50
+border_width_right = 50
+border_width_bottom = 50
+border_color = Color(0.43529412, 0.43529412, 0.43529412, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0gidb"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.72156864, 0.4117647, 0.6666667, 1)
+shadow_color = Color(0.21960784, 0.039215688, 0.1882353, 1)
+shadow_size = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1t38k"]
+bg_color = Color(0, 0, 0, 0)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.72156864, 0.4117647, 0.6666667, 1)
+shadow_color = Color(0.21960784, 0.039215688, 0.1882353, 1)
+shadow_size = 8
+
+[sub_resource type="Gradient" id="Gradient_jv68f"]
+offsets = PackedFloat32Array(0, 0.8026756)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.24705882)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0gidb"]
+gradient = SubResource("Gradient_jv68f")
+fill_from = Vector2(0, 0.62393165)
+fill_to = Vector2(1, 0.22649573)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ir3pi"]
+bg_color = Color(0.8671567, 0.20470001, 0.89, 0.54901963)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.72156864, 0.4117647, 0.6666667, 1)
+shadow_color = Color(0.21960784, 0.039215688, 0.1882353, 1)
+shadow_size = 8
+
+[sub_resource type="Gradient" id="Gradient_ja440"]
+offsets = PackedFloat32Array(0, 0.8026756)
+colors = PackedColorArray(0.89411765, 0.8589644, 0.8562938, 1, 0.41960785, 0.27058825, 0.6117647, 0.24705882)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4ay7h"]
+gradient = SubResource("Gradient_ja440")
+fill_from = Vector2(0, 0.62393165)
+fill_to = Vector2(1, 0.22649573)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y3ai7"]
+bg_color = Color(0.10980392, 0.10980392, 0.10980392, 1)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.72156864, 0.4117647, 0.6666667, 1)
+shadow_color = Color(0.21960784, 0.039215688, 0.1882353, 1)
+shadow_size = 12
+
+[sub_resource type="Gradient" id="Gradient_0gidb"]
+colors = PackedColorArray(0.10980392, 0.10980392, 0.10980392, 1, 0.33828127, 0.33828127, 0.33828127, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_y3ai7"]
+gradient = SubResource("Gradient_0gidb")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ay7h"]
+bg_color = Color(1, 0, 0.85604095, 1)
+draw_center = false
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+
+[sub_resource type="Gradient" id="Gradient_10mgu"]
+offsets = PackedFloat32Array(0.073578596, 0.8929766)
+colors = PackedColorArray(0.7137255, 0.6509804, 0.8039216, 1, 0.89411765, 0.25882354, 0.59607846, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m4cas"]
+gradient = SubResource("Gradient_10mgu")
+fill_from = Vector2(0.33333334, 1)
+fill_to = Vector2(0.8162393, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ja440"]
+bg_color = Color(0, 0, 0, 0.5882353)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_y3ai7"]
+font = ExtResource("5_jv68f")
+font_size = 24
+font_color = Color(0.91, 0.91, 0.91, 1)
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0.2010927, 0.5673567, 0.8666667, 1)
+
+[node name="cardBase" type="PanelContainer"]
+clip_children = 2
+clip_contents = true
+custom_minimum_size = Vector2(750, 1050)
+anchors_preset = -1
+anchor_right = 0.390625
+anchor_bottom = 0.9722222
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3h312")
+metadata/_edit_use_anchors_ = true
+
+[node name="dots" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.11764706)
+material = SubResource("CanvasItemMaterial_y3ai7")
+layout_mode = 2
+texture = ExtResource("1_0gidb")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="visual" type="Control" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(650, 950)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="cardArt" type="TextureRect" parent="visual"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_tkaek")
+expand_mode = 1
+
+[node name="shadow" type="Panel" parent="visual"]
+material = SubResource("CanvasItemMaterial_tong0")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jv68f")
+
+[node name="border" type="Panel" parent="visual"]
+custom_minimum_size = Vector2(550, 850)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -275.0
+offset_top = -425.0
+offset_right = 275.0
+offset_bottom = 425.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0gidb")
+
+[node name="MarginContainer" type="MarginContainer" parent="visual/border"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="text" type="VBoxContainer" parent="visual/border/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+metadata/_edit_use_anchors_ = true
+
+[node name="textContainer" type="PanelContainer" parent="visual/border/MarginContainer/text"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_1t38k")
+
+[node name="bg" type="TextureRect" parent="visual/border/MarginContainer/text/textContainer"]
+show_behind_parent = true
+layout_mode = 2
+texture = SubResource("GradientTexture2D_0gidb")
+
+[node name="dots" type="TextureRect" parent="visual/border/MarginContainer/text/textContainer"]
+modulate = Color(1, 1, 1, 0.11764706)
+material = SubResource("CanvasItemMaterial_y3ai7")
+layout_mode = 2
+texture = ExtResource("1_0gidb")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="visual/border/MarginContainer/text/textContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="visual/border/MarginContainer/text/textContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="cardKeywords" type="Label" parent="visual/border/MarginContainer/text/textContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.86822057, 0.2193628, 1)
+theme_override_fonts/font = ExtResource("5_0gidb")
+text = "Flying"
+
+[node name="cardText" type="RichTextLabel" parent="visual/border/MarginContainer/text/textContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("6_tong0")
+theme_override_fonts/bold_font = ExtResource("3_tong0")
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+bbcode_enabled = true
+text = "Spells targetting Abstract Wizard are countered."
+fit_content = true
+
+[node name="skillContainer" type="PanelContainer" parent="visual/border/MarginContainer/text"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_ir3pi")
+
+[node name="bg" type="TextureRect" parent="visual/border/MarginContainer/text/skillContainer"]
+modulate = Color(0.89411765, 0.25882354, 0.59607846, 1)
+show_behind_parent = true
+layout_mode = 2
+texture = SubResource("GradientTexture2D_4ay7h")
+
+[node name="dots" type="TextureRect" parent="visual/border/MarginContainer/text/skillContainer"]
+modulate = Color(1, 1, 1, 0.11764706)
+material = SubResource("CanvasItemMaterial_y3ai7")
+layout_mode = 2
+texture = ExtResource("1_0gidb")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="visual/border/MarginContainer/text/skillContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="visual/border/MarginContainer/text/skillContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="skillName" type="Label" parent="visual/border/MarginContainer/text/skillContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Duplication"
+
+[node name="cardSkill" type="RichTextLabel" parent="visual/border/MarginContainer/text/skillContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("6_tong0")
+theme_override_fonts/bold_font = ExtResource("3_tong0")
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+bbcode_enabled = true
+text = "Copy your next spell played."
+fit_content = true
+
+[node name="topBar" type="HBoxContainer" parent="visual"]
+custom_minimum_size = Vector2(0, 132)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 64.0
+grow_horizontal = 2
+
+[node name="cardTypeIcon" type="TextureRect" parent="visual/topBar"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("2_0rjee")
+expand_mode = 2
+
+[node name="info" type="VBoxContainer" parent="visual/topBar"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="nameContainer" type="PanelContainer" parent="visual/topBar/info"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_y3ai7")
+
+[node name="nameBackground" type="TextureRect" parent="visual/topBar/info/nameContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = SubResource("GradientTexture1D_y3ai7")
+expand_mode = 1
+
+[node name="dots" type="TextureRect" parent="visual/topBar/info/nameContainer"]
+modulate = Color(1, 1, 1, 0.11764706)
+material = SubResource("CanvasItemMaterial_y3ai7")
+layout_mode = 2
+texture = ExtResource("1_0gidb")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="visual/topBar/info/nameContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="cardName" type="Label" parent="visual/topBar/info/nameContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Abstract Wizard"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="force" type="Panel" parent="visual/topBar/info/nameContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_4ay7h")
+
+[node name="TextureRect" type="TextureRect" parent="visual/topBar/info/nameContainer/HBoxContainer/force"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture = SubResource("GradientTexture2D_m4cas")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="cardForce" type="Label" parent="visual/topBar/info/nameContainer/HBoxContainer/force/TextureRect"]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -19.5
+offset_bottom = 19.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="cardType" type="Label" parent="visual/topBar/info"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Wizard"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="visual/topBar/info/cardType"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ja440")
+
+[node name="lvlIcon" type="TextureRect" parent="visual/topBar"]
+layout_mode = 2
+texture = ExtResource("3_mn7ii")
+expand_mode = 2
+
+[node name="cardLVL" type="Label" parent="visual/topBar/lvlIcon"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "5"
+label_settings = SubResource("LabelSettings_y3ai7")
+horizontal_alignment = 1
+vertical_alignment = 1
