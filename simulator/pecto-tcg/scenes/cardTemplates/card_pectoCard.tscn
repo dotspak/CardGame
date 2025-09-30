@@ -1,13 +1,15 @@
-[gd_scene load_steps=28 format=3 uid="uid://uqcqlr8xi5yc"]
+[gd_scene load_steps=43 format=3 uid="uid://uqcqlr8xi5yc"]
 
 [ext_resource type="Texture2D" uid="uid://b1f2r0svmhmej" path="res://assets/textTexture.png" id="1_0gidb"]
-[ext_resource type="Texture2D" uid="uid://dhsjltd4wwk1r" path="res://assets/set1/abstractWizard2.png" id="1_tkaek"]
-[ext_resource type="Texture2D" uid="uid://de5nr31l6262q" path="res://assets/unitIcon5.png" id="2_0rjee"]
+[ext_resource type="Script" uid="uid://dn6e7duqtsffm" path="res://src/pectoCard.gd" id="1_y3ai7"]
+[ext_resource type="Texture2D" uid="uid://bgcxb5kcqfo72" path="res://assets/foilmaps/abstractWizard.png" id="3_ir3pi"]
 [ext_resource type="Texture2D" uid="uid://bsidin4i266kj" path="res://assets/levelIcon.png" id="3_mn7ii"]
 [ext_resource type="FontFile" uid="uid://1kd62leqiy8y" path="res://assets/fonts/AveriaLibre-Bold.ttf" id="3_tong0"]
-[ext_resource type="FontFile" uid="uid://bamyp0uasi0pc" path="res://assets/fonts/AveriaLibre-Italic.ttf" id="5_0gidb"]
+[ext_resource type="Texture2D" uid="uid://dsemqjnsd305b" path="res://assets/set1/jester.png" id="4_1t38k"]
 [ext_resource type="FontFile" uid="uid://fpqgiu5d1pkr" path="res://assets/fonts/Higher Jump.ttf" id="5_jv68f"]
 [ext_resource type="FontFile" uid="uid://rhkjenklfug8" path="res://assets/fonts/AveriaLibre-Regular.ttf" id="6_tong0"]
+[ext_resource type="Texture2D" uid="uid://de5nr31l6262q" path="res://assets/unitIcon5.png" id="7_y3ai7"]
+[ext_resource type="Script" uid="uid://daittco86fdj2" path="res://src/bbcode/triggerEffect.gd" id="8_ir3pi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3h312"]
 bg_color = Color(0.10980392, 0.10980392, 0.10980392, 1)
@@ -16,8 +18,91 @@ corner_radius_top_right = 48
 corner_radius_bottom_right = 48
 corner_radius_bottom_left = 48
 
+[sub_resource type="Gradient" id="Gradient_1t38k"]
+colors = PackedColorArray(0.18039216, 0.13333334, 0.38039216, 1, 0.58431375, 0.7411765, 0.8784314, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ir3pi"]
+gradient = SubResource("Gradient_1t38k")
+fill_to = Vector2(1, 1)
+
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_y3ai7"]
 blend_mode = 2
+
+[sub_resource type="Shader" id="Shader_4ay7h"]
+code = "shader_type canvas_item;
+
+uniform bool enabled = true;
+uniform sampler2D foil_map;
+uniform sampler2D gradient;
+uniform sampler2D noise_tex;
+
+uniform float speed : hint_range(0.0, 10.0) = 1.0;
+uniform float scale : hint_range(0.1, 5.0) = 1.0;
+uniform float intensity : hint_range(0.0, 3.0) = 1.2;
+uniform float angle : hint_range(0.0, 360.0) = 45.0;
+uniform float noise_strength : hint_range(0.0, 1.0) = 0.25;
+uniform float noise_speed : hint_range(0.0, 5.0) = 0.5;
+uniform float shimmer_speed : hint_range(0.0, 10.0) = 2.0;
+uniform float shimmer_strength : hint_range(0.0, 2.0) = 0.5;
+
+void fragment() {
+	if (enabled) {
+	    vec2 uv = UV;
+
+	    float rad = radians(angle);
+	    mat2 rot = mat2(vec2(cos(rad), -sin(rad)), vec2(sin(rad),  cos(rad)));
+	    vec2 rotated_uv = rot * (uv - 0.5) + 0.5;
+
+	    vec2 scroll_uv = rotated_uv * scale;
+	    scroll_uv.x += TIME * speed;
+
+	    vec2 noise_uv = uv * 2.0 + vec2(TIME * noise_speed, TIME * noise_speed);
+	    float n = texture(noise_tex, noise_uv).r;
+	    scroll_uv.x += (n - 0.5) * noise_strength;
+		
+	    vec4 grad_col = texture(gradient, vec2(fract(scroll_uv.x), 0.5));
+	    float shimmer = 1.0 + sin(TIME * shimmer_speed + uv.y * 10.0) * shimmer_strength;
+
+	    float foil_mask = texture(foil_map, uv).r;
+
+	    vec4 foil_col = grad_col * foil_mask * intensity * shimmer;
+	    vec4 base_col = texture(TEXTURE, uv);
+
+	    COLOR = base_col + foil_col * base_col.a;
+	}
+}
+"
+
+[sub_resource type="Gradient" id="Gradient_ir3pi"]
+offsets = PackedFloat32Array(0, 0.27340823, 0.7752809, 1)
+colors = PackedColorArray(0, 0.9554688, 0.92421854, 1, 0.8212888, 0.9349979, 0.8457694, 1, 0, 0.049762562, 0.94178915, 1, 0, 0.95686275, 0.9254902, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ja440"]
+gradient = SubResource("Gradient_ir3pi")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_y3ai7"]
+noise_type = 3
+frequency = 0.0286
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1t38k"]
+width = 128
+height = 128
+noise = SubResource("FastNoiseLite_y3ai7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jlkag"]
+shader = SubResource("Shader_4ay7h")
+shader_parameter/enabled = true
+shader_parameter/foil_map = ExtResource("3_ir3pi")
+shader_parameter/gradient = SubResource("GradientTexture1D_ja440")
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_1t38k")
+shader_parameter/speed = 0.2000000095
+shader_parameter/scale = 0.90700003982262
+shader_parameter/intensity = 0.0
+shader_parameter/angle = 191.75200910822
+shader_parameter/noise_strength = 0.6270000297825
+shader_parameter/noise_speed = 2.8570001357075
+shader_parameter/shimmer_speed = 1.65600007866
+shader_parameter/shimmer_strength = 0.5350000254125
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_tong0"]
 blend_mode = 3
@@ -38,20 +123,19 @@ border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0.72156864, 0.4117647, 0.6666667, 1)
-shadow_color = Color(0.21960784, 0.039215688, 0.1882353, 1)
+border_color = Color(1, 1, 1, 1)
+shadow_color = Color(0.42, 0.42, 0.42, 1)
 shadow_size = 24
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1t38k"]
-bg_color = Color(0, 0, 0, 0)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y3ai7"]
 draw_center = false
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0.72156864, 0.4117647, 0.6666667, 1)
-shadow_color = Color(0.21960784, 0.039215688, 0.1882353, 1)
-shadow_size = 8
+border_color = Color(1, 1, 1, 1)
+shadow_color = Color(0.14, 0.1134, 0.1134, 1)
+shadow_size = 10
 
 [sub_resource type="Gradient" id="Gradient_jv68f"]
 offsets = PackedFloat32Array(0, 0.8026756)
@@ -62,16 +146,19 @@ gradient = SubResource("Gradient_jv68f")
 fill_from = Vector2(0, 0.62393165)
 fill_to = Vector2(1, 0.22649573)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ir3pi"]
-bg_color = Color(0.8671567, 0.20470001, 0.89, 0.54901963)
+[sub_resource type="RichTextEffect" id="RichTextEffect_ir3pi"]
+script = ExtResource("8_ir3pi")
+metadata/_custom_type_script = "uid://daittco86fdj2"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1t38k"]
 draw_center = false
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0.72156864, 0.4117647, 0.6666667, 1)
-shadow_color = Color(0.21960784, 0.039215688, 0.1882353, 1)
-shadow_size = 8
+border_color = Color(1, 1, 1, 1)
+shadow_color = Color(0.14, 0.1134, 0.1134, 1)
+shadow_size = 10
 
 [sub_resource type="Gradient" id="Gradient_ja440"]
 offsets = PackedFloat32Array(0, 0.8026756)
@@ -82,16 +169,47 @@ gradient = SubResource("Gradient_ja440")
 fill_from = Vector2(0, 0.62393165)
 fill_to = Vector2(1, 0.22649573)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y3ai7"]
-bg_color = Color(0.10980392, 0.10980392, 0.10980392, 1)
+[sub_resource type="Gradient" id="Gradient_y3ai7"]
+offsets = PackedFloat32Array(0.20973782, 0.7715356)
+colors = PackedColorArray(0.6431373, 0.27058825, 0.6, 1, 0.89, 0.89, 0.89, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1t38k"]
+gradient = SubResource("Gradient_y3ai7")
+fill_from = Vector2(0.36324787, 1)
+fill_to = Vector2(0.7393162, 0.012820513)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ir3pi"]
+content_margin_left = 10.0
+content_margin_top = 0.0
+content_margin_right = 10.0
+content_margin_bottom = 0.0
+texture = SubResource("GradientTexture2D_1t38k")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_10mgu"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 draw_center = false
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0.72156864, 0.4117647, 0.6666667, 1)
-shadow_color = Color(0.21960784, 0.039215688, 0.1882353, 1)
-shadow_size = 12
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ir3pi"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+shadow_color = Color(0.14, 0.1134, 0.1134, 1)
+shadow_size = 10
 
 [sub_resource type="Gradient" id="Gradient_0gidb"]
 colors = PackedColorArray(0.10980392, 0.10980392, 0.10980392, 1, 0.33828127, 0.33828127, 0.33828127, 1)
@@ -110,7 +228,7 @@ border_color = Color(0, 0, 0, 1)
 border_blend = true
 
 [sub_resource type="Gradient" id="Gradient_10mgu"]
-offsets = PackedFloat32Array(0.073578596, 0.8929766)
+offsets = PackedFloat32Array(0.13712375, 0.8929766)
 colors = PackedColorArray(0.7137255, 0.6509804, 0.8039216, 1, 0.89411765, 0.25882354, 0.59607846, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_m4cas"]
@@ -135,19 +253,33 @@ outline_size = 1
 outline_color = Color(0, 0, 0, 1)
 shadow_color = Color(0.2010927, 0.5673567, 0.8666667, 1)
 
-[node name="cardBase" type="PanelContainer"]
+[node name="PectoCard" type="Node"]
+script = ExtResource("1_y3ai7")
+cardName = "Jester"
+force = 2
+lvl = 4
+banished = true
+tribe = Array[int]([0])
+keywords = Array[int]([4])
+text = "Once per turn, if Jester were to enter your discard pile, you may summon it instead. If you do, it is no longer banished.
+{trigger:perish} Shuffle Jester into your deck."
+skillText = "The skill thats about to come out will destroy everything."
+
+[node name="bg" type="PanelContainer" parent="."]
 clip_children = 2
 clip_contents = true
 custom_minimum_size = Vector2(750, 1050)
-anchors_preset = -1
-anchor_right = 0.390625
-anchor_bottom = 0.9722222
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 750.0
+offset_bottom = 1050.0
+pivot_offset = Vector2(375, 525)
 theme_override_styles/panel = SubResource("StyleBoxFlat_3h312")
-metadata/_edit_use_anchors_ = true
 
-[node name="dots" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="bg"]
+visible = false
+layout_mode = 2
+texture = SubResource("GradientTexture2D_ir3pi")
+
+[node name="dots" type="TextureRect" parent="bg"]
 modulate = Color(1, 1, 1, 0.11764706)
 material = SubResource("CanvasItemMaterial_y3ai7")
 layout_mode = 2
@@ -155,25 +287,26 @@ texture = ExtResource("1_0gidb")
 expand_mode = 1
 stretch_mode = 1
 
-[node name="visual" type="Control" parent="."]
+[node name="visual" type="Control" parent="bg"]
 clip_contents = true
 custom_minimum_size = Vector2(650, 950)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="cardArt" type="TextureRect" parent="visual"]
+[node name="cardArt" type="TextureRect" parent="bg/visual"]
 unique_name_in_owner = true
+material = SubResource("ShaderMaterial_jlkag")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_tkaek")
+texture = ExtResource("4_1t38k")
 expand_mode = 1
 
-[node name="shadow" type="Panel" parent="visual"]
+[node name="shadow" type="Panel" parent="bg/visual"]
 material = SubResource("CanvasItemMaterial_tong0")
 layout_mode = 1
 anchors_preset = 15
@@ -183,7 +316,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_jv68f")
 
-[node name="border" type="Panel" parent="visual"]
+[node name="border" type="Panel" parent="bg/visual"]
+self_modulate = Color(0.72156864, 0.4117647, 0.6666667, 1)
 custom_minimum_size = Vector2(550, 850)
 layout_mode = 1
 anchors_preset = 8
@@ -199,7 +333,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_0gidb")
 
-[node name="MarginContainer" type="MarginContainer" parent="visual/border"]
+[node name="MarginContainer" type="MarginContainer" parent="bg/visual/border"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -211,22 +345,23 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="text" type="VBoxContainer" parent="visual/border/MarginContainer"]
+[node name="text" type="VBoxContainer" parent="bg/visual/border/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 8
 metadata/_edit_use_anchors_ = true
 
-[node name="textContainer" type="PanelContainer" parent="visual/border/MarginContainer/text"]
+[node name="textContainer" type="PanelContainer" parent="bg/visual/border/MarginContainer/text"]
+self_modulate = Color(0.72156864, 0.4117647, 0.6666667, 1)
 layout_mode = 2
 size_flags_vertical = 8
-theme_override_styles/panel = SubResource("StyleBoxFlat_1t38k")
+theme_override_styles/panel = SubResource("StyleBoxFlat_y3ai7")
 
-[node name="bg" type="TextureRect" parent="visual/border/MarginContainer/text/textContainer"]
+[node name="bg" type="TextureRect" parent="bg/visual/border/MarginContainer/text/textContainer"]
 show_behind_parent = true
 layout_mode = 2
 texture = SubResource("GradientTexture2D_0gidb")
 
-[node name="dots" type="TextureRect" parent="visual/border/MarginContainer/text/textContainer"]
+[node name="dots" type="TextureRect" parent="bg/visual/border/MarginContainer/text/textContainer"]
 modulate = Color(1, 1, 1, 0.11764706)
 material = SubResource("CanvasItemMaterial_y3ai7")
 layout_mode = 2
@@ -234,23 +369,25 @@ texture = ExtResource("1_0gidb")
 expand_mode = 1
 stretch_mode = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="visual/border/MarginContainer/text/textContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="bg/visual/border/MarginContainer/text/textContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="visual/border/MarginContainer/text/textContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="bg/visual/border/MarginContainer/text/textContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="cardKeywords" type="Label" parent="visual/border/MarginContainer/text/textContainer/MarginContainer/VBoxContainer"]
+[node name="cardKeywords" type="RichTextLabel" parent="bg/visual/border/MarginContainer/text/textContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.86822057, 0.2193628, 1)
-theme_override_fonts/font = ExtResource("5_0gidb")
-text = "Flying"
+bbcode_enabled = true
+text = "[i][color=ffa500ff]Bleed"
+fit_content = true
 
-[node name="cardText" type="RichTextLabel" parent="visual/border/MarginContainer/text/textContainer/MarginContainer/VBoxContainer"]
+[node name="cardText" type="RichTextLabel" parent="bg/visual/border/MarginContainer/text/textContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("6_tong0")
 theme_override_fonts/bold_font = ExtResource("3_tong0")
@@ -259,21 +396,26 @@ theme_override_font_sizes/bold_font_size = 24
 theme_override_font_sizes/bold_italics_font_size = 24
 theme_override_font_sizes/italics_font_size = 24
 bbcode_enabled = true
-text = "Spells targetting Abstract Wizard are countered."
+text = "Once per turn, if Jester were to enter your discard pile, you may summon it instead. If you do, it is no longer banished.
+[bgcolor=orange]➥PERISH[/bgcolor] Shuffle Jester into your deck."
 fit_content = true
+custom_effects = [SubResource("RichTextEffect_ir3pi")]
 
-[node name="skillContainer" type="PanelContainer" parent="visual/border/MarginContainer/text"]
+[node name="skillContainer" type="PanelContainer" parent="bg/visual/border/MarginContainer/text"]
+visible = false
+self_modulate = Color(0.72156864, 0.4117647, 0.6666667, 1)
 layout_mode = 2
 size_flags_vertical = 8
-theme_override_styles/panel = SubResource("StyleBoxFlat_ir3pi")
+theme_override_styles/panel = SubResource("StyleBoxFlat_1t38k")
 
-[node name="bg" type="TextureRect" parent="visual/border/MarginContainer/text/skillContainer"]
+[node name="bg" type="TextureRect" parent="bg/visual/border/MarginContainer/text/skillContainer"]
 modulate = Color(0.89411765, 0.25882354, 0.59607846, 1)
+self_modulate = Color(0.66, 0.66, 0.66, 1)
 show_behind_parent = true
 layout_mode = 2
 texture = SubResource("GradientTexture2D_4ay7h")
 
-[node name="dots" type="TextureRect" parent="visual/border/MarginContainer/text/skillContainer"]
+[node name="dots" type="TextureRect" parent="bg/visual/border/MarginContainer/text/skillContainer"]
 modulate = Color(1, 1, 1, 0.11764706)
 material = SubResource("CanvasItemMaterial_y3ai7")
 layout_mode = 2
@@ -281,22 +423,52 @@ texture = ExtResource("1_0gidb")
 expand_mode = 1
 stretch_mode = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="visual/border/MarginContainer/text/skillContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="bg/visual/border/MarginContainer/text/skillContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="visual/border/MarginContainer/text/skillContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="bg/visual/border/MarginContainer/text/skillContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="skillName" type="Label" parent="visual/border/MarginContainer/text/skillContainer/MarginContainer/VBoxContainer"]
+[node name="skillName" type="RichTextLabel" parent="bg/visual/border/MarginContainer/text/skillContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+visible = false
+clip_contents = false
 layout_mode = 2
-text = "Duplication"
+size_flags_horizontal = 0
+theme_override_colors/font_shadow_color = Color(0.13346595, 0.15180609, 0.30312502, 1)
+bbcode_enabled = true
+text = "[bgcolor=e44298ff]★DIPPY DOG[/bgcolor]"
+fit_content = true
+autowrap_mode = 0
 
-[node name="cardSkill" type="RichTextLabel" parent="visual/border/MarginContainer/text/skillContainer/MarginContainer/VBoxContainer"]
+[node name="grad" type="Panel" parent="bg/visual/border/MarginContainer/text/skillContainer/MarginContainer/VBoxContainer/skillName"]
+visible = false
+modulate = Color(0.08627451, 0.6627451, 0.56078434, 1)
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ir3pi")
+
+[node name="Panel" type="Panel" parent="bg/visual/border/MarginContainer/text/skillContainer/MarginContainer/VBoxContainer/skillName"]
+visible = false
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_10mgu")
+
+[node name="cardSkill" type="RichTextLabel" parent="bg/visual/border/MarginContainer/text/skillContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("6_tong0")
@@ -306,10 +478,10 @@ theme_override_font_sizes/bold_font_size = 24
 theme_override_font_sizes/bold_italics_font_size = 24
 theme_override_font_sizes/italics_font_size = 24
 bbcode_enabled = true
-text = "Copy your next spell played."
+text = "{skill:} The skill thats about to come out will destroy everything."
 fit_content = true
 
-[node name="topBar" type="HBoxContainer" parent="visual"]
+[node name="topBar" type="HBoxContainer" parent="bg/visual"]
 custom_minimum_size = Vector2(0, 132)
 layout_mode = 1
 anchors_preset = 10
@@ -317,32 +489,33 @@ anchor_right = 1.0
 offset_bottom = 64.0
 grow_horizontal = 2
 
-[node name="cardTypeIcon" type="TextureRect" parent="visual/topBar"]
+[node name="cardTypeIcon" type="TextureRect" parent="bg/visual/topBar"]
 unique_name_in_owner = true
 layout_mode = 2
-texture = ExtResource("2_0rjee")
+texture = ExtResource("7_y3ai7")
 expand_mode = 2
 
-[node name="info" type="VBoxContainer" parent="visual/topBar"]
+[node name="info" type="VBoxContainer" parent="bg/visual/topBar"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 
-[node name="nameContainer" type="PanelContainer" parent="visual/topBar/info"]
+[node name="nameContainer" type="PanelContainer" parent="bg/visual/topBar/info"]
+self_modulate = Color(0.72156864, 0.4117647, 0.6666667, 1)
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_y3ai7")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ir3pi")
 
-[node name="nameBackground" type="TextureRect" parent="visual/topBar/info/nameContainer"]
+[node name="nameBackground" type="TextureRect" parent="bg/visual/topBar/info/nameContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 texture = SubResource("GradientTexture1D_y3ai7")
 expand_mode = 1
 
-[node name="dots" type="TextureRect" parent="visual/topBar/info/nameContainer"]
+[node name="dots" type="TextureRect" parent="bg/visual/topBar/info/nameContainer"]
 modulate = Color(1, 1, 1, 0.11764706)
 material = SubResource("CanvasItemMaterial_y3ai7")
 layout_mode = 2
@@ -350,19 +523,19 @@ texture = ExtResource("1_0gidb")
 expand_mode = 1
 stretch_mode = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="visual/topBar/info/nameContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="bg/visual/topBar/info/nameContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="cardName" type="Label" parent="visual/topBar/info/nameContainer/HBoxContainer"]
+[node name="cardName" type="Label" parent="bg/visual/topBar/info/nameContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "Abstract Wizard"
+text = "Jester"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="force" type="Panel" parent="visual/topBar/info/nameContainer/HBoxContainer"]
+[node name="force" type="Panel" parent="bg/visual/topBar/info/nameContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
@@ -370,7 +543,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_4ay7h")
 
-[node name="TextureRect" type="TextureRect" parent="visual/topBar/info/nameContainer/HBoxContainer/force"]
+[node name="TextureRect" type="TextureRect" parent="bg/visual/topBar/info/nameContainer/HBoxContainer/force"]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
@@ -384,7 +557,7 @@ texture = SubResource("GradientTexture2D_m4cas")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="cardForce" type="Label" parent="visual/topBar/info/nameContainer/HBoxContainer/force/TextureRect"]
+[node name="cardForce" type="Label" parent="bg/visual/topBar/info/nameContainer/HBoxContainer/force/TextureRect"]
 unique_name_in_owner = true
 clip_contents = true
 layout_mode = 1
@@ -397,20 +570,21 @@ offset_bottom = 19.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 32
-text = "5"
+text = "2"
 horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 
-[node name="cardType" type="Label" parent="visual/topBar/info"]
+[node name="cardType" type="Label" parent="bg/visual/topBar/info"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Wizard"
+theme_override_font_sizes/font_size = 16
+text = "Ghost "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Panel" type="Panel" parent="visual/topBar/info/cardType"]
+[node name="Panel" type="Panel" parent="bg/visual/topBar/info/cardType"]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
@@ -420,12 +594,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ja440")
 
-[node name="lvlIcon" type="TextureRect" parent="visual/topBar"]
+[node name="lvlIcon" type="TextureRect" parent="bg/visual/topBar"]
+unique_name_in_owner = true
+modulate = Color(1, 0.49411765, 0.5294118, 1)
 layout_mode = 2
 texture = ExtResource("3_mn7ii")
 expand_mode = 2
 
-[node name="cardLVL" type="Label" parent="visual/topBar/lvlIcon"]
+[node name="cardLVL" type="Label" parent="bg/visual/topBar/lvlIcon"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -433,7 +609,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "5"
+text = "4"
 label_settings = SubResource("LabelSettings_y3ai7")
 horizontal_alignment = 1
 vertical_alignment = 1

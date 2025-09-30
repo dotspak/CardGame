@@ -12,8 +12,8 @@ corner_radius_bottom_left = 48
 [node name="cardBack" type="PanelContainer"]
 clip_children = 2
 custom_minimum_size = Vector2(750, 1050)
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 750.0
+offset_bottom = 1050.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_yayj7")
 
 [node name="TextureRect" type="TextureRect" parent="."]

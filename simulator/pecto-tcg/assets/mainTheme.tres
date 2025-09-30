@@ -1,6 +1,7 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dklws6or0v1o2"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://dklws6or0v1o2"]
 
 [ext_resource type="FontFile" uid="uid://1kd62leqiy8y" path="res://assets/fonts/AveriaLibre-Bold.ttf" id="1_ubhg7"]
+[ext_resource type="FontFile" uid="uid://bamyp0uasi0pc" path="res://assets/fonts/AveriaLibre-Italic.ttf" id="2_m04c2"]
 
 [resource]
 default_font = ExtResource("1_ubhg7")
@@ -16,3 +17,5 @@ RichTextLabel/constants/outline_size = 4
 RichTextLabel/constants/shadow_offset_x = 2
 RichTextLabel/constants/shadow_offset_y = 2
 RichTextLabel/constants/shadow_outline_size = 4
+RichTextLabel/fonts/bold_font = ExtResource("1_ubhg7")
+RichTextLabel/fonts/italics_font = ExtResource("2_m04c2")
