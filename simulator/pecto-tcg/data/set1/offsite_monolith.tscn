@@ -17,6 +17,7 @@ fill_to = Vector2(1, 1)
 blend_mode = 3
 
 [node name="monolith" instance=ExtResource("1_yn2j8")]
+ID = "MONOLITH"
 type = 1
 cardName = "Monolith"
 force = 0
@@ -81,6 +82,9 @@ modulate = Color(1, 0.49411765, 0.5294118, 1)
 
 [node name="cardLVL" parent="cardShape/visual/topBar/lvlIcon" index="0"]
 text = "3"
+
+[node name="setnum" parent="cardShape/visual/extraInfo" index="0"]
+text = "Cole Smith-Evans MONOLITH/220"
 
 [node name="rarity" parent="cardShape/visual/extraInfo" index="1"]
 texture = ExtResource("4_7k3bj")

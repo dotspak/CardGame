@@ -3,18 +3,59 @@
 extends Node
 class_name PectoCard
 
-@export_range(1, 999) var ID : int = 1 : ## reference to the database's Primary Key for retrieving data
+const DB_PATH : String = "res://data/pectoDB.db"
+
+@export var ID : String = "" : ## reference to the database's Primary Key for retrieving data
 	set(val): 
 		ID = val
-		if is_node_ready():
-			%setnum.text = str("Cole Smith-Evans %s/220"%ID)
+		ID = ID.replace(" ", "_").to_upper()
 
-@export var table : String = "pecto_set1"
+@export var table : String = "set1"
 @export_tool_button("Retrieve Data")
-var button = call_db
+var sqlButton = update_db
+var db : SQLite
 
-func call_db() -> void:
-	print("hasn't been added yet!")
+func update_db() -> void:
+	if ID == "":
+		push_error("ID not set!")
+		return
+	
+	var tableRef : String = "pecto_" + table
+
+	db = SQLite.new()
+	db.path = DB_PATH
+	db.open_db()
+
+	db.query("""
+		CREATE TABLE IF NOT EXISTS %s (
+			ID TEXT PRIMARY KEY,
+			name TEXT,
+			type TEXT,
+			rarity TEXT,
+			force INTEGER,
+			lvl INTEGER)""" % tableRef)
+
+	db.query_with_bindings("SELECT * FROM %s WHERE ID=?;" % tableRef, [ID])
+
+	# insert new entry into database
+	if db.query_result.size() <= 0:
+		db.query_with_bindings("""
+			INSERT INTO %s (ID, name, type, rarity, force, lvl)
+			VALUES (?, ?, ?, ?, ?, ?)""" % tableRef, 
+			[ID, cardName, type, rarity, force, lvl])
+		print("added card ", cardName, " to database at:", str(ID))
+
+	# update existing entry
+	else:
+		db.query_with_bindings("""
+			UPDATE %s
+			SET name=?, type=?, rarity=?, force=?, lvl=? 
+			WHERE ID=?""" % tableRef,
+		[cardName, type, rarity, force, lvl, ID])
+		print("updated card ", cardName, " at:", str(ID))
+
+	db.close_db()
+	
 	
 #region Data
 const BASIC_ICON : Texture = preload("uid://dmhctqok0ncxr")
