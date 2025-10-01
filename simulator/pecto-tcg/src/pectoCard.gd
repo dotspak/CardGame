@@ -3,7 +3,11 @@
 extends Node
 class_name PectoCard
 
-@export var PKEY : String = "" ## reference to the database's Primary Key for retrieving data
+@export_range(1, 999) var ID : int = 1 : ## reference to the database's Primary Key for retrieving data
+	set(val): 
+		ID = val
+		if is_node_ready():
+			%setnum.text = str("Cole Smith-Evans %s/220"%ID)
 @export_tool_button("Retrieve Data")
 var button = call_db
 
@@ -11,6 +15,11 @@ func call_db() -> void:
 	print("hasn't been added yet!")
 	
 #region Data
+const BASIC_ICON : Texture = preload("uid://dmhctqok0ncxr")
+const RARE_ICON : Texture = preload("uid://db7a3ny4orsly")
+const SUPERRARE_ICON : Texture = preload("uid://b7pbscney3tcv")
+const DIVINERARE_ICON : Texture = preload("uid://d1kafd45aa4e")
+
 const UNIT_ICON : Texture = preload("uid://de5nr31l6262q")
 const UNIT_COLOR : Color = Color("b869aa")
 
@@ -35,9 +44,11 @@ enum TRIBE{
 	Crow, Marlita, Bee, Queen, 
 	Equipment, Field}
 
-enum KEYWORD{ Instant, Effect,
+enum KEYWORD{Instant, Effect,
 	Flying, Static, Bleed, Sealed, Quick,
 	Delayed, Sick, Fragile, Immortal, Doom,}
+
+enum RARITY{Basic, Rare, Superrare, Divinerare}
 	
 var TEXT_TAGS : Dictionary = {
 	"trigger": {"color" : "orange", "icon" : "➥"},
@@ -168,7 +179,19 @@ var TEXT_TAGS : Dictionary = {
 		foil = val
 		if is_node_ready():
 			var material : ShaderMaterial = %cardArt.material
-			material.set_shader_parameter("intensity", 0.4 if foil else 0)
+			material.set_shader_parameter("intensity", 0.4 if foil else 0.0)
+
+@export var rarity : RARITY = RARITY.Basic:
+	set(val):
+		rarity = val
+		if is_node_ready():
+			var texture : Texture
+			match rarity:
+				RARITY.Basic: texture = BASIC_ICON
+				RARITY.Rare: texture = RARE_ICON
+				RARITY.Superrare: texture = SUPERRARE_ICON
+				RARITY.Divinerare: texture = DIVINERARE_ICON
+			%rarity.texture = texture
 #endregion
 
 #region Logic

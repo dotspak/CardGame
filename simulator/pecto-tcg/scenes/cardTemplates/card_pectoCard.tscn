@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://uqcqlr8xi5yc"]
+[gd_scene load_steps=39 format=3 uid="uid://uqcqlr8xi5yc"]
 
 [ext_resource type="Texture2D" uid="uid://b1f2r0svmhmej" path="res://assets/textTexture.png" id="1_0gidb"]
 [ext_resource type="Texture2D" uid="uid://dhsjltd4wwk1r" path="res://assets/set1/abstractWizard2.png" id="1_tkaek"]
@@ -11,6 +11,7 @@
 [ext_resource type="FontFile" uid="uid://rhkjenklfug8" path="res://assets/fonts/AveriaLibre-Regular.ttf" id="6_tong0"]
 [ext_resource type="Texture2D" uid="uid://de5nr31l6262q" path="res://assets/unitIcon5.png" id="7_y3ai7"]
 [ext_resource type="Script" uid="uid://daittco86fdj2" path="res://src/bbcode/triggerEffect.gd" id="8_ir3pi"]
+[ext_resource type="Texture2D" uid="uid://dmhctqok0ncxr" path="res://assets/r_basic1.png" id="12_ja440"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3h312"]
 bg_color = Color(0.10980392, 0.10980392, 0.10980392, 1)
@@ -505,7 +506,7 @@ alignment = 1
 [node name="cardName" type="Label" parent="bg/visual/topBar/info/nameContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 30
 text = "Abstract Wizard"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -554,7 +555,7 @@ clip_text = true
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 24
 text = "Ghost Monster "
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -587,3 +588,33 @@ text = "3"
 label_settings = SubResource("LabelSettings_y3ai7")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="extraInfo" type="HBoxContainer" parent="bg/visual"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -279.0
+offset_top = -48.0
+offset_right = 281.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="setnum" type="Label" parent="bg/visual/extraInfo"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "Cole Smith-Evans 1/220"
+
+[node name="rarity" type="TextureRect" parent="bg/visual/extraInfo"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = ExtResource("12_ja440")
+expand_mode = 1
