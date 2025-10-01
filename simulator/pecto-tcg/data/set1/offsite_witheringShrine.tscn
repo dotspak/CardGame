@@ -1,0 +1,84 @@
+[gd_scene load_steps=9 format=3 uid="uid://dtfwerbpe0fv4"]
+
+[ext_resource type="PackedScene" uid="uid://uqcqlr8xi5yc" path="res://scenes/cardTemplates/card_pectoCard.tscn" id="1_wvoy4"]
+[ext_resource type="Texture2D" uid="uid://bd465y4alapk1" path="res://assets/set1/witheringShrine.png" id="2_tfapf"]
+[ext_resource type="Texture2D" uid="uid://db7a3ny4orsly" path="res://assets/r_rare1.png" id="3_bj7vn"]
+[ext_resource type="Texture2D" uid="uid://brxxnkd348fxh" path="res://assets/offSiteIcon5.png" id="3_tfapf"]
+
+[sub_resource type="Gradient" id="Gradient_t5tqm"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.25882354, 0.46666667, 0.37254903, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8mdt8"]
+gradient = SubResource("Gradient_t5tqm")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wvoy4"]
+blend_mode = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tfapf"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+border_width_left = 50
+border_width_top = 50
+border_width_right = 50
+border_width_bottom = 50
+border_color = Color(0.4128, 0.86, 0.70348006, 1)
+border_blend = true
+
+[node name="witheringShrine" instance=ExtResource("1_wvoy4")]
+type = 1
+cardName = "Withering Shrine"
+force = 2
+tribe = Array[int]([0, 14])
+text = ""
+skillName = "Fading With Time"
+skillText = "Lose {force:1}. Search your deck for a card and place it on top of your deck."
+art = ExtResource("2_tfapf")
+bg = SubResource("GradientTexture1D_8mdt8")
+rarity = 1
+
+[node name="cardBackground" parent="cardShape" index="0"]
+texture = SubResource("GradientTexture1D_8mdt8")
+
+[node name="cardArt" parent="cardShape/visual" index="0"]
+texture = ExtResource("2_tfapf")
+
+[node name="shadow" parent="cardShape/visual" index="1"]
+material = SubResource("CanvasItemMaterial_wvoy4")
+theme_override_styles/panel = SubResource("StyleBoxFlat_tfapf")
+
+[node name="border" parent="cardShape/visual" index="2"]
+self_modulate = Color(1, 0.75686276, 0.078431375, 1)
+
+[node name="textContainer" parent="cardShape/visual/border/MarginContainer/text" index="1"]
+visible = false
+self_modulate = Color(1, 0.75686276, 0.078431375, 1)
+
+[node name="cardText" parent="cardShape/visual/border/MarginContainer/text/textContainer/MarginContainer/VBoxContainer" index="0"]
+text = ""
+
+[node name="skillContainer" parent="cardShape/visual/border/MarginContainer/text" index="2"]
+visible = true
+self_modulate = Color(1, 0.75686276, 0.078431375, 1)
+
+[node name="cardSkill" parent="cardShape/visual/border/MarginContainer/text/skillContainer/MarginContainer/VBoxContainer" index="1"]
+text = "[bgcolor=e44298ff][b]★FADING WITH TIME[/b][/bgcolor] Lose [bgcolor=e44298][b]1[/b][/bgcolor]. Search your deck for a card and place it on top of your deck."
+
+[node name="cardTypeIcon" parent="cardShape/visual/topBar" index="0"]
+texture = ExtResource("3_tfapf")
+
+[node name="nameContainer" parent="cardShape/visual/topBar/info" index="0"]
+self_modulate = Color(1, 0.75686276, 0.078431375, 1)
+
+[node name="cardName" parent="cardShape/visual/topBar/info/nameContainer/HBoxContainer" index="0"]
+text = "Withering Shrine"
+
+[node name="cardForce" parent="cardShape/visual/topBar/info/nameContainer/HBoxContainer/force/TextureRect" index="0"]
+text = "2"
+
+[node name="cardType" parent="cardShape/visual/topBar/info" index="1"]
+visible = true
+text = "Ghost Structure "
+
+[node name="rarity" parent="cardShape/visual/extraInfo" index="1"]
+texture = ExtResource("3_bj7vn")

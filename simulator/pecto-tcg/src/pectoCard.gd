@@ -8,6 +8,8 @@ class_name PectoCard
 		ID = val
 		if is_node_ready():
 			%setnum.text = str("Cole Smith-Evans %s/220"%ID)
+
+@export var table : String = "pecto_set1"
 @export_tool_button("Retrieve Data")
 var button = call_db
 
@@ -68,24 +70,24 @@ var TEXT_TAGS : Dictionary = {
 			match type:
 				CARD_TYPE.Unit:
 					%cardTypeIcon.texture = UNIT_ICON
-					$bg/visual/border.self_modulate = UNIT_COLOR
-					$bg/visual/border/MarginContainer/text/textContainer.self_modulate = UNIT_COLOR
-					$bg/visual/border/MarginContainer/text/skillContainer.self_modulate = UNIT_COLOR
-					$bg/visual/topBar/info/nameContainer.self_modulate = UNIT_COLOR
+					%border.self_modulate = UNIT_COLOR
+					%textContainer.self_modulate = UNIT_COLOR
+					%skillContainer.self_modulate = UNIT_COLOR
+					%nameContainer.self_modulate = UNIT_COLOR
 					
 				CARD_TYPE.Offsite:
 					%cardTypeIcon.texture = OFFSITE_ICON
-					$bg/visual/border.self_modulate = OFFSITE_COLOR
-					$bg/visual/border/MarginContainer/text/textContainer.self_modulate = OFFSITE_COLOR
-					$bg/visual/border/MarginContainer/text/skillContainer.self_modulate = OFFSITE_COLOR
-					$bg/visual/topBar/info/nameContainer.self_modulate = OFFSITE_COLOR
+					%border.self_modulate = OFFSITE_COLOR
+					%textContainer.self_modulate = OFFSITE_COLOR
+					%skillContainer.self_modulate = OFFSITE_COLOR
+					%nameContainer.self_modulate = OFFSITE_COLOR
 					
 				CARD_TYPE.Spell:
 					%cardTypeIcon.texture = SPELL_ICON
-					$bg/visual/border.self_modulate = SPELL_COLOR
-					$bg/visual/border/MarginContainer/text/textContainer.self_modulate = SPELL_COLOR
-					$bg/visual/border/MarginContainer/text/skillContainer.self_modulate = SPELL_COLOR
-					$bg/visual/topBar/info/nameContainer.self_modulate = SPELL_COLOR
+					%border.self_modulate = SPELL_COLOR
+					%textContainer.self_modulate = SPELL_COLOR
+					%skillContainer.self_modulate = SPELL_COLOR
+					%nameContainer.self_modulate = SPELL_COLOR
 				
 @export var cardName : String = "Abstract Wizard" :
 	set(val):
@@ -119,6 +121,7 @@ var TEXT_TAGS : Dictionary = {
 			%cardType.text = ""
 			for t : TRIBE in tribe: %cardType.text += TRIBE.keys()[t] + " "
 			%cardType.text.strip_edges()
+			%cardType.visible = %cardType.text != ""
 
 @export var keywords : Array[KEYWORD] = [] :
 	set(val):
@@ -140,6 +143,7 @@ var TEXT_TAGS : Dictionary = {
 		if is_node_ready():
 			var parsed : String = parse_card_text(text).strip_edges()
 			%cardText.text = parsed
+			%textContainer.visible = parsed != ""
 		
 @export var skillName : String = "":
 	set(val):
@@ -158,11 +162,11 @@ var TEXT_TAGS : Dictionary = {
 		isSkillContinuous = val
 		skillName = skillName
 		if is_node_ready():
-			$bg/visual/border/MarginContainer/text/skillContainer/bg.modulate = SKILL_COLOR \
+			%skillBG.modulate = SKILL_COLOR \
 			if !isSkillContinuous else FSKILL_COLOR
 			
 @export_group("visual")
-@export var art : Texture :
+@export var art : Texture:
 	set(val):
 		art = val
 		if is_node_ready():
@@ -192,23 +196,28 @@ var TEXT_TAGS : Dictionary = {
 				RARITY.Superrare: texture = SUPERRARE_ICON
 				RARITY.Divinerare: texture = DIVINERARE_ICON
 			%rarity.texture = texture
+
+const CORNER_RADIUS : int = 48
+@export var roundedEdges : bool = true:
+	set(val):
+		roundedEdges = val
+		if is_node_ready():
+			var stylebox : StyleBoxFlat = %cardShape.get("theme_override_styles/panel")
+			stylebox.corner_radius_bottom_left = CORNER_RADIUS if roundedEdges else 0
+			stylebox.corner_radius_bottom_right = CORNER_RADIUS if roundedEdges else 0
+			stylebox.corner_radius_top_left = CORNER_RADIUS if roundedEdges else 0
+			stylebox.corner_radius_top_right = CORNER_RADIUS if roundedEdges else 0
+
 #endregion
 
 #region Logic
 @export_group("Logic")
 @export var cardLogicNode : Node
 @export var skill : Node
-
 #endregion
 
-func set_force(newForce : int = 1) -> void: force = newForce
-func change_force(amount : int = 1) -> void: force += amount
-
-func set_lvl(newLVL : int = 1) -> void: lvl = newLVL
-func change_lvl(amount : int = 1) -> void: lvl += amount
-
 func update_skill_box() -> void:
-	$bg/visual/border/MarginContainer/text/skillContainer.visible = skillName != ""
+	%skillContainer.visible = skillName != ""
 	%cardSkill.text = ""
 	
 	var sn : String = "{fskill:%s}"%skillName if isSkillContinuous else "{skill:%s}"%skillName
@@ -216,8 +225,8 @@ func update_skill_box() -> void:
 	%cardSkill.text += parse_card_text(skillText).strip_edges()
 
 
-func parse_card_text(text : String) -> String:
-	var output : String = text
+func parse_card_text(string : String) -> String:
+	var output : String = string
 	var regex : RegEx = RegEx.new()
 	regex.compile(r"\{([a-zA-Z]+):([^}]+)\}")
 	
@@ -232,7 +241,16 @@ func parse_card_text(text : String) -> String:
 		if TEXT_TAGS.has(tag):
 			var icon : String = TEXT_TAGS[tag]["icon"]
 			var color : String = TEXT_TAGS[tag]["color"]
-			replacement = "[bgcolor=%s]%s%s[/bgcolor]" % [color, icon, value]
+			replacement = "[bgcolor=%s][b]%s%s[/b][/bgcolor]" % [color, icon, value]
 
 		output = output.substr(0, m.get_start()) + replacement + output.substr(m.get_end())
 	return output
+
+
+#region setters
+func set_force(newForce : int = 1) -> void: force = newForce
+func change_force(amount : int = 1) -> void: force += amount
+
+func set_lvl(newLVL : int = 1) -> void: lvl = newLVL
+func change_lvl(amount : int = 1) -> void: lvl += amount
+#endregion

@@ -1,0 +1,86 @@
+[gd_scene load_steps=8 format=3 uid="uid://b8uwted6lh1x5"]
+
+[ext_resource type="PackedScene" uid="uid://uqcqlr8xi5yc" path="res://scenes/cardTemplates/card_pectoCard.tscn" id="1_yn2j8"]
+[ext_resource type="Texture2D" uid="uid://d6ixysc00hxh" path="res://assets/set1/monolith.png" id="2_7k3bj"]
+[ext_resource type="Texture2D" uid="uid://brxxnkd348fxh" path="res://assets/offSiteIcon5.png" id="2_m1qlt"]
+[ext_resource type="Texture2D" uid="uid://d1kafd45aa4e" path="res://assets/r_divine1.png" id="4_7k3bj"]
+
+[sub_resource type="Gradient" id="Gradient_363s6"]
+offsets = PackedFloat32Array(0, 0.38327527, 0.67247385, 0.85714287, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.27450982, 0.4509804, 0.4509804, 1, 0.79607844, 0.08627451, 0.05882353, 1, 0.6627451, 0.45882353, 0.48235294, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tjan4"]
+gradient = SubResource("Gradient_363s6")
+fill_to = Vector2(1, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7k3bj"]
+blend_mode = 3
+
+[node name="monolith" instance=ExtResource("1_yn2j8")]
+type = 1
+cardName = "Monolith"
+force = 0
+lvl = 3
+banished = true
+tribe = Array[int]([14, 5])
+text = "When you draw a card, gain {force:1}."
+skillName = "Prayer And Speech"
+skillText = "Lose {force:1}. Units you control gain {force:1}."
+isSkillContinuous = true
+art = ExtResource("2_7k3bj")
+bg = SubResource("GradientTexture2D_tjan4")
+rarity = 3
+
+[node name="cardBackground" parent="cardShape" index="0"]
+texture = SubResource("GradientTexture2D_tjan4")
+
+[node name="cardArt" parent="cardShape/visual" index="0"]
+texture = ExtResource("2_7k3bj")
+
+[node name="shadow" parent="cardShape/visual" index="1"]
+modulate = Color(1, 0.16632706, 0, 1)
+material = SubResource("CanvasItemMaterial_7k3bj")
+
+[node name="border" parent="cardShape/visual" index="2"]
+self_modulate = Color(1, 0.75686276, 0.078431375, 1)
+
+[node name="textContainer" parent="cardShape/visual/border/MarginContainer/text" index="1"]
+self_modulate = Color(1, 0.75686276, 0.078431375, 1)
+
+[node name="cardText" parent="cardShape/visual/border/MarginContainer/text/textContainer/MarginContainer/VBoxContainer" index="0"]
+text = "When you draw a card, gain [bgcolor=e44298][b]1[/b][/bgcolor]."
+
+[node name="skillContainer" parent="cardShape/visual/border/MarginContainer/text" index="2"]
+visible = true
+self_modulate = Color(1, 0.75686276, 0.078431375, 1)
+
+[node name="skillBG" parent="cardShape/visual/border/MarginContainer/text/skillContainer" index="0"]
+modulate = Color(0.08627451, 0.6627451, 0.56078434, 1)
+
+[node name="cardSkill" parent="cardShape/visual/border/MarginContainer/text/skillContainer/MarginContainer/VBoxContainer" index="1"]
+text = "[bgcolor=16a98fff][b]★PRAYER AND SPEECH[/b][/bgcolor] Lose [bgcolor=e44298][b]1[/b][/bgcolor]. Units you control gain [bgcolor=e44298][b]1[/b][/bgcolor]."
+
+[node name="cardTypeIcon" parent="cardShape/visual/topBar" index="0"]
+texture = ExtResource("2_m1qlt")
+
+[node name="nameContainer" parent="cardShape/visual/topBar/info" index="0"]
+self_modulate = Color(1, 0.75686276, 0.078431375, 1)
+
+[node name="cardName" parent="cardShape/visual/topBar/info/nameContainer/HBoxContainer" index="0"]
+text = "Monolith"
+
+[node name="cardForce" parent="cardShape/visual/topBar/info/nameContainer/HBoxContainer/force/TextureRect" index="0"]
+text = "0"
+
+[node name="cardType" parent="cardShape/visual/topBar/info" index="1"]
+visible = true
+text = "Structure God "
+
+[node name="lvlIcon" parent="cardShape/visual/topBar" index="2"]
+modulate = Color(1, 0.49411765, 0.5294118, 1)
+
+[node name="cardLVL" parent="cardShape/visual/topBar/lvlIcon" index="0"]
+text = "3"
+
+[node name="rarity" parent="cardShape/visual/extraInfo" index="1"]
+texture = ExtResource("4_7k3bj")

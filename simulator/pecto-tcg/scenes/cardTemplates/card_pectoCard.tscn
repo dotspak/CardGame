@@ -1,7 +1,6 @@
 [gd_scene load_steps=39 format=3 uid="uid://uqcqlr8xi5yc"]
 
 [ext_resource type="Texture2D" uid="uid://b1f2r0svmhmej" path="res://assets/textTexture.png" id="1_0gidb"]
-[ext_resource type="Texture2D" uid="uid://dhsjltd4wwk1r" path="res://assets/set1/abstractWizard2.png" id="1_tkaek"]
 [ext_resource type="Script" uid="uid://dn6e7duqtsffm" path="res://src/pectoCard.gd" id="1_y3ai7"]
 [ext_resource type="Texture2D" uid="uid://bgcxb5kcqfo72" path="res://assets/foilmaps/abstractWizard.png" id="3_ir3pi"]
 [ext_resource type="Texture2D" uid="uid://bsidin4i266kj" path="res://assets/levelIcon.png" id="3_mn7ii"]
@@ -75,7 +74,7 @@ shader_parameter/foil_map = ExtResource("3_ir3pi")
 shader_parameter/gradient = ExtResource("4_1t38k")
 shader_parameter/speed = 0.2000000095
 shader_parameter/scale = 0.90700003982262
-shader_parameter/intensity = 0.4
+shader_parameter/intensity = 0.0
 shader_parameter/angle = 191.75200910822
 shader_parameter/noise_strength = 0.6270000297825
 shader_parameter/noise_speed = 2.8570001357075
@@ -104,6 +103,15 @@ border_width_bottom = 2
 border_color = Color(1, 1, 1, 1)
 shadow_color = Color(0.42, 0.42, 0.42, 1)
 shadow_size = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4cas"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0, 0, 0, 0.5882353)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y3ai7"]
 draw_center = false
@@ -233,17 +241,9 @@ shadow_color = Color(0.2010927, 0.5673567, 0.8666667, 1)
 
 [node name="PectoCard" type="Node"]
 script = ExtResource("1_y3ai7")
-cardName = "Tomb Crawler"
-force = 3
-lvl = 3
-tribe = Array[int]([0, 3])
-keywords = Array[int]([6])
-text = "{trigger:victor} You may discard a card."
-skillText = "The skill thats about to come out will destroy everything."
-art = ExtResource("1_tkaek")
-foil = true
 
-[node name="bg" type="PanelContainer" parent="."]
+[node name="cardShape" type="PanelContainer" parent="."]
+unique_name_in_owner = true
 clip_children = 2
 clip_contents = true
 custom_minimum_size = Vector2(750, 1050)
@@ -252,11 +252,11 @@ offset_bottom = 1050.0
 pivot_offset = Vector2(375, 525)
 theme_override_styles/panel = SubResource("StyleBoxFlat_3h312")
 
-[node name="cardBackground" type="TextureRect" parent="bg"]
+[node name="cardBackground" type="TextureRect" parent="cardShape"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="dots" type="TextureRect" parent="bg"]
+[node name="dots" type="TextureRect" parent="cardShape"]
 modulate = Color(1, 1, 1, 0.11764706)
 material = SubResource("CanvasItemMaterial_y3ai7")
 layout_mode = 2
@@ -264,14 +264,14 @@ texture = ExtResource("1_0gidb")
 expand_mode = 1
 stretch_mode = 1
 
-[node name="visual" type="Control" parent="bg"]
+[node name="visual" type="Control" parent="cardShape"]
 clip_contents = true
 custom_minimum_size = Vector2(650, 950)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="cardArt" type="TextureRect" parent="bg/visual"]
+[node name="cardArt" type="TextureRect" parent="cardShape/visual"]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_jlkag")
 layout_mode = 1
@@ -280,10 +280,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_tkaek")
 expand_mode = 1
 
-[node name="shadow" type="Panel" parent="bg/visual"]
+[node name="shadow" type="Panel" parent="cardShape/visual"]
 material = SubResource("CanvasItemMaterial_tong0")
 layout_mode = 1
 anchors_preset = 15
@@ -293,7 +292,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_jv68f")
 
-[node name="border" type="Panel" parent="bg/visual"]
+[node name="border" type="Panel" parent="cardShape/visual"]
+unique_name_in_owner = true
 self_modulate = Color(0.72156864, 0.4117647, 0.6666667, 1)
 custom_minimum_size = Vector2(550, 850)
 layout_mode = 1
@@ -310,7 +310,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_0gidb")
 
-[node name="MarginContainer" type="MarginContainer" parent="bg/visual/border"]
+[node name="MarginContainer" type="MarginContainer" parent="cardShape/visual/border"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -322,23 +322,33 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="text" type="VBoxContainer" parent="bg/visual/border/MarginContainer"]
+[node name="text" type="VBoxContainer" parent="cardShape/visual/border/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 8
 metadata/_edit_use_anchors_ = true
 
-[node name="textContainer" type="PanelContainer" parent="bg/visual/border/MarginContainer/text"]
+[node name="cardKeywords" type="RichTextLabel" parent="cardShape/visual/border/MarginContainer/text"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_m4cas")
+bbcode_enabled = true
+text = "[i][color=ffa500ff]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="textContainer" type="PanelContainer" parent="cardShape/visual/border/MarginContainer/text"]
+unique_name_in_owner = true
 self_modulate = Color(0.72156864, 0.4117647, 0.6666667, 1)
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_styles/panel = SubResource("StyleBoxFlat_y3ai7")
 
-[node name="bg" type="TextureRect" parent="bg/visual/border/MarginContainer/text/textContainer"]
+[node name="bg" type="TextureRect" parent="cardShape/visual/border/MarginContainer/text/textContainer"]
 show_behind_parent = true
 layout_mode = 2
 texture = SubResource("GradientTexture2D_0gidb")
 
-[node name="dots" type="TextureRect" parent="bg/visual/border/MarginContainer/text/textContainer"]
+[node name="dots" type="TextureRect" parent="cardShape/visual/border/MarginContainer/text/textContainer"]
 modulate = Color(1, 1, 1, 0.11764706)
 material = SubResource("CanvasItemMaterial_y3ai7")
 layout_mode = 2
@@ -346,26 +356,20 @@ texture = ExtResource("1_0gidb")
 expand_mode = 1
 stretch_mode = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="bg/visual/border/MarginContainer/text/textContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="cardShape/visual/border/MarginContainer/text/textContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="bg/visual/border/MarginContainer/text/textContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="cardShape/visual/border/MarginContainer/text/textContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="cardKeywords" type="RichTextLabel" parent="bg/visual/border/MarginContainer/text/textContainer/MarginContainer/VBoxContainer"]
+[node name="cardText" type="RichTextLabel" parent="cardShape/visual/border/MarginContainer/text/textContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-bbcode_enabled = true
-text = "[i][color=ffa500ff]Quick"
-fit_content = true
-
-[node name="cardText" type="RichTextLabel" parent="bg/visual/border/MarginContainer/text/textContainer/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
+size_flags_vertical = 3
 theme_override_fonts/normal_font = ExtResource("6_tong0")
 theme_override_fonts/bold_font = ExtResource("3_tong0")
 theme_override_font_sizes/normal_font_size = 24
@@ -373,25 +377,28 @@ theme_override_font_sizes/bold_font_size = 24
 theme_override_font_sizes/bold_italics_font_size = 24
 theme_override_font_sizes/italics_font_size = 24
 bbcode_enabled = true
-text = "[bgcolor=orange]➥VICTOR[/bgcolor] You may discard a card."
+text = "Dummy text goes here!"
 fit_content = true
+vertical_alignment = 1
 custom_effects = [SubResource("RichTextEffect_ir3pi")]
 
-[node name="skillContainer" type="PanelContainer" parent="bg/visual/border/MarginContainer/text"]
+[node name="skillContainer" type="PanelContainer" parent="cardShape/visual/border/MarginContainer/text"]
+unique_name_in_owner = true
 visible = false
 self_modulate = Color(0.72156864, 0.4117647, 0.6666667, 1)
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_styles/panel = SubResource("StyleBoxFlat_1t38k")
 
-[node name="bg" type="TextureRect" parent="bg/visual/border/MarginContainer/text/skillContainer"]
+[node name="skillBG" type="TextureRect" parent="cardShape/visual/border/MarginContainer/text/skillContainer"]
+unique_name_in_owner = true
 modulate = Color(0.89411765, 0.25882354, 0.59607846, 1)
 self_modulate = Color(0.66, 0.66, 0.66, 1)
 show_behind_parent = true
 layout_mode = 2
 texture = SubResource("GradientTexture2D_4ay7h")
 
-[node name="dots" type="TextureRect" parent="bg/visual/border/MarginContainer/text/skillContainer"]
+[node name="dots" type="TextureRect" parent="cardShape/visual/border/MarginContainer/text/skillContainer"]
 modulate = Color(1, 1, 1, 0.11764706)
 material = SubResource("CanvasItemMaterial_y3ai7")
 layout_mode = 2
@@ -399,17 +406,17 @@ texture = ExtResource("1_0gidb")
 expand_mode = 1
 stretch_mode = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="bg/visual/border/MarginContainer/text/skillContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="cardShape/visual/border/MarginContainer/text/skillContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="bg/visual/border/MarginContainer/text/skillContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="cardShape/visual/border/MarginContainer/text/skillContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="skillName" type="RichTextLabel" parent="bg/visual/border/MarginContainer/text/skillContainer/MarginContainer/VBoxContainer"]
+[node name="skillName" type="RichTextLabel" parent="cardShape/visual/border/MarginContainer/text/skillContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 visible = false
 clip_contents = false
@@ -421,7 +428,7 @@ text = "[bgcolor=e44298ff]★DIPPY DOG[/bgcolor]"
 fit_content = true
 autowrap_mode = 0
 
-[node name="grad" type="Panel" parent="bg/visual/border/MarginContainer/text/skillContainer/MarginContainer/VBoxContainer/skillName"]
+[node name="grad" type="Panel" parent="cardShape/visual/border/MarginContainer/text/skillContainer/MarginContainer/VBoxContainer/skillName"]
 visible = false
 modulate = Color(0.08627451, 0.6627451, 0.56078434, 1)
 show_behind_parent = true
@@ -433,7 +440,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_ir3pi")
 
-[node name="Panel" type="Panel" parent="bg/visual/border/MarginContainer/text/skillContainer/MarginContainer/VBoxContainer/skillName"]
+[node name="Panel" type="Panel" parent="cardShape/visual/border/MarginContainer/text/skillContainer/MarginContainer/VBoxContainer/skillName"]
 visible = false
 show_behind_parent = true
 layout_mode = 1
@@ -444,9 +451,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_10mgu")
 
-[node name="cardSkill" type="RichTextLabel" parent="bg/visual/border/MarginContainer/text/skillContainer/MarginContainer/VBoxContainer"]
+[node name="cardSkill" type="RichTextLabel" parent="cardShape/visual/border/MarginContainer/text/skillContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_fonts/normal_font = ExtResource("6_tong0")
 theme_override_fonts/bold_font = ExtResource("3_tong0")
 theme_override_font_sizes/normal_font_size = 24
@@ -454,10 +462,11 @@ theme_override_font_sizes/bold_font_size = 24
 theme_override_font_sizes/bold_italics_font_size = 24
 theme_override_font_sizes/italics_font_size = 24
 bbcode_enabled = true
-text = "{skill:} The skill thats about to come out will destroy everything."
+text = "{skill:} Dummy text goes here!"
 fit_content = true
+vertical_alignment = 1
 
-[node name="topBar" type="HBoxContainer" parent="bg/visual"]
+[node name="topBar" type="HBoxContainer" parent="cardShape/visual"]
 custom_minimum_size = Vector2(0, 132)
 layout_mode = 1
 anchors_preset = 10
@@ -465,19 +474,20 @@ anchor_right = 1.0
 offset_bottom = 64.0
 grow_horizontal = 2
 
-[node name="cardTypeIcon" type="TextureRect" parent="bg/visual/topBar"]
+[node name="cardTypeIcon" type="TextureRect" parent="cardShape/visual/topBar"]
 unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("7_y3ai7")
 expand_mode = 2
 
-[node name="info" type="VBoxContainer" parent="bg/visual/topBar"]
+[node name="info" type="VBoxContainer" parent="cardShape/visual/topBar"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 
-[node name="nameContainer" type="PanelContainer" parent="bg/visual/topBar/info"]
+[node name="nameContainer" type="PanelContainer" parent="cardShape/visual/topBar/info"]
+unique_name_in_owner = true
 self_modulate = Color(0.72156864, 0.4117647, 0.6666667, 1)
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
@@ -485,13 +495,13 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_ir3pi")
 
-[node name="nameBackground" type="TextureRect" parent="bg/visual/topBar/info/nameContainer"]
+[node name="nameBackground" type="TextureRect" parent="cardShape/visual/topBar/info/nameContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 texture = SubResource("GradientTexture1D_y3ai7")
 expand_mode = 1
 
-[node name="dots" type="TextureRect" parent="bg/visual/topBar/info/nameContainer"]
+[node name="dots" type="TextureRect" parent="cardShape/visual/topBar/info/nameContainer"]
 modulate = Color(1, 1, 1, 0.11764706)
 material = SubResource("CanvasItemMaterial_y3ai7")
 layout_mode = 2
@@ -499,11 +509,11 @@ texture = ExtResource("1_0gidb")
 expand_mode = 1
 stretch_mode = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="bg/visual/topBar/info/nameContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="cardShape/visual/topBar/info/nameContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="cardName" type="Label" parent="bg/visual/topBar/info/nameContainer/HBoxContainer"]
+[node name="cardName" type="Label" parent="cardShape/visual/topBar/info/nameContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
@@ -511,7 +521,7 @@ text = "Abstract Wizard"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="force" type="Panel" parent="bg/visual/topBar/info/nameContainer/HBoxContainer"]
+[node name="force" type="Panel" parent="cardShape/visual/topBar/info/nameContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
@@ -519,7 +529,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_4ay7h")
 
-[node name="TextureRect" type="TextureRect" parent="bg/visual/topBar/info/nameContainer/HBoxContainer/force"]
+[node name="TextureRect" type="TextureRect" parent="cardShape/visual/topBar/info/nameContainer/HBoxContainer/force"]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
@@ -533,7 +543,7 @@ texture = SubResource("GradientTexture2D_m4cas")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="cardForce" type="Label" parent="bg/visual/topBar/info/nameContainer/HBoxContainer/force/TextureRect"]
+[node name="cardForce" type="Label" parent="cardShape/visual/topBar/info/nameContainer/HBoxContainer/force/TextureRect"]
 unique_name_in_owner = true
 clip_contents = true
 layout_mode = 1
@@ -546,37 +556,28 @@ offset_bottom = 19.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 32
-text = "3"
+text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 
-[node name="cardType" type="Label" parent="bg/visual/topBar/info"]
+[node name="cardType" type="Label" parent="cardShape/visual/topBar/info"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 24
-text = "Ghost Monster "
+theme_override_styles/normal = SubResource("StyleBoxFlat_ja440")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Panel" type="Panel" parent="bg/visual/topBar/info/cardType"]
-show_behind_parent = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ja440")
-
-[node name="lvlIcon" type="TextureRect" parent="bg/visual/topBar"]
+[node name="lvlIcon" type="TextureRect" parent="cardShape/visual/topBar"]
 unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("3_mn7ii")
 expand_mode = 2
 
-[node name="cardLVL" type="Label" parent="bg/visual/topBar/lvlIcon"]
+[node name="cardLVL" type="Label" parent="cardShape/visual/topBar/lvlIcon"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -584,12 +585,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "3"
+text = "1"
 label_settings = SubResource("LabelSettings_y3ai7")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="extraInfo" type="HBoxContainer" parent="bg/visual"]
+[node name="extraInfo" type="HBoxContainer" parent="cardShape/visual"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -603,14 +604,14 @@ offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="setnum" type="Label" parent="bg/visual/extraInfo"]
+[node name="setnum" type="Label" parent="cardShape/visual/extraInfo"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 16
 text = "Cole Smith-Evans 1/220"
 
-[node name="rarity" type="TextureRect" parent="bg/visual/extraInfo"]
+[node name="rarity" type="TextureRect" parent="cardShape/visual/extraInfo"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2

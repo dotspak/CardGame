@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://bd5x8tl7fbrhf"]
+
+[ext_resource type="PackedScene" uid="uid://uqcqlr8xi5yc" path="res://scenes/cardTemplates/card_pectoCard.tscn" id="1_fa20x"]
+[ext_resource type="Texture2D" uid="uid://cubv8v1u2wvwi" path="res://assets/set1/bottomDweller.png" id="2_qccvd"]
+
+[node name="PectoCard" instance=ExtResource("1_fa20x")]
+cardName = "Bottom Dweller"
+force = 2
+lvl = 2
+tribe = Array[int]([0])
+text = "{trigger:enter} Shuffle your discard and draw a card."
+art = ExtResource("2_qccvd")
+
+[node name="cardArt" parent="cardShape/visual" index="0"]
+texture = ExtResource("2_qccvd")
+
+[node name="cardText" parent="cardShape/visual/border/MarginContainer/text/textContainer/MarginContainer/VBoxContainer" index="1"]
+text = "[bgcolor=orange][b]➥ENTER[/b][/bgcolor] Shuffle your discard and draw a card."
+
+[node name="cardSkill" parent="cardShape/visual/border/MarginContainer/text/skillContainer/MarginContainer/VBoxContainer" index="1"]
+text = "[bgcolor=e44298ff][b]★WUMBA FRUIT[/b][/bgcolor] This skill thats about to come out will destroy everything."
+
+[node name="cardName" parent="cardShape/visual/topBar/info/nameContainer/HBoxContainer" index="0"]
+text = "Bottom Dweller"
+
+[node name="cardForce" parent="cardShape/visual/topBar/info/nameContainer/HBoxContainer/force/TextureRect" index="0"]
+text = "2"
+
+[node name="cardType" parent="cardShape/visual/topBar/info" index="1"]
+text = "Ghost "
+
+[node name="cardLVL" parent="cardShape/visual/topBar/lvlIcon" index="0"]
+text = "2"

@@ -1,5 +1,5 @@
 class_name BattleCard3D
-extends 
+extends Card3D
 
 @export var id: String = ""
 @export var front_material_path: String:

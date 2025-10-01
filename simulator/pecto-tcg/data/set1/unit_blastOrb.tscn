@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpd75prx0jb0v"]
+
+[ext_resource type="PackedScene" uid="uid://uqcqlr8xi5yc" path="res://scenes/cardTemplates/card_pectoCard.tscn" id="1_ajnrj"]
+[ext_resource type="Texture2D" uid="uid://b8fv0jeg41l0r" path="res://assets/set1/blastOrb.png" id="2_lcw8r"]
+
+[node name="blastOrb" instance=ExtResource("1_ajnrj")]
+cardName = "Blast Orb"
+lvl = 2
+tribe = Array[int]([9])
+keywords = Array[int]([5])
+text = ""
+skillName = "Outburst"
+skillText = "Deal 2 damage to target unit."
+art = ExtResource("2_lcw8r")
+
+[node name="cardArt" parent="cardShape/visual" index="0"]
+texture = ExtResource("2_lcw8r")
+
+[node name="cardKeywords" parent="cardShape/visual/border/MarginContainer/text" index="0"]
+text = "[i][color=ffa500ff]Sealed"
+
+[node name="textContainer" parent="cardShape/visual/border/MarginContainer/text" index="1"]
+visible = false
+
+[node name="cardText" parent="cardShape/visual/border/MarginContainer/text/textContainer/MarginContainer/VBoxContainer" index="0"]
+text = ""
+
+[node name="skillContainer" parent="cardShape/visual/border/MarginContainer/text" index="2"]
+visible = true
+
+[node name="cardSkill" parent="cardShape/visual/border/MarginContainer/text/skillContainer/MarginContainer/VBoxContainer" index="1"]
+text = "[bgcolor=e44298ff][b]★OUTBURST[/b][/bgcolor] Deal 2 damage to target unit."
+
+[node name="cardName" parent="cardShape/visual/topBar/info/nameContainer/HBoxContainer" index="0"]
+text = "Blast Orb"
+
+[node name="cardType" parent="cardShape/visual/topBar/info" index="1"]
+text = "Object "
+
+[node name="cardLVL" parent="cardShape/visual/topBar/lvlIcon" index="0"]
+text = "2"
