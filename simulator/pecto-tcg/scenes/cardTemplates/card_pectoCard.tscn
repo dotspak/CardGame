@@ -1,8 +1,9 @@
-[gd_scene load_steps=39 format=3 uid="uid://uqcqlr8xi5yc"]
+[gd_scene load_steps=38 format=3 uid="uid://uqcqlr8xi5yc"]
 
 [ext_resource type="Texture2D" uid="uid://b1f2r0svmhmej" path="res://assets/textTexture.png" id="1_0gidb"]
+[ext_resource type="Texture2D" uid="uid://dhsjltd4wwk1r" path="res://assets/set1/abstractWizard2.png" id="1_tkaek"]
 [ext_resource type="Script" uid="uid://dn6e7duqtsffm" path="res://src/pectoCard.gd" id="1_y3ai7"]
-[ext_resource type="Texture2D" uid="uid://jmlinqsnajtl" path="res://assets/set1/tombCrawler.png" id="2_y3ai7"]
+[ext_resource type="Texture2D" uid="uid://bgcxb5kcqfo72" path="res://assets/foilmaps/abstractWizard.png" id="3_ir3pi"]
 [ext_resource type="Texture2D" uid="uid://bsidin4i266kj" path="res://assets/levelIcon.png" id="3_mn7ii"]
 [ext_resource type="FontFile" uid="uid://1kd62leqiy8y" path="res://assets/fonts/AveriaLibre-Bold.ttf" id="3_tong0"]
 [ext_resource type="Texture2D" uid="uid://cnynonhm320bh" path="res://assets/rainbowGrad.tres" id="4_1t38k"]
@@ -66,19 +67,10 @@ void fragment() {
 }
 "
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_y3ai7"]
-noise_type = 3
-frequency = 0.0286
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1t38k"]
-width = 128
-height = 128
-noise = SubResource("FastNoiseLite_y3ai7")
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jlkag"]
 shader = SubResource("Shader_4ay7h")
 shader_parameter/enabled = true
-shader_parameter/foil_map = SubResource("NoiseTexture2D_1t38k")
+shader_parameter/foil_map = ExtResource("3_ir3pi")
 shader_parameter/gradient = ExtResource("4_1t38k")
 shader_parameter/speed = 0.2000000095
 shader_parameter/scale = 0.90700003982262
@@ -247,7 +239,7 @@ tribe = Array[int]([0, 3])
 keywords = Array[int]([6])
 text = "{trigger:victor} You may discard a card."
 skillText = "The skill thats about to come out will destroy everything."
-art = ExtResource("2_y3ai7")
+art = ExtResource("1_tkaek")
 foil = true
 
 [node name="bg" type="PanelContainer" parent="."]
@@ -287,7 +279,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_y3ai7")
+texture = ExtResource("1_tkaek")
 expand_mode = 1
 
 [node name="shadow" type="Panel" parent="bg/visual"]
@@ -514,7 +506,7 @@ alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "Tomb Crawler"
+text = "Abstract Wizard"
 horizontal_alignment = 1
 vertical_alignment = 1
 

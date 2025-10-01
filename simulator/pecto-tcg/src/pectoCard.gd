@@ -1,4 +1,5 @@
 @tool
+@icon("uid://fwr4di8poij3")
 extends Node
 class_name PectoCard
 
@@ -25,6 +26,7 @@ const FSKILL_COLOR : Color = Color("16a98fff")
 const KEYWORD_COLOR : Color = Color.ORANGE
 
 enum CARD_TYPE{Unit, Offsite, Spell}
+
 enum TRIBE{
 	Ghost, Golem, Wizard, Monster, 
 	Magic, God, Warrior, Celestial,
@@ -36,6 +38,12 @@ enum TRIBE{
 enum KEYWORD{ Instant, Effect,
 	Flying, Static, Bleed, Sealed, Quick,
 	Delayed, Sick, Fragile, Immortal, Doom,}
+	
+var TEXT_TAGS : Dictionary = {
+	"trigger": {"color" : "orange", "icon" : "➥"},
+	"skill" : {"color" : SKILL_COLOR.to_html(), "icon" : "★"},
+	"fskill" : {"color" : FSKILL_COLOR.to_html(), "icon" : "★"},
+	"force" : {"color" : "e44298", "icon" : ""}}
 #endregion
 
 #region Visual
@@ -127,19 +135,13 @@ enum KEYWORD{ Instant, Effect,
 		skillName = val
 		if is_node_ready():
 			update_skill_box()
-			#$bg/visual/border/MarginContainer/text/skillContainer.visible = skillName != ""
-			#var wrapped : String = "{fskill:%s}"%skillName if isSkillContinuous else "{skill:%s}"%skillName
-			#%skillName.text = parse_card_text(wrapped).strip_edges()
-			
 
 @export_multiline var skillText : String = "Dummy text goes here!" :
 	set(val):
 		skillText = val
 		if is_node_ready():
 			update_skill_box()
-			#var parsed : String = parse_card_text(skillText).strip_edges()
-			#%cardSkill.text = parsed
-			
+
 @export var isSkillContinuous : bool = false:
 	set(val):
 		isSkillContinuous = val
@@ -167,7 +169,6 @@ enum KEYWORD{ Instant, Effect,
 		if is_node_ready():
 			var material : ShaderMaterial = %cardArt.material
 			material.set_shader_parameter("intensity", 0.4 if foil else 0)
-				
 #endregion
 
 #region Logic
@@ -190,14 +191,7 @@ func update_skill_box() -> void:
 	var sn : String = "{fskill:%s}"%skillName if isSkillContinuous else "{skill:%s}"%skillName
 	%cardSkill.text = parse_card_text(sn).strip_edges() + " "
 	%cardSkill.text += parse_card_text(skillText).strip_edges()
-	
 
-var TEXT_TAGS : Dictionary = {
-	"trigger": {"color" : "orange", "icon" : "➥"},
-	"skill" : {"color" : SKILL_COLOR.to_html(), "icon" : "★"},
-	"fskill" : {"color" : FSKILL_COLOR.to_html(), "icon" : "★"},
-	"force" : {"color" : "e44298", "icon" : ""}
-}
 
 func parse_card_text(text : String) -> String:
 	var output : String = text
