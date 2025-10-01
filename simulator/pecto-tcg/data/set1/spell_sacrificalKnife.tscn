@@ -13,6 +13,7 @@ colors = PackedColorArray(0.53333336, 0.07058824, 0.07058824, 1)
 gradient = SubResource("Gradient_ng0j1")
 
 [node name="sacrificalKnife" instance=ExtResource("1_0nvhh")]
+ID = "SACRIFICIAL_KNIFE"
 type = 2
 cardName = "Sacrificial Knife"
 lvl = 3

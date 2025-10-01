@@ -26,6 +26,7 @@ border_color = Color(0.4128, 0.86, 0.70348006, 1)
 border_blend = true
 
 [node name="witheringShrine" instance=ExtResource("1_wvoy4")]
+ID = "WITHERING_SHRINE"
 type = 1
 cardName = "Withering Shrine"
 force = 2

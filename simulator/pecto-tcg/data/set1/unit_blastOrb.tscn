@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b8fv0jeg41l0r" path="res://assets/set1/blastOrb.png" id="2_lcw8r"]
 
 [node name="blastOrb" instance=ExtResource("1_ajnrj")]
+ID = "BLAST_ORB"
 cardName = "Blast Orb"
 lvl = 2
 tribe = Array[int]([9])

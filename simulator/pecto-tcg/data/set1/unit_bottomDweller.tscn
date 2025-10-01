@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cubv8v1u2wvwi" path="res://assets/set1/bottomDweller.png" id="2_qccvd"]
 
 [node name="PectoCard" instance=ExtResource("1_fa20x")]
+ID = "BOTTOM_DWELLER"
 cardName = "Bottom Dweller"
 force = 2
 lvl = 2
@@ -14,7 +15,7 @@ art = ExtResource("2_qccvd")
 [node name="cardArt" parent="cardShape/visual" index="0"]
 texture = ExtResource("2_qccvd")
 
-[node name="cardText" parent="cardShape/visual/border/MarginContainer/text/textContainer/MarginContainer/VBoxContainer" index="1"]
+[node name="cardText" parent="cardShape/visual/border/MarginContainer/text/textContainer/MarginContainer/VBoxContainer" index="0"]
 text = "[bgcolor=orange][b]➥ENTER[/b][/bgcolor] Shuffle your discard and draw a card."
 
 [node name="cardSkill" parent="cardShape/visual/border/MarginContainer/text/skillContainer/MarginContainer/VBoxContainer" index="1"]

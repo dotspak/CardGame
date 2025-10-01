@@ -3,61 +3,20 @@
 extends Node
 class_name PectoCard
 
+#region Data
 const DB_PATH : String = "res://data/pectoDB.db"
 
+@export_group("Database")
 @export var ID : String = "" : ## reference to the database's Primary Key for retrieving data
 	set(val): 
 		ID = val
 		ID = ID.replace(" ", "_").to_upper()
 
 @export var table : String = "set1"
-@export_tool_button("Retrieve Data")
+@export_tool_button("Update Database")
 var sqlButton = update_db
 var db : SQLite
 
-func update_db() -> void:
-	if ID == "":
-		push_error("ID not set!")
-		return
-	
-	var tableRef : String = "pecto_" + table
-
-	db = SQLite.new()
-	db.path = DB_PATH
-	db.open_db()
-
-	db.query("""
-		CREATE TABLE IF NOT EXISTS %s (
-			ID TEXT PRIMARY KEY,
-			name TEXT,
-			type TEXT,
-			rarity TEXT,
-			force INTEGER,
-			lvl INTEGER)""" % tableRef)
-
-	db.query_with_bindings("SELECT * FROM %s WHERE ID=?;" % tableRef, [ID])
-
-	# insert new entry into database
-	if db.query_result.size() <= 0:
-		db.query_with_bindings("""
-			INSERT INTO %s (ID, name, type, rarity, force, lvl)
-			VALUES (?, ?, ?, ?, ?, ?)""" % tableRef, 
-			[ID, cardName, type, rarity, force, lvl])
-		print("added card ", cardName, " to database at:", str(ID))
-
-	# update existing entry
-	else:
-		db.query_with_bindings("""
-			UPDATE %s
-			SET name=?, type=?, rarity=?, force=?, lvl=? 
-			WHERE ID=?""" % tableRef,
-		[cardName, type, rarity, force, lvl, ID])
-		print("updated card ", cardName, " at:", str(ID))
-
-	db.close_db()
-	
-	
-#region Data
 const BASIC_ICON : Texture = preload("uid://dmhctqok0ncxr")
 const RARE_ICON : Texture = preload("uid://db7a3ny4orsly")
 const SUPERRARE_ICON : Texture = preload("uid://b7pbscney3tcv")
@@ -72,12 +31,14 @@ const OFFSITE_COLOR : Color = Color("ffc114ff")
 const SPELL_ICON : Texture = preload("uid://b613u8p8qy5pc")
 const SPELL_COLOR : Color = Color("1a92ceff")
 
+const TOKEN_COLOR : Color = Color("aaaaaaff")
+
 const SKILL_COLOR : Color = Color("e44298")
 const FSKILL_COLOR : Color = Color("16a98fff")
 
 const KEYWORD_COLOR : Color = Color.ORANGE
 
-enum CARD_TYPE{Unit, Offsite, Spell}
+enum CARD_TYPE{Unit, Offsite, Spell, Token}
 
 enum TRIBE{
 	Ghost, Golem, Wizard, Monster, 
@@ -108,6 +69,10 @@ var TEXT_TAGS : Dictionary = {
 		if is_node_ready():
 			%force.visible = type != CARD_TYPE.Spell
 			%cardType.visible = type != CARD_TYPE.Spell
+
+			%cardTypeIcon.modulate.a = 1 if type != CARD_TYPE.Token else 0
+			%rarity.visible = type != CARD_TYPE.Token
+
 			match type:
 				CARD_TYPE.Unit:
 					%cardTypeIcon.texture = UNIT_ICON
@@ -129,6 +94,12 @@ var TEXT_TAGS : Dictionary = {
 					%textContainer.self_modulate = SPELL_COLOR
 					%skillContainer.self_modulate = SPELL_COLOR
 					%nameContainer.self_modulate = SPELL_COLOR
+
+				CARD_TYPE.Token:
+					%border.self_modulate = TOKEN_COLOR
+					%textContainer.self_modulate = TOKEN_COLOR
+					%skillContainer.self_modulate = TOKEN_COLOR
+					%nameContainer.self_modulate = TOKEN_COLOR
 				
 @export var cardName : String = "Abstract Wizard" :
 	set(val):
@@ -143,11 +114,12 @@ var TEXT_TAGS : Dictionary = {
 		if is_node_ready():
 			%cardForce.text = str(force)
 		
-@export var lvl : int = 1 :
+@export_range(0, 99) var lvl : int = 1 :
 	set(val):
-		lvl = val
+		lvl = clamp(val, 0, 99)
 		if is_node_ready():
 			%cardLVL.text = str(lvl)
+			%lvlIcon.modulate.a = 1 if lvl > 0 else 0
 		
 @export var banished : bool = false :
 	set(val):
@@ -257,6 +229,7 @@ const CORNER_RADIUS : int = 48
 @export var skill : Node
 #endregion
 
+#region functions
 func update_skill_box() -> void:
 	%skillContainer.visible = skillName != ""
 	%cardSkill.text = ""
@@ -286,6 +259,53 @@ func parse_card_text(string : String) -> String:
 
 		output = output.substr(0, m.get_start()) + replacement + output.substr(m.get_end())
 	return output
+
+
+func update_db() -> void:
+	if ID == "":
+		push_error("ID not set!")
+		return
+	
+	if scene_file_path == "":
+		push_error("Scene not saved!")
+		return
+	
+	var tableRef : String = "pecto_" + table
+
+	db = SQLite.new()
+	db.path = DB_PATH
+	db.open_db()
+
+	db.query("""
+		CREATE TABLE IF NOT EXISTS %s (
+			ID TEXT PRIMARY KEY,
+			name TEXT,
+			type TEXT,
+			rarity TEXT,
+			force INTEGER,
+			lvl INTEGER)""" % tableRef)
+
+	db.query_with_bindings("SELECT * FROM %s WHERE ID=?;" % tableRef, [ID])
+
+	# insert new entry into database
+	if db.query_result.size() <= 0:
+		db.query_with_bindings("""
+			INSERT INTO %s (ID, name, type, rarity, force, lvl, scene)
+			VALUES (?, ?, ?, ?, ?, ?, ?)""" % tableRef, 
+			[ID, cardName, type, rarity, force, lvl, scene_file_path])
+		print("added card ", cardName, " to database at:", str(ID))
+
+	# update existing entry
+	else:
+		db.query_with_bindings("""
+			UPDATE %s
+			SET name=?, type=?, rarity=?, force=?, lvl=?, scene=? 
+			WHERE ID=?""" % tableRef,
+		[cardName, type, rarity, force, lvl, scene_file_path, ID])
+		print("updated card ", cardName, " at:", str(ID))
+
+	db.close_db()
+#endregion
 
 
 #region setters
