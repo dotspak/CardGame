@@ -5,6 +5,7 @@ class_name PectoCard
 
 #region Data
 const DB_PATH : String = "res://data/pectoDB.db"
+var db : SQLite
 
 @export_group("Database")
 @export var ID : String = "" : ## reference to the database's Primary Key for retrieving data
@@ -14,8 +15,10 @@ const DB_PATH : String = "res://data/pectoDB.db"
 
 @export var table : String = "set1"
 @export_tool_button("Update Database")
-var sqlButton = update_db
-var db : SQLite
+var updateButton = update_db
+
+@export_tool_button("Retrieve Data")
+var retrieveButton = retrieve_from_db
 
 const BASIC_ICON : Texture = preload("uid://dmhctqok0ncxr")
 const RARE_ICON : Texture = preload("uid://db7a3ny4orsly")
@@ -119,7 +122,7 @@ var TEXT_TAGS : Dictionary = {
 		lvl = clamp(val, 0, 99)
 		if is_node_ready():
 			%cardLVL.text = str(lvl)
-			%lvlIcon.modulate.a = 1 if lvl > 0 else 0
+			%lvlIcon.modulate.a = 1 if type != CARD_TYPE.Token || lvl > 0 else 0
 		
 @export var banished : bool = false :
 	set(val):
@@ -263,11 +266,11 @@ func parse_card_text(string : String) -> String:
 
 func update_db() -> void:
 	if ID == "":
-		push_error("ID not set!")
+		printerr("ID not set!")
 		return
 	
 	if scene_file_path == "":
-		push_error("Scene not saved!")
+		printerr("Scene not saved!")
 		return
 	
 	var tableRef : String = "pecto_" + table
@@ -305,6 +308,27 @@ func update_db() -> void:
 		print("updated card ", cardName, " at:", str(ID))
 
 	db.close_db()
+
+
+func retrieve_from_db() -> void:
+	var tableRef : String = "pecto_" + table
+	db = SQLite.new()
+	db.path = DB_PATH
+	db.open_db()
+	db.query_with_bindings("SELECT * FROM %s WHERE ID=?;" % tableRef, [ID])
+	
+	if db.query_result.size() > 0:
+		var result : Dictionary = db.query_result[0]
+		cardName = result["name"]
+		lvl = result["lvl"]
+		rarity = result["rarity"]
+		type = result["type"]
+		force = result["force"]
+
+		print("reset data succesfully")
+		db.close_db()
+	else:
+		printerr("Card does not exist in database!")
 #endregion
 
 
