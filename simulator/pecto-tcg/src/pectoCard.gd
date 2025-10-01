@@ -39,7 +39,7 @@ enum KEYWORD{ Instant, Effect,
 #endregion
 
 #region Visual
-@export_group("Visual")
+@export_group("info")
 @export var type : CARD_TYPE = CARD_TYPE.Unit : 
 	set(val):
 		type = val
@@ -148,14 +148,33 @@ enum KEYWORD{ Instant, Effect,
 			$bg/visual/border/MarginContainer/text/skillContainer/bg.modulate = SKILL_COLOR \
 			if !isSkillContinuous else FSKILL_COLOR
 			
-			#$bg/visual/border/MarginContainer/text/skillContainer/MarginContainer/VBoxContainer/skillName/grad.modulate = SKILL_COLOR \
-			#if !isSkillContinuous else FSKILL_COLOR
+@export_group("visual")
+@export var art : Texture :
+	set(val):
+		art = val
+		if is_node_ready():
+			%cardArt.texture = art
+			
+@export var bg : Texture :
+	set(val):
+		bg = val
+		if is_node_ready():
+			%cardBackground.texture = bg
+			
+@export var foil : bool = false:
+	set(val):
+		foil = val
+		if is_node_ready():
+			var material : ShaderMaterial = %cardArt.material
+			material.set_shader_parameter("intensity", 0.4 if foil else 0)
+				
 #endregion
 
 #region Logic
 @export_group("Logic")
 @export var cardLogicNode : Node
 @export var skill : Node
+
 #endregion
 
 func set_force(newForce : int = 1) -> void: force = newForce

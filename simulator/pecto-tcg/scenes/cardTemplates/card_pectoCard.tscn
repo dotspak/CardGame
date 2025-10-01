@@ -1,11 +1,11 @@
-[gd_scene load_steps=43 format=3 uid="uid://uqcqlr8xi5yc"]
+[gd_scene load_steps=39 format=3 uid="uid://uqcqlr8xi5yc"]
 
 [ext_resource type="Texture2D" uid="uid://b1f2r0svmhmej" path="res://assets/textTexture.png" id="1_0gidb"]
 [ext_resource type="Script" uid="uid://dn6e7duqtsffm" path="res://src/pectoCard.gd" id="1_y3ai7"]
-[ext_resource type="Texture2D" uid="uid://bgcxb5kcqfo72" path="res://assets/foilmaps/abstractWizard.png" id="3_ir3pi"]
+[ext_resource type="Texture2D" uid="uid://jmlinqsnajtl" path="res://assets/set1/tombCrawler.png" id="2_y3ai7"]
 [ext_resource type="Texture2D" uid="uid://bsidin4i266kj" path="res://assets/levelIcon.png" id="3_mn7ii"]
 [ext_resource type="FontFile" uid="uid://1kd62leqiy8y" path="res://assets/fonts/AveriaLibre-Bold.ttf" id="3_tong0"]
-[ext_resource type="Texture2D" uid="uid://dsemqjnsd305b" path="res://assets/set1/jester.png" id="4_1t38k"]
+[ext_resource type="Texture2D" uid="uid://cnynonhm320bh" path="res://assets/rainbowGrad.tres" id="4_1t38k"]
 [ext_resource type="FontFile" uid="uid://fpqgiu5d1pkr" path="res://assets/fonts/Higher Jump.ttf" id="5_jv68f"]
 [ext_resource type="FontFile" uid="uid://rhkjenklfug8" path="res://assets/fonts/AveriaLibre-Regular.ttf" id="6_tong0"]
 [ext_resource type="Texture2D" uid="uid://de5nr31l6262q" path="res://assets/unitIcon5.png" id="7_y3ai7"]
@@ -17,13 +17,6 @@ corner_radius_top_left = 48
 corner_radius_top_right = 48
 corner_radius_bottom_right = 48
 corner_radius_bottom_left = 48
-
-[sub_resource type="Gradient" id="Gradient_1t38k"]
-colors = PackedColorArray(0.18039216, 0.13333334, 0.38039216, 1, 0.58431375, 0.7411765, 0.8784314, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ir3pi"]
-gradient = SubResource("Gradient_1t38k")
-fill_to = Vector2(1, 1)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_y3ai7"]
 blend_mode = 2
@@ -73,13 +66,6 @@ void fragment() {
 }
 "
 
-[sub_resource type="Gradient" id="Gradient_ir3pi"]
-offsets = PackedFloat32Array(0, 0.27340823, 0.7752809, 1)
-colors = PackedColorArray(0, 0.9554688, 0.92421854, 1, 0.8212888, 0.9349979, 0.8457694, 1, 0, 0.049762562, 0.94178915, 1, 0, 0.95686275, 0.9254902, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_ja440"]
-gradient = SubResource("Gradient_ir3pi")
-
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_y3ai7"]
 noise_type = 3
 frequency = 0.0286
@@ -92,12 +78,11 @@ noise = SubResource("FastNoiseLite_y3ai7")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jlkag"]
 shader = SubResource("Shader_4ay7h")
 shader_parameter/enabled = true
-shader_parameter/foil_map = ExtResource("3_ir3pi")
-shader_parameter/gradient = SubResource("GradientTexture1D_ja440")
-shader_parameter/noise_tex = SubResource("NoiseTexture2D_1t38k")
+shader_parameter/foil_map = SubResource("NoiseTexture2D_1t38k")
+shader_parameter/gradient = ExtResource("4_1t38k")
 shader_parameter/speed = 0.2000000095
 shader_parameter/scale = 0.90700003982262
-shader_parameter/intensity = 0.0
+shader_parameter/intensity = 0.4
 shader_parameter/angle = 191.75200910822
 shader_parameter/noise_strength = 0.6270000297825
 shader_parameter/noise_speed = 2.8570001357075
@@ -255,15 +240,15 @@ shadow_color = Color(0.2010927, 0.5673567, 0.8666667, 1)
 
 [node name="PectoCard" type="Node"]
 script = ExtResource("1_y3ai7")
-cardName = "Jester"
-force = 2
-lvl = 4
-banished = true
-tribe = Array[int]([0])
-keywords = Array[int]([4])
-text = "Once per turn, if Jester were to enter your discard pile, you may summon it instead. If you do, it is no longer banished.
-{trigger:perish} Shuffle Jester into your deck."
+cardName = "Tomb Crawler"
+force = 3
+lvl = 3
+tribe = Array[int]([0, 3])
+keywords = Array[int]([6])
+text = "{trigger:victor} You may discard a card."
 skillText = "The skill thats about to come out will destroy everything."
+art = ExtResource("2_y3ai7")
+foil = true
 
 [node name="bg" type="PanelContainer" parent="."]
 clip_children = 2
@@ -274,10 +259,9 @@ offset_bottom = 1050.0
 pivot_offset = Vector2(375, 525)
 theme_override_styles/panel = SubResource("StyleBoxFlat_3h312")
 
-[node name="TextureRect" type="TextureRect" parent="bg"]
-visible = false
+[node name="cardBackground" type="TextureRect" parent="bg"]
+unique_name_in_owner = true
 layout_mode = 2
-texture = SubResource("GradientTexture2D_ir3pi")
 
 [node name="dots" type="TextureRect" parent="bg"]
 modulate = Color(1, 1, 1, 0.11764706)
@@ -303,7 +287,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_1t38k")
+texture = ExtResource("2_y3ai7")
 expand_mode = 1
 
 [node name="shadow" type="Panel" parent="bg/visual"]
@@ -383,7 +367,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 bbcode_enabled = true
-text = "[i][color=ffa500ff]Bleed"
+text = "[i][color=ffa500ff]Quick"
 fit_content = true
 
 [node name="cardText" type="RichTextLabel" parent="bg/visual/border/MarginContainer/text/textContainer/MarginContainer/VBoxContainer"]
@@ -396,8 +380,7 @@ theme_override_font_sizes/bold_font_size = 24
 theme_override_font_sizes/bold_italics_font_size = 24
 theme_override_font_sizes/italics_font_size = 24
 bbcode_enabled = true
-text = "Once per turn, if Jester were to enter your discard pile, you may summon it instead. If you do, it is no longer banished.
-[bgcolor=orange]➥PERISH[/bgcolor] Shuffle Jester into your deck."
+text = "[bgcolor=orange]➥VICTOR[/bgcolor] You may discard a card."
 fit_content = true
 custom_effects = [SubResource("RichTextEffect_ir3pi")]
 
@@ -531,7 +514,7 @@ alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "Jester"
+text = "Tomb Crawler"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -570,7 +553,7 @@ offset_bottom = 19.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 32
-text = "2"
+text = "3"
 horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
@@ -580,7 +563,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 16
-text = "Ghost "
+text = "Ghost Monster "
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -596,7 +579,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ja440")
 
 [node name="lvlIcon" type="TextureRect" parent="bg/visual/topBar"]
 unique_name_in_owner = true
-modulate = Color(1, 0.49411765, 0.5294118, 1)
 layout_mode = 2
 texture = ExtResource("3_mn7ii")
 expand_mode = 2
@@ -609,7 +591,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "4"
+text = "3"
 label_settings = SubResource("LabelSettings_y3ai7")
 horizontal_alignment = 1
 vertical_alignment = 1
