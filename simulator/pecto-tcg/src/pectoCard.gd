@@ -1,5 +1,5 @@
 @tool
-@icon("uid://fwr4di8poij3")
+@icon("uid://b0psj1ihvfcu6")
 extends Node
 class_name PectoCard
 
@@ -230,6 +230,67 @@ const CORNER_RADIUS : int = 48
 @export_group("Logic")
 @export var cardLogicNode : Node
 @export var skill : Node
+
+signal enter(card : PectoCard)
+signal victor(card : PectoCard, target : Node)
+signal perish(card : PectoCard, condition : String)
+
+var inPlay : bool = false
+var active : bool = false
+
+func _enter() -> void:
+	inPlay = true
+	enter.emit(self)
+	if keywords.has(KEYWORD.Delayed): active = false
+	else: active = true
+
+
+func _perish(condition : String) -> void:
+	perish.emit(self, condition)
+	_exit()
+
+
+func _exit() -> void:
+	inPlay = false
+
+
+func _victor(target : Node) -> void:
+	victor.emit(self, target)
+
+
+func attack_card(target : Node) -> void:
+	if !target is PectoCard:
+		if target.has_method("deal_damage"):
+			target.deal_damage(force)
+			attack_aftermath(target)
+
+	var target_startForce : int = target.force
+	var self_startForce : int = force
+
+	# this card attacks target
+	if !has_keyword("bleed"): target.deal_damage(self_startForce)
+	else: target.force = 0
+
+	# target deals damage back
+	if !has_keyword("quick") || target.force > 0:
+		if !target.has_bleed(): deal_damage(target_startForce)
+		else: force = 0
+
+	attack_aftermath(target)
+
+
+func attack_aftermath(target : Node) -> void:
+	if has_keyword("fragile"): force = 0
+	else: _victor(target)
+
+	if target is PectoCard:
+		if target.force > 0:
+			if target.has_keyword("fragile"): target.force = 0
+			else: target._victor(self)
+
+
+func deal_damage(amount : int) -> void: force -= amount
+func has_keyword(key : String) -> bool: return keywords.has(KEYWORD[key.capitalize()]) 
 #endregion
 
 #region functions
@@ -256,9 +317,13 @@ func parse_card_text(string : String) -> String:
 		var replacement : String = m.get_string(0)
 		
 		if TEXT_TAGS.has(tag):
-			var icon : String = TEXT_TAGS[tag]["icon"]
-			var color : String = TEXT_TAGS[tag]["color"]
-			replacement = "[bgcolor=%s][b]%s%s[/b][/bgcolor]" % [color, icon, value]
+			if tag != "force":
+				var icon : String = TEXT_TAGS[tag]["icon"]
+				var color : String = TEXT_TAGS[tag]["color"]
+				replacement = "[bgcolor=%s][b]%s%s[/b][/bgcolor]" % [color, icon, value]
+			else:
+				var color : String = TEXT_TAGS[tag]["color"]
+				replacement = "[bgcolor=%s][b] %s [/b][/bgcolor]" % [color, value]
 
 		output = output.substr(0, m.get_start()) + replacement + output.substr(m.get_end())
 	return output

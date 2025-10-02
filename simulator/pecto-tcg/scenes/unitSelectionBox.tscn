@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://bv0nany7pq87l"]
+
+[ext_resource type="Script" uid="uid://bhsbphug3lcqi" path="res://addons/card_3d/scripts/card_collection/card_collection_3d.gd" id="1_o1tgp"]
+[ext_resource type="Shape3D" uid="uid://cicwtlugivwj4" path="res://addons/card_3d/shapes_3d/default_card_collection_3d_drop_zone_shape_3d.tres" id="2_ddifw"]
+[ext_resource type="Script" uid="uid://cpcw405f10750" path="res://addons/card_3d/example_solitaire/scripts/stack_layout.gd" id="2_dnmbm"]
+[ext_resource type="Script" uid="uid://c6xj7aq0a3xj7" path="res://src/pectoDragStrat.gd" id="3_c1yli"]
+[ext_resource type="Script" uid="uid://jkfm6q5w8u83" path="res://addons/card_3d/scripts/card_collection/drop_zone_editor_tool.gd" id="3_dnmbm"]
+
+[sub_resource type="Resource" id="Resource_c1yli"]
+script = ExtResource("2_dnmbm")
+metadata/_custom_type_script = "uid://cpcw405f10750"
+
+[sub_resource type="Resource" id="Resource_1b7ht"]
+script = ExtResource("3_c1yli")
+can_remove = false
+can_reorder = false
+metadata/_custom_type_script = "uid://c6xj7aq0a3xj7"
+
+[node name="unit_0" type="Node3D"]
+script = ExtResource("1_o1tgp")
+card_layout_strategy = SubResource("Resource_c1yli")
+drag_strategy = SubResource("Resource_1b7ht")
+metadata/_custom_type_script = "uid://bhsbphug3lcqi"
+
+[node name="DropZone" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DropZone"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 1.6)
+shape = ExtResource("2_ddifw")
+
+[node name="DropZoneEditorTool" type="Node" parent="." node_paths=PackedStringArray("_card_collection_3d", "_drop_zone_collision_shape_3d")]
+script = ExtResource("3_dnmbm")
+_card_collection_3d = NodePath("..")
+_drop_zone_collision_shape_3d = NodePath("../DropZone/CollisionShape3D")
+
+[connection signal="mouse_entered" from="DropZone" to="." method="_on_drop_zone_mouse_entered"]
+[connection signal="mouse_exited" from="DropZone" to="." method="_on_drop_zone_mouse_exited"]

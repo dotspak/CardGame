@@ -1,0 +1,232 @@
+[gd_scene load_steps=21 format=3 uid="uid://do6yql4uw2cjr"]
+
+[ext_resource type="Script" uid="uid://bgkontnk0cnl" path="res://addons/card_3d/scripts/drag_controller.gd" id="1_idkgt"]
+[ext_resource type="Script" uid="uid://bu8m635jkfcgu" path="res://scenes/PectoBoard3D.gd" id="1_pxwbd"]
+[ext_resource type="PackedScene" uid="uid://bv0nany7pq87l" path="res://scenes/unitSelectionBox.tscn" id="2_kinr6"]
+[ext_resource type="PackedScene" uid="uid://d1uvcisduvvj" path="res://addons/card_3d/scenes/card_collection_3d.tscn" id="3_8qdv8"]
+[ext_resource type="Script" uid="uid://c6xj7aq0a3xj7" path="res://src/pectoDragStrat.gd" id="4_1i8jf"]
+[ext_resource type="Script" uid="uid://7sguf1kjbe8s" path="res://addons/card_3d/scripts/card_layouts/fan_card_layout.gd" id="4_pxwbd"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fkrth"]
+size = Vector2(100, 100)
+
+[sub_resource type="Gradient" id="Gradient_pxwbd"]
+colors = PackedColorArray(0.36562502, 0.16356467, 0.30970865, 1, 0.72, 0.44640002, 0.64704007, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1i8jf"]
+gradient = SubResource("Gradient_pxwbd")
+width = 256
+height = 256
+fill_from = Vector2(0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8qdv8"]
+shading_mode = 0
+albedo_color = Color(0.31895113, 0.6078125, 0.46338183, 1)
+albedo_texture = SubResource("GradientTexture2D_1i8jf")
+
+[sub_resource type="Resource" id="Resource_svpld"]
+script = ExtResource("4_1i8jf")
+slotType = 1
+can_remove = false
+can_reorder = false
+metadata/_custom_type_script = "uid://c6xj7aq0a3xj7"
+
+[sub_resource type="Resource" id="Resource_1i8jf"]
+script = ExtResource("4_pxwbd")
+arc_angle_deg = 20.0
+arc_radius = 20.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fkrth"]
+render_priority = -1
+transparency = 1
+albedo_color = Color(0.25882354, 0.2901961, 0.49019608, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1i8jf"]
+size = Vector2(2.5, 3.5)
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3oc74"]
+render_priority = -1
+transparency = 1
+albedo_color = Color(0.16830005, 0.18869999, 0.31875002, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_svpld"]
+transparency = 1
+albedo_color = Color(0.7, 0.7, 0.7, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yt3ua"]
+render_priority = -1
+transparency = 1
+albedo_color = Color(0.35, 0.35, 0.35, 0.972549)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_svpld"]
+size = Vector2(2.5, 3.5)
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rum4d"]
+albedo_color = Color(0.45490196, 0.29803923, 0.34117648, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g72on"]
+transparency = 1
+albedo_color = Color(0.30703127, 0.20115843, 0.23027347, 1)
+
+[node name="battleScene" type="Node3D"]
+script = ExtResource("1_pxwbd")
+deck = Array[String](["MONOLITH", "BLAST_ORB", "TOMB_CRAWLER", "MONOLITH", "MONOLITH"])
+
+[node name="Table" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -1)
+mesh = SubResource("PlaneMesh_fkrth")
+surface_material_override/0 = SubResource("StandardMaterial3D_8qdv8")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40.2273)
+shadow_enabled = true
+shadow_opacity = 0.75
+shadow_blur = 6.15
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, -0.5, 0, 0.5, 0.8660254, 2, -8.5, 8.5)
+
+[node name="DragController" type="Node3D" parent="."]
+script = ExtResource("1_idkgt")
+metadata/_custom_type_script = "uid://bgkontnk0cnl"
+
+[node name="unit_0" parent="DragController" instance=ExtResource("2_kinr6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -2, 0)
+
+[node name="unit_1" parent="DragController" instance=ExtResource("2_kinr6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+
+[node name="unit_2" parent="DragController" instance=ExtResource("2_kinr6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -2, 0)
+
+[node name="offsite_0" parent="DragController" instance=ExtResource("2_kinr6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -6, 0)
+drag_strategy = SubResource("Resource_svpld")
+
+[node name="offsite_1" parent="DragController" instance=ExtResource("2_kinr6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6, 0)
+drag_strategy = SubResource("Resource_svpld")
+
+[node name="offsite_2" parent="DragController" instance=ExtResource("2_kinr6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -6, 0)
+drag_strategy = SubResource("Resource_svpld")
+
+[node name="Hand" parent="DragController" instance=ExtResource("3_8qdv8")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.9396926, -0.34202012, 0, 0.34202012, 0.9396926, 2, -10, 2)
+card_layout_strategy = SubResource("Resource_1i8jf")
+
+[node name="blueSide" type="Node3D" parent="."]
+
+[node name="unit_0" type="MeshInstance3D" parent="blueSide"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -2, 0)
+material_override = SubResource("StandardMaterial3D_fkrth")
+mesh = SubResource("PlaneMesh_1i8jf")
+skeleton = NodePath("../..")
+
+[node name="unit_1" type="MeshInstance3D" parent="blueSide"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+material_override = SubResource("StandardMaterial3D_fkrth")
+mesh = SubResource("PlaneMesh_1i8jf")
+skeleton = NodePath("../..")
+
+[node name="unit_2" type="MeshInstance3D" parent="blueSide"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -2, 0)
+mesh = SubResource("PlaneMesh_1i8jf")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_fkrth")
+
+[node name="offsite_0" type="MeshInstance3D" parent="blueSide"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -6, 0)
+mesh = SubResource("PlaneMesh_1i8jf")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_3oc74")
+
+[node name="offsite_1" type="MeshInstance3D" parent="blueSide"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6, 0)
+material_override = SubResource("StandardMaterial3D_3oc74")
+mesh = SubResource("PlaneMesh_1i8jf")
+skeleton = NodePath("../..")
+
+[node name="offsite_3" type="MeshInstance3D" parent="blueSide"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -6, 0)
+material_override = SubResource("StandardMaterial3D_3oc74")
+mesh = SubResource("PlaneMesh_1i8jf")
+skeleton = NodePath("../..")
+
+[node name="deck" type="MeshInstance3D" parent="blueSide"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -2, 0)
+mesh = SubResource("PlaneMesh_1i8jf")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_svpld")
+
+[node name="discard" type="MeshInstance3D" parent="blueSide"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -6, 0)
+mesh = SubResource("PlaneMesh_1i8jf")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_svpld")
+
+[node name="void" type="MeshInstance3D" parent="blueSide"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -4, 0)
+mesh = SubResource("PlaneMesh_1i8jf")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_yt3ua")
+
+[node name="redSide" type="Node3D" parent="."]
+transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="unit_0" type="MeshInstance3D" parent="redSide"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -2, 0)
+mesh = SubResource("PlaneMesh_svpld")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_rum4d")
+
+[node name="unit_1" type="MeshInstance3D" parent="redSide"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+mesh = SubResource("PlaneMesh_1i8jf")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_rum4d")
+
+[node name="unit_2" type="MeshInstance3D" parent="redSide"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -2, 0)
+mesh = SubResource("PlaneMesh_1i8jf")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_rum4d")
+
+[node name="offsite_0" type="MeshInstance3D" parent="redSide"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -6, 0)
+mesh = SubResource("PlaneMesh_1i8jf")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_g72on")
+
+[node name="offsite_1" type="MeshInstance3D" parent="redSide"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6, 0)
+mesh = SubResource("PlaneMesh_1i8jf")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_g72on")
+
+[node name="offsite_3" type="MeshInstance3D" parent="redSide"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -6, 0)
+mesh = SubResource("PlaneMesh_1i8jf")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_g72on")
+
+[node name="deck" type="MeshInstance3D" parent="redSide"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -2.000001, 0)
+mesh = SubResource("PlaneMesh_1i8jf")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_svpld")
+
+[node name="discard" type="MeshInstance3D" parent="redSide"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -6, 0)
+mesh = SubResource("PlaneMesh_1i8jf")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_svpld")
+
+[node name="void" type="MeshInstance3D" parent="redSide"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, -3.9999998, 0)
+mesh = SubResource("PlaneMesh_1i8jf")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_yt3ua")

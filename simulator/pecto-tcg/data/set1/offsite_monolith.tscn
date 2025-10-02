@@ -1,20 +1,137 @@
-[gd_scene load_steps=8 format=3 uid="uid://b8uwted6lh1x5"]
+[gd_scene load_steps=23 format=3 uid="uid://b8uwted6lh1x5"]
 
 [ext_resource type="PackedScene" uid="uid://uqcqlr8xi5yc" path="res://scenes/cardTemplates/card_pectoCard.tscn" id="1_yn2j8"]
 [ext_resource type="Texture2D" uid="uid://d6ixysc00hxh" path="res://assets/set1/monolith.png" id="2_7k3bj"]
 [ext_resource type="Texture2D" uid="uid://brxxnkd348fxh" path="res://assets/offSiteIcon5.png" id="2_m1qlt"]
+[ext_resource type="Texture2D" uid="uid://cnynonhm320bh" path="res://assets/rainbowGrad.tres" id="3_363s6"]
 [ext_resource type="Texture2D" uid="uid://d1kafd45aa4e" path="res://assets/r_divine1.png" id="4_7k3bj"]
 
 [sub_resource type="Gradient" id="Gradient_363s6"]
-offsets = PackedFloat32Array(0, 0.38327527, 0.67247385, 0.85714287, 1)
+offsets = PackedFloat32Array(0, 0.3, 0.5, 0.7, 1)
 colors = PackedColorArray(0, 0, 0, 1, 0.27450982, 0.4509804, 0.4509804, 1, 0.79607844, 0.08627451, 0.05882353, 1, 0.6627451, 0.45882353, 0.48235294, 1, 0, 0, 0, 1)
+metadata/_snap_enabled = true
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_tjan4"]
 gradient = SubResource("Gradient_363s6")
 fill_to = Vector2(1, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="Shader" id="Shader_4ay7h"]
+code = "shader_type canvas_item;
+
+uniform bool enabled = true;
+uniform sampler2D foil_map;
+uniform sampler2D gradient;
+uniform sampler2D noise_tex;
+
+uniform float speed : hint_range(0.0, 10.0) = 1.0;
+uniform float scale : hint_range(0.1, 5.0) = 1.0;
+uniform float intensity : hint_range(0.0, 3.0) = 1.2;
+uniform float angle : hint_range(0.0, 360.0) = 45.0;
+uniform float noise_strength : hint_range(0.0, 1.0) = 0.25;
+uniform float noise_speed : hint_range(0.0, 5.0) = 0.5;
+uniform float shimmer_speed : hint_range(0.0, 10.0) = 2.0;
+uniform float shimmer_strength : hint_range(0.0, 2.0) = 0.5;
+
+void fragment() {
+	if (enabled) {
+	    vec2 uv = UV;
+
+	    float rad = radians(angle);
+	    mat2 rot = mat2(vec2(cos(rad), -sin(rad)), vec2(sin(rad),  cos(rad)));
+	    vec2 rotated_uv = rot * (uv - 0.5) + 0.5;
+
+	    vec2 scroll_uv = rotated_uv * scale;
+	    scroll_uv.x += TIME * speed;
+
+	    vec2 noise_uv = uv * 2.0 + vec2(TIME * noise_speed, TIME * noise_speed);
+	    float n = texture(noise_tex, noise_uv).r;
+	    scroll_uv.x += (n - 0.5) * noise_strength;
+		
+	    vec4 grad_col = texture(gradient, vec2(fract(scroll_uv.x), 0.5));
+	    float shimmer = 1.0 + sin(TIME * shimmer_speed + uv.y * 10.0) * shimmer_strength;
+
+	    float foil_mask = texture(foil_map, uv).r;
+
+	    vec4 foil_col = grad_col * foil_mask * intensity * shimmer;
+	    vec4 base_col = texture(TEXTURE, uv);
+
+	    COLOR = base_col + foil_col * base_col.a;
+	}
+}
+"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_tjan4"]
+noise_type = 2
+frequency = 0.0174
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2t8od"]
+noise = SubResource("FastNoiseLite_tjan4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bai37"]
+shader = SubResource("Shader_4ay7h")
+shader_parameter/enabled = true
+shader_parameter/foil_map = SubResource("NoiseTexture2D_2t8od")
+shader_parameter/gradient = ExtResource("3_363s6")
+shader_parameter/speed = 0.2000000095
+shader_parameter/scale = 4.34000020289012
+shader_parameter/intensity = 0.4
+shader_parameter/angle = 191.75200910822
+shader_parameter/noise_strength = 0.6270000297825
+shader_parameter/noise_speed = 2.8570001357075
+shader_parameter/shimmer_speed = 1.65600007866
+shader_parameter/shimmer_strength = 0.3310000157225
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_363s6"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_tjan4"]
+interpolation_color_space = 2
+colors = PackedColorArray(0.19215687, 0.31764707, 0.31764707, 1, 0.77254903, 0.101960786, 0.06666667, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2t8od"]
+gradient = SubResource("Gradient_tjan4")
+
+[sub_resource type="Gradient" id="Gradient_bai37"]
+offsets = PackedFloat32Array(0, 0.3254902, 0.627451, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gir0q"]
+gradient = SubResource("Gradient_bai37")
+
+[sub_resource type="Curve" id="Curve_ypp3d"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.12099644, 1), 0.0, 0.0, 0, 0, Vector2(0.9003559, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_1v4bg"]
+curve = SubResource("Curve_ypp3d")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vtup1"]
+lifetime_randomness = 1.0
+particle_flag_align_y = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(300, 500, 1)
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = -100.0
+initial_velocity_max = 100.0
+scale_min = 10.0
+scale_max = 30.0
+scale_curve = SubResource("CurveTexture_1v4bg")
+color_ramp = SubResource("GradientTexture1D_gir0q")
+color_initial_ramp = SubResource("GradientTexture1D_2t8od")
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7k3bj"]
 blend_mode = 3
+
+[sub_resource type="Animation" id="Animation_363s6"]
+resource_name = "loop"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tjan4"]
+_data = {
+&"loop": SubResource("Animation_363s6")
+}
 
 [node name="monolith" instance=ExtResource("1_yn2j8")]
 ID = "MONOLITH"
@@ -30,13 +147,23 @@ skillText = "Lose {force:1}. Units you control gain {force:1}."
 isSkillContinuous = true
 art = ExtResource("2_7k3bj")
 bg = SubResource("GradientTexture2D_tjan4")
+foil = true
 rarity = 3
 
 [node name="cardBackground" parent="cardShape" index="0"]
 texture = SubResource("GradientTexture2D_tjan4")
 
 [node name="cardArt" parent="cardShape/visual" index="0"]
+material = SubResource("ShaderMaterial_bai37")
 texture = ExtResource("2_7k3bj")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="cardShape/visual/cardArt" index="0"]
+material = SubResource("CanvasItemMaterial_363s6")
+position = Vector2(325, 475)
+amount = 100
+lifetime = 3.0
+speed_scale = 0.4
+process_material = SubResource("ParticleProcessMaterial_vtup1")
 
 [node name="shadow" parent="cardShape/visual" index="1"]
 modulate = Color(1, 0.16632706, 0, 1)
@@ -49,7 +176,7 @@ self_modulate = Color(1, 0.75686276, 0.078431375, 1)
 self_modulate = Color(1, 0.75686276, 0.078431375, 1)
 
 [node name="cardText" parent="cardShape/visual/border/MarginContainer/text/textContainer/MarginContainer/VBoxContainer" index="0"]
-text = "When you draw a card, gain [bgcolor=e44298][b]1[/b][/bgcolor]."
+text = "When you draw a card, gain [bgcolor=e44298][b] 1 [/b][/bgcolor]."
 
 [node name="skillContainer" parent="cardShape/visual/border/MarginContainer/text" index="2"]
 visible = true
@@ -59,7 +186,7 @@ self_modulate = Color(1, 0.75686276, 0.078431375, 1)
 modulate = Color(0.08627451, 0.6627451, 0.56078434, 1)
 
 [node name="cardSkill" parent="cardShape/visual/border/MarginContainer/text/skillContainer/MarginContainer/VBoxContainer" index="1"]
-text = "[bgcolor=16a98fff][b]★PRAYER AND SPEECH[/b][/bgcolor] Lose [bgcolor=e44298][b]1[/b][/bgcolor]. Units you control gain [bgcolor=e44298][b]1[/b][/bgcolor]."
+text = "[bgcolor=16a98fff][b]★PRAYER AND SPEECH[/b][/bgcolor] Lose [bgcolor=e44298][b] 1 [/b][/bgcolor]. Units you control gain [bgcolor=e44298][b] 1 [/b][/bgcolor]."
 
 [node name="cardTypeIcon" parent="cardShape/visual/topBar" index="0"]
 texture = ExtResource("2_m1qlt")
@@ -88,3 +215,8 @@ text = "Cole Smith-Evans MONOLITH/220"
 
 [node name="rarity" parent="cardShape/visual/extraInfo" index="1"]
 texture = ExtResource("4_7k3bj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_tjan4")
+}

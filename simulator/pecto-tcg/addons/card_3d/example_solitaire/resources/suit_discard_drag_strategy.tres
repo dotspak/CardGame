@@ -7,5 +7,4 @@ script = ExtResource("1_potsm")
 can_select = false
 can_remove = false
 can_reorder = false
-can_insert = true
 metadata/_custom_type_script = "uid://crx78y6320odd"
