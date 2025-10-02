@@ -70,13 +70,13 @@ func start_game() -> void:
 			c.card_selected.connect(_on_card_selected)
 			c.card_added.connect(_on_card_added)
 
-	load_deck(0)
+	load_deck()
 	shuffle_deck()
 	await get_tree().create_timer(0.5).timeout
 	get_starting_hand()
 
 
-func load_deck(_player : int = 0) -> void:
+func load_deck() -> void:
 	var baseScene : PackedScene = load("uid://buocg07fg5px0")
 	var db : SQLite = SQLite.new()
 	db.path = PectoCard.DB_PATH

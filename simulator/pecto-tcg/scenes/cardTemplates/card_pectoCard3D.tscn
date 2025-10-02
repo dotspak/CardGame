@@ -11,6 +11,8 @@ viewport_path = NodePath("backFace")
 resource_local_to_scene = true
 transparency = 1
 shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
 albedo_texture = SubResource("ViewportTexture_aemr7")
 texture_filter = 0
 
@@ -21,6 +23,8 @@ viewport_path = NodePath("frontFace")
 resource_local_to_scene = true
 transparency = 1
 shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
 albedo_texture = SubResource("ViewportTexture_uad0d")
 texture_filter = 1
 

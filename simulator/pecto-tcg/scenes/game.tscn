@@ -69,7 +69,7 @@ script = ExtResource("1_lbhrr")
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 100
 
-[node name="Control" type="Control" parent="UI"]
+[node name="mainHUD" type="Control" parent="UI"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -78,7 +78,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/Control"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/mainHUD"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -90,18 +90,18 @@ theme_override_constants/margin_top = 64
 theme_override_constants/margin_right = 64
 theme_override_constants/margin_bottom = 64
 
-[node name="playerHUD" type="VBoxContainer" parent="UI/Control/MarginContainer"]
+[node name="playerHUD" type="VBoxContainer" parent="UI/mainHUD/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = -30
 alignment = 2
 
-[node name="lifeIcon" type="TextureRect" parent="UI/Control/MarginContainer/playerHUD"]
+[node name="lifeIcon" type="TextureRect" parent="UI/mainHUD/MarginContainer/playerHUD"]
 layout_mode = 2
 size_flags_horizontal = 0
 texture = SubResource("GradientTexture2D_p57ef")
 
-[node name="life" type="Label" parent="UI/Control/MarginContainer/playerHUD/lifeIcon"]
+[node name="life" type="Label" parent="UI/mainHUD/MarginContainer/playerHUD/lifeIcon"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -114,13 +114,13 @@ label_settings = SubResource("LabelSettings_u5sy4")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="influenceIcon" type="TextureRect" parent="UI/Control/MarginContainer/playerHUD"]
+[node name="influenceIcon" type="TextureRect" parent="UI/mainHUD/MarginContainer/playerHUD"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 texture = ExtResource("3_iywne")
 
-[node name="floatIcon" type="TextureRect" parent="UI/Control/MarginContainer/playerHUD/influenceIcon"]
+[node name="floatIcon" type="TextureRect" parent="UI/mainHUD/MarginContainer/playerHUD/influenceIcon"]
 modulate = Color(0.5431912, 0.7049651, 1, 1)
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 1
@@ -138,7 +138,7 @@ size_flags_vertical = 8
 texture = ExtResource("3_iywne")
 expand_mode = 1
 
-[node name="floatingLVL" type="Label" parent="UI/Control/MarginContainer/playerHUD/influenceIcon/floatIcon"]
+[node name="floatingLVL" type="Label" parent="UI/mainHUD/MarginContainer/playerHUD/influenceIcon/floatIcon"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -151,7 +151,7 @@ label_settings = SubResource("LabelSettings_gee14")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="totalLVL" type="Label" parent="UI/Control/MarginContainer/playerHUD/influenceIcon"]
+[node name="totalLVL" type="Label" parent="UI/mainHUD/MarginContainer/playerHUD/influenceIcon"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -166,18 +166,18 @@ label_settings = SubResource("LabelSettings_0tnpc")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="opponentHUD" type="VBoxContainer" parent="UI/Control/MarginContainer"]
+[node name="opponentHUD" type="VBoxContainer" parent="UI/mainHUD/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_constants/separation = -30
 
-[node name="influenceIcon" type="TextureRect" parent="UI/Control/MarginContainer/opponentHUD"]
+[node name="influenceIcon" type="TextureRect" parent="UI/mainHUD/MarginContainer/opponentHUD"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 texture = ExtResource("3_iywne")
 
-[node name="floatIcon" type="TextureRect" parent="UI/Control/MarginContainer/opponentHUD/influenceIcon"]
+[node name="floatIcon" type="TextureRect" parent="UI/mainHUD/MarginContainer/opponentHUD/influenceIcon"]
 modulate = Color(0.5431912, 0.7049651, 1, 1)
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 1
@@ -192,7 +192,7 @@ size_flags_vertical = 8
 texture = ExtResource("3_iywne")
 expand_mode = 1
 
-[node name="floatingLVL2" type="Label" parent="UI/Control/MarginContainer/opponentHUD/influenceIcon/floatIcon"]
+[node name="floatingLVL2" type="Label" parent="UI/mainHUD/MarginContainer/opponentHUD/influenceIcon/floatIcon"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -205,7 +205,7 @@ label_settings = SubResource("LabelSettings_gee14")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="totalLVL2" type="Label" parent="UI/Control/MarginContainer/opponentHUD/influenceIcon"]
+[node name="totalLVL2" type="Label" parent="UI/mainHUD/MarginContainer/opponentHUD/influenceIcon"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -220,12 +220,12 @@ label_settings = SubResource("LabelSettings_0tnpc")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="UI/Control/MarginContainer/opponentHUD"]
+[node name="TextureRect" type="TextureRect" parent="UI/mainHUD/MarginContainer/opponentHUD"]
 layout_mode = 2
 size_flags_horizontal = 0
 texture = SubResource("GradientTexture2D_p57ef")
 
-[node name="life2" type="Label" parent="UI/Control/MarginContainer/opponentHUD/TextureRect"]
+[node name="life2" type="Label" parent="UI/mainHUD/MarginContainer/opponentHUD/TextureRect"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -238,20 +238,28 @@ label_settings = SubResource("LabelSettings_u5sy4")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Control/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/mainHUD/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 
-[node name="Button2" type="Button" parent="UI/Control/MarginContainer/VBoxContainer"]
+[node name="Button2" type="Button" parent="UI/mainHUD/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(256, 64)
 layout_mode = 2
 text = "Draw Card"
 
-[node name="Button" type="Button" parent="UI/Control/MarginContainer/VBoxContainer"]
+[node name="Button" type="Button" parent="UI/mainHUD/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(256, 64)
 layout_mode = 2
 text = "Pass Turn"
+
+[node name="guiPrompts" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Table" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -1)
@@ -265,7 +273,7 @@ metadata/_edit_lock_ = true
 transform = Transform3D(1, 0, 0, 0, -1, 0, 0, 0, 1, 0, 0, 0)
 boardSide = 1
 
-[connection signal="pressed" from="UI/Control/MarginContainer/VBoxContainer/Button2" to="player" method="draw_card"]
+[connection signal="pressed" from="UI/mainHUD/MarginContainer/VBoxContainer/Button2" to="player" method="draw_card"]
 [connection signal="floatingLVLChanged" from="player" to="." method="update_floatingLVl"]
 [connection signal="lifeChanged" from="player" to="." method="update_life"]
 [connection signal="lvlChanged" from="player" to="." method="update_lvl"]
