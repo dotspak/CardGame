@@ -5,6 +5,8 @@ class_name PectoCard3D
 @onready var backFace = %backFace
 
 var card : PectoCard
+var collection : CardCollection3D
+var collectionIDX : int
 
 func set_front_face(_card : PectoCard) -> void:
 	if !is_node_ready(): await ready

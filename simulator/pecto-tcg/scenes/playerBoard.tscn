@@ -162,10 +162,6 @@ shadow_enabled = true
 shadow_opacity = 0.75
 shadow_blur = 6.15
 
-[node name="Camera3D" type="Camera3D" parent="."]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.9848078, -0.1736482, 0, 0.1736482, 0.9848078, 2, -5.5, 14.5)
-
 [node name="DragController" type="Node3D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("2_8ykwa")
@@ -185,16 +181,19 @@ linkedSlot = NodePath("../../slotMeshes/unit_2")
 
 [node name="offsite_0" parent="DragController" node_paths=PackedStringArray("linkedSlot") instance=ExtResource("3_nx7c6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -6, 0)
+type = 1
 linkedSlot = NodePath("../../slotMeshes/offsite_0")
 drag_strategy = SubResource("Resource_svpld")
 
 [node name="offsite_1" parent="DragController" node_paths=PackedStringArray("linkedSlot") instance=ExtResource("3_nx7c6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6, 0)
+type = 1
 linkedSlot = NodePath("../../slotMeshes/offsite_1")
 drag_strategy = SubResource("Resource_svpld")
 
 [node name="offsite_2" parent="DragController" node_paths=PackedStringArray("linkedSlot") instance=ExtResource("3_nx7c6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -6, 0)
+type = 1
 linkedSlot = NodePath("../../slotMeshes/offsite_2")
 drag_strategy = SubResource("Resource_svpld")
 

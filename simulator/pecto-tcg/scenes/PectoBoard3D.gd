@@ -57,17 +57,19 @@ signal lifeChanged(val : int)
 signal lvlChanged(val : int)
 signal floatingLVLChanged(val : int)
 
+signal cardSelected(card : Card3D)
+
 func _ready() -> void: if !Engine.is_editor_hint(): start_game()
-	
 
 func start_game() -> void:
+	if deckToLoad.is_empty(): return
 	defaultCamPos = camera.global_position
 	var skipNodes : Array[String] = ["Hand", "Deck", "Discard", "Void"]
 	for c : Node in dragController.get_children():
 		if !skipNodes.has(c.name) && c is CardCollection3D:
 			slots.append(c)
 			c.board = self
-			c.card_selected.connect(_on_card_selected)
+			c.card_clicked.connect(_on_card_selected)
 			c.card_added.connect(_on_card_added)
 
 	load_deck()
@@ -87,12 +89,9 @@ func load_deck() -> void:
 			var card3D : PectoCard3D = baseScene.instantiate()
 			card3D.set_front_face(card)
 			card3D.face_down = true
-			deck.append_card(card3D)
+			cardPool[cardID] = card3D
 			
-			cardPool[cardID] = {}
-			cardPool[cardID]["node"] = card3D
-			cardPool[cardID]["idx"] = deck.cards.find(card3D)
-			cardPool[cardID]["collection"] = deck
+			add_card_to_deck(cardID)
 	db.close_db()
 
 
@@ -108,7 +107,7 @@ func get_influence() -> int: return lvl + floatingLVL
 func get_starting_hand() -> void:
 	var lvl1cards : Array[String] = []
 	for key : String in cardPool.keys():
-		var c : PectoCard3D = cardPool[key]["node"]
+		var c : PectoCard3D = cardPool[key]
 		if c.card.lvl == 1 && c.card.type != PectoCard.CARD_TYPE.Spell:
 			lvl1cards.append(key)
 	
@@ -117,56 +116,71 @@ func get_starting_hand() -> void:
 	
 
 func add_card_to_hand(cardID : String) -> void:
-	var collection : CardCollection3D = cardPool[cardID]["collection"]
-	var card : PectoCard3D = cardPool[cardID]["node"]
-	if collection: card = collection.remove_card(cardPool[cardID]["idx"])
+	var card : PectoCard3D = cardPool[cardID]
+	var collection : CardCollection3D = card.collection
+	if collection: card = collection.remove_card(card.collectionIDX)
+
 	hand.append_card(card)
 	card.face_down = false
-	cardPool[cardID]["collection"] = hand
+	card.collection = hand
 
 
-# simply draws card from top of deckToLoad
+# simply draws card from top of the deck
 func draw_card() -> void:
+	if deck.cards.is_empty():
+		if !discard.cards.is_empty(): recycle_deck()
+		else: return trigger_game_lose()
+			
 	var cardToDraw : PectoCard3D = deck.shift_card()
 	hand.append_card(cardToDraw)
 	cardToDraw.face_down = false
+
+
+func recycle_deck() -> void:
+	for c : Card3D in discard.cards: add_card_to_deck(c.card.ID)
+	shuffle_deck()
 
 
 func shuffle_deck() -> void: deck.cards.shuffle()
 
 
 func add_card_to_deck(cardID : String, onTop : bool = true) -> void:
-	var collection : CardCollection3D = cardPool[cardID]["collection"]
-	var card : PectoCard3D = cardPool[cardID]["node"]
-	if collection: card = collection.remove_card(cardPool[cardID]["idx"])
-
+	var card : PectoCard3D = cardPool[cardID]
+	var collection : CardCollection3D = card.collection
+	if collection: card = collection.remove_card(card.collectionIDX)
 	if onTop: deck.prepend_card(card)
 	else: deck.append_card(card)
 
 	card.face_down = true
-	cardPool[cardID]["collection"] = deck
+	card.collection = deck
 
 
 func discard_card(cardID : String) -> void: 
-	var collection : CardCollection3D = cardPool[cardID]["collection"]
-	var card : PectoCard3D = cardPool[cardID]["node"]
-	if collection: card = collection.remove_card(cardPool[cardID]["idx"])
-	discard.append_card(card)
+	var card : PectoCard3D = cardPool[cardID]
+	var collection : CardCollection3D = card.collection
+	if collection: card = collection.remove_card(card.collectionIDX)
+
+	discard.prepend_card(card)
 	card.face_down = false
-	cardPool[cardID]["collection"] = discard
+	card.collection = discard
 
 
 func void_card(cardID : String) -> void: 
-	var collection : CardCollection3D = cardPool[cardID]["collection"]
-	var card : PectoCard3D = cardPool[cardID]["node"]
-	if collection: card = collection.remove_card(cardPool[cardID]["idx"])
-	cardVoid.append_card(card)
+	var card : PectoCard3D = cardPool[cardID]
+	var collection : CardCollection3D = card.collection
+	if collection: card = collection.remove_card(card.collectionIDX)
+
+	cardVoid.prepend_card(card)
 	card.face_down = false
-	cardPool[cardID]["collection"] = cardVoid
+	card.collection = cardVoid
 
 
 func _on_card_selected(card3D : PectoCard3D) -> void:
-	print(card3D.card.cardName)
+	print(card3D.collection.name)
+	if card3D.collection is GridSlot:
+		cardSelected.emit(card3D)
+		print(card3D.card.cardName)
+
 
 func _on_card_added(card3D : PectoCard3D) -> void:
 	var startingLvl : int = lvl
@@ -181,6 +195,9 @@ func _on_card_added(card3D : PectoCard3D) -> void:
 	print("card %s added, lvl now %s" % [card3D.card.cardName, lvl])
 
 
-
 func deal_damage(amount : int) -> void: life -= amount
 func heal_damage(amount : int) -> void: life += amount
+
+
+func trigger_game_lose() -> void:
+	print("you lose!")

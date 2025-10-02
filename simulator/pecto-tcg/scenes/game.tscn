@@ -260,6 +260,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+
+[node name="cardButtons" type="Control" parent="UI/guiPrompts"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="Table" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -1)
@@ -273,7 +284,12 @@ metadata/_edit_lock_ = true
 transform = Transform3D(1, 0, 0, 0, -1, 0, 0, 0, 1, 0, 0, 0)
 boardSide = 1
 
+[node name="Camera3D" type="Camera3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.9848078, -0.1736482, 0, 0.1736482, 0.9848078, 2, -5.5, 14.5)
+
 [connection signal="pressed" from="UI/mainHUD/MarginContainer/VBoxContainer/Button2" to="player" method="draw_card"]
+[connection signal="cardSelected" from="player" to="." method="_on_player_card_selected"]
 [connection signal="floatingLVLChanged" from="player" to="." method="update_floatingLVl"]
 [connection signal="lifeChanged" from="player" to="." method="update_life"]
 [connection signal="lvlChanged" from="player" to="." method="update_lvl"]

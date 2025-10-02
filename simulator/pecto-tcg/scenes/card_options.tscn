@@ -1,0 +1,115 @@
+[gd_scene load_steps=10 format=3 uid="uid://3aousjqn70g1"]
+
+[ext_resource type="Texture2D" uid="uid://cswhfnqamvi5c" path="res://assets/icon_attack.png" id="1_emj5m"]
+[ext_resource type="Texture2D" uid="uid://bk8s5ej6xlkx0" path="res://assets/icon_skill.png" id="2_5li5l"]
+[ext_resource type="Texture2D" uid="uid://blkrus3hcauee" path="res://assets/icon_cancel.png" id="3_5v5j2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cl6pt"]
+content_margin_top = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+shadow_color = Color(0, 0, 0, 0.19607843)
+shadow_size = 10
+shadow_offset = Vector2(0, 20)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5li5l"]
+content_margin_top = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0, 0, 0, 0.38039216)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 10
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+shadow_color = Color(0, 0, 0, 0.19607843)
+shadow_size = 10
+shadow_offset = Vector2(0, 20)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_emj5m"]
+content_margin_top = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 10
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+shadow_color = Color(0, 0, 0, 0.19607843)
+shadow_size = 10
+shadow_offset = Vector2(0, 20)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_emj5m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5li5l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5v5j2"]
+
+[node name="cardOptions" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 10
+
+[node name="attackButton" type="Button" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_cl6pt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5li5l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_emj5m")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_emj5m")
+text = "ATTACK"
+icon = ExtResource("1_emj5m")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="skillButton" type="Button" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_cl6pt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5li5l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_emj5m")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5li5l")
+text = "SKILL"
+icon = ExtResource("2_5li5l")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="cancel" type="Button" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_cl6pt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5li5l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_emj5m")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5v5j2")
+text = "CANCEL"
+icon = ExtResource("3_5v5j2")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true

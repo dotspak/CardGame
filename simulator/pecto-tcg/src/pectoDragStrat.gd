@@ -17,6 +17,7 @@ func can_insert_card(card3D: PectoCard3D, to_collection: CardCollection3D, from_
 	# check if space is empty
 	if !to_collection.cards.is_empty(): return false
 
+	card3D.collection = to_collection
 	return true
 
 

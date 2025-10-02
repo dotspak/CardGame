@@ -1,7 +1,9 @@
 extends CardCollection3D
+class_name GridSlot
 
 var board : PectoBoard3D
 
+@export_enum("Unit", "Offsite") var type : int = 0
 @export var linkedSlot : MeshInstance3D
 var defaultColor : Color
 

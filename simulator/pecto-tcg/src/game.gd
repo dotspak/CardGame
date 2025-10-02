@@ -5,6 +5,8 @@ class_name Game
 @onready var lvlLabel : Label = %totalLVL
 @onready var floatingLabel : Label = %floatingLVL
 
+@onready var camera : Camera3D = $Camera3D
+
 var currentLife : int = 10 :
     set(val):
         if val != currentLife: animate_icon(lifeLabel)
@@ -47,3 +49,13 @@ func animate_icon(node : Control) -> void:
     var tween := create_tween().set_trans(Tween.TRANS_SINE)
     tween.tween_property(node, "scale", Vector2.ONE * factor, 0.04)
     tween.tween_property(node, "scale", Vector2.ONE, 0.04)
+
+func _on_player_card_selected(card: Card3D) -> void:
+    var buttonPos : Vector2 = camera.unproject_position(card.global_position)
+    var buttons : Control = load("res://scenes/card_options.tscn").instantiate()
+
+    if %cardButtons.get_child_count() > 0:
+        %cardButtons.get_child(0).queue_free()
+    
+    %cardButtons.add_child(buttons)
+    buttons.global_position = buttonPos
