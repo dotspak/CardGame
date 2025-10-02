@@ -236,7 +236,7 @@ signal victor(card : PectoCard, target : Node)
 signal perish(card : PectoCard, condition : String)
 
 var inPlay : bool = false
-var active : bool = false
+var active : bool = true
 
 func _enter() -> void:
 	inPlay = true

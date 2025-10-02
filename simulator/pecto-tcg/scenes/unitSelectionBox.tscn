@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bv0nany7pq87l"]
 
-[ext_resource type="Script" uid="uid://bhsbphug3lcqi" path="res://addons/card_3d/scripts/card_collection/card_collection_3d.gd" id="1_o1tgp"]
+[ext_resource type="Script" uid="uid://de03lknktbyt4" path="res://src/pectoCardSelectionBox.gd" id="1_dnmbm"]
 [ext_resource type="Shape3D" uid="uid://cicwtlugivwj4" path="res://addons/card_3d/shapes_3d/default_card_collection_3d_drop_zone_shape_3d.tres" id="2_ddifw"]
 [ext_resource type="Script" uid="uid://cpcw405f10750" path="res://addons/card_3d/example_solitaire/scripts/stack_layout.gd" id="2_dnmbm"]
 [ext_resource type="Script" uid="uid://c6xj7aq0a3xj7" path="res://src/pectoDragStrat.gd" id="3_c1yli"]
@@ -12,12 +12,11 @@ metadata/_custom_type_script = "uid://cpcw405f10750"
 
 [sub_resource type="Resource" id="Resource_1b7ht"]
 script = ExtResource("3_c1yli")
-can_remove = false
 can_reorder = false
 metadata/_custom_type_script = "uid://c6xj7aq0a3xj7"
 
 [node name="unit_0" type="Node3D"]
-script = ExtResource("1_o1tgp")
+script = ExtResource("1_dnmbm")
 card_layout_strategy = SubResource("Resource_c1yli")
 drag_strategy = SubResource("Resource_1b7ht")
 metadata/_custom_type_script = "uid://bhsbphug3lcqi"
