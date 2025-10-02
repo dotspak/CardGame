@@ -1,7 +1,27 @@
+@tool
 extends Node3D
 class_name PectoBoard3D
 
-@export var loadDeck : Array[String]
+const PLAYER_COLOR_UNIT : Color = Color("424a7d")
+const PLAYER_COLOR_OFFSITE : Color = Color("2b3051")
+
+const OPPONENT_COLOR_UNIT : Color = Color("744c57")
+const OPPONENT_COLOR_OFFSITE : Color = Color("4e333b")
+
+@export_enum("Player", "Opponent") var boardSide : int = 0:
+	set(val):
+		boardSide = val
+		for n : Node in $slotMeshes.get_children():
+			var mat : StandardMaterial3D
+			if n is MeshInstance3D: mat = n.get_active_material(0)
+			if n.name.contains("unit"):
+				mat.albedo_color = PLAYER_COLOR_UNIT \
+					if boardSide == 0 else OPPONENT_COLOR_UNIT
+			elif n.name.contains("offsite"):
+				mat.albedo_color = PLAYER_COLOR_OFFSITE \
+					if boardSide == 0 else OPPONENT_COLOR_OFFSITE
+
+@export var deckToLoad : Array[String]
 
 @onready var dragController : DragController = %DragController
 @onready var hand : CardCollection3D = %Hand
@@ -18,21 +38,29 @@ var slots : Array[CardCollection3D] = []
 var units : Array[Card3D] = [null, null, null]
 var offsites : Array[Card3D] = [null, null, null]
 
+var life : int = 10 :
+	set(val):
+		life = val
+		lifeChanged.emit(life)
+
 var lvl : int = 1 :
 	set(val):
 		lvl = clamp(val, 1, 99)
-		lvlChanged.emit(lvl)
-		update_lvl()
+		#lvlChanged.emit(lvl)
 
 var floatingLVL : int = 0:
 	set(val):
 		floatingLVL = clamp(val, 0, 99)
 		floatingLVLChanged.emit(floatingLVL)
 
+signal lifeChanged(val : int)
 signal lvlChanged(val : int)
 signal floatingLVLChanged(val : int)
 
-func _ready() -> void:
+func _ready() -> void: if !Engine.is_editor_hint(): start_game()
+	
+
+func start_game() -> void:
 	defaultCamPos = camera.global_position
 	var skipNodes : Array[String] = ["Hand", "Deck", "Discard", "Void"]
 	for c : Node in dragController.get_children():
@@ -53,7 +81,7 @@ func load_deck(_player : int = 0) -> void:
 	var db : SQLite = SQLite.new()
 	db.path = PectoCard.DB_PATH
 	db.open_db()
-	for cardID : String in loadDeck:
+	for cardID : String in deckToLoad:
 		var card : PectoCard = fetch_card(cardID, db)
 		if card:
 			var card3D : PectoCard3D = baseScene.instantiate()
@@ -97,7 +125,7 @@ func add_card_to_hand(cardID : String) -> void:
 	cardPool[cardID]["collection"] = hand
 
 
-# simply draws card from top of loadDeck
+# simply draws card from top of deckToLoad
 func draw_card() -> void:
 	var cardToDraw : PectoCard3D = deck.shift_card()
 	hand.append_card(cardToDraw)
@@ -141,17 +169,18 @@ func _on_card_selected(card3D : PectoCard3D) -> void:
 	print(card3D.card.cardName)
 
 func _on_card_added(card3D : PectoCard3D) -> void:
+	var startingLvl : int = lvl
 	lvl = 0
 	for slot : CardCollection3D in slots:
 		if !slot.cards.is_empty():
 			var c : PectoCard3D = slot.cards[0]
 			lvl += c.card.lvl if !c.card.banished else 0
+	
+	if startingLvl != lvl:
+		lvlChanged.emit(lvl)
 	print("card %s added, lvl now %s" % [card3D.card.cardName, lvl])
 
 
-func update_lvl() -> void:
-	var factor : float = 2
-	var tween := create_tween().set_trans(Tween.TRANS_SINE)
-	tween.tween_property(%totalLVL, "scale", Vector2.ONE * factor, 0.04)
-	tween.tween_property(%totalLVL, "scale", Vector2.ONE, 0.04)
-	%totalLVL.text = str(get_influence())
+
+func deal_damage(amount : int) -> void: life -= amount
+func heal_damage(amount : int) -> void: life += amount

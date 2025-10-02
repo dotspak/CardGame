@@ -290,6 +290,7 @@ func attack_aftermath(target : Node) -> void:
 
 
 func deal_damage(amount : int) -> void: force -= amount
+func heal_damage(amount : int) -> void: force += amount
 func has_keyword(key : String) -> bool: return keywords.has(KEYWORD[key.capitalize()]) 
 #endregion
 

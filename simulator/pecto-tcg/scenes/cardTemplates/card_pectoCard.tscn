@@ -249,7 +249,7 @@ clip_contents = true
 custom_minimum_size = Vector2(750, 1050)
 offset_right = 750.0
 offset_bottom = 1050.0
-pivot_offset = Vector2(375, 525)
+scale = Vector2(0.5, 0.5)
 theme_override_styles/panel = SubResource("StyleBoxFlat_3h312")
 
 [node name="cardBackground" type="TextureRect" parent="cardShape"]
