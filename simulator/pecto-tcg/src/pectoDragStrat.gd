@@ -16,13 +16,9 @@ func can_insert_card(card3D: PectoCard3D, to_collection: CardCollection3D, from_
 	
 	# check if space is empty
 	if !to_collection.cards.is_empty(): return false
-		#if from_collection.name == "Hand": return false
-		#elif !card3D.card.active: return false
-		#else: return can_swap_cards(card3D, to_collection.cards[0])
-
-	to_collection.highlight_slot()
 
 	return true
 
 
-func can_swap_cards(cardToMove, prevCard) -> bool: return cardToMove.card.active && !prevCard.card.has_keyword("static")
+func can_swap_cards(cardToMove : PectoCard3D, prevCard : PectoCard3D) -> bool: 
+	return cardToMove.card.active && !prevCard.card.has_keyword("static")

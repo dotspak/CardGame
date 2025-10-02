@@ -146,6 +146,7 @@ func _drag_card_start(card: Card3D, drag_from_collection: CardCollection3D):
 
 	for collection in _card_collections:
 		if collection.can_insert_card(_dragging_card, _drag_from_collection):
+			if collection.has_method("highlight_slot"): collection.highlight_slot()
 			collection.enable_drop_zone()
 
 		collection.hover_disabled = true
@@ -178,6 +179,7 @@ func _stop_drag(mouse_position: Vector2):
 	_drag_from_collection = null
 
 	for collection in _card_collections:
+		if collection.has_method("unhighlight_slot"): collection.unhighlight_slot()
 		collection.disable_drop_zone()
 		collection.hover_disabled = false
 
