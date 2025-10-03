@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://do6yql4uw2cjr"]
+[gd_scene load_steps=41 format=3 uid="uid://do6yql4uw2cjr"]
 
 [ext_resource type="Script" uid="uid://bu8m635jkfcgu" path="res://scenes/PectoBoard3D.gd" id="1_sic6o"]
 [ext_resource type="Script" uid="uid://bgkontnk0cnl" path="res://addons/card_3d/scripts/drag_controller.gd" id="2_8ykwa"]
@@ -10,19 +10,16 @@
 [ext_resource type="Script" uid="uid://dsyors6p1ph7" path="res://addons/card_3d/scripts/card_layouts/pile_card_layout.gd" id="8_fx3vf"]
 [ext_resource type="Script" uid="uid://drpbrbrd8kfxn" path="res://addons/card_3d/scripts/card_collection/drag_strategy.gd" id="9_qclna"]
 [ext_resource type="Shape3D" uid="uid://cicwtlugivwj4" path="res://addons/card_3d/shapes_3d/default_card_collection_3d_drop_zone_shape_3d.tres" id="10_klrw8"]
+[ext_resource type="PackedScene" uid="uid://bwuojsrmun3sm" path="res://scenes/play_zone.tscn" id="10_nc1hs"]
 [ext_resource type="Script" uid="uid://jkfm6q5w8u83" path="res://addons/card_3d/scripts/card_collection/drop_zone_editor_tool.gd" id="11_mtypg"]
 [ext_resource type="Texture2D" uid="uid://yv0ay28yfo7i" path="res://addons/kenney_particle_pack/magic_05.png" id="12_upnpo"]
+[ext_resource type="Script" uid="uid://dkckfib3cljd1" path="res://src/pectoPlayZoneStrat.gd" id="13_8ykwa"]
 
 [sub_resource type="Resource" id="Resource_svpld"]
 script = ExtResource("4_1r01h")
 slotType = 1
 can_reorder = false
 metadata/_custom_type_script = "uid://c6xj7aq0a3xj7"
-
-[sub_resource type="Resource" id="Resource_1i8jf"]
-script = ExtResource("6_fy6ix")
-arc_angle_deg = 20.0
-arc_radius = 35.0
 
 [sub_resource type="Resource" id="Resource_tttxe"]
 script = ExtResource("8_fx3vf")
@@ -44,8 +41,27 @@ metadata/_custom_type_script = "uid://dsyors6p1ph7"
 script = ExtResource("8_fx3vf")
 metadata/_custom_type_script = "uid://dsyors6p1ph7"
 
+[sub_resource type="Resource" id="Resource_8ykwa"]
+resource_local_to_scene = true
+script = ExtResource("6_fy6ix")
+arc_angle_deg = 20.0
+arc_radius = 35.0
+
+[sub_resource type="Resource" id="Resource_nx7c6"]
+script = ExtResource("8_fx3vf")
+metadata/_custom_type_script = "uid://dsyors6p1ph7"
+
+[sub_resource type="Resource" id="Resource_sic6o"]
+resource_local_to_scene = true
+script = ExtResource("13_8ykwa")
+can_select = false
+can_remove = false
+can_reorder = false
+can_insert = false
+metadata/_custom_type_script = "uid://dkckfib3cljd1"
+
 [sub_resource type="Gradient" id="Gradient_bg0yk"]
-offsets = PackedFloat32Array(0.75667655, 1)
+offsets = PackedFloat32Array(0.92517006, 1)
 colors = PackedColorArray(0, 0, 0, 0.5294118, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_yt3ua"]
@@ -154,13 +170,7 @@ material = SubResource("StandardMaterial3D_3qgs8")
 
 [node name="PectoBoard" type="Node3D"]
 script = ExtResource("1_sic6o")
-deckToLoad = Array[String](["MONOLITH", "MONOLITH", "WITHERING_SHRINE", "WITHERING_SHRINE", "TOMB_CRAWLER", "TOMB_CRAWLER", "BLAST_ORB", "BLAST_ORB"])
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40.2273)
-shadow_enabled = true
-shadow_opacity = 0.75
-shadow_blur = 6.15
+deckToLoad = Array[String](["MONOLITH", "MONOLITH", "WITHERING_SHRINE", "WITHERING_SHRINE", "TOMB_CRAWLER", "TOMB_CRAWLER", "BLAST_ORB", "BLAST_ORB", "SACRIFICIAL_KNIFE"])
 
 [node name="DragController" type="Node3D" parent="."]
 unique_name_in_owner = true
@@ -196,11 +206,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -6, 0)
 type = 1
 linkedSlot = NodePath("../../slotMeshes/offsite_2")
 drag_strategy = SubResource("Resource_svpld")
-
-[node name="Hand" parent="DragController" instance=ExtResource("5_6bc8p")]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.98480767, -0.17364816, 0, 0.17364816, 0.98480767, 2, -9, 7)
-card_layout_strategy = SubResource("Resource_1i8jf")
 
 [node name="Deck" type="Node3D" parent="DragController"]
 unique_name_in_owner = true
@@ -258,6 +263,17 @@ shape = ExtResource("10_klrw8")
 script = ExtResource("11_mtypg")
 _card_collection_3d = NodePath("..")
 _drop_zone_collision_shape_3d = NodePath("../DropZone/CollisionShape3D")
+
+[node name="Hand" parent="DragController" instance=ExtResource("5_6bc8p")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.98480767, -0.17364816, 0, 0.17364816, 0.98480767, 2, -9, 7)
+card_layout_strategy = SubResource("Resource_8ykwa")
+
+[node name="PlayZone" parent="DragController" instance=ExtResource("10_nc1hs")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -3.5, 5)
+card_layout_strategy = SubResource("Resource_nx7c6")
+drag_strategy = SubResource("Resource_sic6o")
 
 [node name="slotMeshes" type="Node3D" parent="."]
 
@@ -322,3 +338,5 @@ lifetime = 2.0
 speed_scale = 0.3
 process_material = SubResource("ParticleProcessMaterial_sa13j")
 draw_pass_1 = SubResource("QuadMesh_cl0qi")
+
+[connection signal="card_added" from="DragController/PlayZone" to="." method="_on_play_zone_card_added"]

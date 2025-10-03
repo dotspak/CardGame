@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://bwuojsrmun3sm"]
+
+[ext_resource type="Script" uid="uid://bhsbphug3lcqi" path="res://addons/card_3d/scripts/card_collection/card_collection_3d.gd" id="1_qdgfp"]
+[ext_resource type="Script" uid="uid://cpcw405f10750" path="res://addons/card_3d/example_solitaire/scripts/stack_layout.gd" id="2_uq7ry"]
+[ext_resource type="Script" uid="uid://dkckfib3cljd1" path="res://src/pectoPlayZoneStrat.gd" id="3_hdf7o"]
+
+[sub_resource type="Resource" id="Resource_x7bro"]
+script = ExtResource("2_uq7ry")
+distance = 2.48
+metadata/_custom_type_script = "uid://cpcw405f10750"
+
+[sub_resource type="Resource" id="Resource_1r01h"]
+resource_local_to_scene = true
+script = ExtResource("3_hdf7o")
+can_remove = false
+can_reorder = false
+metadata/_custom_type_script = "uid://dkckfib3cljd1"
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_nerhs"]
+points = PackedVector3Array(-5, 0, 3, 5, 0, 3, 5, 0, -3, -5, 0, -3)
+
+[node name="PlayZone" type="Node3D"]
+script = ExtResource("1_qdgfp")
+card_layout_strategy = SubResource("Resource_x7bro")
+drag_strategy = SubResource("Resource_1r01h")
+metadata/_custom_type_script = "uid://bhsbphug3lcqi"
+
+[node name="DropZone" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DropZone"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 1.6)
+shape = SubResource("ConvexPolygonShape3D_nerhs")
+disabled = true
+
+[connection signal="mouse_entered" from="DropZone" to="." method="_on_drop_zone_mouse_entered"]

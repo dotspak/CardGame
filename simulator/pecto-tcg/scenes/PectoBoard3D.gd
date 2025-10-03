@@ -28,12 +28,10 @@ const OPPONENT_COLOR_OFFSITE : Color = Color("4e333b")
 @onready var deck : CardCollection3D = %Deck
 @onready var discard : CardCollection3D = %Discard
 @onready var cardVoid : CardCollection3D = %Void
+@onready var playZone : CardCollection3D = %PlayZone
 
-@onready var camera : Camera3D = %Camera3D
-
-var defaultCamPos : Vector3
-var cardPool : Dictionary = {}
-var slots : Array[CardCollection3D] = []
+var cardPool : Array = []
+var slots : Array[GridSlot] = []
 
 var units : Array[Card3D] = [null, null, null]
 var offsites : Array[Card3D] = [null, null, null]
@@ -63,14 +61,12 @@ func _ready() -> void: if !Engine.is_editor_hint(): start_game()
 
 func start_game() -> void:
 	if deckToLoad.is_empty(): return
-	defaultCamPos = camera.global_position
-	var skipNodes : Array[String] = ["Hand", "Deck", "Discard", "Void"]
 	for c : Node in dragController.get_children():
-		if !skipNodes.has(c.name) && c is CardCollection3D:
+		if (c.name.contains("unit") || c.name.contains("offsite")) && c is CardCollection3D:
 			slots.append(c)
 			c.board = self
 			c.card_clicked.connect(_on_card_selected)
-			c.card_added.connect(_on_card_added)
+			c.card_added.connect(_on_card_added_to_slot)
 
 	load_deck()
 	shuffle_deck()
@@ -89,9 +85,9 @@ func load_deck() -> void:
 			var card3D : PectoCard3D = baseScene.instantiate()
 			card3D.set_front_face(card)
 			card3D.face_down = true
-			cardPool[cardID] = card3D
+			cardPool.append(card3D)
 			
-			add_card_to_deck(cardID)
+			add_card_to_deck(card3D)
 	db.close_db()
 
 
@@ -105,25 +101,20 @@ func fetch_card(cardID : String, db : SQLite) -> PectoCard:
 func get_influence() -> int: return lvl + floatingLVL
 
 func get_starting_hand() -> void:
-	var lvl1cards : Array[String] = []
-	for key : String in cardPool.keys():
-		var c : PectoCard3D = cardPool[key]
+	var lvl1cards : Array[PectoCard3D] = []
+	for c : PectoCard3D in cardPool:
 		if c.card.lvl == 1 && c.card.type != PectoCard.CARD_TYPE.Spell:
-			lvl1cards.append(key)
+			lvl1cards.append(c)
 	
 	add_card_to_hand(lvl1cards.pick_random())
 	for _i : int in 4: draw_card()
-	
 
-func add_card_to_hand(cardID : String) -> void:
-	var card : PectoCard3D = cardPool[cardID]
-	var collection : CardCollection3D = card.collection
-	if collection: card = collection.remove_card(card.collectionIDX)
+func recycle_deck() -> void:
+	for c : Card3D in discard.cards: add_card_to_deck(c)
+	shuffle_deck()
 
-	hand.append_card(card)
-	card.face_down = false
-	card.collection = hand
 
+func shuffle_deck() -> void: deck.cards.shuffle()
 
 # simply draws card from top of the deck
 func draw_card() -> void:
@@ -133,46 +124,26 @@ func draw_card() -> void:
 			
 	var cardToDraw : PectoCard3D = deck.shift_card()
 	hand.append_card(cardToDraw)
+	cardToDraw.collection = hand
 	cardToDraw.face_down = false
 
 
-func recycle_deck() -> void:
-	for c : Card3D in discard.cards: add_card_to_deck(c.card.ID)
-	shuffle_deck()
-
-
-func shuffle_deck() -> void: deck.cards.shuffle()
-
-
-func add_card_to_deck(cardID : String, onTop : bool = true) -> void:
-	var card : PectoCard3D = cardPool[cardID]
+func add_card_to_pile(card : PectoCard3D, pile : CardCollection3D, onTop : bool = false) -> PectoCard3D:
 	var collection : CardCollection3D = card.collection
-	if collection: card = collection.remove_card(card.collectionIDX)
-	if onTop: deck.prepend_card(card)
-	else: deck.append_card(card)
+	if collection && collection.cards.has(card):
+		card = collection.remove_card(collection.card_indicies[card])
 
-	card.face_down = true
-	card.collection = deck
+	if onTop: pile.prepend_card(card)
+	else: pile.append_card(card)
 
+	card.face_down = pile == deck
+	card.collection = pile
+	return card
 
-func discard_card(cardID : String) -> void: 
-	var card : PectoCard3D = cardPool[cardID]
-	var collection : CardCollection3D = card.collection
-	if collection: card = collection.remove_card(card.collectionIDX)
-
-	discard.prepend_card(card)
-	card.face_down = false
-	card.collection = discard
-
-
-func void_card(cardID : String) -> void: 
-	var card : PectoCard3D = cardPool[cardID]
-	var collection : CardCollection3D = card.collection
-	if collection: card = collection.remove_card(card.collectionIDX)
-
-	cardVoid.prepend_card(card)
-	card.face_down = false
-	card.collection = cardVoid
+func add_card_to_hand(card : PectoCard3D) -> void: add_card_to_pile(card, hand)
+func add_card_to_deck(card : PectoCard3D, onTop : bool = true) -> PectoCard3D: return add_card_to_pile(card, deck, onTop)
+func discard_card(card : PectoCard3D) -> PectoCard3D: return add_card_to_pile(card, discard)
+func void_card(card : PectoCard3D) -> PectoCard3D: return add_card_to_pile(card, cardVoid)
 
 
 func _on_card_selected(card3D : PectoCard3D) -> void:
@@ -182,16 +153,15 @@ func _on_card_selected(card3D : PectoCard3D) -> void:
 		print(card3D.card.cardName)
 
 
-func _on_card_added(card3D : PectoCard3D) -> void:
+func _on_card_added_to_slot(card3D : PectoCard3D) -> void:
 	var startingLvl : int = lvl
 	lvl = 0
 	for slot : CardCollection3D in slots:
 		if !slot.cards.is_empty():
 			var c : PectoCard3D = slot.cards[0]
+			c.collection = slot
 			lvl += c.card.lvl if !c.card.banished else 0
-	
-	if startingLvl != lvl:
-		lvlChanged.emit(lvl)
+	if startingLvl != lvl: lvlChanged.emit(lvl)
 	print("card %s added, lvl now %s" % [card3D.card.cardName, lvl])
 
 
@@ -201,3 +171,26 @@ func heal_damage(amount : int) -> void: life += amount
 
 func trigger_game_lose() -> void:
 	print("you lose!")
+
+
+func _on_play_zone_card_added(card: PectoCard3D) -> void:
+	card.collection = playZone
+	playZone.drag_strategy.can_select = false
+	hand.drag_strategy.can_select = false
+	
+	var isSpell : bool = card.card.type == PectoCard.CARD_TYPE.Spell
+	await get_tree().create_timer(0.5).timeout
+	if isSpell: card = discard_card(card)
+	else:
+		for slot : GridSlot in slots:
+			if slot.drag_strategy.can_insert_card(card, slot, playZone):
+				slot.highlight_slot()
+
+	if !isSpell:
+		await get_tree().create_timer(2.0).timeout
+		card = playZone.remove_card(playZone.card_indicies[card])
+		add_card_to_hand(card)
+		for slot : GridSlot in slots: slot.unhighlight_slot()
+	
+	hand.drag_strategy.can_select = true
+	playZone.drag_strategy.can_select = true

@@ -16,7 +16,6 @@ gradient = SubResource("Gradient_ng0j1")
 ID = "SACRIFICIAL_KNIFE"
 type = 2
 cardName = "Sacrificial Knife"
-lvl = 3
 text = "Destroy target unit in play. The owner of the unit draws a card."
 art = ExtResource("2_n36ak")
 bg = SubResource("GradientTexture1D_jys35")
@@ -51,9 +50,6 @@ text = "Sacrificial Knife"
 
 [node name="force" parent="cardShape/visual/topBar/info/nameContainer/HBoxContainer" index="1"]
 visible = false
-
-[node name="cardLVL" parent="cardShape/visual/topBar/lvlIcon" index="0"]
-text = "3"
 
 [node name="rarity" parent="cardShape/visual/extraInfo" index="1"]
 texture = ExtResource("4_icwju")

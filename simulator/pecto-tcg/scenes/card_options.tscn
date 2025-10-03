@@ -65,9 +65,15 @@ shadow_offset = Vector2(0, 20)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5v5j2"]
 
 [node name="cardOptions" type="HBoxContainer"]
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = -1
+anchor_right = 0.2
+anchor_bottom = 0.11111111
+pivot_offset = Vector2(192, 60)
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_constants/separation = 10
+alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="attackButton" type="Button" parent="."]
 texture_filter = 1

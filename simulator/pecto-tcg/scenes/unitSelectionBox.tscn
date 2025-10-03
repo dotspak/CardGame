@@ -26,6 +26,7 @@ metadata/_custom_type_script = "uid://bhsbphug3lcqi"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DropZone"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 1.6)
 shape = ExtResource("2_ddifw")
+disabled = true
 
 [node name="DropZoneEditorTool" type="Node" parent="." node_paths=PackedStringArray("_card_collection_3d", "_drop_zone_collision_shape_3d")]
 script = ExtResource("3_dnmbm")

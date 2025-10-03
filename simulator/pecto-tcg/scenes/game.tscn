@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://b82p64sv3xjup"]
+[gd_scene load_steps=24 format=3 uid="uid://b82p64sv3xjup"]
 
 [ext_resource type="Script" uid="uid://krrob1jjjfjs" path="res://src/game.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://do6yql4uw2cjr" path="res://scenes/playerBoard.tscn" id="1_lnu2h"]
 [ext_resource type="FontFile" uid="uid://fpqgiu5d1pkr" path="res://assets/fonts/Higher Jump.ttf" id="2_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://bsidin4i266kj" path="res://assets/levelIcon.png" id="3_iywne"]
+[ext_resource type="Texture2D" uid="uid://2bsqamenu2mg" path="res://addons/kenney_particle_pack/smoke_04.png" id="5_iywne"]
 
 [sub_resource type="Gradient" id="Gradient_ti0og"]
 interpolation_mode = 1
@@ -62,6 +63,59 @@ fill_from = Vector2(0, 1)
 shading_mode = 0
 albedo_color = Color(0.31895113, 0.6078125, 0.46338183, 1)
 albedo_texture = SubResource("GradientTexture2D_1i8jf")
+
+[sub_resource type="Gradient" id="Gradient_p57ef"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_u5sy4"]
+gradient = SubResource("Gradient_p57ef")
+
+[sub_resource type="Gradient" id="Gradient_gee14"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0tnpc"]
+gradient = SubResource("Gradient_gee14")
+
+[sub_resource type="Curve" id="Curve_iywne"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 2), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_p57ef"]
+curve = SubResource("Curve_iywne")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_p57ef"]
+lifetime_randomness = 0.3
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 20.0
+emission_ring_inner_radius = 15.0
+emission_ring_cone_angle = 90.0
+angle_min = -720.0
+angle_max = 720.0
+initial_velocity_min = -5.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 0, 9.8)
+scale_min = 2.0
+scale_max = 10.0
+scale_curve = SubResource("CurveTexture_p57ef")
+color_ramp = SubResource("GradientTexture1D_0tnpc")
+color_initial_ramp = SubResource("GradientTexture1D_u5sy4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u5sy4"]
+transparency = 1
+blend_mode = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("5_iywne")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_gee14"]
+material = SubResource("StandardMaterial3D_u5sy4")
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_lbhrr")
@@ -262,34 +316,46 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="cardButtons" type="Control" parent="UI/guiPrompts"]
+[node name="cardButtons" type="CenterContainer" parent="UI/guiPrompts"]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 mouse_filter = 2
+use_top_left = true
 
 [node name="Table" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -1)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -2)
 mesh = SubResource("PlaneMesh_lbhrr")
 surface_material_override/0 = SubResource("StandardMaterial3D_p57ef")
-metadata/_edit_lock_ = true
 
-[node name="player" parent="." instance=ExtResource("1_lnu2h")]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40.2273)
+shadow_enabled = true
+shadow_opacity = 0.75
+shadow_blur = 6.15
 
-[node name="opponent" parent="." instance=ExtResource("1_lnu2h")]
+[node name="playerBoard" parent="." instance=ExtResource("1_lnu2h")]
+unique_name_in_owner = true
+
+[node name="opponentBoard" parent="." instance=ExtResource("1_lnu2h")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -1, 0, 0, 0, 1, 0, 0, 0)
 boardSide = 1
 
 [node name="Camera3D" type="Camera3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.9848078, -0.1736482, 0, 0.1736482, 0.9848078, 2, -5.5, 14.5)
+current = true
 
-[connection signal="pressed" from="UI/mainHUD/MarginContainer/VBoxContainer/Button2" to="player" method="draw_card"]
-[connection signal="cardSelected" from="player" to="." method="_on_player_card_selected"]
-[connection signal="floatingLVLChanged" from="player" to="." method="update_floatingLVl"]
-[connection signal="lifeChanged" from="player" to="." method="update_life"]
-[connection signal="lvlChanged" from="player" to="." method="update_lvl"]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.98480743, 0.17364812, 0, -0.17364812, 0.98480743, 0, 3.4777722, -14.829194)
+amount = 100
+lifetime = 2.0
+speed_scale = 0.5
+process_material = SubResource("ParticleProcessMaterial_p57ef")
+draw_pass_1 = SubResource("QuadMesh_gee14")
+
+[connection signal="pressed" from="UI/mainHUD/MarginContainer/VBoxContainer/Button2" to="playerBoard" method="draw_card"]
+[connection signal="cardSelected" from="playerBoard" to="." method="_on_player_card_selected"]
+[connection signal="floatingLVLChanged" from="playerBoard" to="." method="update_floatingLVl"]
+[connection signal="lifeChanged" from="playerBoard" to="." method="update_life"]
+[connection signal="lvlChanged" from="playerBoard" to="." method="update_lvl"]
