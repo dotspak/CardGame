@@ -22,3 +22,13 @@ func _click(_camera, event : InputEvent, _event_position, _normal, _shape_idx):
 			card_3d_mouse_down.emit()
 		elif button == 1 and pressed == false:
 			card_3d_mouse_up.emit()
+
+func display_icons() -> void:
+	%forcceIcon.get_child(0).text = str(card.force)
+	%lvlIcon.get_child(0).text = str(card.lvl)
+	%forcceIcon.show()
+	%lvlIcon.show()
+
+func hide_icons() -> void:
+	%forcceIcon.hide()
+	%lvlIcon.hide()

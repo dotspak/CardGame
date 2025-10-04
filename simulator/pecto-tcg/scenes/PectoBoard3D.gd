@@ -65,9 +65,8 @@ func start_game() -> void:
 		if (c.name.contains("unit") || c.name.contains("offsite")) && c is CardCollection3D:
 			slots.append(c)
 			c.board = self
-			c.card_clicked.connect(_on_card_selected)
+			c.card_selected.connect(_on_card_selected)
 			c.card_added.connect(_on_card_added_to_slot)
-
 	load_deck()
 	shuffle_deck()
 	await get_tree().create_timer(0.5).timeout
@@ -129,6 +128,7 @@ func draw_card() -> void:
 
 
 func add_card_to_pile(card : PectoCard3D, pile : CardCollection3D, onTop : bool = false) -> PectoCard3D:
+	
 	var collection : CardCollection3D = card.collection
 	if collection && collection.cards.has(card):
 		card = collection.remove_card(collection.card_indicies[card])
@@ -138,7 +138,9 @@ func add_card_to_pile(card : PectoCard3D, pile : CardCollection3D, onTop : bool 
 
 	card.face_down = pile == deck
 	card.collection = pile
+	card.hide_icons()
 	return card
+
 
 func add_card_to_hand(card : PectoCard3D) -> void: add_card_to_pile(card, hand)
 func add_card_to_deck(card : PectoCard3D, onTop : bool = true) -> PectoCard3D: return add_card_to_pile(card, deck, onTop)
@@ -154,6 +156,7 @@ func _on_card_selected(card3D : PectoCard3D) -> void:
 
 
 func _on_card_added_to_slot(card3D : PectoCard3D) -> void:
+	card3D.display_icons()
 	var startingLvl : int = lvl
 	lvl = 0
 	for slot : CardCollection3D in slots:

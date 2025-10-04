@@ -32,4 +32,9 @@ func unhighlight_slot() -> void:
 func get_slot_mat() -> StandardMaterial3D:
 	if !linkedSlot: return null
 	return linkedSlot.get_active_material(0)
-	
+
+
+func _on_card_moved(_card: Variant, _from: Variant, _to: Variant) -> void: drag_strategy.can_select = false
+func _on_card_added(_card: Variant) -> void:
+	#await get_tree().create_timer(0.1).timeout
+	drag_strategy.can_select = true

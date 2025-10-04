@@ -8,7 +8,6 @@ const HAND_OFFSET : Vector3 = Vector3(0, -3.5, -7.5)
 @onready var floatingLabel : Label = %floatingLVL
 @onready var povPlayer : PectoBoard3D = %playerBoard
 @onready var opponentPlayer : PectoBoard3D = %opponentBoard
-
 @onready var camera : Camera3D = $Camera3D
 
 var defaultCamPos : Vector3 = Vector3.ZERO
@@ -75,17 +74,32 @@ func _on_player_card_selected(card: Card3D) -> void:
 	var tween := create_tween().set_trans(Tween.TRANS_SINE)
 	tween.tween_property(camera, "global_position", 
 		Vector3(card.global_position.x, card.global_position.y - 2, 
-			defaultCamPos.z - 4), 0.1) 
+			defaultCamPos.z - 6), 0.1)
 
 	await tween.finished
 
 	var buttonPos : Vector2 = camera.unproject_position(card.global_position)
 	var buttons : Control = load("res://scenes/card_options.tscn").instantiate()
 
+	buttons.get_child(0).visible = card.card.type != 1
+	buttons.get_child(0).disabled = !card.card.active
+
+	buttons.get_child(1).visible = card.card.skillName != ""
+	buttons.get_child(1).disabled = !card.card.active
+
+	# temporary, change with actual logic later
+	buttons.get_child(0).pressed.connect(_full_reset.bind(card))
+	buttons.get_child(1).pressed.connect(_full_reset.bind(card))
+	buttons.get_child(2).pressed.connect(_full_reset.bind(card))
+
+	buttonPos.x -= 128
 	for n in %cardButtons.get_children(): n.queue_free()
 	
 	%cardButtons.add_child(buttons)
 	%cardButtons.global_position = buttonPos
+
+
+func clear_buttons() -> void: for n in %cardButtons.get_children(): n.queue_free()
 
 
 func reset_camera() -> void:
@@ -95,3 +109,8 @@ func reset_camera() -> void:
 
 func trigger_interaction_layer(_player : int = 1) -> void:
 	pass
+
+
+func _full_reset(_card: Variant) -> void:
+	clear_buttons()
+	reset_camera()

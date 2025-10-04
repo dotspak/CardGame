@@ -1,10 +1,12 @@
-[gd_scene load_steps=24 format=3 uid="uid://b82p64sv3xjup"]
+[gd_scene load_steps=36 format=3 uid="uid://b82p64sv3xjup"]
 
 [ext_resource type="Script" uid="uid://krrob1jjjfjs" path="res://src/game.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://do6yql4uw2cjr" path="res://scenes/playerBoard.tscn" id="1_lnu2h"]
 [ext_resource type="FontFile" uid="uid://fpqgiu5d1pkr" path="res://assets/fonts/Higher Jump.ttf" id="2_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://bsidin4i266kj" path="res://assets/levelIcon.png" id="3_iywne"]
-[ext_resource type="Texture2D" uid="uid://2bsqamenu2mg" path="res://addons/kenney_particle_pack/smoke_04.png" id="5_iywne"]
+[ext_resource type="Texture2D" uid="uid://yv0ay28yfo7i" path="res://addons/kenney_particle_pack/magic_05.png" id="5_iywne"]
+[ext_resource type="Script" uid="uid://7sguf1kjbe8s" path="res://addons/card_3d/scripts/card_layouts/fan_card_layout.gd" id="5_u5sy4"]
+[ext_resource type="Script" uid="uid://dkckfib3cljd1" path="res://src/pectoPlayZoneStrat.gd" id="6_gee14"]
 
 [sub_resource type="Gradient" id="Gradient_ti0og"]
 interpolation_mode = 1
@@ -64,7 +66,76 @@ shading_mode = 0
 albedo_color = Color(0.31895113, 0.6078125, 0.46338183, 1)
 albedo_texture = SubResource("GradientTexture2D_1i8jf")
 
+[sub_resource type="Resource" id="Resource_8ykwa"]
+resource_local_to_scene = true
+script = ExtResource("5_u5sy4")
+arc_angle_deg = 20.0
+arc_radius = 35.0
+
+[sub_resource type="Resource" id="Resource_sic6o"]
+resource_local_to_scene = true
+script = ExtResource("6_gee14")
+can_select = false
+can_remove = false
+can_reorder = false
+can_insert = false
+metadata/_custom_type_script = "uid://dkckfib3cljd1"
+
+[sub_resource type="Gradient" id="Gradient_bg0yk"]
+offsets = PackedFloat32Array(0.92517006, 1)
+colors = PackedColorArray(0, 0, 0, 0.5294118, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yt3ua"]
+gradient = SubResource("Gradient_bg0yk")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0tnpc"]
+resource_local_to_scene = true
+render_priority = -1
+transparency = 1
+albedo_color = Color(0.25882354, 0.2901961, 0.49019608, 1)
+albedo_texture = SubResource("GradientTexture2D_yt3ua")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vtaks"]
+resource_local_to_scene = true
+render_priority = -1
+transparency = 1
+albedo_color = Color(0.25882354, 0.2901961, 0.49019608, 1)
+albedo_texture = SubResource("GradientTexture2D_yt3ua")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kvpfn"]
+resource_local_to_scene = true
+render_priority = -1
+transparency = 1
+albedo_color = Color(0.25882354, 0.2901961, 0.49019608, 1)
+albedo_texture = SubResource("GradientTexture2D_yt3ua")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dinhu"]
+resource_local_to_scene = true
+render_priority = -1
+transparency = 1
+albedo_color = Color(0.16862746, 0.1882353, 0.31764707, 1)
+albedo_texture = SubResource("GradientTexture2D_yt3ua")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kvuet"]
+resource_local_to_scene = true
+render_priority = -1
+transparency = 1
+albedo_color = Color(0.16862746, 0.1882353, 0.31764707, 1)
+albedo_texture = SubResource("GradientTexture2D_yt3ua")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_trtic"]
+resource_local_to_scene = true
+render_priority = -1
+transparency = 1
+albedo_color = Color(0.16862746, 0.1882353, 0.31764707, 1)
+albedo_texture = SubResource("GradientTexture2D_yt3ua")
+
 [sub_resource type="Gradient" id="Gradient_p57ef"]
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0, 0.5425532, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.49973413, 0.53253466, 0.8226563, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_u5sy4"]
 gradient = SubResource("Gradient_p57ef")
@@ -100,8 +171,11 @@ gravity = Vector3(0, 0, 9.8)
 scale_min = 2.0
 scale_max = 10.0
 scale_curve = SubResource("CurveTexture_p57ef")
+color = Color(1, 1, 1, 0.2)
 color_ramp = SubResource("GradientTexture1D_0tnpc")
 color_initial_ramp = SubResource("GradientTexture1D_u5sy4")
+hue_variation_min = -0.100000024
+hue_variation_max = 0.09999997
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u5sy4"]
 transparency = 1
@@ -336,6 +410,30 @@ shadow_blur = 6.15
 [node name="playerBoard" parent="." instance=ExtResource("1_lnu2h")]
 unique_name_in_owner = true
 
+[node name="Hand" parent="playerBoard/DragController" index="9"]
+card_layout_strategy = SubResource("Resource_8ykwa")
+
+[node name="PlayZone" parent="playerBoard/DragController" index="10"]
+drag_strategy = SubResource("Resource_sic6o")
+
+[node name="unit_0" parent="playerBoard/slotMeshes" index="0"]
+material_override = SubResource("StandardMaterial3D_0tnpc")
+
+[node name="unit_1" parent="playerBoard/slotMeshes" index="1"]
+material_override = SubResource("StandardMaterial3D_vtaks")
+
+[node name="unit_2" parent="playerBoard/slotMeshes" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_kvpfn")
+
+[node name="offsite_0" parent="playerBoard/slotMeshes" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_dinhu")
+
+[node name="offsite_1" parent="playerBoard/slotMeshes" index="4"]
+material_override = SubResource("StandardMaterial3D_kvuet")
+
+[node name="offsite_2" parent="playerBoard/slotMeshes" index="5"]
+material_override = SubResource("StandardMaterial3D_trtic")
+
 [node name="opponentBoard" parent="." instance=ExtResource("1_lnu2h")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -1, 0, 0, 0, 1, 0, 0, 0)
@@ -359,3 +457,6 @@ draw_pass_1 = SubResource("QuadMesh_gee14")
 [connection signal="floatingLVLChanged" from="playerBoard" to="." method="update_floatingLVl"]
 [connection signal="lifeChanged" from="playerBoard" to="." method="update_life"]
 [connection signal="lvlChanged" from="playerBoard" to="." method="update_lvl"]
+[connection signal="card_selected" from="playerBoard/DragController/Hand" to="." method="_full_reset"]
+
+[editable path="playerBoard"]

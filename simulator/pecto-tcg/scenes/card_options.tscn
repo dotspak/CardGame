@@ -7,7 +7,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cl6pt"]
 content_margin_top = 20.0
 content_margin_bottom = 20.0
-bg_color = Color(0, 0, 0, 0)
+bg_color = Color(0.24500002, 0.39666674, 0.7, 0.4117647)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -25,12 +25,12 @@ shadow_offset = Vector2(0, 20)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5li5l"]
 content_margin_top = 20.0
 content_margin_bottom = 20.0
-bg_color = Color(0, 0, 0, 0.38039216)
+bg_color = Color(0.05600001, 0.15400006, 0.35, 0.4117647)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 10
-border_color = Color(1, 1, 1, 1)
+border_color = Color(0, 0, 0, 1)
 border_blend = true
 corner_radius_top_left = 24
 corner_radius_top_right = 24
@@ -43,7 +43,7 @@ shadow_offset = Vector2(0, 20)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_emj5m"]
 content_margin_top = 20.0
 content_margin_bottom = 20.0
-bg_color = Color(0, 0, 0, 0)
+bg_color = Color(0.24500002, 0.39666674, 0.7, 0.4117647)
 border_width_left = 4
 border_width_top = 4
 border_width_right = 4
@@ -64,27 +64,28 @@ shadow_offset = Vector2(0, 20)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5v5j2"]
 
-[node name="cardOptions" type="HBoxContainer"]
+[node name="cardOptions" type="VBoxContainer"]
 anchors_preset = -1
-anchor_right = 0.2
-anchor_bottom = 0.11111111
+anchor_right = 0.05
+anchor_bottom = 0.27962962
 pivot_offset = Vector2(192, 60)
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 10
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 4
 alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="attackButton" type="Button" parent="."]
 texture_filter = 1
-custom_minimum_size = Vector2(120, 120)
+custom_minimum_size = Vector2(96, 96)
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/outline_size = 10
 theme_override_styles/normal = SubResource("StyleBoxFlat_cl6pt")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_5li5l")
 theme_override_styles/hover = SubResource("StyleBoxFlat_emj5m")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_emj5m")
-text = "ATTACK"
+text = "FIGHT"
 icon = ExtResource("1_emj5m")
 icon_alignment = 1
 vertical_icon_alignment = 0
@@ -92,8 +93,9 @@ expand_icon = true
 
 [node name="skillButton" type="Button" parent="."]
 texture_filter = 1
-custom_minimum_size = Vector2(120, 120)
+custom_minimum_size = Vector2(96, 96)
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/outline_size = 10
 theme_override_styles/normal = SubResource("StyleBoxFlat_cl6pt")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_5li5l")
@@ -107,14 +109,15 @@ expand_icon = true
 
 [node name="cancel" type="Button" parent="."]
 texture_filter = 1
-custom_minimum_size = Vector2(120, 120)
+custom_minimum_size = Vector2(96, 96)
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/outline_size = 10
 theme_override_styles/normal = SubResource("StyleBoxFlat_cl6pt")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_5li5l")
 theme_override_styles/hover = SubResource("StyleBoxFlat_emj5m")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_5v5j2")
-text = "CANCEL"
+text = "EXIT"
 icon = ExtResource("3_5v5j2")
 icon_alignment = 1
 vertical_icon_alignment = 0
