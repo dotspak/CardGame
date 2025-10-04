@@ -1,10 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://buocg07fg5px0"]
+[gd_scene load_steps=26 format=3 uid="uid://buocg07fg5px0"]
 
 [ext_resource type="PackedScene" uid="uid://dxpc2iac0hjpw" path="res://addons/card_3d/scenes/card_3d.tscn" id="1_0xa8b"]
 [ext_resource type="Script" uid="uid://b0fdm3p04aufi" path="res://PectoCard3D.gd" id="2_omhgn"]
 [ext_resource type="PackedScene" uid="uid://b8uwted6lh1x5" path="res://data/set1/offsite_monolith.tscn" id="3_0xa8b"]
+[ext_resource type="FontFile" uid="uid://fpqgiu5d1pkr" path="res://assets/fonts/Higher Jump.ttf" id="4_sw0d4"]
 [ext_resource type="PackedScene" uid="uid://c4c6pl5m22jp2" path="res://scenes/cardTemplates/card_back.tscn" id="4_wt3j3"]
-[ext_resource type="FontFile" uid="uid://fpqgiu5d1pkr" path="res://assets/fonts/Higher Jump.ttf" id="5_omhgn"]
+[ext_resource type="FontFile" uid="uid://1kd62leqiy8y" path="res://assets/fonts/AveriaLibre-Bold.ttf" id="5_omhgn"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_aemr7"]
 viewport_path = NodePath("backFace")
@@ -30,13 +31,6 @@ disable_fog = true
 albedo_texture = SubResource("ViewportTexture_uad0d")
 texture_filter = 1
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xa8b"]
-cull_mode = 1
-shading_mode = 0
-albedo_color = Color(0, 0, 0, 1)
-grow = true
-grow_amount = 0.03
-
 [sub_resource type="Gradient" id="Gradient_omhgn"]
 offsets = PackedFloat32Array(0.13422818, 0.5771812)
 colors = PackedColorArray(1.6466165, 0.984153, 1.5423585, 1, 1.0063174, 0.43656704, 0.81640047, 1)
@@ -47,10 +41,14 @@ use_hdr = true
 fill_from = Vector2(0, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wt3j3"]
+resource_local_to_scene = true
+render_priority = 2
+transparency = 1
 shading_mode = 0
 albedo_texture = SubResource("GradientTexture2D_sw0d4")
 
 [sub_resource type="BoxMesh" id="BoxMesh_aemr7"]
+resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_wt3j3")
 size = Vector3(0.6, 0.6, 0.2)
 subdivide_width = 4
@@ -58,6 +56,9 @@ subdivide_height = 4
 subdivide_depth = 4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_omhgn"]
+resource_local_to_scene = true
+render_priority = 2
+transparency = 1
 cull_mode = 1
 shading_mode = 0
 albedo_color = Color(0.55972016, 1.4663581, 1.8247963, 1)
@@ -65,10 +66,14 @@ grow = true
 grow_amount = 0.02
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sw0d4"]
+resource_local_to_scene = true
+render_priority = 3
+transparency = 1
 shading_mode = 0
 albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_sw0d4"]
+resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_sw0d4")
 radius = 0.3
 height = 0.6
@@ -103,6 +108,30 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(0, 0, -0.17453292), Vector3(0, 0, 0.17453292), Vector3(0, 0, -0.17453292)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CardMesh/lvlIcon:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CardMesh/forcceIcon:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_sw0d4"]
 length = 0.001
@@ -130,11 +159,322 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CardMesh/forcceIcon:mesh:material:albedo_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CardMesh/forcceIcon:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1.25, 0.25)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CardMesh/forcceIcon:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CardMesh/lvlIcon:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.75, 1.25, 0.25)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CardMesh/lvlIcon:mesh:material:albedo_color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CardMesh/lvlIcon:material_overlay:albedo_color")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.55972016, 1.4663581, 1.8247963, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CardMesh/lvlIcon/lvlLabel:pixel_size")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.005]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CardMesh/forcceIcon/forceLabel:pixel_size")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.005]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CardMesh/lvlIcon:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_uad0d"]
+resource_name = "display"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CardMesh/forcceIcon:mesh:material:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CardMesh/forcceIcon:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.17453292), Vector3(0, 0, -0.17453292)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CardMesh/forcceIcon:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(0.5, 0.5, 1),
+"update": 0,
+"values": [Vector3(0, -1.75, 0.25), Vector3(0, -1, 0.25), Vector3(0, -1.25, 0.25)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CardMesh/forcceIcon:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CardMesh/lvlIcon:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector3(0.75, 2, 0.25), Vector3(0.75, 1.25, 0.25)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CardMesh/lvlIcon:mesh:material:albedo_color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CardMesh/lvlIcon:material_overlay:albedo_color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.55972016, 1.4663581, 1.8247963, 0), Color(0.55972016, 1.4663581, 1.8247963, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CardMesh/lvlIcon/lvlLabel:pixel_size")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [0.0001, 0.005]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CardMesh/forcceIcon/forceLabel:pixel_size")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [0.0001, 0.005]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CardMesh/lvlIcon:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wt3j3"]
 _data = {
 &"RESET": SubResource("Animation_sw0d4"),
+&"display": SubResource("Animation_uad0d"),
 &"loop": SubResource("Animation_omhgn")
+}
+
+[sub_resource type="Animation" id="Animation_wt3j3"]
+resource_name = "attack"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CardMesh:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.23333333, 0.36666667, 0.5),
+"transitions": PackedFloat32Array(2, 0.5, 0.5, 0.5, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -0.6, 0), Vector3(0, 2, 0), Vector3(0, 2, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CardMesh:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.23333333, 0.36666667, 0.5),
+"transitions": PackedFloat32Array(2, 0.5, 0.5, 0.5, 0.5),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.08726646), Vector3(0, 0, 0.17453292), Vector3(0, 0, 0.17453292), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_aemr7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CardMesh:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CardMesh:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_828uu"]
+resource_name = "inactive"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CardMesh:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 1.7453293), Vector3(0, 0, 1.5707964)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_828uu"]
+_data = {
+&"RESET": SubResource("Animation_aemr7"),
+&"attack": SubResource("Animation_wt3j3"),
+&"inactive": SubResource("Animation_828uu")
 }
 
 [node name="PectoCard3D" instance=ExtResource("1_0xa8b")]
@@ -148,8 +488,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_6dmal")
 
 [node name="forcceIcon" type="MeshInstance3D" parent="CardMesh" index="2"]
 unique_name_in_owner = true
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -1.25, 0.25)
-material_overlay = SubResource("StandardMaterial3D_0xa8b")
+transform = Transform3D(1.9999999, 0, 0, 0, 1.9999999, 0, 0, 0, 2, 0, -1.25, 0.25)
 mesh = SubResource("BoxMesh_aemr7")
 skeleton = NodePath("../..")
 
@@ -157,9 +496,13 @@ skeleton = NodePath("../..")
 billboard = 2
 double_sided = false
 no_depth_test = true
+render_priority = 3
+outline_render_priority = 0
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(0, 0, 0, 0)
 text = "3"
 font = ExtResource("5_omhgn")
-font_size = 48
+font_size = 96
 outline_size = 10
 
 [node name="lvlIcon" type="MeshInstance3D" parent="CardMesh" index="3"]
@@ -173,9 +516,11 @@ skeleton = NodePath("../..")
 billboard = 2
 double_sided = false
 no_depth_test = true
-outline_modulate = Color(0.1917647, 0.55132353, 0.7640625, 1)
+render_priority = 5
+outline_render_priority = 4
+outline_modulate = Color(0.2, 0.5686275, 0.8666667, 1)
 text = "3"
-font = ExtResource("5_omhgn")
+font = ExtResource("4_sw0d4")
 font_size = 48
 outline_size = 24
 
@@ -201,8 +546,13 @@ render_target_update_mode = 1
 [node name="cardBack" parent="backFace" index="0" instance=ExtResource("4_wt3j3")]
 scale = Vector2(0.5, 0.5)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+[node name="iconAnimator" type="AnimationPlayer" parent="." index="4"]
 libraries = {
 &"": SubResource("AnimationLibrary_wt3j3")
 }
 autoplay = "loop"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+libraries = {
+&"": SubResource("AnimationLibrary_828uu")
+}

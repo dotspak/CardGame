@@ -272,7 +272,7 @@ card_layout_strategy = SubResource("Resource_8ykwa")
 
 [node name="PlayZone" parent="DragController" instance=ExtResource("10_nc1hs")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -3.5, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -3.5, 7)
 card_layout_strategy = SubResource("Resource_nx7c6")
 drag_strategy = SubResource("Resource_sic6o")
 

@@ -88,8 +88,12 @@ func _on_player_card_selected(card: Card3D) -> void:
 	buttons.get_child(1).disabled = !card.card.active
 
 	# temporary, change with actual logic later
-	buttons.get_child(0).pressed.connect(_full_reset.bind(card))
-	buttons.get_child(1).pressed.connect(_full_reset.bind(card))
+	buttons.get_child(0).pressed.connect(func():
+		await _full_reset(card)
+		card.attack())
+	buttons.get_child(1).pressed.connect(func():
+		await _full_reset(card)
+		card.use_skill())
 	buttons.get_child(2).pressed.connect(_full_reset.bind(card))
 
 	buttonPos.x -= 128
@@ -105,6 +109,7 @@ func clear_buttons() -> void: for n in %cardButtons.get_children(): n.queue_free
 func reset_camera() -> void:
 	var tween := create_tween().set_trans(Tween.TRANS_SINE)
 	tween.tween_property(camera, "global_position", defaultCamPos, 0.1) 
+	await tween.finished
 
 
 func trigger_interaction_layer(_player : int = 1) -> void:
@@ -113,4 +118,4 @@ func trigger_interaction_layer(_player : int = 1) -> void:
 
 func _full_reset(_card: Variant) -> void:
 	clear_buttons()
-	reset_camera()
+	await reset_camera()

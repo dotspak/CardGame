@@ -158,6 +158,7 @@ material = SubResource("ShaderMaterial_bai37")
 texture = ExtResource("2_7k3bj")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="cardShape/visual/cardArt" index="0"]
+visible = false
 material = SubResource("CanvasItemMaterial_363s6")
 position = Vector2(325, 475)
 amount = 100
