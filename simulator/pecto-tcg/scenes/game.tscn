@@ -1,14 +1,20 @@
-[gd_scene load_steps=43 format=3 uid="uid://b82p64sv3xjup"]
+[gd_scene load_steps=49 format=3 uid="uid://b82p64sv3xjup"]
 
 [ext_resource type="Script" uid="uid://krrob1jjjfjs" path="res://src/game.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://do6yql4uw2cjr" path="res://scenes/playerBoard.tscn" id="1_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://cpd75prx0jb0v" path="res://data/set1/unit_blastOrb.tscn" id="2_ir15t"]
 [ext_resource type="FontFile" uid="uid://fpqgiu5d1pkr" path="res://assets/fonts/Higher Jump.ttf" id="2_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://bd5x8tl7fbrhf" path="res://data/set1/unit_bottomDweller.tscn" id="3_ca42v"]
 [ext_resource type="Texture2D" uid="uid://bsidin4i266kj" path="res://assets/levelIcon.png" id="3_iywne"]
 [ext_resource type="Texture2D" uid="uid://d6ixysc00hxh" path="res://assets/set1/monolith.png" id="4_gee14"]
+[ext_resource type="PackedScene" uid="uid://es0mijmrrpoq" path="res://data/set1/unit_theMoon.tscn" id="4_rysoc"]
+[ext_resource type="PackedScene" uid="uid://b8uwted6lh1x5" path="res://data/set1/offsite_monolith.tscn" id="4_vtaks"]
 [ext_resource type="Texture2D" uid="uid://c8qk8km7h4a3b" path="res://assets/icon_pullOut.png" id="5_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://yv0ay28yfo7i" path="res://addons/kenney_particle_pack/magic_05.png" id="5_iywne"]
 [ext_resource type="Script" uid="uid://7sguf1kjbe8s" path="res://addons/card_3d/scripts/card_layouts/fan_card_layout.gd" id="5_u5sy4"]
 [ext_resource type="Script" uid="uid://dkckfib3cljd1" path="res://src/pectoPlayZoneStrat.gd" id="6_gee14"]
+[ext_resource type="PackedScene" uid="uid://dtfwerbpe0fv4" path="res://data/set1/offsite_witheringShrine.tscn" id="6_ssvqc"]
+[ext_resource type="PackedScene" uid="uid://cspfenb815xiy" path="res://data/set1/spell_sacrificalKnife.tscn" id="7_264po"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gee14"]
 font = ExtResource("2_lbhrr")
@@ -230,6 +236,57 @@ material = SubResource("StandardMaterial3D_u5sy4")
 [node name="Game" type="Node3D"]
 script = ExtResource("1_lbhrr")
 
+[node name="cardViewport" type="SubViewport" parent="."]
+disable_3d = true
+transparent_bg = true
+size = Vector2i(5000, 2500)
+
+[node name="vbox" type="VBoxContainer" parent="cardViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 1050.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="units" type="HBoxContainer" parent="cardViewport/vbox"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="blastOrb" parent="cardViewport/vbox/units" instance=ExtResource("2_ir15t")]
+layout_mode = 2
+
+[node name="PectoCard" parent="cardViewport/vbox/units" instance=ExtResource("3_ca42v")]
+layout_mode = 2
+
+[node name="theMoon" parent="cardViewport/vbox/units" instance=ExtResource("4_rysoc")]
+layout_mode = 2
+
+[node name="offsites" type="HBoxContainer" parent="cardViewport/vbox"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="monolith" parent="cardViewport/vbox/offsites" instance=ExtResource("4_vtaks")]
+layout_mode = 2
+
+[node name="witheringShrine" parent="cardViewport/vbox/offsites" instance=ExtResource("6_ssvqc")]
+layout_mode = 2
+
+[node name="spells" type="HBoxContainer" parent="cardViewport/vbox"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="sacrificalKnife" parent="cardViewport/vbox/spells" instance=ExtResource("7_264po")]
+layout_mode = 2
+
+[node name="tokens" type="HBoxContainer" parent="cardViewport/vbox"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 100
 
@@ -413,23 +470,39 @@ label_settings = SubResource("LabelSettings_0tnpc")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="searchPanel" type="PanelContainer" parent="UI/mainHUD/MarginContainer/HBoxContainer"]
-modulate = Color(1, 1, 1, 0)
+[node name="Control" type="Control" parent="UI/mainHUD/MarginContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="searchPanel" type="PanelContainer" parent="UI/mainHUD/MarginContainer/HBoxContainer/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_gee14")
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/mainHUD/MarginContainer/HBoxContainer/searchPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/mainHUD/MarginContainer/HBoxContainer/Control/searchPanel"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="GridContainer" type="GridContainer" parent="UI/mainHUD/MarginContainer/HBoxContainer/searchPanel/MarginContainer"]
-visible = false
+[node name="Control" type="Control" parent="UI/mainHUD/MarginContainer/HBoxContainer/Control/searchPanel/MarginContainer"]
 layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="UI/mainHUD/MarginContainer/HBoxContainer/Control/searchPanel/MarginContainer/Control"]
+layout_mode = 1
+offset_right = 4520.0
+offset_bottom = 2104.0
+scale = Vector2(0.211, 0.211)
+columns = 6
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/mainHUD/MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -476,6 +549,22 @@ texture = ExtResource("4_gee14")
 expand_mode = 1
 stretch_mode = 6
 
+[node name="pullOutInfo" type="Button" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer/infoPanel/VBoxContainer/TextureRect"]
+custom_minimum_size = Vector2(32, 128)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -64.0
+offset_right = 32.0
+offset_bottom = 64.0
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+icon = ExtResource("5_0tnpc")
+icon_alignment = 1
+expand_icon = true
+
 [node name="infoKeyword" type="RichTextLabel" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer/infoPanel/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -501,15 +590,6 @@ bbcode_enabled = true
 text = "yoyoyo so what the heck is going on here anyways?I'm not quite sure what to think of all these shenanagins."
 fit_content = true
 autowrap_mode = 2
-
-[node name="pullOutInfo" type="Button" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer/infoPanel"]
-custom_minimum_size = Vector2(32, 128)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-icon = ExtResource("5_0tnpc")
-icon_alignment = 1
-expand_icon = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(530, 0)
@@ -591,7 +671,7 @@ boardSide = 1
 
 [node name="Camera3D" type="Camera3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.9848078, -0.1736482, 0, 0.1736482, 0.9848078, 0, -5.5, 14.5)
+transform = Transform3D(1, 0, 0, 0, 0.9848078, -0.1736482, 0, 0.1736482, 0.9848078, -2, -5.5, 14.5)
 current = true
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="Camera3D"]
@@ -603,7 +683,7 @@ speed_scale = 0.5
 process_material = SubResource("ParticleProcessMaterial_p57ef")
 draw_pass_1 = SubResource("QuadMesh_gee14")
 
-[connection signal="pressed" from="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer/infoPanel/pullOutInfo" to="." method="hide_info_box"]
+[connection signal="pressed" from="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer/infoPanel/VBoxContainer/TextureRect/pullOutInfo" to="." method="hide_info_box"]
 [connection signal="pressed" from="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/draw" to="playerBoard" method="draw_card"]
 [connection signal="cardSelected" from="playerBoard" to="." method="_on_player_card_selected"]
 [connection signal="floatingLVLChanged" from="playerBoard" to="." method="update_floatingLVl"]

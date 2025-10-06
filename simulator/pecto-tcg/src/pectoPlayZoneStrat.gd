@@ -5,5 +5,4 @@ func can_insert_card(card : PectoCard3D, _to_collection: CardCollection3D, from_
 	can_select = card.card.type == 2 \
 		&& from_collection.name == "Hand" \
 		&& GameManager.playerBoards[0].lvl >= card.card.lvl
-	print("this card %s be played" % ("can't" if !can_select else "can"))
-	return can_select 
+	return can_select

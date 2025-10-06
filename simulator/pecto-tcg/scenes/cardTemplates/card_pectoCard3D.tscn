@@ -558,7 +558,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_6dmal")
 
 [node name="forcceIcon" type="MeshInstance3D" parent="CardMesh" index="2"]
 unique_name_in_owner = true
-transform = Transform3D(1.9999999, 0, 0, 0, 1.9999999, 0, 0, 0, 2, 0, -1.25, 0.25)
+transform = Transform3D(1.9999998, 0, 0, 0, 1.9999998, 0, 0, 0, 2, 0, -1.25, 0.25)
 visible = false
 mesh = SubResource("BoxMesh_aemr7")
 skeleton = NodePath("../..")

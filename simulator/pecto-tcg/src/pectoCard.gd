@@ -1,6 +1,6 @@
 @tool
 @icon("uid://b0psj1ihvfcu6")
-extends Node
+extends Control
 class_name PectoCard
 
 #region Data

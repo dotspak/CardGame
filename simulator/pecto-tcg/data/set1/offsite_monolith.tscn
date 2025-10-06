@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b8uwted6lh1x5"]
+[gd_scene load_steps=24 format=3 uid="uid://b8uwted6lh1x5"]
 
 [ext_resource type="PackedScene" uid="uid://uqcqlr8xi5yc" path="res://scenes/cardTemplates/card_pectoCard.tscn" id="1_yn2j8"]
 [ext_resource type="Texture2D" uid="uid://d6ixysc00hxh" path="res://assets/set1/monolith.png" id="2_7k3bj"]
@@ -15,6 +15,9 @@ metadata/_snap_enabled = true
 gradient = SubResource("Gradient_363s6")
 fill_to = Vector2(1, 1)
 metadata/_snap_enabled = true
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_tjan4"]
+blend_mode = 2
 
 [sub_resource type="Shader" id="Shader_4ay7h"]
 code = "shader_type canvas_item;
@@ -152,6 +155,16 @@ rarity = 3
 
 [node name="cardBackground" parent="cardShape" index="0"]
 texture = SubResource("GradientTexture2D_tjan4")
+
+[node name="TextureRect" type="TextureRect" parent="cardShape/cardBackground" index="0"]
+material = SubResource("CanvasItemMaterial_tjan4")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7k3bj")
 
 [node name="cardArt" parent="cardShape/visual" index="0"]
 material = SubResource("ShaderMaterial_bai37")

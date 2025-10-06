@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://es0mijmrrpoq"]
+[gd_scene load_steps=12 format=3 uid="uid://es0mijmrrpoq"]
 
 [ext_resource type="PackedScene" uid="uid://uqcqlr8xi5yc" path="res://scenes/cardTemplates/card_pectoCard.tscn" id="1_xtsg6"]
 [ext_resource type="Texture2D" uid="uid://cgux2enhwprs5" path="res://assets/set1/theMoon.png" id="2_x3a8r"]
@@ -10,7 +10,12 @@ colors = PackedColorArray(0.13725491, 0.21176471, 0.40392157, 1, 0.4862745, 0.25
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_q8lv5"]
 gradient = SubResource("Gradient_x3a8r")
+width = 750
+height = 1050
 fill_from = Vector2(0, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_x3a8r"]
+blend_mode = 1
 
 [sub_resource type="Shader" id="Shader_4ay7h"]
 code = "shader_type canvas_item;
@@ -100,6 +105,17 @@ rarity = 3
 
 [node name="cardBackground" parent="cardShape" index="0"]
 texture = SubResource("GradientTexture2D_q8lv5")
+stretch_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="cardShape/cardBackground" index="0"]
+material = SubResource("CanvasItemMaterial_x3a8r")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_x3a8r")
 
 [node name="cardArt" parent="cardShape/visual" index="0"]
 material = SubResource("ShaderMaterial_y2oyo")

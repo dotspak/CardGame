@@ -239,7 +239,11 @@ outline_size = 1
 outline_color = Color(0, 0, 0, 1)
 shadow_color = Color(0.2010927, 0.5673567, 0.8666667, 1)
 
-[node name="PectoCard" type="Node"]
+[node name="PectoCard" type="Control"]
+custom_minimum_size = Vector2(750, 1050)
+layout_mode = 3
+anchors_preset = 0
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_y3ai7")
 
 [node name="cardShape" type="PanelContainer" parent="."]
@@ -247,9 +251,9 @@ unique_name_in_owner = true
 clip_children = 2
 clip_contents = true
 custom_minimum_size = Vector2(750, 1050)
+layout_mode = 0
 offset_right = 750.0
 offset_bottom = 1050.0
-scale = Vector2(0.5, 0.5)
 theme_override_styles/panel = SubResource("StyleBoxFlat_3h312")
 
 [node name="cardBackground" type="TextureRect" parent="cardShape"]
