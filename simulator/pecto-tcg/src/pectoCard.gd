@@ -240,8 +240,9 @@ signal activeStatusChanged(status : bool)
 var inPlay : bool = false
 var active : bool = true :
 	set(val):
-		active = val
-		activeStatusChanged.emit(active)
+		if val != active:
+			active = val
+			activeStatusChanged.emit(active)
 
 func _enter() -> void:
 	inPlay = true
@@ -411,3 +412,12 @@ func change_force(amount : int = 1) -> void: force += amount
 func set_lvl(newLVL : int = 1) -> void: lvl = newLVL
 func change_lvl(amount : int = 1) -> void: lvl += amount
 #endregion
+
+func get_card_text() -> String: return %cardText.text
+func get_card_keyword_text() -> String: return %cardKeywords.text.strip_edges()
+func get_card_skill() -> String: return %cardSkill.text if skillName != "" else ""
+func get_card_name() -> String: 
+	return %cardName.text + " " + "[bgcolor=%s][b] %s [/b][/bgcolor]" % \
+		[Color("e44298").to_html(), force] + \
+		"/" + "[color=%s]LVL: %s" % [Color.WHITE.to_html() if !banished else Color.RED.to_html(), lvl]
+func get_card_art() -> Texture: return art

@@ -171,7 +171,7 @@ material = SubResource("StandardMaterial3D_3qgs8")
 
 [node name="PectoBoard" type="Node3D"]
 script = ExtResource("1_sic6o")
-deckToLoad = Array[String](["MONOLITH", "MONOLITH", "WITHERING_SHRINE", "WITHERING_SHRINE", "TOMB_CRAWLER", "TOMB_CRAWLER", "BLAST_ORB", "BLAST_ORB", "SACRIFICIAL_KNIFE"])
+deckToLoad = Array[String](["MONOLITH", "MONOLITH", "WITHERING_SHRINE", "WITHERING_SHRINE", "TOMB_CRAWLER", "TOMB_CRAWLER", "BLAST_ORB", "BLAST_ORB", "SACRIFICIAL_KNIFE", "THE_MOON"])
 
 [node name="DragController" type="Node3D" parent="."]
 unique_name_in_owner = true
@@ -340,4 +340,5 @@ speed_scale = 0.3
 process_material = SubResource("ParticleProcessMaterial_sa13j")
 draw_pass_1 = SubResource("QuadMesh_cl0qi")
 
+[connection signal="card_selected" from="DragController/Hand" to="." method="_on_hand_card_selected"]
 [connection signal="card_added" from="DragController/PlayZone" to="." method="_on_play_zone_card_added"]

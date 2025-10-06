@@ -55,7 +55,8 @@ signal lifeChanged(val : int)
 signal lvlChanged(val : int)
 signal floatingLVLChanged(val : int)
 
-signal cardSelected(card : Card3D)
+signal cardSelected(card : PectoCard3D)
+signal handCardSelected(card : PectoCard3D)
 
 func _ready() -> void: if !Engine.is_editor_hint(): start_game()
 
@@ -128,7 +129,6 @@ func draw_card() -> void:
 
 
 func add_card_to_pile(card : PectoCard3D, pile : CardCollection3D, onTop : bool = false) -> PectoCard3D:
-	
 	var collection : CardCollection3D = card.collection
 	if collection && collection.cards.has(card):
 		card = collection.remove_card(collection.card_indicies[card])
@@ -165,6 +165,7 @@ func _on_card_added_to_slot(card3D : PectoCard3D) -> void:
 			c.collection = slot
 			lvl += c.card.lvl if !c.card.banished else 0
 	if startingLvl != lvl: lvlChanged.emit(lvl)
+	card3D.card._enter()
 	print("card %s added, lvl now %s" % [card3D.card.cardName, lvl])
 
 
@@ -197,3 +198,6 @@ func _on_play_zone_card_added(card: PectoCard3D) -> void:
 	
 	hand.drag_strategy.can_select = true
 	playZone.drag_strategy.can_select = true
+
+
+func _on_hand_card_selected(card3D : PectoCard3D) -> void: handCardSelected.emit(card3D)

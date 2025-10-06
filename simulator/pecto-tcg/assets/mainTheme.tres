@@ -6,7 +6,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m04c2"]
 content_margin_top = 20.0
 content_margin_bottom = 20.0
-bg_color = Color(0.32, 0.32, 0.32, 0.4117647)
+bg_color = Color(0.03, 0.0243, 0.0243, 0.5882353)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -26,7 +26,7 @@ shadow_offset = Vector2(0, 20)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_emj5m"]
 content_margin_top = 20.0
 content_margin_bottom = 20.0
-bg_color = Color(0.24500002, 0.39666674, 0.7, 0.4117647)
+bg_color = Color(0.14117648, 0.11372549, 0.11372549, 0.5882353)
 border_width_left = 4
 border_width_top = 4
 border_width_right = 4
@@ -44,7 +44,7 @@ shadow_offset = Vector2(0, 20)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cl6pt"]
 content_margin_top = 20.0
 content_margin_bottom = 20.0
-bg_color = Color(0.24500002, 0.39666674, 0.7, 0.4117647)
+bg_color = Color(0.14117648, 0.11372549, 0.11372549, 0.5882353)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -62,7 +62,7 @@ shadow_offset = Vector2(0, 20)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5li5l"]
 content_margin_top = 20.0
 content_margin_bottom = 20.0
-bg_color = Color(0.05600001, 0.15400006, 0.35, 0.4117647)
+bg_color = Color(0, 0, 0, 0.5882353)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2

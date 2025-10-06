@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://buocg07fg5px0"]
+[gd_scene load_steps=36 format=3 uid="uid://buocg07fg5px0"]
 
 [ext_resource type="PackedScene" uid="uid://dxpc2iac0hjpw" path="res://addons/card_3d/scenes/card_3d.tscn" id="1_0xa8b"]
 [ext_resource type="Script" uid="uid://b0fdm3p04aufi" path="res://PectoCard3D.gd" id="2_omhgn"]
@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://fpqgiu5d1pkr" path="res://assets/fonts/Higher Jump.ttf" id="4_sw0d4"]
 [ext_resource type="PackedScene" uid="uid://c4c6pl5m22jp2" path="res://scenes/cardTemplates/card_back.tscn" id="4_wt3j3"]
 [ext_resource type="FontFile" uid="uid://1kd62leqiy8y" path="res://assets/fonts/AveriaLibre-Bold.ttf" id="5_omhgn"]
+[ext_resource type="Texture2D" uid="uid://busliy8tcl0cr" path="res://addons/kenney_particle_pack/star_09.png" id="7_wt3j3"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_aemr7"]
 viewport_path = NodePath("backFace")
@@ -489,6 +490,63 @@ _data = {
 &"inactive": SubResource("Animation_828uu")
 }
 
+[sub_resource type="Gradient" id="Gradient_aemr7"]
+interpolation_color_space = 2
+colors = PackedColorArray(0.39999998, 1, 0.99, 1, 1, 0.98883337, 0.32999998, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_828uu"]
+gradient = SubResource("Gradient_aemr7")
+
+[sub_resource type="Gradient" id="Gradient_uad0d"]
+offsets = PackedFloat32Array(0.78014183, 0.9964539)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6dmal"]
+gradient = SubResource("Gradient_uad0d")
+
+[sub_resource type="Curve" id="Curve_ch54t"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.50974023, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_02p12"]
+curve = SubResource("Curve_ch54t")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vcqex"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = -720.0
+angle_max = 720.0
+direction = Vector3(0, 0, 1)
+spread = 0.0
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+orbit_velocity_min = -2.0
+orbit_velocity_max = -2.0
+radial_velocity_min = 0.99997765
+radial_velocity_max = 2.9999776
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_02p12")
+color_ramp = SubResource("GradientTexture1D_6dmal")
+color_initial_ramp = SubResource("GradientTexture1D_828uu")
+hue_variation_min = -0.100000024
+hue_variation_max = 0.09999997
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rfos8"]
+render_priority = 10
+transparency = 1
+blend_mode = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("7_wt3j3")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_55sn1"]
+material = SubResource("StandardMaterial3D_rfos8")
+
 [node name="PectoCard3D" instance=ExtResource("1_0xa8b")]
 script = ExtResource("2_omhgn")
 
@@ -566,3 +624,13 @@ libraries = {
 libraries = {
 &"": SubResource("AnimationLibrary_828uu")
 }
+
+[node name="enterParticles" type="GPUParticles3D" parent="." index="6"]
+unique_name_in_owner = true
+emitting = false
+amount = 20
+lifetime = 0.6
+one_shot = true
+explosiveness = 0.93
+process_material = SubResource("ParticleProcessMaterial_vcqex")
+draw_pass_1 = SubResource("QuadMesh_55sn1")

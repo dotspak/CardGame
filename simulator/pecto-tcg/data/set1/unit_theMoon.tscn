@@ -1,0 +1,135 @@
+[gd_scene load_steps=11 format=3 uid="uid://es0mijmrrpoq"]
+
+[ext_resource type="PackedScene" uid="uid://uqcqlr8xi5yc" path="res://scenes/cardTemplates/card_pectoCard.tscn" id="1_xtsg6"]
+[ext_resource type="Texture2D" uid="uid://cgux2enhwprs5" path="res://assets/set1/theMoon.png" id="2_x3a8r"]
+[ext_resource type="Texture2D" uid="uid://d1kafd45aa4e" path="res://assets/r_divine1.png" id="3_q8lv5"]
+
+[sub_resource type="Gradient" id="Gradient_x3a8r"]
+offsets = PackedFloat32Array(0, 0.14012739, 0.25796178, 0.38535032, 0.64012736, 0.75159234, 0.87261146, 1)
+colors = PackedColorArray(0.13725491, 0.21176471, 0.40392157, 1, 0.4862745, 0.2509804, 0.3882353, 1, 0.40784314, 0.62352943, 0.38039216, 1, 1, 1, 1, 1, 0.9735, 1, 0.97, 1, 0.40784314, 0.62352943, 0.38039216, 1, 0.4862745, 0.2509804, 0.3882353, 1, 0.13725491, 0.21176471, 0.40392157, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_q8lv5"]
+gradient = SubResource("Gradient_x3a8r")
+fill_from = Vector2(0, 1)
+
+[sub_resource type="Shader" id="Shader_4ay7h"]
+code = "shader_type canvas_item;
+
+uniform bool enabled = true;
+uniform sampler2D foil_map;
+uniform sampler2D gradient;
+uniform sampler2D noise_tex;
+
+uniform float speed : hint_range(0.0, 10.0) = 1.0;
+uniform float scale : hint_range(0.1, 5.0) = 1.0;
+uniform float intensity : hint_range(0.0, 3.0) = 1.2;
+uniform float angle : hint_range(0.0, 360.0) = 45.0;
+uniform float noise_strength : hint_range(0.0, 1.0) = 0.25;
+uniform float noise_speed : hint_range(0.0, 5.0) = 0.5;
+uniform float shimmer_speed : hint_range(0.0, 10.0) = 2.0;
+uniform float shimmer_strength : hint_range(0.0, 2.0) = 0.5;
+
+void fragment() {
+	if (enabled) {
+	    vec2 uv = UV;
+
+	    float rad = radians(angle);
+	    mat2 rot = mat2(vec2(cos(rad), -sin(rad)), vec2(sin(rad),  cos(rad)));
+	    vec2 rotated_uv = rot * (uv - 0.5) + 0.5;
+
+	    vec2 scroll_uv = rotated_uv * scale;
+	    scroll_uv.x += TIME * speed;
+
+	    vec2 noise_uv = uv * 2.0 + vec2(TIME * noise_speed, TIME * noise_speed);
+	    float n = texture(noise_tex, noise_uv).r;
+	    scroll_uv.x += (n - 0.5) * noise_strength;
+		
+	    vec4 grad_col = texture(gradient, vec2(fract(scroll_uv.x), 0.5));
+	    float shimmer = 1.0 + sin(TIME * shimmer_speed + uv.y * 10.0) * shimmer_strength;
+
+	    float foil_mask = texture(foil_map, uv).r;
+
+	    vec4 foil_col = grad_col * foil_mask * intensity * shimmer;
+	    vec4 base_col = texture(TEXTURE, uv);
+
+	    COLOR = base_col + foil_col * base_col.a;
+	}
+}
+"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4e5xi"]
+frequency = 0.031
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_d0egu"]
+width = 128
+height = 128
+noise = SubResource("FastNoiseLite_4e5xi")
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nenop"]
+gradient = SubResource("Gradient_x3a8r")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y2oyo"]
+shader = SubResource("Shader_4ay7h")
+shader_parameter/enabled = true
+shader_parameter/foil_map = SubResource("NoiseTexture2D_d0egu")
+shader_parameter/gradient = SubResource("GradientTexture1D_nenop")
+shader_parameter/speed = 0.2000000095
+shader_parameter/scale = 4.09100019106262
+shader_parameter/intensity = 0.400000019
+shader_parameter/angle = 151.75200720822
+shader_parameter/noise_strength = 0.6270000297825
+shader_parameter/noise_speed = 2.8570001357075
+shader_parameter/shimmer_speed = 1.65600007866
+shader_parameter/shimmer_strength = 1.6110000765225
+
+[node name="theMoon" instance=ExtResource("1_xtsg6")]
+ID = "THE_MOON"
+cardName = "The Moon"
+force = 8
+lvl = 5
+tribe = Array[int]([5])
+keywords = Array[int]([7, 2, 4])
+text = "As an additional cost, sacrifice a unit you control. Destruction spells targetting The Moon are countered.
+{trigger:begin} Other cards you control gain {force:2}."
+skillName = "Truth of the Moon"
+skillText = "Cards you control gain {key:immortal} until the end of your next turn."
+art = ExtResource("2_x3a8r")
+bg = SubResource("GradientTexture2D_q8lv5")
+foil = true
+rarity = 3
+
+[node name="cardBackground" parent="cardShape" index="0"]
+texture = SubResource("GradientTexture2D_q8lv5")
+
+[node name="cardArt" parent="cardShape/visual" index="0"]
+material = SubResource("ShaderMaterial_y2oyo")
+texture = ExtResource("2_x3a8r")
+
+[node name="cardKeywords" parent="cardShape/visual/border/MarginContainer/text" index="0"]
+text = "[i][color=ffa500ff]Delayed, Flying, Bleed"
+
+[node name="cardText" parent="cardShape/visual/border/MarginContainer/text/textContainer/MarginContainer/VBoxContainer" index="0"]
+text = "As an additional cost, sacrifice a unit you control. Destruction spells targetting The Moon are countered.
+[bgcolor=orange][b]➥BEGIN[/b][/bgcolor] Other cards you control gain [bgcolor=e44298][b] 2 [/b][/bgcolor]."
+
+[node name="skillContainer" parent="cardShape/visual/border/MarginContainer/text" index="2"]
+visible = true
+
+[node name="cardSkill" parent="cardShape/visual/border/MarginContainer/text/skillContainer/MarginContainer/VBoxContainer" index="1"]
+text = "[bgcolor=e44298ff][b]★TRUTH OF THE MOON[/b][/bgcolor] Cards you control gain immortal until the end of your next turn."
+
+[node name="cardName" parent="cardShape/visual/topBar/info/nameContainer/HBoxContainer" index="0"]
+text = "The Moon"
+
+[node name="cardForce" parent="cardShape/visual/topBar/info/nameContainer/HBoxContainer/force/TextureRect" index="0"]
+text = "8"
+
+[node name="cardType" parent="cardShape/visual/topBar/info" index="1"]
+visible = true
+text = "God "
+
+[node name="cardLVL" parent="cardShape/visual/topBar/lvlIcon" index="0"]
+text = "5"
+
+[node name="rarity" parent="cardShape/visual/extraInfo" index="1"]
+texture = ExtResource("3_q8lv5")

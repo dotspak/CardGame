@@ -16,6 +16,9 @@ art = ExtResource("2_ik86u")
 [node name="cardArt" parent="cardShape/visual" index="0"]
 texture = ExtResource("2_ik86u")
 
+[node name="cardKeywords" parent="cardShape/visual/border/MarginContainer/text" index="0"]
+text = "[i][color=ffa500ff]Quick"
+
 [node name="cardText" parent="cardShape/visual/border/MarginContainer/text/textContainer/MarginContainer/VBoxContainer" index="0"]
 text = "[bgcolor=orange][b]➥VICTOR[/b][/bgcolor] You may discard a card."
 
