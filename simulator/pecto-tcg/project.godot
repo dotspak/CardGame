@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="PectoTCG"
+config/tags=PackedStringArray("cards")
 run/main_scene="uid://b82p64sv3xjup"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="uid://bsi7v87s3xct0"

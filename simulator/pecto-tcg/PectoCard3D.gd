@@ -19,6 +19,7 @@ func set_front_face(_card : PectoCard) -> void:
 	if !is_node_ready(): await ready
 	card = _card
 	frontFace.call_deferred("add_child", card)
+	card.activeStatusChanged.connect(active_anim)
 
 
 func _click(_camera, event : InputEvent, _event_position, _normal, _shape_idx):
@@ -34,6 +35,13 @@ func _click(_camera, event : InputEvent, _event_position, _normal, _shape_idx):
 func display_icons() -> void:
 	%forcceIcon.get_child(0).text = str(card.force)
 	%lvlIcon.get_child(0).text = str(card.lvl)
+
+	if card.banished:
+		var mat : StandardMaterial3D = %lvlIcon.material_overlay
+		mat.set("albedo_color", PectoCard.BANISHED_COLOR)
+		%lvlLabel.outline_modulate = PectoCard.BANISHED_COLOR * 0.2
+		%lvlLabel.modulate = PectoCard.BANISHED_COLOR
+
 	iconAnim.play("display")
 	await iconAnim.animation_finished
 	iconAnim.play("loop")
@@ -50,9 +58,12 @@ func attack() -> void:
 	anim.play("attack")
 	await anim.animation_finished
 	card.active = false
-	anim.play("inactive")
 
 
 func use_skill() -> void:
 	card.active = false
-	anim.play("inactive")
+
+
+func active_anim(status : bool) -> void:
+	if !status: anim.play("inactive")
+	else: anim.play_backwards("inactive")

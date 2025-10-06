@@ -40,6 +40,7 @@ const SKILL_COLOR : Color = Color("e44298")
 const FSKILL_COLOR : Color = Color("16a98fff")
 
 const KEYWORD_COLOR : Color = Color.ORANGE
+const BANISHED_COLOR : Color = Color("ff7e87")
 
 enum CARD_TYPE{Unit, Offsite, Spell, Token}
 
@@ -128,7 +129,7 @@ var TEXT_TAGS : Dictionary = {
 	set(val):
 		banished = val
 		if is_node_ready():
-			%lvlIcon.modulate = Color("ff7e87") if banished else Color.WHITE
+			%lvlIcon.modulate = BANISHED_COLOR if banished else Color.WHITE
 
 @export var tribe : Array[TRIBE] :
 	set(val):
@@ -234,13 +235,18 @@ const CORNER_RADIUS : int = 48
 signal enter(card : PectoCard)
 signal victor(card : PectoCard, target : Node)
 signal perish(card : PectoCard, condition : String)
+signal activeStatusChanged(status : bool)
 
 var inPlay : bool = false
-var active : bool = true
+var active : bool = true :
+	set(val):
+		active = val
+		activeStatusChanged.emit(active)
 
 func _enter() -> void:
 	inPlay = true
 	enter.emit(self)
+	
 	if keywords.has(KEYWORD.Delayed): active = false
 	else: active = true
 
