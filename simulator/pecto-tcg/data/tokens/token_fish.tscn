@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkxi4qlrjlmb5"]
+
+[ext_resource type="PackedScene" uid="uid://uqcqlr8xi5yc" path="res://scenes/cardTemplates/card_pectoCard.tscn" id="1_5umkh"]
+[ext_resource type="Texture2D" uid="uid://ch3ogljvj5iop" path="res://assets/set1/bigCatch.png" id="2_t0klv"]
+
+[node name="tokenFish" instance=ExtResource("1_5umkh")]
+ID = "FISH"
+table = "token"
+type = 3
+cardName = "Fish"
+force = 0
+keywords = Array[int]([3])
+text = ""
+art = ExtResource("2_t0klv")
+
+[node name="cardArt" parent="cardShape/visual" index="0"]
+texture = ExtResource("2_t0klv")
+
+[node name="border" parent="cardShape/visual" index="2"]
+self_modulate = Color(0.6666667, 0.6666667, 0.6666667, 1)
+
+[node name="cardKeywords" parent="cardShape/visual/border/MarginContainer/text" index="0"]
+text = "[i][color=ffa500ff]Static"
+
+[node name="textContainer" parent="cardShape/visual/border/MarginContainer/text" index="1"]
+visible = false
+self_modulate = Color(0.6666667, 0.6666667, 0.6666667, 1)
+
+[node name="cardText" parent="cardShape/visual/border/MarginContainer/text/textContainer/MarginContainer/VBoxContainer" index="0"]
+text = ""
+
+[node name="skillContainer" parent="cardShape/visual/border/MarginContainer/text" index="2"]
+self_modulate = Color(0.6666667, 0.6666667, 0.6666667, 1)
+
+[node name="cardTypeIcon" parent="cardShape/visual/topBar" index="0"]
+modulate = Color(1, 1, 1, 0)
+
+[node name="nameContainer" parent="cardShape/visual/topBar/info" index="0"]
+self_modulate = Color(0.6666667, 0.6666667, 0.6666667, 1)
+
+[node name="cardName" parent="cardShape/visual/topBar/info/nameContainer/HBoxContainer" index="0"]
+text = "Fish"
+
+[node name="cardForce" parent="cardShape/visual/topBar/info/nameContainer/HBoxContainer/force/TextureRect" index="0"]
+text = "0"
+
+[node name="cardType" parent="cardShape/visual/topBar/info" index="1"]
+visible = false
+
+[node name="rarity" parent="cardShape/visual/extraInfo" index="1"]
+visible = false

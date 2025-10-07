@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://do6yql4uw2cjr"]
+[gd_scene load_steps=36 format=3 uid="uid://do6yql4uw2cjr"]
 
 [ext_resource type="Script" uid="uid://bu8m635jkfcgu" path="res://scenes/PectoBoard3D.gd" id="1_sic6o"]
 [ext_resource type="Script" uid="uid://bgkontnk0cnl" path="res://addons/card_3d/scripts/drag_controller.gd" id="2_8ykwa"]
@@ -12,7 +12,6 @@
 [ext_resource type="Shape3D" uid="uid://cicwtlugivwj4" path="res://addons/card_3d/shapes_3d/default_card_collection_3d_drop_zone_shape_3d.tres" id="10_klrw8"]
 [ext_resource type="PackedScene" uid="uid://bwuojsrmun3sm" path="res://scenes/play_zone.tscn" id="10_nc1hs"]
 [ext_resource type="Script" uid="uid://jkfm6q5w8u83" path="res://addons/card_3d/scripts/card_collection/drop_zone_editor_tool.gd" id="11_mtypg"]
-[ext_resource type="Texture2D" uid="uid://yv0ay28yfo7i" path="res://addons/kenney_particle_pack/magic_05.png" id="12_upnpo"]
 [ext_resource type="Script" uid="uid://dkckfib3cljd1" path="res://src/pectoPlayZoneStrat.gd" id="13_8ykwa"]
 
 [sub_resource type="Resource" id="Resource_1r01h"]
@@ -83,12 +82,12 @@ can_reorder = false
 can_insert = false
 metadata/_custom_type_script = "uid://dkckfib3cljd1"
 
-[sub_resource type="Gradient" id="Gradient_bg0yk"]
+[sub_resource type="Gradient" id="Gradient_sww3w"]
 offsets = PackedFloat32Array(0.92517006, 1)
 colors = PackedColorArray(0, 0, 0, 0.5294118, 1, 1, 1, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_yt3ua"]
-gradient = SubResource("Gradient_bg0yk")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_suyxu"]
+gradient = SubResource("Gradient_sww3w")
 fill = 2
 fill_from = Vector2(0.5, 0.5)
 
@@ -97,7 +96,7 @@ resource_local_to_scene = true
 render_priority = -1
 transparency = 1
 albedo_color = Color(0.49019608, 0.54901963, 0.92941177, 1)
-albedo_texture = SubResource("GradientTexture2D_yt3ua")
+albedo_texture = SubResource("GradientTexture2D_suyxu")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_1i8jf"]
 size = Vector2(2.5, 3.5)
@@ -108,88 +107,47 @@ resource_local_to_scene = true
 render_priority = -1
 transparency = 1
 albedo_color = Color(0.49019608, 0.54901963, 0.92941177, 1)
-albedo_texture = SubResource("GradientTexture2D_yt3ua")
+albedo_texture = SubResource("GradientTexture2D_suyxu")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3xrod"]
 resource_local_to_scene = true
 render_priority = -1
 transparency = 1
 albedo_color = Color(0.49019608, 0.54901963, 0.92941177, 1)
-albedo_texture = SubResource("GradientTexture2D_yt3ua")
+albedo_texture = SubResource("GradientTexture2D_suyxu")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_05s0e"]
 resource_local_to_scene = true
 render_priority = -1
 transparency = 1
 albedo_color = Color(0.25882354, 0.2901961, 0.49019608, 1)
-albedo_texture = SubResource("GradientTexture2D_yt3ua")
+albedo_texture = SubResource("GradientTexture2D_suyxu")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j0cvo"]
 resource_local_to_scene = true
 render_priority = -1
 transparency = 1
 albedo_color = Color(0.25882354, 0.2901961, 0.49019608, 1)
-albedo_texture = SubResource("GradientTexture2D_yt3ua")
+albedo_texture = SubResource("GradientTexture2D_suyxu")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sjku2"]
 resource_local_to_scene = true
 render_priority = -1
 transparency = 1
 albedo_color = Color(0.25882354, 0.2901961, 0.49019608, 1)
-albedo_texture = SubResource("GradientTexture2D_yt3ua")
+albedo_texture = SubResource("GradientTexture2D_suyxu")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_svpld"]
 render_priority = -1
 transparency = 1
 albedo_color = Color(0.512439, 0.3315329, 0.48927015, 1)
-albedo_texture = SubResource("GradientTexture2D_yt3ua")
+albedo_texture = SubResource("GradientTexture2D_suyxu")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yt3ua"]
 render_priority = -1
 transparency = 1
 albedo_color = Color(0.33891666, 0.2835, 0.35, 0.972549)
-albedo_texture = SubResource("GradientTexture2D_yt3ua")
-
-[sub_resource type="Curve" id="Curve_42cxg"]
-_data = [Vector2(0.80714285, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_jqvaq"]
-curve = SubResource("Curve_42cxg")
-
-[sub_resource type="Curve" id="Curve_jwqau"]
-_data = [Vector2(0.06428571, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.9662922), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_4bevt"]
-curve = SubResource("Curve_jwqau")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sa13j"]
-angle_min = -360.0
-angle_max = 360.00003
-direction = Vector3(0, 0, 1)
-initial_velocity_max = 0.5
-radial_velocity_min = -2.2351742e-05
-radial_velocity_max = 0.99997765
-gravity = Vector3(0, 0, 1)
-scale_min = 0.5
-scale_curve = SubResource("CurveTexture_4bevt")
-alpha_curve = SubResource("CurveTexture_jqvaq")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3qgs8"]
-transparency = 1
-blend_mode = 2
-vertex_color_use_as_albedo = true
-albedo_color = Color(0, 0.40392157, 0.23921569, 0.16862746)
-albedo_texture = ExtResource("12_upnpo")
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="QuadMesh" id="QuadMesh_cl0qi"]
-material = SubResource("StandardMaterial3D_3qgs8")
+albedo_texture = SubResource("GradientTexture2D_suyxu")
 
 [node name="PectoBoard" type="Node3D"]
 script = ExtResource("1_sic6o")
@@ -345,11 +303,29 @@ mesh = SubResource("PlaneMesh_1i8jf")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_svpld")
 
+[node name="deckCount" type="Label3D" parent="slotMeshes/deck"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8131065, 0.5)
+billboard = 1
+modulate = Color(0, 0, 0, 1)
+text = "20"
+font_size = 196
+outline_size = 10
+
 [node name="discard" type="MeshInstance3D" parent="slotMeshes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -2, 0)
 mesh = SubResource("PlaneMesh_1i8jf")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_yt3ua")
+
+[node name="discardCount" type="Label3D" parent="slotMeshes/discard"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8131065, 0.5)
+billboard = 1
+modulate = Color(0, 0, 0, 1)
+text = "0"
+font_size = 196
+outline_size = 10
 
 [node name="void" type="MeshInstance3D" parent="slotMeshes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -6, 0)
@@ -357,13 +333,14 @@ mesh = SubResource("PlaneMesh_1i8jf")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_yt3ua")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="slotMeshes/void"]
-visible = false
-amount = 50
-lifetime = 2.0
-speed_scale = 0.3
-process_material = SubResource("ParticleProcessMaterial_sa13j")
-draw_pass_1 = SubResource("QuadMesh_cl0qi")
+[node name="voidCount" type="Label3D" parent="slotMeshes/void"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8131065, 0.5)
+billboard = 1
+modulate = Color(0, 0, 0, 1)
+text = "0"
+font_size = 196
+outline_size = 10
 
 [connection signal="card_selected" from="DragController/Hand" to="." method="_on_hand_card_selected"]
 [connection signal="card_added" from="DragController/PlayZone" to="." method="_on_play_zone_card_added"]

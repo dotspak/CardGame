@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://6lm6nnjaokce"]
+
+[ext_resource type="PackedScene" uid="uid://uqcqlr8xi5yc" path="res://scenes/cardTemplates/card_pectoCard.tscn" id="1_pe8f3"]
+[ext_resource type="Texture2D" uid="uid://dnftptlx0pwn7" path="res://assets/set1/crow.png" id="2_q4elk"]
+
+[node name="crowToken" instance=ExtResource("1_pe8f3")]
+ID = "CROW"
+table = "token"
+type = 3
+cardName = "Crow"
+lvl = 0
+keywords = Array[int]([2, 7])
+text = ""
+art = ExtResource("2_q4elk")
+
+[node name="cardArt" parent="cardShape/visual" index="0"]
+texture = ExtResource("2_q4elk")
+
+[node name="border" parent="cardShape/visual" index="2"]
+self_modulate = Color(0.6666667, 0.6666667, 0.6666667, 1)
+
+[node name="cardKeywords" parent="cardShape/visual/border/MarginContainer/text" index="0"]
+text = "[i][color=ffa500ff]Flying, Delayed"
+
+[node name="textContainer" parent="cardShape/visual/border/MarginContainer/text" index="1"]
+visible = false
+self_modulate = Color(0.6666667, 0.6666667, 0.6666667, 1)
+
+[node name="cardText" parent="cardShape/visual/border/MarginContainer/text/textContainer/MarginContainer/VBoxContainer" index="0"]
+text = ""
+
+[node name="skillContainer" parent="cardShape/visual/border/MarginContainer/text" index="2"]
+self_modulate = Color(0.6666667, 0.6666667, 0.6666667, 1)
+
+[node name="cardTypeIcon" parent="cardShape/visual/topBar" index="0"]
+modulate = Color(1, 1, 1, 0)
+
+[node name="nameContainer" parent="cardShape/visual/topBar/info" index="0"]
+self_modulate = Color(0.6666667, 0.6666667, 0.6666667, 1)
+
+[node name="cardName" parent="cardShape/visual/topBar/info/nameContainer/HBoxContainer" index="0"]
+text = "Crow"
+
+[node name="cardType" parent="cardShape/visual/topBar/info" index="1"]
+visible = false
+
+[node name="lvlIcon" parent="cardShape/visual/topBar" index="2"]
+modulate = Color(1, 1, 1, 0)
+
+[node name="cardLVL" parent="cardShape/visual/topBar/lvlIcon" index="0"]
+text = "0"
+
+[node name="rarity" parent="cardShape/visual/extraInfo" index="1"]
+visible = false

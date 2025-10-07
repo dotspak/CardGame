@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://b82p64sv3xjup"]
+[gd_scene load_steps=80 format=3 uid="uid://b82p64sv3xjup"]
 
 [ext_resource type="Script" uid="uid://krrob1jjjfjs" path="res://src/game.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://do6yql4uw2cjr" path="res://scenes/playerBoard.tscn" id="1_lnu2h"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://dkckfib3cljd1" path="res://src/pectoPlayZoneStrat.gd" id="6_gee14"]
 [ext_resource type="PackedScene" uid="uid://dtfwerbpe0fv4" path="res://data/set1/offsite_witheringShrine.tscn" id="6_ssvqc"]
 [ext_resource type="PackedScene" uid="uid://cspfenb815xiy" path="res://data/set1/spell_sacrificalKnife.tscn" id="7_264po"]
+[ext_resource type="Texture2D" uid="uid://c0ohl5etrs7l0" path="res://assets/icon_pass.png" id="12_rysoc"]
 [ext_resource type="Script" uid="uid://c6xj7aq0a3xj7" path="res://src/pectoDragStrat.gd" id="13_ca42v"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ca42v"]
@@ -289,6 +290,117 @@ render_priority = -1
 transparency = 1
 albedo_color = Color(0.25882354, 0.2901961, 0.49019608, 1)
 albedo_texture = SubResource("GradientTexture2D_yt3ua")
+
+[sub_resource type="Resource" id="Resource_1kice"]
+resource_local_to_scene = true
+script = ExtResource("13_ca42v")
+can_select = false
+can_reorder = false
+metadata/_custom_type_script = "uid://c6xj7aq0a3xj7"
+
+[sub_resource type="Resource" id="Resource_5newe"]
+resource_local_to_scene = true
+script = ExtResource("13_ca42v")
+can_select = false
+can_reorder = false
+metadata/_custom_type_script = "uid://c6xj7aq0a3xj7"
+
+[sub_resource type="Resource" id="Resource_37s47"]
+resource_local_to_scene = true
+script = ExtResource("13_ca42v")
+can_select = false
+can_reorder = false
+metadata/_custom_type_script = "uid://c6xj7aq0a3xj7"
+
+[sub_resource type="Resource" id="Resource_bt5mj"]
+resource_local_to_scene = true
+script = ExtResource("13_ca42v")
+slotType = 1
+can_select = false
+can_reorder = false
+metadata/_custom_type_script = "uid://c6xj7aq0a3xj7"
+
+[sub_resource type="Resource" id="Resource_e1j6l"]
+resource_local_to_scene = true
+script = ExtResource("13_ca42v")
+slotType = 1
+can_select = false
+can_reorder = false
+metadata/_custom_type_script = "uid://c6xj7aq0a3xj7"
+
+[sub_resource type="Resource" id="Resource_pl11u"]
+resource_local_to_scene = true
+script = ExtResource("13_ca42v")
+slotType = 1
+can_select = false
+can_reorder = false
+metadata/_custom_type_script = "uid://c6xj7aq0a3xj7"
+
+[sub_resource type="Resource" id="Resource_bhx41"]
+resource_local_to_scene = true
+script = ExtResource("5_u5sy4")
+arc_angle_deg = 20.0
+arc_radius = 35.0
+
+[sub_resource type="Resource" id="Resource_qnb83"]
+resource_local_to_scene = true
+script = ExtResource("6_gee14")
+can_select = false
+can_remove = false
+can_reorder = false
+can_insert = false
+metadata/_custom_type_script = "uid://dkckfib3cljd1"
+
+[sub_resource type="Gradient" id="Gradient_sww3w"]
+offsets = PackedFloat32Array(0.92517006, 1)
+colors = PackedColorArray(0, 0, 0, 0.5294118, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_suyxu"]
+gradient = SubResource("Gradient_sww3w")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sgl2t"]
+resource_local_to_scene = true
+render_priority = -1
+transparency = 1
+albedo_color = Color(0.7411765, 0.21568628, 0.27450982, 1)
+albedo_texture = SubResource("GradientTexture2D_suyxu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qouja"]
+resource_local_to_scene = true
+render_priority = -1
+transparency = 1
+albedo_color = Color(0.7411765, 0.21568628, 0.27450982, 1)
+albedo_texture = SubResource("GradientTexture2D_suyxu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wljb1"]
+resource_local_to_scene = true
+render_priority = -1
+transparency = 1
+albedo_color = Color(0.7411765, 0.21568628, 0.27450982, 1)
+albedo_texture = SubResource("GradientTexture2D_suyxu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v2yb1"]
+resource_local_to_scene = true
+render_priority = -1
+transparency = 1
+albedo_color = Color(0.45490196, 0.29803923, 0.34117648, 1)
+albedo_texture = SubResource("GradientTexture2D_suyxu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_js0lu"]
+resource_local_to_scene = true
+render_priority = -1
+transparency = 1
+albedo_color = Color(0.45490196, 0.29803923, 0.34117648, 1)
+albedo_texture = SubResource("GradientTexture2D_suyxu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gxtfn"]
+resource_local_to_scene = true
+render_priority = -1
+transparency = 1
+albedo_color = Color(0.45490196, 0.29803923, 0.34117648, 1)
+albedo_texture = SubResource("GradientTexture2D_suyxu")
 
 [sub_resource type="Gradient" id="Gradient_p57ef"]
 interpolation_color_space = 2
@@ -678,13 +790,14 @@ expand_mode = 1
 stretch_mode = 6
 
 [node name="pullOutInfo" type="Button" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer/infoPanel/VBoxContainer/TextureRect"]
+texture_filter = 1
 custom_minimum_size = Vector2(32, 128)
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_top = -64.0
-offset_right = 32.0
+offset_right = 64.0
 offset_bottom = 64.0
 grow_vertical = 2
 size_flags_horizontal = 0
@@ -719,10 +832,12 @@ text = "yoyoyo so what the heck is going on here anyways?I'm not quite sure what
 fit_content = true
 autowrap_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="VBoxContainer" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(530, 0)
 layout_mode = 2
+size_flags_horizontal = 8
 size_flags_vertical = 10
+theme_override_constants/separation = 16
 alignment = 1
 
 [node name="draw" type="Button" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
@@ -734,10 +849,23 @@ text = "Draw Card"
 
 [node name="passButton" type="Button" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
+texture_filter = 1
 custom_minimum_size = Vector2(256, 64)
 layout_mode = 2
-size_flags_horizontal = 10
+size_flags_horizontal = 8
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 32
 text = "Pass Turn"
+icon = ExtResource("12_rysoc")
+alignment = 2
+expand_icon = true
+
+[node name="turnCounter" type="Label" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 32
+text = "Turn Count: 0"
 
 [node name="turnLabel" type="Label" parent="UI/mainHUD/MarginContainer"]
 unique_name_in_owner = true
@@ -851,6 +979,48 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -1, 0, 0, 0, 1, -4, 0, 0)
 boardSide = 1
 
+[node name="unit_0" parent="opponentBoard/DragController" index="0"]
+drag_strategy = SubResource("Resource_1kice")
+
+[node name="unit_1" parent="opponentBoard/DragController" index="1"]
+drag_strategy = SubResource("Resource_5newe")
+
+[node name="unit_2" parent="opponentBoard/DragController" index="2"]
+drag_strategy = SubResource("Resource_37s47")
+
+[node name="offsite_0" parent="opponentBoard/DragController" index="3"]
+drag_strategy = SubResource("Resource_bt5mj")
+
+[node name="offsite_1" parent="opponentBoard/DragController" index="4"]
+drag_strategy = SubResource("Resource_e1j6l")
+
+[node name="offsite_2" parent="opponentBoard/DragController" index="5"]
+drag_strategy = SubResource("Resource_pl11u")
+
+[node name="Hand" parent="opponentBoard/DragController" index="9"]
+card_layout_strategy = SubResource("Resource_bhx41")
+
+[node name="PlayZone" parent="opponentBoard/DragController" index="10"]
+drag_strategy = SubResource("Resource_qnb83")
+
+[node name="unit_0" parent="opponentBoard/slotMeshes" index="0"]
+material_override = SubResource("StandardMaterial3D_sgl2t")
+
+[node name="unit_1" parent="opponentBoard/slotMeshes" index="1"]
+material_override = SubResource("StandardMaterial3D_qouja")
+
+[node name="unit_2" parent="opponentBoard/slotMeshes" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_wljb1")
+
+[node name="offsite_0" parent="opponentBoard/slotMeshes" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_v2yb1")
+
+[node name="offsite_1" parent="opponentBoard/slotMeshes" index="4"]
+material_override = SubResource("StandardMaterial3D_js0lu")
+
+[node name="offsite_2" parent="opponentBoard/slotMeshes" index="5"]
+material_override = SubResource("StandardMaterial3D_gxtfn")
+
 [node name="Camera3D" type="Camera3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.9848078, -0.1736482, 0, 0.1736482, 0.9848078, -2, -5.5, 14.5)
@@ -875,3 +1045,4 @@ draw_pass_1 = SubResource("QuadMesh_gee14")
 [connection signal="card_selected" from="playerBoard/DragController/Hand" to="." method="_full_reset"]
 
 [editable path="playerBoard"]
+[editable path="opponentBoard"]

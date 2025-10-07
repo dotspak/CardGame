@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwdf441n3xuw2"]
+
+[ext_resource type="PackedScene" uid="uid://uqcqlr8xi5yc" path="res://scenes/cardTemplates/card_pectoCard.tscn" id="1_23dau"]
+[ext_resource type="Texture2D" uid="uid://cc0y1mdi6wk6h" path="res://assets/set1/rat.png" id="2_ckkd3"]
+
+[node name="ratToken" instance=ExtResource("1_23dau")]
+ID = "RAT"
+table = "token"
+type = 3
+cardName = "Rat"
+lvl = 0
+text = "When Rat deals damage, the opposing card gains [color=orange]Sick[/color]."
+art = ExtResource("2_ckkd3")
+
+[node name="cardArt" parent="cardShape/visual" index="0"]
+texture = ExtResource("2_ckkd3")
+
+[node name="border" parent="cardShape/visual" index="2"]
+self_modulate = Color(0.6666667, 0.6666667, 0.6666667, 1)
+
+[node name="textContainer" parent="cardShape/visual/border/MarginContainer/text" index="1"]
+self_modulate = Color(0.6666667, 0.6666667, 0.6666667, 1)
+
+[node name="cardText" parent="cardShape/visual/border/MarginContainer/text/textContainer/MarginContainer/VBoxContainer" index="0"]
+text = "When Rat deals damage, the opposing card gains [color=orange]Sick[/color]."
+
+[node name="skillContainer" parent="cardShape/visual/border/MarginContainer/text" index="2"]
+self_modulate = Color(0.6666667, 0.6666667, 0.6666667, 1)
+
+[node name="cardTypeIcon" parent="cardShape/visual/topBar" index="0"]
+modulate = Color(1, 1, 1, 0)
+
+[node name="nameContainer" parent="cardShape/visual/topBar/info" index="0"]
+self_modulate = Color(0.6666667, 0.6666667, 0.6666667, 1)
+
+[node name="cardName" parent="cardShape/visual/topBar/info/nameContainer/HBoxContainer" index="0"]
+text = "Rat"
+
+[node name="cardType" parent="cardShape/visual/topBar/info" index="1"]
+visible = false
+
+[node name="lvlIcon" parent="cardShape/visual/topBar" index="2"]
+modulate = Color(1, 1, 1, 0)
+
+[node name="cardLVL" parent="cardShape/visual/topBar/lvlIcon" index="0"]
+text = "0"
+
+[node name="rarity" parent="cardShape/visual/extraInfo" index="1"]
+visible = false

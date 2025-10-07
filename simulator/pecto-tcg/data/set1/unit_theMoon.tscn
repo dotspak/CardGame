@@ -98,9 +98,9 @@ lvl = 5
 tribe = Array[int]([5])
 keywords = Array[int]([7, 2, 4])
 text = "As an additional cost, sacrifice a unit you control. Destruction spells targetting The Moon are countered.
-{trigger:begin} Other cards you control gain {force:2}."
+{trigger:begin} Other cards you control gain {force:1}."
 skillName = "Truth of the Moon"
-skillText = "Cards you control gain {key:immortal} until the end of your next turn."
+skillText = "Cards you control gain [color=orange]Immortal[/color] until the end of your next turn."
 art = ExtResource("2_x3a8r")
 bg = SubResource("GradientTexture2D_q8lv5")
 foil = true
@@ -133,13 +133,13 @@ text = "[i][color=ffa500ff]Delayed, Flying, Bleed"
 
 [node name="cardText" parent="cardShape/visual/border/MarginContainer/text/textContainer/MarginContainer/VBoxContainer" index="0"]
 text = "As an additional cost, sacrifice a unit you control. Destruction spells targetting The Moon are countered.
-[bgcolor=orange][b]➥BEGIN[/b][/bgcolor] Other cards you control gain [bgcolor=e44298][b] 2 [/b][/bgcolor]."
+[bgcolor=orange][b]➥BEGIN[/b][/bgcolor] Other cards you control gain [bgcolor=e44298][b] 1 [/b][/bgcolor]."
 
 [node name="skillContainer" parent="cardShape/visual/border/MarginContainer/text" index="2"]
 visible = true
 
 [node name="cardSkill" parent="cardShape/visual/border/MarginContainer/text/skillContainer/MarginContainer/VBoxContainer" index="1"]
-text = "[bgcolor=e44298ff][b]★TRUTH OF THE MOON[/b][/bgcolor] Cards you control gain immortal until the end of your next turn."
+text = "[bgcolor=e44298ff][b]★TRUTH OF THE MOON[/b][/bgcolor] Cards you control gain [color=orange]Immortal[/color] until the end of your next turn."
 
 [node name="cardName" parent="cardShape/visual/topBar/info/nameContainer/HBoxContainer" index="0"]
 text = "The Moon"
@@ -148,7 +148,6 @@ text = "The Moon"
 text = "8"
 
 [node name="cardType" parent="cardShape/visual/topBar/info" index="1"]
-visible = true
 text = "God "
 
 [node name="cardLVL" parent="cardShape/visual/topBar/lvlIcon" index="0"]

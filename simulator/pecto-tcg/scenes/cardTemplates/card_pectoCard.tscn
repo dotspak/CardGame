@@ -198,7 +198,7 @@ shadow_color = Color(0.14, 0.1134, 0.1134, 1)
 shadow_size = 10
 
 [sub_resource type="Gradient" id="Gradient_0gidb"]
-colors = PackedColorArray(0.10980392, 0.10980392, 0.10980392, 1, 0.33828127, 0.33828127, 0.33828127, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.10980392, 0.10980392, 0.10980392, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_y3ai7"]
 gradient = SubResource("Gradient_0gidb")
@@ -567,7 +567,6 @@ stretch_mode = 1
 
 [node name="cardType" type="Label" parent="cardShape/visual/topBar/info"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 24

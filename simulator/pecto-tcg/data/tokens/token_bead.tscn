@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://hqxvfecq3jqa"]
+
+[ext_resource type="PackedScene" uid="uid://uqcqlr8xi5yc" path="res://scenes/cardTemplates/card_pectoCard.tscn" id="1_unhc3"]
+[ext_resource type="Texture2D" uid="uid://b83uumi71engf" path="res://assets/set1/bead.png" id="2_17qrb"]
+
+[sub_resource type="Gradient" id="Gradient_wm4xx"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.61960787, 0.3254902, 0.11372549, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_cnhil"]
+gradient = SubResource("Gradient_wm4xx")
+
+[node name="beadToken" instance=ExtResource("1_unhc3")]
+ID = "BEAD"
+table = "token"
+type = 3
+cardName = "Bead"
+lvl = 0
+keywords = Array[int]([9])
+text = "{trigger:perish} A card you control gains {force:1}."
+art = ExtResource("2_17qrb")
+bg = SubResource("GradientTexture1D_cnhil")
+
+[node name="cardBackground" parent="cardShape" index="0"]
+texture = SubResource("GradientTexture1D_cnhil")
+
+[node name="cardArt" parent="cardShape/visual" index="0"]
+texture = ExtResource("2_17qrb")
+
+[node name="border" parent="cardShape/visual" index="2"]
+self_modulate = Color(0.6666667, 0.6666667, 0.6666667, 1)
+
+[node name="cardKeywords" parent="cardShape/visual/border/MarginContainer/text" index="0"]
+text = "[i][color=ffa500ff]Fragile"
+
+[node name="textContainer" parent="cardShape/visual/border/MarginContainer/text" index="1"]
+self_modulate = Color(0.6666667, 0.6666667, 0.6666667, 1)
+
+[node name="cardText" parent="cardShape/visual/border/MarginContainer/text/textContainer/MarginContainer/VBoxContainer" index="0"]
+text = "[bgcolor=orange][b]➥PERISH[/b][/bgcolor] A card you control gains [bgcolor=e44298][b] 1 [/b][/bgcolor]."
+
+[node name="skillContainer" parent="cardShape/visual/border/MarginContainer/text" index="2"]
+self_modulate = Color(0.6666667, 0.6666667, 0.6666667, 1)
+
+[node name="cardTypeIcon" parent="cardShape/visual/topBar" index="0"]
+modulate = Color(1, 1, 1, 0)
+
+[node name="nameContainer" parent="cardShape/visual/topBar/info" index="0"]
+self_modulate = Color(0.6666667, 0.6666667, 0.6666667, 1)
+
+[node name="cardName" parent="cardShape/visual/topBar/info/nameContainer/HBoxContainer" index="0"]
+text = "Bead"
+
+[node name="cardType" parent="cardShape/visual/topBar/info" index="1"]
+visible = false
+
+[node name="lvlIcon" parent="cardShape/visual/topBar" index="2"]
+modulate = Color(1, 1, 1, 0)
+
+[node name="cardLVL" parent="cardShape/visual/topBar/lvlIcon" index="0"]
+text = "0"
+
+[node name="rarity" parent="cardShape/visual/extraInfo" index="1"]
+visible = false

@@ -60,6 +60,12 @@ signal handCardSelected(card : PectoCard3D)
 
 signal finishedSetup
 
+func _process(_delta):
+	if !Engine.is_editor_hint():
+		%deckCount.text = str(deck.cards.size())
+		%discardCount.text = str(discard.cards.size())
+		%voidCount.text = str(cardVoid.cards.size())
+
 func start_game() -> void:
 	if deckToLoad.is_empty(): return
 	for c : Node in dragController.get_children():
@@ -145,6 +151,7 @@ func add_card_to_pile(card : PectoCard3D, pile : CardCollection3D, onTop : bool 
 	card.face_down = pile == deck
 	card.collection = pile
 	card.hide_icons()
+
 	return card
 
 

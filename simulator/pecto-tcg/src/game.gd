@@ -40,8 +40,12 @@ var currentDisplayCard : PectoCard3D = null
 var infoHidden : bool = true
 
 var currentTurn : PectoBoard3D
+var turnCount : int = 0 :
+	set(val):
+		turnCount = val
+		%turnCounter.text = "Turn Count: %s" % turnCount
 
-func _ready(): 
+func _ready():
 	fade_screen(0, false)
 	hide_info_box()
 	border.modulate = Color.GRAY
@@ -83,6 +87,7 @@ func fade_screen(duration : float = 0.2, fadeIn : bool = true) -> void:
 
 
 func start_turn() -> void:
+	turnCount += 1
 	currentTurn.draw_card()
 	currentTurn.toggle_active(true)
 	update_turn_label()
@@ -157,13 +162,14 @@ func animate_icon(node : Control) -> void:
 
 
 func _on_player_card_selected(card3D: Card3D) -> void:
-	await update_info_box(card3D)
+	if infoHidden: await update_info_box(card3D)
+	else: update_info_box(card3D)
 
 	var buttonPos : Vector2 = camera.unproject_position(card3D.global_position)
 	var buttons : Control = load("res://scenes/card_options.tscn").instantiate()
 
 	buttons.get_child(0).visible = card3D.card.type != 1
-	buttons.get_child(0).disabled = !card3D.card.active
+	buttons.get_child(0).disabled = !card3D.card.active || turnCount <= 1
 
 	buttons.get_child(1).visible = card3D.card.skillName != ""
 	buttons.get_child(1).disabled = !card3D.card.active
@@ -182,8 +188,9 @@ func _on_player_card_selected(card3D: Card3D) -> void:
 	
 	%cardButtons.add_child(buttons)
 
-	var tween := create_tween()
+	var tween := create_tween().set_parallel().set_trans(Tween.TRANS_SINE)
 	tween.tween_property(%cardButtons, "global_position:x", buttonPos.x, 0.1).from(buttonPos.x - 50)
+	tween.tween_property(%cardButtons, "modulate:a", 1, 0.1).from(0)
 	%cardButtons.global_position.y = buttonPos.y
 
 
