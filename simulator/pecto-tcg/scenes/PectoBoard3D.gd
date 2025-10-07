@@ -170,6 +170,7 @@ func _on_card_selected(card3D : PectoCard3D) -> void:
 
 func _on_card_added_to_slot(card3D : PectoCard3D) -> void:
 	card3D.display_icons()
+	card3D.controller = self
 	var startingLvl : int = lvl
 	lvl = 0
 	for slot : CardCollection3D in slots:
@@ -179,7 +180,7 @@ func _on_card_added_to_slot(card3D : PectoCard3D) -> void:
 			lvl += c.card.lvl if !c.card.banished else 0
 	if startingLvl != lvl: lvlChanged.emit(lvl)
 	card3D.card._enter()
-	print("card %s added, lvl now %s" % [card3D.card.cardName, lvl])
+	print("card %s added at %s, lvl now %s" % [card3D.card.cardName, get_card_coord(card3D), lvl])
 
 
 func deal_damage(amount : int) -> void: life -= amount
@@ -232,3 +233,29 @@ func toggle_active(enable : bool = true) -> void:
 			if slot.cards[0] is PectoCard3D:
 				if enable: slot.cards[0].make_active() 
 				else: slot.cards[0].make_inactive()
+
+
+func get_card_coord(card3D : PectoCard3D) -> Vector2:
+	var coord : Vector2 = -Vector2.INF
+	if card3D.card.type != PectoCard.CARD_TYPE.Spell:
+		for y in range(2):
+			for x in range(3):
+				var slot : GridSlot = get_slot_from_coord(Vector2(x,y))
+				if !slot.cards.is_empty():
+					if slot.cards[0] == card3D:
+						coord = Vector2(x,y)
+						break
+	return coord
+
+
+func get_card(coord : Vector2 = Vector2.ZERO) -> PectoCard3D:
+	var slot : GridSlot = get_slot_from_coord(coord) 
+	var card : PectoCard3D = null
+	if !slot.cards.is_empty(): card = slot.cards[0]
+	return card
+
+
+func get_slot_from_coord(coord : Vector2 = Vector2.ZERO):
+	var string : String = "%s_%s" % [("unit" if int(coord.y) == 0 else "offsite"), int(coord.x)]
+	var slot : GridSlot = dragController.find_child(string)
+	return slot

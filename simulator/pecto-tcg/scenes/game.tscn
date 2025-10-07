@@ -266,6 +266,21 @@ shadow_color = Color(0, 0, 0, 0.19607843)
 shadow_size = 10
 shadow_offset = Vector2(0, 20)
 
+[sub_resource type="Animation" id="Animation_ca42v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_ir15t"]
 resource_name = "show"
 length = 1.4
@@ -280,21 +295,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_ca42v"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rysoc"]
@@ -1118,12 +1118,14 @@ metadata/_edit_lock_ = true
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -2)
 mesh = SubResource("PlaneMesh_lbhrr")
 surface_material_override/0 = SubResource("StandardMaterial3D_p57ef")
+metadata/_edit_lock_ = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40.2273)
 shadow_enabled = true
 shadow_opacity = 0.75
 shadow_blur = 6.15
+metadata/_edit_lock_ = true
 
 [node name="playerBoard" parent="." instance=ExtResource("1_lnu2h")]
 unique_name_in_owner = true
@@ -1240,6 +1242,7 @@ draw_pass_1 = SubResource("QuadMesh_gee14")
 [connection signal="lifeChanged" from="playerBoard" to="." method="update_life"]
 [connection signal="lvlChanged" from="playerBoard" to="." method="update_lvl"]
 [connection signal="card_selected" from="playerBoard/DragController/Hand" to="." method="_full_reset"]
+[connection signal="lifeChanged" from="opponentBoard" to="." method="_on_opponent_board_life_changed"]
 
 [editable path="playerBoard"]
 [editable path="opponentBoard"]

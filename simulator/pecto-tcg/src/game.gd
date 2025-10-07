@@ -253,3 +253,9 @@ func _full_reset(_card: Variant) -> void:
 
 
 func _on_player_board_hand_card_selected(card3D: PectoCard3D) -> void: update_info_box(card3D)
+
+func get_opponent(player : PectoBoard3D) -> PectoBoard3D:
+	if player == povPlayer: return opponentPlayer
+	else: return povPlayer
+
+func _on_opponent_board_life_changed(val: int) -> void: %life2.text = str(val)

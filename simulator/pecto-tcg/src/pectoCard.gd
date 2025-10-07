@@ -269,7 +269,7 @@ func attack_card(target : Node) -> void:
 	if !target is PectoCard:
 		if target.has_method("deal_damage"):
 			target.deal_damage(force)
-			attack_aftermath(target)
+			return attack_aftermath(target)
 
 	var target_startForce : int = target.force
 	var self_startForce : int = force

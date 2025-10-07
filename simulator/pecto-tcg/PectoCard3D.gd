@@ -9,6 +9,7 @@ class_name PectoCard3D
 var card : PectoCard
 var collection : CardCollection3D
 var collectionIDX : int
+var controller : PectoBoard3D
 
 func _ready():
 	%forcceIcon.hide()
@@ -60,9 +61,26 @@ func hide_icons() -> void:
 
 
 func attack() -> void:
+	var coord : Vector2 = controller.get_card_coord(self)
+	var opponent : PectoBoard3D = GameManager.gameScene.get_opponent(controller)
+	var targets : Array[Node] = [opponent.get_card(coord)]
+
+	# first pass checks if a unit was found
+	if targets.is_empty:
+		targets.pop_front()
+		coord.y = 1
+		targets.append(opponent)
+		targets.append(opponent.get_card(coord))
+
+	# bring up targetting menu
+	if targets.size() > 1:
+		pass
+
 	anim.play("attack")
 	await anim.animation_finished
+	card.attack_card(targets[0])
 	card.active = false
+
 
 func make_active() -> void: card.active = true
 func make_inactive() -> void: card.active = false
