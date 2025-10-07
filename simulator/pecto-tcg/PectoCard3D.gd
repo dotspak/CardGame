@@ -63,22 +63,47 @@ func hide_icons() -> void:
 func attack() -> void:
 	var coord : Vector2 = controller.get_card_coord(self)
 	var opponent : PectoBoard3D = GameManager.gameScene.get_opponent(controller)
-	var targets : Array[Node] = [opponent.get_card(coord)]
+	var targets : Array[Node] = []
 
-	# first pass checks if a unit was found
-	if targets.is_empty:
-		targets.pop_front()
-		coord.y = 1
-		targets.append(opponent)
+	# middle row attack logic
+	if coord.x == 1:
+		print("handling a middle row unit attack")
+		for i in range(3):
+			var t : PectoCard3D = opponent.get_card(Vector2(i, 0))
+			if t: targets.append(t)
+
+		# checks if the opposing middle row is open
+		if !opponent.get_card(coord):
+			targets.append(opponent)
+			for i in range(3):
+				var t : PectoCard3D = opponent.get_card(Vector2(i, 1))
+				if t: targets.append(t)
+	
+	# standard attack logic
+	else:
+		print("handling a standard unit attack")
 		targets.append(opponent.get_card(coord))
 
+		# first pass checks if a unit was found
+		if targets.is_empty:
+			targets.pop_front()
+			coord.y = 1
+
+			if !card.has_keyword("Sealed"): targets.append(opponent)
+			targets.append(opponent.get_card(coord))
+	
+	if targets.is_empty(): return
+
 	# bring up targetting menu
+	var finalTarget : Node = targets[0]
 	if targets.size() > 1:
-		pass
+		finalTarget = await GameManager.gameScene.select_card_target(targets)
+	
+	if !finalTarget: return
 
 	anim.play("attack")
 	await anim.animation_finished
-	card.attack_card(targets[0])
+	card.attack_card(finalTarget)
 	card.active = false
 
 

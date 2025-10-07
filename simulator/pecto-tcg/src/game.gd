@@ -259,3 +259,7 @@ func get_opponent(player : PectoBoard3D) -> PectoBoard3D:
 	else: return povPlayer
 
 func _on_opponent_board_life_changed(val: int) -> void: %life2.text = str(val)
+
+func select_card_target(targets : Array) -> Node:
+	await get_tree().create_timer(0.2).timeout
+	return targets[0]

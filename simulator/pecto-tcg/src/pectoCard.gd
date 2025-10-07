@@ -266,7 +266,7 @@ func _victor(target : Node) -> void:
 
 
 func attack_card(target : Node) -> void:
-	if !target is PectoCard:
+	if target is PectoBoard3D:
 		if target.has_method("deal_damage"):
 			target.deal_damage(force)
 			return attack_aftermath(target)
