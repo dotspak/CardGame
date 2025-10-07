@@ -26,7 +26,9 @@ shadow_offset = Vector2(0, 20)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vcr0i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_emj5m"]
+content_margin_left = 10.0
 content_margin_top = 20.0
+content_margin_right = 10.0
 content_margin_bottom = 20.0
 bg_color = Color(0.14117648, 0.11372549, 0.11372549, 0.5882353)
 border_width_left = 4
