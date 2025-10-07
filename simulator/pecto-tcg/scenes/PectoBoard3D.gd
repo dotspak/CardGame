@@ -2,11 +2,11 @@
 extends Node3D
 class_name PectoBoard3D
 
-const PLAYER_COLOR_UNIT : Color = Color("424a7d")
-const PLAYER_COLOR_OFFSITE : Color = Color("2b3051")
+const PLAYER_COLOR_UNIT : Color = Color("7d8ced")
+const PLAYER_COLOR_OFFSITE : Color = Color("424a7d")
 
-const OPPONENT_COLOR_UNIT : Color = Color("744c57")
-const OPPONENT_COLOR_OFFSITE : Color = Color("4e333b")
+const OPPONENT_COLOR_UNIT : Color = Color("bd3746")
+const OPPONENT_COLOR_OFFSITE : Color = Color("744c57")
 
 @export_enum("Player", "Opponent") var boardSide : int = 0:
 	set(val):
@@ -58,20 +58,23 @@ signal floatingLVLChanged(val : int)
 signal cardSelected(card : PectoCard3D)
 signal handCardSelected(card : PectoCard3D)
 
-func _ready() -> void: if !Engine.is_editor_hint(): start_game()
+signal finishedSetup
 
 func start_game() -> void:
 	if deckToLoad.is_empty(): return
 	for c : Node in dragController.get_children():
 		if (c.name.contains("unit") || c.name.contains("offsite")) && c is CardCollection3D:
 			slots.append(c)
+			c.drag_strategy.disable_play()
 			c.board = self
 			c.card_selected.connect(_on_card_selected)
 			c.card_added.connect(_on_card_added_to_slot)
+	playZone.drag_strategy.disable_play()
 	load_deck()
 	shuffle_deck()
 	await get_tree().create_timer(0.5).timeout
 	get_starting_hand()
+	finishedSetup.emit()
 
 
 func load_deck() -> void:
@@ -100,14 +103,17 @@ func fetch_card(cardID : String, db : SQLite) -> PectoCard:
 
 func get_influence() -> int: return lvl + floatingLVL
 
+
 func get_starting_hand() -> void:
 	var lvl1cards : Array[PectoCard3D] = []
 	for c : PectoCard3D in cardPool:
 		if c.card.lvl == 1 && c.card.type != PectoCard.CARD_TYPE.Spell:
 			lvl1cards.append(c)
-	
+			print(c.name)
+
 	add_card_to_hand(lvl1cards.pick_random())
 	for _i : int in 4: draw_card()
+
 
 func recycle_deck() -> void:
 	for c : Card3D in discard.cards: add_card_to_deck(c)
@@ -201,3 +207,21 @@ func _on_play_zone_card_added(card: PectoCard3D) -> void:
 
 
 func _on_hand_card_selected(card3D : PectoCard3D) -> void: handCardSelected.emit(card3D)
+
+
+func toggle_play(enable : bool = true) -> void:
+	print("%s play for %s" % [("disabling" if !enable else "enabling"), name])
+	hand.drag_strategy.can_remove = enable
+	if enable: playZone.drag_strategy.enable_play()
+	else: playZone.drag_strategy.disable_play()
+	for slot : GridSlot in slots:
+		if enable: slot.drag_strategy.enable_play()
+		else: slot.drag_strategy.disable_play()
+
+
+func toggle_active(enable : bool = true) -> void:
+	for slot : GridSlot in slots:
+		if !slot.cards.is_empty():
+			if slot.cards[0] is PectoCard3D:
+				if enable: slot.cards[0].make_active() 
+				else: slot.cards[0].make_inactive()

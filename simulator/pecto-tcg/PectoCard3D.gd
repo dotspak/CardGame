@@ -64,6 +64,9 @@ func attack() -> void:
 	await anim.animation_finished
 	card.active = false
 
+func make_active() -> void: card.active = true
+func make_inactive() -> void: card.active = false
+
 
 func use_skill() -> void:
 	card.active = false

@@ -12,7 +12,7 @@ With the Pecto Simulator on to the horizon, its time for a small update to the c
 
 ## Ruleset Updates
 
-Influence
+### Influence
 
 The total LVL that the player keeps track of is now being labelled as influence to make it more clear between card LVL and player LVL.
 
@@ -27,7 +27,9 @@ Flying Keyword
 - Flying units can not be blocked by non-flying units.
 - This change I will be keeping a close eye on in playtests as it could be too strong, but I think with the update to defense it will be fine.
 
-### Defensive Movement
+---
+
+## Defensive Movement
 
 Defense, as well as movement is slightly weak in the current state, so its being changed a little bit.
 
@@ -35,7 +37,9 @@ Defense, as well as movement is slightly weak in the current state, so its being
 - When the opponent declares an attack, you now have an interaction trigger to move your active units you block.
 - Moving a unit on defensive makes the unit inactive.
 
-### Swapping Rewording
+---
+
+## Swapping Rewording
 
 This is mostly just to clear up any confusion related to swapping units. Previously I've stated the rule is when you swap 2 units, you choose which one becomes inactive. I am rewording this to the following:
 
@@ -43,22 +47,27 @@ When two units swap, only the unit who actually declared the move becomes inacti
 
 *For example, if you move your Fungal Guardian to where your Tomb Crawler is, the cards will swap places and Fungal Guardian will become inactive.*
 
-### Offsites
-
-- Offsites can now only be targetted via combat by a unit in the same lane as them, unless the unit is in the middle lane.
-- *No Findlay I'm not renaming them, the name is iconic now.*
-
-### Tokens
-
-- When a token is created, you can now play it in an offsite zone.
-- This may come in handy in archetypes like Crows where you want as many crow cards on the board as possible.
+---
 
 ### Middle Lane
 
 - Defensive mechanic removed.
 - You now no longer need to kill the unit in the middle lane to deal combat damage to the player.
 
-### Passive Update
+---
+
+## Card Updates
+
+### Offsites
+
+- Offsites can now only be targetted via combat by a unit in the same lane as them, unless the unit is in the middle lane.
+
+### Tokens
+
+- When a token is created, you can now play it in an offsite zone.
+- This may come in handy in archetypes like Crows where you want as many crow cards on the board as possible.
+
+### Passives
 
 - Passive spells are being removed from the game.
 - To be more clear, all passive spells are being converted into offsites.

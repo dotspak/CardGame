@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://do6yql4uw2cjr"]
+[gd_scene load_steps=44 format=3 uid="uid://do6yql4uw2cjr"]
 
 [ext_resource type="Script" uid="uid://bu8m635jkfcgu" path="res://scenes/PectoBoard3D.gd" id="1_sic6o"]
 [ext_resource type="Script" uid="uid://bgkontnk0cnl" path="res://addons/card_3d/scripts/drag_controller.gd" id="2_8ykwa"]
@@ -15,7 +15,29 @@
 [ext_resource type="Texture2D" uid="uid://yv0ay28yfo7i" path="res://addons/kenney_particle_pack/magic_05.png" id="12_upnpo"]
 [ext_resource type="Script" uid="uid://dkckfib3cljd1" path="res://src/pectoPlayZoneStrat.gd" id="13_8ykwa"]
 
+[sub_resource type="Resource" id="Resource_1r01h"]
+resource_local_to_scene = true
+script = ExtResource("4_1r01h")
+can_select = false
+can_reorder = false
+metadata/_custom_type_script = "uid://c6xj7aq0a3xj7"
+
+[sub_resource type="Resource" id="Resource_6bc8p"]
+resource_local_to_scene = true
+script = ExtResource("4_1r01h")
+can_select = false
+can_reorder = false
+metadata/_custom_type_script = "uid://c6xj7aq0a3xj7"
+
+[sub_resource type="Resource" id="Resource_fy6ix"]
+resource_local_to_scene = true
+script = ExtResource("4_1r01h")
+can_select = false
+can_reorder = false
+metadata/_custom_type_script = "uid://c6xj7aq0a3xj7"
+
 [sub_resource type="Resource" id="Resource_svpld"]
+resource_local_to_scene = true
 script = ExtResource("4_1r01h")
 slotType = 1
 can_select = false
@@ -74,7 +96,7 @@ fill_from = Vector2(0.5, 0.5)
 resource_local_to_scene = true
 render_priority = -1
 transparency = 1
-albedo_color = Color(0.25882354, 0.2901961, 0.49019608, 1)
+albedo_color = Color(0.49019608, 0.54901963, 0.92941177, 1)
 albedo_texture = SubResource("GradientTexture2D_yt3ua")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_1i8jf"]
@@ -85,35 +107,35 @@ orientation = 2
 resource_local_to_scene = true
 render_priority = -1
 transparency = 1
-albedo_color = Color(0.25882354, 0.2901961, 0.49019608, 1)
+albedo_color = Color(0.49019608, 0.54901963, 0.92941177, 1)
 albedo_texture = SubResource("GradientTexture2D_yt3ua")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3xrod"]
 resource_local_to_scene = true
 render_priority = -1
 transparency = 1
-albedo_color = Color(0.25882354, 0.2901961, 0.49019608, 1)
+albedo_color = Color(0.49019608, 0.54901963, 0.92941177, 1)
 albedo_texture = SubResource("GradientTexture2D_yt3ua")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_05s0e"]
 resource_local_to_scene = true
 render_priority = -1
 transparency = 1
-albedo_color = Color(0.16862746, 0.1882353, 0.31764707, 1)
+albedo_color = Color(0.25882354, 0.2901961, 0.49019608, 1)
 albedo_texture = SubResource("GradientTexture2D_yt3ua")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j0cvo"]
 resource_local_to_scene = true
 render_priority = -1
 transparency = 1
-albedo_color = Color(0.16862746, 0.1882353, 0.31764707, 1)
+albedo_color = Color(0.25882354, 0.2901961, 0.49019608, 1)
 albedo_texture = SubResource("GradientTexture2D_yt3ua")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sjku2"]
 resource_local_to_scene = true
 render_priority = -1
 transparency = 1
-albedo_color = Color(0.16862746, 0.1882353, 0.31764707, 1)
+albedo_color = Color(0.25882354, 0.2901961, 0.49019608, 1)
 albedo_texture = SubResource("GradientTexture2D_yt3ua")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_svpld"]
@@ -181,14 +203,17 @@ metadata/_custom_type_script = "uid://bgkontnk0cnl"
 [node name="unit_0" parent="DragController" node_paths=PackedStringArray("linkedSlot") instance=ExtResource("3_nx7c6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -2, 0)
 linkedSlot = NodePath("../../slotMeshes/unit_0")
+drag_strategy = SubResource("Resource_1r01h")
 
 [node name="unit_1" parent="DragController" node_paths=PackedStringArray("linkedSlot") instance=ExtResource("3_nx7c6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
 linkedSlot = NodePath("../../slotMeshes/unit_1")
+drag_strategy = SubResource("Resource_6bc8p")
 
 [node name="unit_2" parent="DragController" node_paths=PackedStringArray("linkedSlot") instance=ExtResource("3_nx7c6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -2, 0)
 linkedSlot = NodePath("../../slotMeshes/unit_2")
+drag_strategy = SubResource("Resource_fy6ix")
 
 [node name="offsite_0" parent="DragController" node_paths=PackedStringArray("linkedSlot") instance=ExtResource("3_nx7c6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -6, 0)

@@ -9,6 +9,10 @@ const HAND_OFFSET : Vector3 = Vector3(0, -3.5, -7.5)
 @onready var povPlayer : PectoBoard3D = %playerBoard
 @onready var opponentPlayer : PectoBoard3D = %opponentBoard
 @onready var camera : Camera3D = $Camera3D
+@onready var passTurn : Button = %passButton
+@onready var turnLabel : Label = %turnLabel
+@onready var fader : ColorRect = %fader
+@onready var border : Panel = %border
 
 var defaultCamPos : Vector3 = Vector3.ZERO
 
@@ -35,9 +39,12 @@ var currentFloating : int = 0 :
 var currentDisplayCard : PectoCard3D = null
 var infoHidden : bool = true
 
+var currentTurn : PectoBoard3D
 
 func _ready(): 
+	fade_screen(0, false)
 	hide_info_box()
+	border.modulate = Color.GRAY
 	GameManager.gameScene = self
 	GameManager.playerBoards.clear()
 	GameManager.playerBoards.append(povPlayer)
@@ -45,11 +52,84 @@ func _ready():
 
 	defaultCamPos = camera.global_position
 
+	povPlayer.toggle_play(false)
+	opponentPlayer.toggle_play(false)
+
+	povPlayer.start_game()
+	await povPlayer.finishedSetup
+
+	opponentPlayer.start_game()
+	await opponentPlayer.finishedSetup
+
+	currentTurn = povPlayer if randi_range(0, 1) == 0 else opponentPlayer
+	passTurn.disabled = true
+
+	await fade_screen(0.5, true)
+	
+	start_turn()
+
+
 func _process(_delta) -> void:
 	povPlayer.hand.global_position = camera.global_position + HAND_OFFSET
 
 	if !infoHidden && Input.is_action_just_pressed("ui_cancel"):
 		hide_info_box()
+
+
+func fade_screen(duration : float = 0.2, fadeIn : bool = true) -> void:
+	var tween := create_tween()
+	tween.tween_property(fader, "modulate:a", 0 if fadeIn else 1, duration)
+	await tween.finished
+
+
+func start_turn() -> void:
+	currentTurn.draw_card()
+	currentTurn.toggle_active(true)
+	update_turn_label()
+
+	var tween := create_tween()
+	if currentTurn == povPlayer:
+		tween.tween_property(border, "modulate", PectoBoard3D.PLAYER_COLOR_UNIT, 0.5)
+		passTurn.text = "Pass Turn"
+		if passTurn.pressed.is_connected(resolve_action):
+			passTurn.pressed.disconnect(resolve_action)
+		passTurn.pressed.connect(end_turn)
+		passTurn.disabled = false
+	else:
+		tween.tween_property(border, "modulate", PectoBoard3D.OPPONENT_COLOR_UNIT, 0.5)
+		get_tree().create_timer(2.0).timeout.connect(end_turn)
+
+	currentTurn.toggle_play(true)
+
+	
+func end_turn() -> void:
+	print("ending %s turn" % currentTurn.name)
+	currentTurn.toggle_play(false)
+	passTurn.disabled = true
+	passTurn.text = "Resolve"
+
+	if currentTurn == povPlayer:
+		if passTurn.pressed.is_connected(end_turn):
+			passTurn.pressed.disconnect(end_turn)
+		passTurn.pressed.connect(resolve_action)
+	
+	currentTurn = povPlayer if currentTurn == opponentPlayer else opponentPlayer
+
+	start_turn()
+
+func resolve_action() -> void:
+	pass
+
+
+func update_turn_label() -> void:
+	turnLabel.hide()
+	var turn : bool = currentTurn == povPlayer
+	turnLabel.text = "Your Turn" if turn else "Opponent Turn"
+	turnLabel.modulate = PectoBoard3D.PLAYER_COLOR_UNIT if turn else PectoBoard3D.OPPONENT_COLOR_UNIT
+	turnLabel.get_child(0).stop()
+	turnLabel.get_child(0).play("show")
+	turnLabel.show()
+
 
 func update_life(val : int) -> void:
 	var time : float = abs(val - currentLife) * 0.1

@@ -3,7 +3,13 @@ class_name PectoDragStrat
 
 @export_enum("Unit", "Offsite") var slotType : int = 0
 
+@export var playEnabled : bool = true
+
 func can_insert_card(card3D: PectoCard3D, to_collection: CardCollection3D, from_collection: CardCollection3D) -> bool:
+	if !playEnabled:
+		print("play is disabled")
+		return false
+	
 	# spells cannot be added to the slots
 	if from_collection.name == "Hand":
 		if card3D.card.type == 2:
@@ -27,3 +33,7 @@ func can_insert_card(card3D: PectoCard3D, to_collection: CardCollection3D, from_
 
 func can_swap_cards(cardToMove : PectoCard3D, prevCard : PectoCard3D) -> bool: 
 	return cardToMove.card.active && !prevCard.card.has_keyword("static")
+
+
+func enable_play() -> void: playEnabled = true
+func disable_play() -> void: playEnabled = false

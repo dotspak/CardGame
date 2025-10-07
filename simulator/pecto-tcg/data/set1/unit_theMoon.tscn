@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://es0mijmrrpoq"]
+[gd_scene load_steps=13 format=3 uid="uid://es0mijmrrpoq"]
 
 [ext_resource type="PackedScene" uid="uid://uqcqlr8xi5yc" path="res://scenes/cardTemplates/card_pectoCard.tscn" id="1_xtsg6"]
 [ext_resource type="Texture2D" uid="uid://cgux2enhwprs5" path="res://assets/set1/theMoon.png" id="2_x3a8r"]
@@ -87,6 +87,9 @@ shader_parameter/noise_speed = 2.8570001357075
 shader_parameter/shimmer_speed = 1.65600007866
 shader_parameter/shimmer_strength = 1.6110000765225
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_q8lv5"]
+blend_mode = 2
+
 [node name="theMoon" instance=ExtResource("1_xtsg6")]
 ID = "THE_MOON"
 cardName = "The Moon"
@@ -120,6 +123,10 @@ texture = ExtResource("2_x3a8r")
 [node name="cardArt" parent="cardShape/visual" index="0"]
 material = SubResource("ShaderMaterial_y2oyo")
 texture = ExtResource("2_x3a8r")
+
+[node name="shadow" parent="cardShape/visual" index="1"]
+modulate = Color(0.8809136, 1, 0, 1)
+material = SubResource("CanvasItemMaterial_q8lv5")
 
 [node name="cardKeywords" parent="cardShape/visual/border/MarginContainer/text" index="0"]
 text = "[i][color=ffa500ff]Delayed, Flying, Bleed"

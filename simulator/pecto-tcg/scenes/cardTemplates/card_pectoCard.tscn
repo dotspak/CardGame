@@ -505,14 +505,6 @@ layout_mode = 2
 texture = SubResource("GradientTexture1D_y3ai7")
 expand_mode = 1
 
-[node name="dots" type="TextureRect" parent="cardShape/visual/topBar/info/nameContainer"]
-modulate = Color(1, 1, 1, 0.11764706)
-material = SubResource("CanvasItemMaterial_y3ai7")
-layout_mode = 2
-texture = ExtResource("1_0gidb")
-expand_mode = 1
-stretch_mode = 1
-
 [node name="HBoxContainer" type="HBoxContainer" parent="cardShape/visual/topBar/info/nameContainer"]
 layout_mode = 2
 alignment = 1
@@ -564,6 +556,14 @@ text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
+
+[node name="dots" type="TextureRect" parent="cardShape/visual/topBar/info/nameContainer"]
+modulate = Color(1, 1, 1, 0.11764706)
+material = SubResource("CanvasItemMaterial_y3ai7")
+layout_mode = 2
+texture = ExtResource("1_0gidb")
+expand_mode = 1
+stretch_mode = 1
 
 [node name="cardType" type="Label" parent="cardShape/visual/topBar/info"]
 unique_name_in_owner = true
