@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://tgwg37s4khbg"]
+
+[ext_resource type="PackedScene" uid="uid://uqcqlr8xi5yc" path="res://scenes/cardTemplates/card_pectoCard.tscn" id="1_fahiy"]
+[ext_resource type="Texture2D" uid="uid://dsemqjnsd305b" path="res://assets/set1/jester.png" id="2_6hsu1"]
+
+[node name="jester" instance=ExtResource("1_fahiy")]
+ID = "JESTER"
+cardName = "Jester"
+force = 2
+lvl = 5
+banished = true
+tribe = Array[int]([0])
+keywords = Array[int]([4])
+text = "You can only play Jester once per turn. If Jester enters your discard without leaving the grid, you may play it. If you do, Jester is no longer banished."
+art = ExtResource("2_6hsu1")
+
+[node name="cardArt" parent="cardShape/visual" index="0"]
+texture = ExtResource("2_6hsu1")
+
+[node name="cardKeywords" parent="cardShape/visual/border/MarginContainer/text" index="0"]
+text = "[i][color=ffa500ff]Bleed"
+
+[node name="cardText" parent="cardShape/visual/border/MarginContainer/text/textContainer/MarginContainer/VBoxContainer" index="0"]
+text = "You can only play Jester once per turn. If Jester enters your discard without leaving the grid, you may play it. If you do, Jester is no longer banished."
+
+[node name="cardName" parent="cardShape/visual/topBar/info/nameContainer/HBoxContainer" index="0"]
+text = "Jester"
+
+[node name="cardForce" parent="cardShape/visual/topBar/info/nameContainer/HBoxContainer/force/TextureRect" index="0"]
+text = "2"
+
+[node name="cardType" parent="cardShape/visual/topBar/info" index="1"]
+text = "Ghost "
+
+[node name="lvlIcon" parent="cardShape/visual/topBar" index="2"]
+modulate = Color(1, 0.49411765, 0.5294118, 1)
+
+[node name="cardLVL" parent="cardShape/visual/topBar/lvlIcon" index="0"]
+text = "5"

@@ -2,8 +2,8 @@
 
 [sub_resource type="Gradient" id="Gradient_tsqah"]
 interpolation_color_space = 2
-offsets = PackedFloat32Array(0, 0.5318352, 1)
-colors = PackedColorArray(1, 0, 0, 1, 0.32829446, 1, 0.010790706, 1, 1, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.2244898, 0.6938776, 1)
+colors = PackedColorArray(0.5182582, 1, 0.91445947, 1, 0.83996296, 0.87058824, 0.7779983, 1, 1, 0.84696275, 0.9947269, 1, 0.5176471, 1, 0.9137255, 1)
 
 [resource]
 gradient = SubResource("Gradient_tsqah")

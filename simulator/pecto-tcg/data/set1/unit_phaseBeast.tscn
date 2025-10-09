@@ -1,0 +1,127 @@
+[gd_scene load_steps=11 format=3 uid="uid://de3522pc7e6q6"]
+
+[ext_resource type="PackedScene" uid="uid://uqcqlr8xi5yc" path="res://scenes/cardTemplates/card_pectoCard.tscn" id="1_67rdx"]
+[ext_resource type="Texture2D" uid="uid://b04x168vwbv3f" path="res://assets/set1/phaseBeast.png" id="2_b8djg"]
+[ext_resource type="Texture2D" uid="uid://btxhmevtd40my" path="res://assets/foilmaps/starFoil.png" id="3_v7y00"]
+[ext_resource type="Texture2D" uid="uid://b7pbscney3tcv" path="res://assets/r_superRare1.png" id="5_v7y00"]
+
+[sub_resource type="Gradient" id="Gradient_h73ln"]
+offsets = PackedFloat32Array(0.015923567, 1)
+colors = PackedColorArray(0.14509805, 0.22352941, 0.36078432, 1, 0.683775, 0.6723, 0.81, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_i3nmk"]
+gradient = SubResource("Gradient_h73ln")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Shader" id="Shader_4ay7h"]
+code = "shader_type canvas_item;
+
+uniform bool enabled = true;
+uniform sampler2D foil_map;
+uniform sampler2D gradient;
+uniform sampler2D noise_tex;
+
+uniform float speed : hint_range(0.0, 10.0) = 1.0;
+uniform float scale : hint_range(0.1, 5.0) = 1.0;
+uniform float intensity : hint_range(0.0, 3.0) = 1.2;
+uniform float angle : hint_range(0.0, 360.0) = 45.0;
+uniform float noise_strength : hint_range(0.0, 1.0) = 0.25;
+uniform float noise_speed : hint_range(0.0, 5.0) = 0.5;
+uniform float shimmer_speed : hint_range(0.0, 10.0) = 2.0;
+uniform float shimmer_strength : hint_range(0.0, 2.0) = 0.5;
+
+void fragment() {
+	if (enabled) {
+	    vec2 uv = UV;
+
+	    float rad = radians(angle);
+	    mat2 rot = mat2(vec2(cos(rad), -sin(rad)), vec2(sin(rad),  cos(rad)));
+	    vec2 rotated_uv = rot * (uv - 0.5) + 0.5;
+
+	    vec2 scroll_uv = rotated_uv * scale;
+	    scroll_uv.x += TIME * speed;
+
+	    vec2 noise_uv = uv * 2.0 + vec2(TIME * noise_speed, TIME * noise_speed);
+	    float n = texture(noise_tex, noise_uv).r;
+	    scroll_uv.x += (n - 0.5) * noise_strength;
+		
+	    vec4 grad_col = texture(gradient, vec2(fract(scroll_uv.x), 0.5));
+	    float shimmer = 1.0 + sin(TIME * shimmer_speed + uv.y * 10.0) * shimmer_strength;
+
+	    float foil_mask = texture(foil_map, uv).r;
+
+	    vec4 foil_col = grad_col * foil_mask * intensity * shimmer;
+	    vec4 base_col = texture(TEXTURE, uv);
+
+	    COLOR = base_col + foil_col * base_col.a;
+	}
+}
+"
+
+[sub_resource type="Gradient" id="Gradient_b8djg"]
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0, 0.5340136, 1)
+colors = PackedColorArray(0.30377722, 1, 0, 1, 1, 0.14643282, 0, 1, 0.3019608, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_v7y00"]
+gradient = SubResource("Gradient_b8djg")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1clln"]
+shader = SubResource("Shader_4ay7h")
+shader_parameter/enabled = true
+shader_parameter/foil_map = ExtResource("3_v7y00")
+shader_parameter/gradient = SubResource("GradientTexture1D_v7y00")
+shader_parameter/speed = 0.2000000095
+shader_parameter/scale = 4.28800020042012
+shader_parameter/intensity = 0.4
+shader_parameter/angle = 240.1730114082175
+shader_parameter/noise_strength = 0.6270000297825
+shader_parameter/noise_speed = 2.8570001357075
+shader_parameter/shimmer_speed = 1.65600007866
+shader_parameter/shimmer_strength = 2.0
+
+[node name="PectoCard" instance=ExtResource("1_67rdx")]
+ID = "PHASE_BEAST"
+cardName = "Phase Beast"
+force = 5
+lvl = 4
+banished = true
+tribe = Array[int]([0, 3])
+keywords = Array[int]([2, 4])
+text = "If Phase Beast were to take damage, you may discard a card and reduce the damage to 1."
+art = ExtResource("2_b8djg")
+bg = SubResource("GradientTexture2D_i3nmk")
+foil = true
+rarity = 2
+
+[node name="cardBackground" parent="cardShape" index="0"]
+texture = SubResource("GradientTexture2D_i3nmk")
+
+[node name="cardArt" parent="cardShape/visual" index="0"]
+material = SubResource("ShaderMaterial_1clln")
+texture = ExtResource("2_b8djg")
+
+[node name="cardKeywords" parent="cardShape/visual/border/MarginContainer/text" index="0"]
+text = "[i][color=ffa500ff]Flying, Bleed"
+
+[node name="cardText" parent="cardShape/visual/border/MarginContainer/text/textContainer/MarginContainer/VBoxContainer" index="0"]
+text = "If Phase Beast were to take damage, you may discard a card and reduce the damage to 1."
+
+[node name="cardName" parent="cardShape/visual/topBar/info/nameContainer/HBoxContainer" index="0"]
+text = "Phase Beast"
+
+[node name="cardForce" parent="cardShape/visual/topBar/info/nameContainer/HBoxContainer/force/TextureRect" index="0"]
+text = "5"
+
+[node name="cardType" parent="cardShape/visual/topBar/info" index="1"]
+text = "Ghost Monster "
+
+[node name="lvlIcon" parent="cardShape/visual/topBar" index="2"]
+modulate = Color(1, 0.49411765, 0.5294118, 1)
+
+[node name="cardLVL" parent="cardShape/visual/topBar/lvlIcon" index="0"]
+text = "4"
+
+[node name="rarity" parent="cardShape/visual/extraInfo" index="1"]
+texture = ExtResource("5_v7y00")

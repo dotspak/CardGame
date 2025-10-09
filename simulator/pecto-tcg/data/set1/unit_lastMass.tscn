@@ -1,0 +1,135 @@
+[gd_scene load_steps=12 format=3 uid="uid://dper7v1xhvuox"]
+
+[ext_resource type="PackedScene" uid="uid://uqcqlr8xi5yc" path="res://scenes/cardTemplates/card_pectoCard.tscn" id="1_k706u"]
+[ext_resource type="Texture2D" uid="uid://bceisq3y2d7ko" path="res://assets/set1/lastMass.png" id="2_0p84w"]
+[ext_resource type="Texture2D" uid="uid://cnynonhm320bh" path="res://assets/rainbowGrad.tres" id="3_k5fs2"]
+[ext_resource type="Texture2D" uid="uid://b7pbscney3tcv" path="res://assets/r_superRare1.png" id="3_tkwjw"]
+
+[sub_resource type="Gradient" id="Gradient_k5fs2"]
+colors = PackedColorArray(0.11372549, 0.13725491, 0.25882354, 1, 0.8666667, 0.89411765, 0.9607843, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_olywn"]
+gradient = SubResource("Gradient_k5fs2")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="Shader" id="Shader_4ay7h"]
+code = "shader_type canvas_item;
+
+uniform bool enabled = true;
+uniform sampler2D foil_map;
+uniform sampler2D gradient;
+uniform sampler2D noise_tex;
+
+uniform float speed : hint_range(0.0, 10.0) = 1.0;
+uniform float scale : hint_range(0.1, 5.0) = 1.0;
+uniform float intensity : hint_range(0.0, 3.0) = 1.2;
+uniform float angle : hint_range(0.0, 360.0) = 45.0;
+uniform float noise_strength : hint_range(0.0, 1.0) = 0.25;
+uniform float noise_speed : hint_range(0.0, 5.0) = 0.5;
+uniform float shimmer_speed : hint_range(0.0, 10.0) = 2.0;
+uniform float shimmer_strength : hint_range(0.0, 2.0) = 0.5;
+
+void fragment() {
+	if (enabled) {
+	    vec2 uv = UV;
+
+	    float rad = radians(angle);
+	    mat2 rot = mat2(vec2(cos(rad), -sin(rad)), vec2(sin(rad),  cos(rad)));
+	    vec2 rotated_uv = rot * (uv - 0.5) + 0.5;
+
+	    vec2 scroll_uv = rotated_uv * scale;
+	    scroll_uv.x += TIME * speed;
+
+	    vec2 noise_uv = uv * 2.0 + vec2(TIME * noise_speed, TIME * noise_speed);
+	    float n = texture(noise_tex, noise_uv).r;
+	    scroll_uv.x += (n - 0.5) * noise_strength;
+		
+	    vec4 grad_col = texture(gradient, vec2(fract(scroll_uv.x), 0.5));
+	    float shimmer = 1.0 + sin(TIME * shimmer_speed + uv.y * 10.0) * shimmer_strength;
+
+	    float foil_mask = texture(foil_map, uv).r;
+
+	    vec4 foil_col = grad_col * foil_mask * intensity * shimmer;
+	    vec4 base_col = texture(TEXTURE, uv);
+
+	    COLOR = base_col + foil_col * base_col.a;
+	}
+}
+"
+
+[sub_resource type="Gradient" id="Gradient_olywn"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_me6xl"]
+gradient = SubResource("Gradient_olywn")
+fill_from = Vector2(0.14529915, 0.8247863)
+fill_to = Vector2(0.2948718, 0.34188035)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_unw2q"]
+shader = SubResource("Shader_4ay7h")
+shader_parameter/enabled = true
+shader_parameter/foil_map = SubResource("GradientTexture2D_me6xl")
+shader_parameter/gradient = ExtResource("3_k5fs2")
+shader_parameter/speed = 0.2000000095
+shader_parameter/scale = 1.9670000901726201
+shader_parameter/intensity = 0.31200001482
+shader_parameter/angle = 44.38400210824
+shader_parameter/noise_strength = 0.6270000297825
+shader_parameter/noise_speed = 2.8570001357075
+shader_parameter/shimmer_speed = 0.89600004256
+shader_parameter/shimmer_strength = 1.0490000498275
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_me6xl"]
+blend_mode = 2
+
+[node name="lastMass" instance=ExtResource("1_k706u")]
+ID = "LAST_MASS"
+cardName = "Last Mass"
+force = 0
+lvl = 2
+tribe = Array[int]([4, 0])
+keywords = Array[int]([3])
+text = "Gain {force:1} when a card enters your discard. Last Mass can only gain {force:5} per turn this way."
+skillName = "Suspension"
+skillText = "Discard a card: draw a card."
+art = ExtResource("2_0p84w")
+bg = SubResource("GradientTexture2D_olywn")
+foil = true
+rarity = 2
+
+[node name="cardBackground" parent="cardShape" index="0"]
+texture = SubResource("GradientTexture2D_olywn")
+
+[node name="cardArt" parent="cardShape/visual" index="0"]
+material = SubResource("ShaderMaterial_unw2q")
+texture = ExtResource("2_0p84w")
+
+[node name="shadow" parent="cardShape/visual" index="1"]
+material = SubResource("CanvasItemMaterial_me6xl")
+
+[node name="cardKeywords" parent="cardShape/visual/border/MarginContainer/text" index="0"]
+text = "[i][color=ffa500ff]Static"
+
+[node name="cardText" parent="cardShape/visual/border/MarginContainer/text/textContainer/MarginContainer/VBoxContainer" index="0"]
+text = "Gain [bgcolor=e44298][b] 1 [/b][/bgcolor] when a card enters your discard. Last Mass can only gain [bgcolor=e44298][b] 5 [/b][/bgcolor] per turn this way."
+
+[node name="skillContainer" parent="cardShape/visual/border/MarginContainer/text" index="2"]
+visible = true
+
+[node name="cardSkill" parent="cardShape/visual/border/MarginContainer/text/skillContainer/MarginContainer/VBoxContainer" index="1"]
+text = "[bgcolor=e44298ff][b]★SUSPENSION[/b][/bgcolor] Discard a card: draw a card."
+
+[node name="cardName" parent="cardShape/visual/topBar/info/nameContainer/HBoxContainer" index="0"]
+text = "Last Mass"
+
+[node name="cardForce" parent="cardShape/visual/topBar/info/nameContainer/HBoxContainer/force/TextureRect" index="0"]
+text = "0"
+
+[node name="cardType" parent="cardShape/visual/topBar/info" index="1"]
+text = "Magic Ghost "
+
+[node name="cardLVL" parent="cardShape/visual/topBar/lvlIcon" index="0"]
+text = "2"
+
+[node name="rarity" parent="cardShape/visual/extraInfo" index="1"]
+texture = ExtResource("3_tkwjw")
