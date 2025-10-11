@@ -144,7 +144,7 @@ text = "Cauldron Of Chaos"
 text = "7"
 
 [node name="cardType" parent="cardShape/visual/topBar/info" index="1"]
-text = "Ghost God "
+text = "Unit - Ghost God "
 
 [node name="lvlIcon" parent="cardShape/visual/topBar" index="2"]
 modulate = Color(1, 0.49411765, 0.5294118, 1)

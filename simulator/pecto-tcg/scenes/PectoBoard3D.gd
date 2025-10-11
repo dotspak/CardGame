@@ -164,8 +164,9 @@ func void_card(card : PectoCard3D) -> PectoCard3D: return add_card_to_pile(card,
 func _on_card_selected(card3D : PectoCard3D) -> void:
 	print(card3D.collection.name)
 	if card3D.collection is GridSlot:
-		cardSelected.emit(card3D)
-		print(card3D.card.cardName)
+		if !card3D.face_down:
+			cardSelected.emit(card3D)
+			print(card3D.card.cardName)
 
 
 func _on_card_added_to_slot(card3D : PectoCard3D) -> void:

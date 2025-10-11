@@ -25,7 +25,7 @@ text = "[bgcolor=orange][b]➥PERISH[/b][/bgcolor] Gain 2 floating LVL."
 text = "Twisted Golem"
 
 [node name="cardType" parent="cardShape/visual/topBar/info" index="1"]
-text = "Ghost Golem "
+text = "Unit - Ghost Golem "
 
 [node name="cardLVL" parent="cardShape/visual/topBar/lvlIcon" index="0"]
 text = "0"

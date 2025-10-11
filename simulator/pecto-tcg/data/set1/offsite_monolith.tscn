@@ -215,8 +215,7 @@ text = "Monolith"
 text = "0"
 
 [node name="cardType" parent="cardShape/visual/topBar/info" index="1"]
-visible = true
-text = "Structure God "
+text = "Offsite / Structure God "
 
 [node name="lvlIcon" parent="cardShape/visual/topBar" index="2"]
 modulate = Color(1, 0.49411765, 0.5294118, 1)

@@ -210,6 +210,11 @@ func update_info_box(card3D : PectoCard3D) -> void:
 	%infoKeyword.text = card.get_card_keyword_text()
 	%infoKeyword.visible = !card.keywords.is_empty()
 
+	%infoType.text = ""
+	var types : PackedStringArray = card.get_card_types()
+	if types.size() > 1: types[0] = types[0] + " /"
+	for s : String in types: %infoType.text += s.capitalize() + " "
+
 	await show_info_box()
 
 

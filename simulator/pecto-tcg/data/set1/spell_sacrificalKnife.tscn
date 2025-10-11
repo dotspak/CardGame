@@ -51,5 +51,8 @@ text = "Sacrificial Knife"
 [node name="force" parent="cardShape/visual/topBar/info/nameContainer/HBoxContainer" index="1"]
 visible = false
 
+[node name="cardType" parent="cardShape/visual/topBar/info" index="1"]
+text = "Spell"
+
 [node name="rarity" parent="cardShape/visual/extraInfo" index="1"]
 texture = ExtResource("4_icwju")

@@ -36,7 +36,7 @@ text = "[bgcolor=e44298ff][b]★OUTBURST[/b][/bgcolor] Deal 2 damage to target u
 text = "Blast Orb"
 
 [node name="cardType" parent="cardShape/visual/topBar/info" index="1"]
-text = "Object "
+text = "Unit - Object "
 
 [node name="cardLVL" parent="cardShape/visual/topBar/lvlIcon" index="0"]
 text = "2"

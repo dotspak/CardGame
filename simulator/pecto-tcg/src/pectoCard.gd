@@ -34,6 +34,7 @@ const OFFSITE_COLOR : Color = Color("ffc114ff")
 const SPELL_ICON : Texture = preload("uid://b613u8p8qy5pc")
 const SPELL_COLOR : Color = Color("1a92ceff")
 
+const TOKEN_ICON : Texture = preload("uid://imigtnoksj5i")
 const TOKEN_COLOR : Color = Color("aaaaaaff")
 
 const SKILL_COLOR : Color = Color("e44298")
@@ -50,7 +51,7 @@ enum TRIBE{
 	Bug, Object, Old, Plague, Rat,
 	Dark, Structure, Shapeshifter, 
 	Crow, Marlita, Bee, Queen, 
-	Equipment, Field}
+	Equipment, Field, Bead, Fish}
 
 enum KEYWORD{Instant, Effect,
 	Flying, Static, Bleed, Sealed, Quick,
@@ -72,38 +73,16 @@ var TEXT_TAGS : Dictionary = {
 		type = val
 		if is_node_ready():
 			%force.visible = type != CARD_TYPE.Spell
-			%cardType.visible = type != CARD_TYPE.Spell
-
-			%cardTypeIcon.modulate.a = 1 if type != CARD_TYPE.Token else 0
 			%rarity.visible = type != CARD_TYPE.Token
+			
+			var colorAndIcon : Array = [[UNIT_ICON,UNIT_COLOR],[OFFSITE_ICON,OFFSITE_COLOR],[SPELL_ICON,SPELL_COLOR],[TOKEN_ICON,TOKEN_COLOR]]
+			%cardTypeIcon.texture = colorAndIcon[type][0]
+			%border.self_modulate = colorAndIcon[type][1]
+			%textContainer.self_modulate = colorAndIcon[type][1]
+			%skillContainer.self_modulate = colorAndIcon[type][1]
+			%nameContainer.self_modulate = colorAndIcon[type][1]
 
-			match type:
-				CARD_TYPE.Unit:
-					%cardTypeIcon.texture = UNIT_ICON
-					%border.self_modulate = UNIT_COLOR
-					%textContainer.self_modulate = UNIT_COLOR
-					%skillContainer.self_modulate = UNIT_COLOR
-					%nameContainer.self_modulate = UNIT_COLOR
-					
-				CARD_TYPE.Offsite:
-					%cardTypeIcon.texture = OFFSITE_ICON
-					%border.self_modulate = OFFSITE_COLOR
-					%textContainer.self_modulate = OFFSITE_COLOR
-					%skillContainer.self_modulate = OFFSITE_COLOR
-					%nameContainer.self_modulate = OFFSITE_COLOR
-					
-				CARD_TYPE.Spell:
-					%cardTypeIcon.texture = SPELL_ICON
-					%border.self_modulate = SPELL_COLOR
-					%textContainer.self_modulate = SPELL_COLOR
-					%skillContainer.self_modulate = SPELL_COLOR
-					%nameContainer.self_modulate = SPELL_COLOR
-
-				CARD_TYPE.Token:
-					%border.self_modulate = TOKEN_COLOR
-					%textContainer.self_modulate = TOKEN_COLOR
-					%skillContainer.self_modulate = TOKEN_COLOR
-					%nameContainer.self_modulate = TOKEN_COLOR
+			update_type_label()
 				
 @export var cardName : String = "Abstract Wizard" :
 	set(val):
@@ -123,7 +102,6 @@ var TEXT_TAGS : Dictionary = {
 		lvl = clamp(val, 0, 99)
 		if is_node_ready():
 			%cardLVL.text = str(lvl)
-			%lvlIcon.modulate.a = 1 if type != CARD_TYPE.Token || lvl > 0 else 0
 		
 @export var banished : bool = false :
 	set(val):
@@ -134,11 +112,7 @@ var TEXT_TAGS : Dictionary = {
 @export var tribe : Array[TRIBE] :
 	set(val):
 		tribe = val
-		if is_node_ready():
-			%cardType.text = ""
-			for t : TRIBE in tribe: %cardType.text += TRIBE.keys()[t] + " "
-			%cardType.text.strip_edges()
-			%cardType.visible = %cardType.text != ""
+		update_type_label()
 
 @export var keywords : Array[KEYWORD] = [] :
 	set(val):
@@ -199,8 +173,8 @@ var TEXT_TAGS : Dictionary = {
 	set(val):
 		foil = val
 		if is_node_ready():
-			var material : ShaderMaterial = %cardArt.material
-			material.set_shader_parameter("intensity", 0.4 if foil else 0.0)
+			var m : ShaderMaterial = %cardArt.material
+			m.set_shader_parameter("intensity", 0.4 if foil else 0.0)
 
 @export var rarity : RARITY = RARITY.Basic:
 	set(val):
@@ -243,6 +217,10 @@ var active : bool = true :
 		if val != active:
 			active = val
 			activeStatusChanged.emit(active)
+
+func _ready():
+	tribe = tribe
+	type = type
 
 func _enter() -> void:
 	inPlay = true
@@ -402,7 +380,20 @@ func retrieve_from_db() -> void:
 		db.close_db()
 	else:
 		printerr("Card does not exist in database!")
+
+func update_type_label() -> void:
+	if !is_node_ready(): return
+	var header : String = CARD_TYPE.keys()[type].capitalize()
+
+	var tribeText : String = " / "
+	for t : TRIBE in tribe: tribeText += TRIBE.keys()[t] + " "
+
+	%cardType.text = header + (tribeText if !tribe.is_empty() else "")
+	%cardType.text.strip_edges()
+	%cardType.visible = %cardType.text != ""
+
 #endregion
+
 
 
 #region setters
@@ -421,3 +412,11 @@ func get_card_name() -> String:
 		[Color("e44298").to_html(), force] + \
 		"/" + "[color=%s]LVL: %s" % [Color.WHITE.to_html() if !banished else Color.RED.to_html(), lvl]
 func get_card_art() -> Texture: return art
+func get_card_types() -> PackedStringArray: 
+	var types : PackedStringArray = []
+	var t : String = %cardType.text.to_lower()
+	var r : RegEx = RegEx.new()
+	r.compile("[^a-zA-Z]+")
+	t = r.sub(t, " ", true)
+	types = t.split(" ", false)
+	return types

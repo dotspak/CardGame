@@ -48,7 +48,7 @@ text = "Ghost Spellcaster"
 text = "0"
 
 [node name="cardType" parent="cardShape/visual/topBar/info" index="1"]
-text = "Ghost Wizard "
+text = "Unit - Ghost Wizard "
 
 [node name="rarity" parent="cardShape/visual/extraInfo" index="1"]
 texture = ExtResource("3_wjckw")

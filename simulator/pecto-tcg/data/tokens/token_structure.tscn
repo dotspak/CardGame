@@ -1,15 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://3ppnmwfh3av8"]
+[gd_scene load_steps=4 format=3 uid="uid://3ppnmwfh3av8"]
 
 [ext_resource type="PackedScene" uid="uid://uqcqlr8xi5yc" path="res://scenes/cardTemplates/card_pectoCard.tscn" id="1_1a4ej"]
 [ext_resource type="Texture2D" uid="uid://ccwvqldngpebx" path="res://assets/set1/sculpture.png" id="2_gdxre"]
+[ext_resource type="Texture2D" uid="uid://imigtnoksj5i" path="res://assets/tokenIcon2.png" id="3_ydy6s"]
 
 [node name="structureToken" instance=ExtResource("1_1a4ej")]
 ID = "STRUCTURE"
 table = "token"
 type = 3
-cardName = "Structure"
+cardName = "Pillar"
 force = 2
 lvl = 0
+tribe = Array[int]([14])
 keywords = Array[int]([3])
 text = "Structure does not deal combat damage. Structure always takes 1 damage."
 art = ExtResource("2_gdxre")
@@ -33,22 +35,19 @@ text = "Structure does not deal combat damage. Structure always takes 1 damage."
 self_modulate = Color(0.6666667, 0.6666667, 0.6666667, 1)
 
 [node name="cardTypeIcon" parent="cardShape/visual/topBar" index="0"]
-modulate = Color(1, 1, 1, 0)
+texture = ExtResource("3_ydy6s")
 
 [node name="nameContainer" parent="cardShape/visual/topBar/info" index="0"]
 self_modulate = Color(0.6666667, 0.6666667, 0.6666667, 1)
 
 [node name="cardName" parent="cardShape/visual/topBar/info/nameContainer/HBoxContainer" index="0"]
-text = "Structure"
+text = "Pillar"
 
 [node name="cardForce" parent="cardShape/visual/topBar/info/nameContainer/HBoxContainer/force/TextureRect" index="0"]
 text = "2"
 
 [node name="cardType" parent="cardShape/visual/topBar/info" index="1"]
-visible = false
-
-[node name="lvlIcon" parent="cardShape/visual/topBar" index="2"]
-modulate = Color(1, 1, 1, 0)
+text = "Token / Structure "
 
 [node name="cardLVL" parent="cardShape/visual/topBar/lvlIcon" index="0"]
 text = "0"

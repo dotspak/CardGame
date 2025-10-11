@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://b82p64sv3xjup"]
+[gd_scene load_steps=91 format=3 uid="uid://b82p64sv3xjup"]
 
 [ext_resource type="Script" uid="uid://krrob1jjjfjs" path="res://src/game.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://do6yql4uw2cjr" path="res://scenes/playerBoard.tscn" id="1_lnu2h"]
@@ -99,6 +99,15 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_vtaks"]
 gradient = SubResource("Gradient_0tnpc")
 fill_from = Vector2(1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qnb83"]
+bg_color = Color(0, 0, 0, 0.5882353)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 10.0
+expand_margin_right = 10.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kvpfn"]
 content_margin_left = 10.0
@@ -967,6 +976,22 @@ size_flags_vertical = 4
 icon = ExtResource("5_0tnpc")
 icon_alignment = 1
 expand_icon = true
+
+[node name="infoType" type="Label" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer/infoPanel/VBoxContainer/TextureRect"]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1.0
+offset_bottom = 29.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_qnb83")
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="infoKeyword" type="RichTextLabel" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer/infoPanel/VBoxContainer"]
 unique_name_in_owner = true

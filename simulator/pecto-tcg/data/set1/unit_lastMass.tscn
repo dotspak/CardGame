@@ -71,7 +71,7 @@ shader_parameter/enabled = true
 shader_parameter/foil_map = SubResource("GradientTexture2D_me6xl")
 shader_parameter/gradient = ExtResource("3_k5fs2")
 shader_parameter/speed = 0.2000000095
-shader_parameter/scale = 1.9670000901726201
+shader_parameter/scale = 1.96700009017262
 shader_parameter/intensity = 0.31200001482
 shader_parameter/angle = 44.38400210824
 shader_parameter/noise_strength = 0.6270000297825
@@ -126,7 +126,7 @@ text = "Last Mass"
 text = "0"
 
 [node name="cardType" parent="cardShape/visual/topBar/info" index="1"]
-text = "Magic Ghost "
+text = "Unit - Magic Ghost "
 
 [node name="cardLVL" parent="cardShape/visual/topBar/lvlIcon" index="0"]
 text = "2"

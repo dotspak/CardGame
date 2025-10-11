@@ -115,7 +115,7 @@ text = "Phase Beast"
 text = "5"
 
 [node name="cardType" parent="cardShape/visual/topBar/info" index="1"]
-text = "Ghost Monster "
+text = "Unit - Ghost Monster "
 
 [node name="lvlIcon" parent="cardShape/visual/topBar" index="2"]
 modulate = Color(1, 0.49411765, 0.5294118, 1)

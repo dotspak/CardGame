@@ -29,7 +29,7 @@ text = "Tomb Crawler"
 text = "3"
 
 [node name="cardType" parent="cardShape/visual/topBar/info" index="1"]
-text = "Ghost Monster "
+text = "Unit - Ghost Monster "
 
 [node name="cardLVL" parent="cardShape/visual/topBar/lvlIcon" index="0"]
 text = "3"

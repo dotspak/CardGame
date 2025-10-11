@@ -78,8 +78,7 @@ text = "Withering Shrine"
 text = "2"
 
 [node name="cardType" parent="cardShape/visual/topBar/info" index="1"]
-visible = true
-text = "Ghost Structure "
+text = "Offsite - Ghost Structure "
 
 [node name="rarity" parent="cardShape/visual/extraInfo" index="1"]
 texture = ExtResource("3_bj7vn")
