@@ -23,49 +23,60 @@ To make this perfectly clear, lets reiterate the two card types and their purpos
 Units:
 
 - Main attacker card type.
-- Can choose to damage the player if attacking an open lane.
+- Draw a card whenever they destroy a card in combat when attacking.
 
 Wardens:
 
 - Main supporter card type.
-- Can move to block cards attacking an open lane.
+- Can move to block cards attacking an open lane (note: this overrides static.)
+- Draw an extra card at the start of the turn if in the backline during your draw phase.
 
-Both:
+Tokens:
 
-- Can choose to attack back row cards when attacking an open lane.
+- Do not have any benefits of Units or Wardens.
+- Are just a basic card type that deals damage.
+- When a Token perishes, it enters the void instead of the discard and then fizzles out (it does not contribute to your void count).
 
 With this change, alot of card effects that target controlled cards will be changed to indicate front row or back row. If it doesn't indicate front or back row, both are assumed as possible targets.
 
-## Keyword Updates
+## Passives
 
-Sealed
+With offsites becoming Wardens, passive spells once again have a place in the game, so they are being readded. Passive spells are assumed to have static, have 0 force, can't gain force, and cannot declare attacks. They can be targetted by effects that target cards in play, but most of the time this doesn't do anything.
 
-- Removed.
-
----
+Some passives now have 0 uses. This works the same as 0 force, where a passive with 0 uses exists on the board until it either takes damage or loses a use. Note: a 0 uses passive is effectively the same as a 1 uses passive that never loses their uses, a 0 use passive is more intended to represent an infinite passive.
 
 ## Card Updates
 
-This is an update where the majority of cards have at least some small change. Because of this I will only list which units are becoming Wardens and which Offsites are becoming Units.
+This is an update where the majority of cards have at least some small change. Because of this I will only list which units are becoming Wardens and which Wardens are becoming Units.
 
 List of Units to become Wardens:
 
-- Banish Watcher
 - Fungal Guardian
 - Toxician
-- Building Boulder
 - Onyx Defender
-- Blast Orb
-- Ethereal Archmage
 - Sand Cube
 - Miracle Machine
 
-List of Offsites to become Units:
+List of Wardens to become Units:
 
 - Ouroboros
 - False Queen's Carcass
 - Jack in The Box
 - Serendipity
+
+Bee Archetype
+
+- Removed, are now all bugs.
+
+Stun Counters
+
+- Cards with stun counters no longer deal combat damage.
+
+Beemoth Stinger
+
+- Is now an effect spell.
+- Effected card gains 2 force.
+- War Cry (normal): Bugs you control gain Quick until the end of the turn.
 
 ---
 
