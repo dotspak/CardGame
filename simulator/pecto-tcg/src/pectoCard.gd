@@ -395,11 +395,9 @@ func update_type_label() -> void:
 #endregion
 
 
-
 #region setters
 func set_force(newForce : int = 1) -> void: force = newForce
 func change_force(amount : int = 1) -> void: force += amount
-
 func set_lvl(newLVL : int = 1) -> void: lvl = newLVL
 func change_lvl(amount : int = 1) -> void: lvl += amount
 #endregion

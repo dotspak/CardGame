@@ -328,6 +328,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_svpld")
 [node name="deckCount" type="Label3D" parent="slotMeshes/deck"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8131065, 0.5)
+visible = false
 billboard = 1
 modulate = Color(0, 0, 0, 1)
 text = "20"
@@ -343,6 +344,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_yt3ua")
 [node name="discardCount" type="Label3D" parent="slotMeshes/discard"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8131065, 0.5)
+visible = false
 billboard = 1
 modulate = Color(0, 0, 0, 1)
 text = "0"
@@ -358,6 +360,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_yt3ua")
 [node name="voidCount" type="Label3D" parent="slotMeshes/void"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8131065, 0.5)
+visible = false
 billboard = 1
 modulate = Color(0, 0, 0, 1)
 text = "0"
