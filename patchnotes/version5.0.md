@@ -12,6 +12,8 @@ For a long time, it has been somewhat difficult to balance playing the cards you
 
 In 4.2, the board was moved over to 3 units and 2 offsite zones. This was partially to prepare for this update. In 5.0, there is no longer the restriction of playing units in the front row and "offsites" in the back row: you can now play any controllable card in any open zone on your board. When you have the opportunity to move a card, you can now move cards into the back row. Cards in the back row cannot attack, but they can use skills. Any card in the backrow is a possible target when a card attacks an open lane.
 
+---
+
 ## Wardens
 
 With this change, as previously stated, offsites are being renamed to Wardens. Wardens will now act as largely supportive or defensive cards. Starting with this update, units will no longer have the ability to move to block: this ability will be exclusive to wardens. To balance this, Wardens will not be able to deal damage to the player, but can still damage back row cards.
@@ -43,7 +45,21 @@ With this change, alot of card effects that target controlled cards will be chan
 
 With offsites becoming Wardens, passive spells once again have a place in the game, so they are being readded. Passive spells are assumed to have static, have 0 force, can't gain force, and cannot declare attacks. They can be targetted by effects that target cards in play, but most of the time this doesn't do anything.
 
-Some passives now have 0 uses. This works the same as 0 force, where a passive with 0 uses exists on the board until it either takes damage or loses a use. Note: a 0 uses passive is effectively the same as a 1 uses passive that never loses their uses, a 0 use passive is more intended to represent an infinite passive.
+Some passives now have no uses. This works the same as 0 force, where a passive with 0 uses exists on the board until it either takes damage or loses a use. Note: a 0 uses passive is effectively the same as a 1 uses passive that never loses their uses, a 0 use passive is more intended to represent an infinite passive.
+
+Cards to Become Passives:
+
+- Jack in the box
+- Quick Play
+- Big Catch
+- Arcane Eye
+- Ectoplasm
+- Portal
+- Temporary Relief
+- Creation From Nothing
+- Transmogrify
+- Death Pact
+- Pin Cushion
 
 ## Card Updates
 
@@ -56,6 +72,11 @@ List of Units to become Wardens:
 - Onyx Defender
 - Sand Cube
 - Miracle Machine
+- Deconstructor
+- Building Boulder
+- Crusher Golem
+- Blast Orb
+- Raster Beast
 
 List of Wardens to become Units:
 
