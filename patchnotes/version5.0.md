@@ -12,6 +12,8 @@ For a long time, it has been somewhat difficult to balance playing the cards you
 
 In 4.2, the board was moved over to 3 units and 2 offsite zones. This was partially to prepare for this update. In 5.0, there is no longer the restriction of playing units in the front row and "offsites" in the back row: you can now play any controllable card in any open zone on your board. When you have the opportunity to move a card, you can now move cards into the back row. Cards in the back row cannot attack, but they can use skills. Any card in the backrow is a possible target when a card attacks an open lane.
 
+In addition to this, movement is being changed. At the start of your turn, you may now position your cards however you please. This is now the only time you can move around your cards.
+
 ---
 
 ## Wardens
@@ -25,19 +27,18 @@ To make this perfectly clear, lets reiterate the two card types and their purpos
 Units:
 
 - Main attacker card type.
-- Draw a card whenever they destroy a card in combat when attacking.
 
 Wardens:
 
 - Main supporter card type.
-- Can move to block cards attacking an open lane (note: this overrides static.)
-- Draw an extra card at the start of the turn if in the backline during your draw phase.
+- Can move to block cards if active. This makes them inactive (note: this overrides static).
 
 Tokens:
 
 - Do not have any benefits of Units or Wardens.
 - Are just a basic card type that deals damage.
 - When a Token perishes, it enters the void instead of the discard and then fizzles out (it does not contribute to your void count).
+- Note: tokens are now considered units while on the grid.
 
 With this change, alot of card effects that target controlled cards will be changed to indicate front row or back row. If it doesn't indicate front or back row, both are assumed as possible targets.
 
@@ -52,14 +53,12 @@ Cards to Become Passives:
 - Jack in the box
 - Quick Play
 - Big Catch
-- Arcane Eye
 - Ectoplasm
-- Portal
-- Temporary Relief
 - Creation From Nothing
 - Transmogrify
 - Death Pact
-- Pin Cushion
+- Card Dispenser
+- Royal Jelly
 
 ## Card Updates
 
@@ -81,8 +80,6 @@ List of Units to become Wardens:
 List of Wardens to become Units:
 
 - Ouroboros
-- False Queen's Carcass
-- Jack in The Box
 - Serendipity
 
 Bee Archetype
