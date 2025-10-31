@@ -50,7 +50,8 @@ Some passives now have no uses. This works the same as 0 force, where a passive 
 
 Cards to Become Passives:
 
-- Jack in the box
+- Last Wish
+- Jack in the Box
 - Quick Play
 - Big Catch
 - Ectoplasm
@@ -59,12 +60,13 @@ Cards to Become Passives:
 - Death Pact
 - Card Dispenser
 - Royal Jelly
+- The Seal
 
 ## Card Updates
 
 This is an update where the majority of cards have at least some small change. Because of this I will only list which units are becoming Wardens and which Wardens are becoming Units.
 
-List of Units to become Wardens:
+List of cards to become Wardens:
 
 - Fungal Guardian
 - Toxician
@@ -76,11 +78,15 @@ List of Units to become Wardens:
 - Crusher Golem
 - Blast Orb
 - Raster Beast
+- Banish Watcher
+- Rat Mother
+- Ethereal Archmage
 
 List of Wardens to become Units:
 
-- Ouroboros
 - Serendipity
+- Soul Baron
+- Moon Angel
 
 Bee Archetype
 
