@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pecto Rulebook V5.1</title>
+</head>
+<header>
+    <h1>Pecto Rulebook V5.1</h1>
+    <h3>Cole Smith-Evans 2025</h3>
+</header>
+<body>
+    <hr>
+    <h2>Table of Contents</h2>
+    <ul>
+        <li><a href="#overview">Overview</a></li>
+        <ul>
+            <li>Objective</li>
+            <li>Card Types</li>
+            <li>Stats</li>
+            <li>Level System</li>
+            <li>Chaining</li>
+        </ul>
+    
+        <li>Turn Structure</li>
+        <ul>
+            <li>Starting a Turn</li>
+            <li>Move Step</li>
+            <li>Combat Step</li>
+            <li>Skills</li>
+            <li>End Step</li>
+        </ul>
+        
+        <li>Glossary</li>
+        <ul>
+            <li>Keywords</li>
+            <li>Triggers</li>
+        </ul>
+    </ul>
+    <hr>
+
+    <!--OVERVIEW-->
+    <h2 #id="overview">Overview</h2>
+    <p>
+        PectoTCG is a fast paced, high power card game where players play powerful cards to
+        dominate their opponent through strategy and timing.
+        <br>
+        <ul>
+            <li>Players: 2</li>
+            <li>Deck Size: 20 cards, max 1 copy of each card name</li>
+            <li>Game Length: 10-20 minutes</li>
+            <li>Goal: Reduce your opponent's life to 0</li>
+        </ul>
+        <br>
+
+        The Grid, the main place where you play cards in Pecto, is divided into 5 zones.
+        The front 3 zones is referred to as the frontline, and units placed there can deal
+        damage to the opponent through combat. They also block any opposing cards. The back 2
+        zones is referred to as the backline. Cards in the backline cannot declare attacks, but
+        are generally more protected than frontline cards. You typically play more supportive
+        cards in the backline.
+    </p>
+
+    <hr>
+
+    <h3 #id="cardTypes">Card Types</h2>
+    <p> 
+        Pecto consists of 3 main card types: Units, Icons, and Spells. All 3 card types are
+        played from the hand or summoned through card effects. When a card exits the grid, they
+        go to the discard unless specified otherwise.
+    </p>
+
+    <h4>Units</h4>
+    <p>
+        Units are the primary card type in Pecto and are you main way to win. Units are
+        used to deal damage to the opponent. They can be placed in any empty zone in your
+        half of the grid. When in the frontline, units can declare attacks. If there is a 
+        card in the opposing frontline zone, they will attack that card. If there is
+        no card opposing them, you may choose to attack a card in the backline or the player
+        directly. More specifics on combat are found in the dedicated section. Playing a Unit
+        is referred to as summoning it.
+    </p>
+
+    <h4>Icons</h4>
+    <p>
+        Icons are the main supportive card type. Icons largely function the same as units, 
+        except they do not deal combat damage and cannot declare attacks. Typically icons are
+        intended to exist in the backline giving passive benefits to your gameplan. Playing an Icon
+        is referred to as summoning it.
+    </p>
+
+    <h4>Spells</h4>
+    <p>
+        Spells are a card type intended to give special effects and turn the tide of battle. They
+        are played directly from the hand. You do not need any empty zones in order to play a
+        spell card. Playing a spell card is referred to as casting it.
+    </p>
+
+    <h4>Tokens</h4>
+    <p>
+        Tokens are an extra card type that are created via card effects. When in play, they follow
+        the same rules as units, except when they perish they enter the void instead of the discard.
+    </p>
+
+    <hr>
+
+    <h3>LVL System</h3>
+    <p>
+        The term LVL referrs to 2 main things in Pecto. Both players have a stat called "LVL"
+        which defines what kinds of cards you can play. Every card also has a LVL, defined by the
+        light blue number at the top right corner of any given card. If your player LVL is less than
+        or equal to a card's LVL, you may play it. Playing a card does not affect your LVL in any way.
+        <br>
+        In a similar vein is floating LVL. Floating LVL is a special resource that adds to your player
+        LVL. Unlike your normal LVL, floating LVL is removed when the current turn ends.
+    </p>
+
+    <h3>Chaining</h3>
+    <p>
+        In addition to the LVL system, you can use the chaining mechanic to play cards earlier than
+        intended. You may chain a card if it is 1 LVL higher or less than the highest LVL non-spell 
+        card you currently control. For example, if your LVL is 2, but you control a LVL 3 card, you can
+        then chain a LVL 4 card into play. <i>If a card's LVL is less than or equal to your current LVL,
+        you cannot chain it into play.</i>
+    </p>
+
+    <hr>
+    
+    <!--TURN STRUCTURE-->
+    <h2>Turn Structure</h2>
+
+    <hr>
+
+    <!--GLOSSARY-->
+    <h2>Glossary</h2>
+
+    <h3>Keywords</h3>
+    <p>
+        Below is a list of keywords and all of their effects. Keywords are words highlighted
+        with yellow italicized text.
+    </p>
+
+    <h4>Positive Keywords</h4>
+    <ul>
+        <li>Bleed: When this card deals damage, the opposing card perishes.</li>
+        <li>Flying: Cannot be blocked except by Flying or Warden cards</li>
+        <li>Quick: Deals damage first in combat.</li>
+        <li>Immortal: At the end of the turn, heal all damage taken this turn.</li>
+        <li>Protected: Cannot be targetted by destruction effects.</li>
+    </ul>
+
+    <h4>Negative Keywords</h4>
+    <ul>
+        <li>Static: Cannot be moved after being summoned.</li>
+        <li>Fragile: When this card takes damage, it perishes.</li>
+        <li>Delayed: Enters inactive.</li>
+        <li>Sealed: Cannot declare attacks.</li>
+        <li>Sick: At the start of your turn, take damage equal to your force/uses rounded up.</li>
+        <li>Doom: When this card perishes, it goes to the void instead of the discard.</li>
+    </ul>
+
+    <h4>Warping Keywords</h4>
+    <ul>
+        <li>
+            Warden: Cannot deal player damage. When the opponent declares an 
+            attack, you may move this card to the opposing zone to block it if
+            this card is active.
+        </li>
+        <li>Instant: Can be played at any timing.</li>
+        <li>
+            Effect: Must be played by attaching it to a card you control. Does 
+            not contribute LVL for chaining.
+        </li>
+    </ul>
+
+    <hr>
+
+    <h3>Triggers</h3>
+    <p>
+        Below is a list of triggers and when they happen. Triggers are represented by a golden badge
+        with the trigger name.
+    </p>
+    <ul>
+        <li>Enter: When the card enters the grid.</li>
+        <li>Perish: When the card is destroyed by any means.</li>
+        <li>End: Triggers during the end step.</li>
+        <li>Begin: Triggers during the begin step.</li>
+        <li>Victor: Triggers when a card exits combat alive.</li>
+    </ul>
+
+    <h3>Special Counters</h3>
+    <p>
+        Below is a list of counters with unique effects. If not listed here, the counter
+        does not have an effect and is simply used to keep track of something.
+    </p>
+    <ul>
+        <li>
+            Stun Counters: The card cannot deal combat damage and is inactive while they
+            have stun counters. Remove 1 at the end of your turns.
+        </li>
+    </ul>
+</body>
+</html>
