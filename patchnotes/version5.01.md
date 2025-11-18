@@ -12,11 +12,11 @@ This patch on the surface is a relatively small change in terms of card function
 
 ### Chaining
 
-You can "chain" a card from your hand if its LVL is exactly 1 higher than the highest LVL among cards you control. When you chain a card, it comes into play. You cannot chain a card that is less than or equal to your current LVL (you can still play those cards, they just don't count as being "chained").
+You can "chain" a card from your hand if its LVL is exactly 1 higher or less than the highest LVL card among cards you control. When you chain a card, it comes into play. Summoning a card is only considered chaining if the card is exactly 1 higher (you can still play those cards, they just don't count as being "chained").
 
-Any non-spell card you control contributes to your ability to chain. Tokens, unless specified otherwise, are always considered LVL 0 and do not contribute in any way.
+Any non-spell card you control contributes to your ability to chain. This means that effect cards do not contribute (cards that are attached to a card you control don't count as being in your control anyways). Tokens, unless specified otherwise, are always considered LVL 0 and do not contribute in any way because of this.
 
-*Note: this mechanic was already in the game, but i'm giving it an actual term so cards can directly interact with the mechanic.*
+*Note: this mechanic was already in the game, but i'm giving it an actual term so cards can directly interact with the mechanic. I also would like to refine this idea further it's a bit hard to explain.*
 
 ### Wardens
 
@@ -30,9 +30,13 @@ I decided to do go forward with this change as it overall simplifies many card e
 
 ### Icons
 
-Icons are a semi-new card type which function relatively similar to passives did previously. Icons have a certain amount of "uses" (shown by a rainbow gem symbol) which effectively acts as their life. If an Icon hits 0 or less uses after being summoned, they perish. When an Icon is attacked by a card or card effect, they lose uses equal to the damage taken. Icons do not deal combat damage, and cannot declare attacks unless otherwise stated. Icons contribute to your chaining ability the same as units.
+Icons are a semi-new card type which function relatively similar to passives did previously. Icons have a certain amount of "uses" (shown by a rainbow gem symbol) which effectively acts as their life. If an Icon hits 0 or less uses after being summoned, they perish. When an Icon is attacked by a card or card effect, they lose uses equal to the damage taken. Icons do not deal combat damage, and cannot declare attacks unless otherwise stated. Icons contribute to your chaining ability the same as units. A 0 use Icon acts the same as a 0 force unit, where it exists until it takes damage and then perishes.
 
 Icons are mostly intended to be supportive cards similar to artifacts in MTG. Because of this, it is usually reccomended to play them in the backline, but you can place them in the frontline if you need a chump blocker. Icons function the same as units when it comes to blocking, aside from not dealing damage. If a card effect were to enable an icon to attack, it would also function the same as a unit attacking.
+
+### Tokens
+
+This update happened last patch but wasn't actually documented. When a Token perishes, it enters the void instead of the discard.
 
 ### Keyword Updates
 
