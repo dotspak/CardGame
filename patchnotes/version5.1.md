@@ -8,12 +8,44 @@ This update intends to fix a few issues with the game as well as introudcing a s
 
 - Sacrifice OTK/FTK loops
 - Lack of importance in positioning cards
+- More adjacency effects
 
 This patch aims to fix both of these issues, as well as unifiying some systems to make the game overall understandable.
 
 This patch actually ended up being a lot larget than initially envisioned, so there is quite a bit to read. Sorry!
 
 ---
+
+## Updates to Zones
+
+This patch the names of each zone is being standardized. For starters: each set of zones is now called a row:
+
+- the 3 zones in the front are the front row
+- the 2 zones in the back are the back row
+
+Each individual zone is also getting properly named. Here is a diagram from your POV.
+
+Legend:
+- F = Front
+- B = Back
+- L = Left
+- R = Right
+- CT = Center
+
+>[ FL ] [ CT ] [ FR ]
+>>[ BL ] [ BR ]
+
+With this update a few changes are being made to zone rulings in general. The main change is that you can no longer attack both back row zones from any front row zone: you can only attack the back left zone if the attacker is in the front left zone or center zone and likewise for right zones. Also, for any cards/rules that care about adjacent zones, here is an adjacency table (note, all zones are adjacent to the center zone):
+
+| Current Zone | Adjacent To |
+| - | - |
+| Front Left | Center, Back Left |
+| Back Left | Center, Front Left |
+| Center | Front Left, Back Left, Front Right, Back Right |
+| Front Right | Center, Back Right |
+| Back Right | Center, Back Left |
+
+As shown in this table, the back zones are now considered adjacent to their respective front zone as well as the center zone.
 
 ## Going Second
 
@@ -67,10 +99,11 @@ This mechanic was intended to fix the possibility of looping sacrificing a unit,
 
 Flying has been a nightmare to balance for many reasons. A lot of cards do not have flying for balance purposes even if its make sense flavour wise and I don't like this. On top of this, any mechanic I could come up with for flying cards has usually just been too oppressive or confusing. Due to this, flying is being removed from Pecto. *The icon damage during the damage phase is the intended replacement to flying overall, and was actually a potential mechanic for flying originally.*
 
-#### Instant
+#### Reworded: Instant => Swift
 
-- In addition to being able to be played at instant speed, icons/units can use their spells at instant speed by default.
-- With this change, the instant badge from skills is being removed in favour of this.
+- Instant speed is now referred to as Swift speed
+- In addition to being able to be played at swift speed, icons/units can use their spells at swift speed by default.
+- With this change, the swift badge from skills is being removed in favour of this.
 
 #### NEW Keyword: Warden
 
