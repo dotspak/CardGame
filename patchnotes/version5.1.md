@@ -26,6 +26,7 @@ This patch the names of each zone is being standardized. For starters: each set 
 Each individual zone is also getting properly named. Here is a diagram from your POV.
 
 Legend:
+
 - F = Front
 - B = Back
 - L = Left
