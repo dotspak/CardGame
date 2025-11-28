@@ -20,6 +20,8 @@ var updateButton = update_db
 @export_tool_button("Retrieve Data")
 var retrieveButton = retrieve_from_db
 
+
+
 const BASIC_ICON : Texture = preload("uid://dmhctqok0ncxr")
 const RARE_ICON : Texture = preload("uid://db7a3ny4orsly")
 const SUPERRARE_ICON : Texture = preload("uid://b7pbscney3tcv")
@@ -68,6 +70,12 @@ var TEXT_TAGS : Dictionary = {
 
 #region Visual
 @export_group("info")
+@export_tool_button("Set Mode")
+var setModeButton = enter_set_mode
+
+@export_tool_button("Full Mode")
+var fullModeButton = enter_full_mode
+
 @export var type : CARD_TYPE = CARD_TYPE.Unit : 
 	set(val):
 		type = val
@@ -381,6 +389,7 @@ func retrieve_from_db() -> void:
 	else:
 		printerr("Card does not exist in database!")
 
+
 func update_type_label() -> void:
 	if !is_node_ready(): return
 	var header : String = CARD_TYPE.keys()[type].capitalize()
@@ -391,6 +400,18 @@ func update_type_label() -> void:
 	%cardType.text = header + (tribeText if !tribe.is_empty() else "")
 	%cardType.text.strip_edges()
 	%cardType.visible = %cardType.text != ""
+
+
+func enter_set_mode() -> void:
+	%bottomInfo.hide()
+	%topBar.hide()
+	%extraInfo.hide()
+
+
+func enter_full_mode() -> void:
+	%bottomInfo.show()
+	%topBar.show()
+	%extraInfo.show()
 
 #endregion
 

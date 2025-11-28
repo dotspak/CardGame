@@ -66,24 +66,11 @@ texture = ExtResource("2_7k3bj")
 [node name="border" parent="art/visual" index="2"]
 self_modulate = Color(1, 0.75686276, 0.078431375, 1)
 
-[node name="textContainer" parent="art/visual/border/MarginContainer/text" index="1"]
+[node name="textContainer" parent="art/visual/border/bottomInfo/MarginContainer/text" index="1"]
 self_modulate = Color(1, 0.75686276, 0.078431375, 1)
 
-[node name="cardText" parent="art/visual/border/MarginContainer/text/textContainer/MarginContainer/VBoxContainer" index="0"]
-text = "When you draw a card, gain [bgcolor=e44298][b] 1 [/b][/bgcolor]."
-
-[node name="skillContainer" parent="art/visual/border/MarginContainer/text" index="2"]
-visible = true
+[node name="skillContainer" parent="art/visual/border/bottomInfo/MarginContainer/text" index="2"]
 self_modulate = Color(1, 0.75686276, 0.078431375, 1)
-
-[node name="skillBG" parent="art/visual/border/MarginContainer/text/skillContainer" index="0"]
-modulate = Color(0.08627451, 0.6627451, 0.56078434, 1)
-
-[node name="cardSkill" parent="art/visual/border/MarginContainer/text/skillContainer/MarginContainer/VBoxContainer" index="1"]
-text = "[bgcolor=16a98fff][b]★PRAYER AND SPEECH[/b][/bgcolor] Lose [bgcolor=e44298][b] 1 [/b][/bgcolor]. Units you control gain [bgcolor=e44298][b] 1 [/b][/bgcolor]."
-
-[node name="cardForce" parent="art/visual/border/force/TextureRect" index="0"]
-text = "0"
 
 [node name="cardTypeIcon" parent="art/visual/topBar" index="0"]
 texture = ExtResource("2_m1qlt")
