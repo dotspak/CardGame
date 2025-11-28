@@ -29,8 +29,10 @@ transparency = 1
 shading_mode = 0
 disable_ambient_light = true
 disable_fog = true
+disable_specular_occlusion = true
 albedo_texture = SubResource("ViewportTexture_uad0d")
-texture_filter = 1
+texture_filter = 2
+disable_receive_shadows = true
 
 [sub_resource type="Gradient" id="Gradient_omhgn"]
 offsets = PackedFloat32Array(0.13422818, 0.5771812)
@@ -600,6 +602,7 @@ transparent_bg = true
 gui_disable_input = true
 size = Vector2i(375, 525)
 size_2d_override_stretch = true
+render_target_update_mode = 3
 
 [node name="monolith" parent="frontFace" index="0" instance=ExtResource("3_0xa8b")]
 

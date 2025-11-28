@@ -344,7 +344,6 @@ color_ramp = SubResource("Gradient_ca42v")
 seamless = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p57ef"]
-shading_mode = 0
 albedo_color = Color(0.4142314, 0.7289063, 0.47443163, 1)
 albedo_texture = SubResource("NoiseTexture2D_ssvqc")
 uv1_scale = Vector3(0.1, 0.1, 0.1)
@@ -1148,7 +1147,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_p57ef")
 metadata/_edit_lock_ = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40.2273)
+transform = Transform3D(1, 0, 0, 0, 0.9848077, -0.17364818, 0, 0.17364818, 0.9848077, 0, 0, 40)
 shadow_enabled = true
 shadow_opacity = 0.75
 shadow_blur = 6.15

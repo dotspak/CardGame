@@ -72,6 +72,9 @@ self_modulate = Color(1, 0.75686276, 0.078431375, 1)
 [node name="skillContainer" parent="art/visual/border/bottomInfo/MarginContainer/text" index="2"]
 self_modulate = Color(1, 0.75686276, 0.078431375, 1)
 
+[node name="cardForce" parent="art/visual/border/bottomInfo/force/TextureRect" index="0"]
+text = "0"
+
 [node name="cardTypeIcon" parent="art/visual/topBar" index="0"]
 texture = ExtResource("2_m1qlt")
 
@@ -82,7 +85,7 @@ self_modulate = Color(1, 0.75686276, 0.078431375, 1)
 text = "Monolith"
 
 [node name="cardType" parent="art/visual/topBar/info" index="1"]
-text = "Offsite / Structure God "
+text = "Structure God "
 
 [node name="cardLVL" parent="art/visual/topBar/lvlIcon" index="0"]
 text = "3"

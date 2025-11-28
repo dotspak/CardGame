@@ -20,8 +20,6 @@ var updateButton = update_db
 @export_tool_button("Retrieve Data")
 var retrieveButton = retrieve_from_db
 
-
-
 const BASIC_ICON : Texture = preload("uid://dmhctqok0ncxr")
 const RARE_ICON : Texture = preload("uid://db7a3ny4orsly")
 const SUPERRARE_ICON : Texture = preload("uid://b7pbscney3tcv")
@@ -392,12 +390,10 @@ func retrieve_from_db() -> void:
 
 func update_type_label() -> void:
 	if !is_node_ready(): return
-	var header : String = CARD_TYPE.keys()[type].capitalize()
-
-	var tribeText : String = " / "
+	var tribeText : String = ""
 	for t : TRIBE in tribe: tribeText += TRIBE.keys()[t] + " "
 
-	%cardType.text = header + (tribeText if !tribe.is_empty() else "")
+	%cardType.text = tribeText
 	%cardType.text.strip_edges()
 	%cardType.visible = %cardType.text != ""
 

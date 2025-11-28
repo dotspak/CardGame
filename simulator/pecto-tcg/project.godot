@@ -35,7 +35,3 @@ enabled=PackedStringArray("res://addons/godot-sqlite/plugin.cfg")
 [gui]
 
 theme/custom="uid://dklws6or0v1o2"
-
-[rendering]
-
-renderer/rendering_method="mobile"
