@@ -744,6 +744,7 @@ size_flags_vertical = 8
 texture = ExtResource("3_iywne")
 
 [node name="floatIcon" type="TextureRect" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer2/opponentHUD/influenceIcon"]
+visible = false
 modulate = Color(0.5431912, 0.7049651, 1, 1)
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 1
@@ -836,6 +837,7 @@ size_flags_vertical = 8
 texture = ExtResource("3_iywne")
 
 [node name="floatIcon" type="TextureRect" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer2/playerHUD/influenceIcon"]
+visible = false
 modulate = Color(0.5431912, 0.7049651, 1, 1)
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 1

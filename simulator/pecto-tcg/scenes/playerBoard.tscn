@@ -194,14 +194,14 @@ drag_strategy = SubResource("Resource_fy6ix")
 
 [node name="offsite_0" parent="DragController" node_paths=PackedStringArray("linkedSlot") instance=ExtResource("3_nx7c6")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -6, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -6, 0)
 type = 1
 linkedSlot = NodePath("../../slotMeshes/offsite_0")
 drag_strategy = SubResource("Resource_svpld")
 
 [node name="offsite_1" parent="DragController" node_paths=PackedStringArray("linkedSlot") instance=ExtResource("3_nx7c6")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -6, 0)
 type = 1
 linkedSlot = NodePath("../../slotMeshes/offsite_1")
 drag_strategy = SubResource("Resource_nc1hs")
@@ -209,6 +209,7 @@ drag_strategy = SubResource("Resource_nc1hs")
 [node name="offsite_2" parent="DragController" node_paths=PackedStringArray("linkedSlot") instance=ExtResource("3_nx7c6")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -6, 0)
+visible = false
 type = 1
 linkedSlot = NodePath("../../slotMeshes/offsite_2")
 drag_strategy = SubResource("Resource_25awo")
@@ -278,6 +279,7 @@ card_layout_strategy = SubResource("Resource_8ykwa")
 [node name="PlayZone" parent="DragController" instance=ExtResource("10_nc1hs")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -3.5, 7)
+visible = false
 card_layout_strategy = SubResource("Resource_nx7c6")
 drag_strategy = SubResource("Resource_sic6o")
 
@@ -302,19 +304,20 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_3xrod")
 
 [node name="offsite_0" type="MeshInstance3D" parent="slotMeshes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -6, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -6, 0)
 mesh = SubResource("PlaneMesh_1i8jf")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_05s0e")
 
 [node name="offsite_1" type="MeshInstance3D" parent="slotMeshes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -6, 0)
 material_override = SubResource("StandardMaterial3D_j0cvo")
 mesh = SubResource("PlaneMesh_1i8jf")
 skeleton = NodePath("../..")
 
 [node name="offsite_2" type="MeshInstance3D" parent="slotMeshes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -6, 0)
+visible = false
 material_override = SubResource("StandardMaterial3D_sjku2")
 mesh = SubResource("PlaneMesh_1i8jf")
 skeleton = NodePath("../..")
