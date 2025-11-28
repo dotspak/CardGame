@@ -22,3 +22,20 @@ Fish will be a defensive archetype
 
 - Triggers when the opponent controls no cards.
 - Triggers the instant this occurs as well as if a card with a slaughter trigger is summoned and the opponent controls no cards.
+
+### LVL X cards
+
+- Acts the same way as X in MTG.
+- You may play these cards at any LVL, but they have different effects depending on the LVL you play them at.
+- For example: LVL X Blood Ghost [1] - enter: deal X damage to target unit in play.
+
+### Castable units/icons
+
+- Simple: add cast triggers to some units/icons
+
+## Card Ideas
+
+Fish Pond - Protection + ETB recursion
+
+- End: Attach a card you control to fish pond
+- Start: Summon an attached card.
