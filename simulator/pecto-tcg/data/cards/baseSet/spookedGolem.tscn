@@ -1,6 +1,7 @@
-[gd_scene load_steps=40 format=3 uid="uid://4cw63v6x4gxq"]
+[gd_scene load_steps=41 format=3 uid="uid://4cw63v6x4gxq"]
 
 [ext_resource type="Script" uid="uid://dn6e7duqtsffm" path="res://src/pectoCard.gd" id="1_y6qei"]
+[ext_resource type="Texture2D" uid="uid://yy1fopegqorf" path="res://assets/set1/spookedGolem.png" id="2_mvf4o"]
 [ext_resource type="Texture2D" uid="uid://b1f2r0svmhmej" path="res://assets/textTexture.png" id="2_v05er"]
 [ext_resource type="Texture2D" uid="uid://bgcxb5kcqfo72" path="res://assets/foilmaps/abstractWizard.png" id="3_mvf4o"]
 [ext_resource type="Texture2D" uid="uid://cnynonhm320bh" path="res://assets/rainbowGrad.tres" id="4_dp4tt"]
@@ -89,12 +90,12 @@ shader_parameter/noise_speed = 2.8570001357075
 shader_parameter/shimmer_speed = 1.65600007866
 shader_parameter/shimmer_strength = 0.5350000254125
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1j7xo"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v05er"]
 resource_local_to_scene = true
 shader = ExtResource("5_vivbl")
 shader_parameter/mode = 0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oie35"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mvf4o"]
 resource_local_to_scene = true
 bg_color = Color(0.6, 0.6, 0.6, 0)
 draw_center = false
@@ -251,7 +252,9 @@ lvl = 2
 subtype = ["Magic", "Golem"]
 text = "{trigger:enter} Shuffle a unit your opponent controls into their deck.
 {trigger:end} Shuffle Spooked Golem into your deck."
-skillText = ""
+skillName = "Magic Link"
+skillText = "Search your deck for a card with {skill:Magic Link} and reveal it, or set a card from your hand with {skill:Magic Link}."
+art = ExtResource("2_mvf4o")
 
 [node name="cardShape" type="PanelContainer" parent="."]
 unique_name_in_owner = true
@@ -307,14 +310,14 @@ grow_vertical = 2
 expand_mode = 1
 
 [node name="shadow" type="Panel" parent="art/visual"]
-material = SubResource("ShaderMaterial_1j7xo")
+material = SubResource("ShaderMaterial_v05er")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_oie35")
+theme_override_styles/panel = SubResource("StyleBoxFlat_mvf4o")
 
 [node name="border" type="Panel" parent="art/visual"]
 unique_name_in_owner = true

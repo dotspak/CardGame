@@ -1,6 +1,7 @@
-[gd_scene load_steps=40 format=3 uid="uid://j8f6gkocljo1"]
+[gd_scene load_steps=41 format=3 uid="uid://j8f6gkocljo1"]
 
 [ext_resource type="Script" uid="uid://dn6e7duqtsffm" path="res://src/pectoCard.gd" id="1_2jg6g"]
+[ext_resource type="Texture2D" uid="uid://ch2v3sskf272r" path="res://assets/set1/GreaterCrow.png" id="2_eijj0"]
 [ext_resource type="Texture2D" uid="uid://b1f2r0svmhmej" path="res://assets/textTexture.png" id="2_q37gh"]
 [ext_resource type="Texture2D" uid="uid://bgcxb5kcqfo72" path="res://assets/foilmaps/abstractWizard.png" id="3_eijj0"]
 [ext_resource type="Texture2D" uid="uid://cnynonhm320bh" path="res://assets/rainbowGrad.tres" id="4_onmyd"]
@@ -89,12 +90,12 @@ shader_parameter/noise_speed = 2.8570001357075
 shader_parameter/shimmer_speed = 1.65600007866
 shader_parameter/shimmer_strength = 0.5350000254125
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qgsl5"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_onmyd"]
 resource_local_to_scene = true
 shader = ExtResource("5_c8f7s")
 shader_parameter/mode = 0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k8srw"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c8f7s"]
 resource_local_to_scene = true
 bg_color = Color(0.6, 0.6, 0.6, 0)
 draw_center = false
@@ -252,7 +253,9 @@ lvl = 2
 subtype = ["Crow"]
 keywords = ["delayed"]
 text = ""
-skillText = ""
+skillName = "Gathering"
+skillText = "Create up to 2 Crow {force:1} tokens."
+art = ExtResource("2_eijj0")
 
 [node name="cardShape" type="PanelContainer" parent="."]
 unique_name_in_owner = true
@@ -308,14 +311,14 @@ grow_vertical = 2
 expand_mode = 1
 
 [node name="shadow" type="Panel" parent="art/visual"]
-material = SubResource("ShaderMaterial_qgsl5")
+material = SubResource("ShaderMaterial_onmyd")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_k8srw")
+theme_override_styles/panel = SubResource("StyleBoxFlat_c8f7s")
 
 [node name="border" type="Panel" parent="art/visual"]
 unique_name_in_owner = true

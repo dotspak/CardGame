@@ -1,19 +1,19 @@
-[gd_scene load_steps=41 format=3 uid="uid://drd5kta6pa84i"]
+[gd_scene load_steps=41 format=3 uid="uid://bnvm85n3fklkj"]
 
-[ext_resource type="Script" uid="uid://dn6e7duqtsffm" path="res://src/pectoCard.gd" id="1_sgun2"]
-[ext_resource type="Texture2D" uid="uid://5h6dwyhbghsh" path="res://assets/set1/marlitaTeal.png" id="2_t0sqs"]
-[ext_resource type="Texture2D" uid="uid://b1f2r0svmhmej" path="res://assets/textTexture.png" id="3_ke8dv"]
-[ext_resource type="Texture2D" uid="uid://bgcxb5kcqfo72" path="res://assets/foilmaps/abstractWizard.png" id="4_us142"]
-[ext_resource type="Texture2D" uid="uid://cnynonhm320bh" path="res://assets/rainbowGrad.tres" id="5_h2lop"]
-[ext_resource type="Shader" uid="uid://brh53fytjw03j" path="res://shader/blendModes.gdshader" id="6_7xujv"]
-[ext_resource type="FontFile" uid="uid://rhkjenklfug8" path="res://assets/fonts/AveriaLibre-Regular.ttf" id="7_vw6yd"]
-[ext_resource type="FontFile" uid="uid://1kd62leqiy8y" path="res://assets/fonts/AveriaLibre-Bold.ttf" id="8_5j0vc"]
-[ext_resource type="Script" uid="uid://daittco86fdj2" path="res://src/bbcode/triggerEffect.gd" id="9_uuw7i"]
-[ext_resource type="Texture2D" uid="uid://cdev3qnqbr6xp" path="res://assets/forceBG.png" id="10_hpq5y"]
-[ext_resource type="Texture2D" uid="uid://de5nr31l6262q" path="res://assets/unitIcon5.png" id="11_rnqco"]
-[ext_resource type="Texture2D" uid="uid://bsidin4i266kj" path="res://assets/levelIcon.png" id="12_n0amo"]
-[ext_resource type="FontFile" uid="uid://d0fdt2wdmpnnu" path="res://assets/fonts/MedodicaRegular.otf" id="13_3m3l8"]
-[ext_resource type="Texture2D" uid="uid://dmhctqok0ncxr" path="res://assets/r_basic1.png" id="14_rg151"]
+[ext_resource type="Script" uid="uid://dn6e7duqtsffm" path="res://src/pectoCard.gd" id="1_ayhl5"]
+[ext_resource type="Texture2D" uid="uid://b2bfagvlcfddj" path="res://assets/set1/seaSick.png" id="2_r7asj"]
+[ext_resource type="Texture2D" uid="uid://b1f2r0svmhmej" path="res://assets/textTexture.png" id="3_qhir5"]
+[ext_resource type="Texture2D" uid="uid://bgcxb5kcqfo72" path="res://assets/foilmaps/abstractWizard.png" id="4_jdgxw"]
+[ext_resource type="Texture2D" uid="uid://cnynonhm320bh" path="res://assets/rainbowGrad.tres" id="5_7cta2"]
+[ext_resource type="Shader" uid="uid://brh53fytjw03j" path="res://shader/blendModes.gdshader" id="6_8h6l7"]
+[ext_resource type="FontFile" uid="uid://rhkjenklfug8" path="res://assets/fonts/AveriaLibre-Regular.ttf" id="7_7k2l0"]
+[ext_resource type="FontFile" uid="uid://1kd62leqiy8y" path="res://assets/fonts/AveriaLibre-Bold.ttf" id="8_ey0ql"]
+[ext_resource type="Script" uid="uid://daittco86fdj2" path="res://src/bbcode/triggerEffect.gd" id="9_hff2h"]
+[ext_resource type="Texture2D" uid="uid://cdev3qnqbr6xp" path="res://assets/forceBG.png" id="10_lf6y8"]
+[ext_resource type="Texture2D" uid="uid://de5nr31l6262q" path="res://assets/unitIcon5.png" id="11_jboa0"]
+[ext_resource type="Texture2D" uid="uid://bsidin4i266kj" path="res://assets/levelIcon.png" id="12_rsm8i"]
+[ext_resource type="FontFile" uid="uid://d0fdt2wdmpnnu" path="res://assets/fonts/MedodicaRegular.otf" id="13_1na8x"]
+[ext_resource type="Texture2D" uid="uid://dmhctqok0ncxr" path="res://assets/r_basic1.png" id="14_s14mh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3h312"]
 bg_color = Color(0.10980392, 0.10980392, 0.10980392, 1)
@@ -79,8 +79,8 @@ void fragment() {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jlkag"]
 shader = SubResource("Shader_4ay7h")
 shader_parameter/enabled = true
-shader_parameter/foil_map = ExtResource("4_us142")
-shader_parameter/gradient = ExtResource("5_h2lop")
+shader_parameter/foil_map = ExtResource("4_jdgxw")
+shader_parameter/gradient = ExtResource("5_7cta2")
 shader_parameter/speed = 0.2000000095
 shader_parameter/scale = 0.90700003982262
 shader_parameter/intensity = 0.0
@@ -90,12 +90,12 @@ shader_parameter/noise_speed = 2.8570001357075
 shader_parameter/shimmer_speed = 1.65600007866
 shader_parameter/shimmer_strength = 0.5350000254125
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_sgun2"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ebbru"]
 resource_local_to_scene = true
-shader = ExtResource("6_7xujv")
+shader = ExtResource("6_8h6l7")
 shader_parameter/mode = 0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t0sqs"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rf8jw"]
 resource_local_to_scene = true
 bg_color = Color(0.6, 0.6, 0.6, 0)
 draw_center = false
@@ -151,7 +151,7 @@ fill_from = Vector2(0, 0.62393165)
 fill_to = Vector2(1, 0.22649573)
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_ir3pi"]
-script = ExtResource("9_uuw7i")
+script = ExtResource("9_hff2h")
 metadata/_custom_type_script = "uid://daittco86fdj2"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1t38k"]
@@ -232,7 +232,7 @@ colors = PackedColorArray(0.23921569, 0.23921569, 0.23921569, 1, 0.10980392, 0.1
 gradient = SubResource("Gradient_0gidb")
 
 [sub_resource type="LabelSettings" id="LabelSettings_y3ai7"]
-font = ExtResource("13_3m3l8")
+font = ExtResource("13_1na8x")
 font_size = 80
 font_color = Color(0.91, 0.91, 0.91, 1)
 outline_size = 2
@@ -245,15 +245,16 @@ shadow_offset = Vector2(2, 2)
 custom_minimum_size = Vector2(750, 1050)
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_sgun2")
-ID = "marlitaTeal"
-cardName = "Marlita Teal"
-lvl = 2
-subtype = ["Marlita"]
-text = "When a non-token unit you control perishes, give {force:1} to a card you control until the end of the turn.
-{trigger:enter} Discard the top 3 cards of your deck."
+script = ExtResource("1_ayhl5")
+ID = "seaSick"
+type = 2
+cardName = "Sea Sick"
+force = 0
+lvl = 3
+keywords = ["instant"]
+text = "{trigger:cast} Target unit LVL 3 or less becomes a Fish {force:0}/{key:static} token."
 skillText = ""
-art = ExtResource("2_t0sqs")
+art = ExtResource("2_r7asj")
 
 [node name="cardShape" type="PanelContainer" parent="."]
 unique_name_in_owner = true
@@ -273,7 +274,7 @@ layout_mode = 2
 modulate = Color(1, 1, 1, 0.11764706)
 material = SubResource("CanvasItemMaterial_y3ai7")
 layout_mode = 2
-texture = ExtResource("3_ke8dv")
+texture = ExtResource("3_qhir5")
 expand_mode = 1
 stretch_mode = 6
 
@@ -309,14 +310,14 @@ grow_vertical = 2
 expand_mode = 1
 
 [node name="shadow" type="Panel" parent="art/visual"]
-material = SubResource("ShaderMaterial_sgun2")
+material = SubResource("ShaderMaterial_ebbru")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_t0sqs")
+theme_override_styles/panel = SubResource("StyleBoxFlat_rf8jw")
 
 [node name="border" type="Panel" parent="art/visual"]
 unique_name_in_owner = true
@@ -407,7 +408,7 @@ texture = SubResource("GradientTexture2D_0gidb")
 modulate = Color(1, 1, 1, 0.11764706)
 material = SubResource("CanvasItemMaterial_y3ai7")
 layout_mode = 2
-texture = ExtResource("3_ke8dv")
+texture = ExtResource("3_qhir5")
 expand_mode = 1
 stretch_mode = 6
 
@@ -425,8 +426,8 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/normal_font = ExtResource("7_vw6yd")
-theme_override_fonts/bold_font = ExtResource("8_5j0vc")
+theme_override_fonts/normal_font = ExtResource("7_7k2l0")
+theme_override_fonts/bold_font = ExtResource("8_ey0ql")
 theme_override_font_sizes/normal_font_size = 30
 theme_override_font_sizes/bold_font_size = 30
 theme_override_font_sizes/bold_italics_font_size = 30
@@ -458,7 +459,7 @@ texture = SubResource("GradientTexture2D_4ay7h")
 modulate = Color(1, 1, 1, 0.11764706)
 material = SubResource("CanvasItemMaterial_y3ai7")
 layout_mode = 2
-texture = ExtResource("3_ke8dv")
+texture = ExtResource("3_qhir5")
 expand_mode = 1
 stretch_mode = 6
 
@@ -511,8 +512,8 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_10mgu")
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/normal_font = ExtResource("7_vw6yd")
-theme_override_fonts/bold_font = ExtResource("8_5j0vc")
+theme_override_fonts/normal_font = ExtResource("7_7k2l0")
+theme_override_fonts/bold_font = ExtResource("8_ey0ql")
 theme_override_font_sizes/normal_font_size = 30
 theme_override_font_sizes/bold_font_size = 30
 theme_override_font_sizes/bold_italics_font_size = 30
@@ -552,7 +553,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
-texture = ExtResource("10_hpq5y")
+texture = ExtResource("10_lf6y8")
 expand_mode = 1
 
 [node name="cardForce" type="Label" parent="art/visual/border/bottomInfo/force/TextureRect"]
@@ -587,7 +588,7 @@ grow_horizontal = 2
 [node name="cardTypeIcon" type="TextureRect" parent="art/visual/topBar"]
 unique_name_in_owner = true
 layout_mode = 2
-texture = ExtResource("11_rnqco")
+texture = ExtResource("11_jboa0")
 expand_mode = 2
 
 [node name="info" type="VBoxContainer" parent="art/visual/topBar"]
@@ -628,14 +629,14 @@ modulate = Color(1, 1, 1, 0.11764706)
 material = SubResource("CanvasItemMaterial_y3ai7")
 clip_contents = true
 layout_mode = 2
-texture = ExtResource("3_ke8dv")
+texture = ExtResource("3_qhir5")
 expand_mode = 3
 stretch_mode = 6
 
 [node name="lvlIcon" type="TextureRect" parent="art/visual/topBar"]
 unique_name_in_owner = true
 layout_mode = 2
-texture = ExtResource("12_n0amo")
+texture = ExtResource("12_rsm8i")
 expand_mode = 2
 
 [node name="cardLVL" type="Label" parent="art/visual/topBar/lvlIcon"]
@@ -680,5 +681,5 @@ custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-texture = ExtResource("14_rg151")
+texture = ExtResource("14_s14mh")
 expand_mode = 1

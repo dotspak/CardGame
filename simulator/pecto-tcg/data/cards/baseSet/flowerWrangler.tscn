@@ -90,12 +90,12 @@ shader_parameter/noise_speed = 2.8570001357075
 shader_parameter/shimmer_speed = 1.65600007866
 shader_parameter/shimmer_strength = 0.5350000254125
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2yyew"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bv003"]
 resource_local_to_scene = true
 shader = ExtResource("6_gj0rh")
 shader_parameter/mode = 0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yxvrg"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spkoh"]
 resource_local_to_scene = true
 bg_color = Color(0.6, 0.6, 0.6, 0)
 draw_center = false
@@ -309,14 +309,14 @@ grow_vertical = 2
 expand_mode = 1
 
 [node name="shadow" type="Panel" parent="art/visual"]
-material = SubResource("ShaderMaterial_2yyew")
+material = SubResource("ShaderMaterial_bv003")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_yxvrg")
+theme_override_styles/panel = SubResource("StyleBoxFlat_spkoh")
 
 [node name="border" type="Panel" parent="art/visual"]
 unique_name_in_owner = true

@@ -1,7 +1,8 @@
-[gd_scene load_steps=40 format=3 uid="uid://cebwh0p3yx14p"]
+[gd_scene load_steps=41 format=3 uid="uid://cebwh0p3yx14p"]
 
 [ext_resource type="Script" uid="uid://dn6e7duqtsffm" path="res://src/pectoCard.gd" id="1_h18qj"]
 [ext_resource type="Texture2D" uid="uid://b1f2r0svmhmej" path="res://assets/textTexture.png" id="2_5m4ad"]
+[ext_resource type="Texture2D" uid="uid://dvt2mhv7m7vuc" path="res://assets/set1/arcaneEye.png" id="2_li5jf"]
 [ext_resource type="Texture2D" uid="uid://bgcxb5kcqfo72" path="res://assets/foilmaps/abstractWizard.png" id="3_li5jf"]
 [ext_resource type="Texture2D" uid="uid://cnynonhm320bh" path="res://assets/rainbowGrad.tres" id="4_tu0w5"]
 [ext_resource type="Shader" uid="uid://brh53fytjw03j" path="res://shader/blendModes.gdshader" id="5_5u833"]
@@ -89,12 +90,12 @@ shader_parameter/noise_speed = 2.8570001357075
 shader_parameter/shimmer_speed = 1.65600007866
 shader_parameter/shimmer_strength = 0.5350000254125
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_cod36"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5m4ad"]
 resource_local_to_scene = true
 shader = ExtResource("5_5u833")
 shader_parameter/mode = 0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x7cda"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_li5jf"]
 resource_local_to_scene = true
 bg_color = Color(0.6, 0.6, 0.6, 0)
 draw_center = false
@@ -250,7 +251,9 @@ type = 1
 cardName = "Arcane Eye"
 subtype = ["Celestial", "Object"]
 text = ""
-skillText = ""
+skillName = "peer"
+skillText = "Reveal the top card of your deck. If the card's LVL is greater or equal to your current LVL, you may set it. Otherwise, void it or send it to the bottom of your deck."
+art = ExtResource("2_li5jf")
 
 [node name="cardShape" type="PanelContainer" parent="."]
 unique_name_in_owner = true
@@ -306,14 +309,14 @@ grow_vertical = 2
 expand_mode = 1
 
 [node name="shadow" type="Panel" parent="art/visual"]
-material = SubResource("ShaderMaterial_cod36")
+material = SubResource("ShaderMaterial_5m4ad")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_x7cda")
+theme_override_styles/panel = SubResource("StyleBoxFlat_li5jf")
 
 [node name="border" type="Panel" parent="art/visual"]
 unique_name_in_owner = true

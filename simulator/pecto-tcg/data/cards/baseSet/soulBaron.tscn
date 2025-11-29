@@ -1,6 +1,7 @@
-[gd_scene load_steps=40 format=3 uid="uid://di1adesl5i7cp"]
+[gd_scene load_steps=41 format=3 uid="uid://di1adesl5i7cp"]
 
 [ext_resource type="Script" uid="uid://dn6e7duqtsffm" path="res://src/pectoCard.gd" id="1_kryh1"]
+[ext_resource type="Texture2D" uid="uid://c1eixrpge06ch" path="res://assets/set1/soulBaron.png" id="2_kn231"]
 [ext_resource type="Texture2D" uid="uid://b1f2r0svmhmej" path="res://assets/textTexture.png" id="2_kv5sg"]
 [ext_resource type="Texture2D" uid="uid://bgcxb5kcqfo72" path="res://assets/foilmaps/abstractWizard.png" id="3_kn231"]
 [ext_resource type="Texture2D" uid="uid://cnynonhm320bh" path="res://assets/rainbowGrad.tres" id="4_r580c"]
@@ -89,12 +90,12 @@ shader_parameter/noise_speed = 2.8570001357075
 shader_parameter/shimmer_speed = 1.65600007866
 shader_parameter/shimmer_strength = 0.5350000254125
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nl52y"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kv5sg"]
 resource_local_to_scene = true
 shader = ExtResource("5_d8158")
 shader_parameter/mode = 0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ef10"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kn231"]
 resource_local_to_scene = true
 bg_color = Color(0.6, 0.6, 0.6, 0)
 draw_center = false
@@ -251,7 +252,9 @@ force = 3
 lvl = 3
 subtype = ["Magic", "God"]
 text = "{trigger:perish} Add attached cards to your hand."
-skillText = ""
+skillName = "Ignite"
+skillText = "Attach the top 2 cards of your deck and add 2 soul counters to Soul Baron. If Soul Lantern is attached, set it instead."
+art = ExtResource("2_kn231")
 
 [node name="cardShape" type="PanelContainer" parent="."]
 unique_name_in_owner = true
@@ -307,14 +310,14 @@ grow_vertical = 2
 expand_mode = 1
 
 [node name="shadow" type="Panel" parent="art/visual"]
-material = SubResource("ShaderMaterial_nl52y")
+material = SubResource("ShaderMaterial_kv5sg")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_7ef10")
+theme_override_styles/panel = SubResource("StyleBoxFlat_kn231")
 
 [node name="border" type="Panel" parent="art/visual"]
 unique_name_in_owner = true

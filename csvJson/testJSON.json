@@ -1866,7 +1866,7 @@
         },
         "corruptedPiece": {
             "name": "Corrupted Piece",
-            "set": "testSet",
+            "set": "baseSet",
             "type": 1,
             "subtype": [
                 "Ghost",
@@ -1885,7 +1885,7 @@
         },
         "chrysalis": {
             "name": "Chrysalis",
-            "set": "testSet",
+            "set": "baseSet",
             "type": 1,
             "subtype": [
                 "Structure"
@@ -1896,13 +1896,13 @@
                 "static"
             ],
             "text": "{trigger:end} You may add an attached card to your hand.",
-            "skill": "test",
+            "skill": "metamorphosis",
             "art": "obviousTrap.png",
             "scenepath": ""
         },
         "ringGenerator": {
             "name": "Ring Generator",
-            "set": "testSet",
+            "set": "baseSet",
             "type": 1,
             "subtype": [
                 "Celestial",
@@ -2199,7 +2199,7 @@
             "art": "sunBox.png",
             "scenepath": ""
         },
-        "infection:misdirection": {
+        "infectionMisdirection": {
             "name": "Infection:Misdirection",
             "set": "baseSet",
             "type": 1,
@@ -2279,7 +2279,7 @@
                 "fragile"
             ],
             "text": "{trigger:begin} Sacrifice Jack In the Box, then set any attached units.",
-            "skill": "surprise!",
+            "skill": "surprise",
             "art": "jackInTheBox.png",
             "scenepath": ""
         },
@@ -2479,7 +2479,7 @@
             "art": "monolith.png",
             "scenepath": ""
         },
-        "crow'sNest": {
+        "crowsNest": {
             "name": "Crow's Nest",
             "set": "baseSet",
             "type": 1,
@@ -2666,7 +2666,7 @@
                 "muted"
             ],
             "text": "Soul Oven cannot gain {force:?}.",
-            "skill": "fool'sGold",
+            "skill": "foolsGold",
             "art": "soulOven.png",
             "scenepath": ""
         },
@@ -2855,7 +2855,7 @@
             "art": "goldenLand.png",
             "scenepath": ""
         },
-        "falseQueen'sCarcass": {
+        "falseQueensCarcass": {
             "name": "False Queen's Carcass",
             "set": "baseSet",
             "type": 1,
@@ -2913,7 +2913,7 @@
         },
         "fleshboundRitual": {
             "name": "Fleshbound Ritual",
-            "set": "testSet",
+            "set": "baseSet",
             "type": 2,
             "subtype": [],
             "lvl": 1,
@@ -2922,13 +2922,13 @@
                 "effect"
             ],
             "text": "{trigger:perish} Set a unit from your discard except its LVL is 1.",
-            "skill": "test3",
+            "skill": null,
             "art": "fleshboundRitual.png",
             "scenepath": ""
         },
         "wormWood": {
             "name": "Worm Wood",
-            "set": "testSet",
+            "set": "baseSet",
             "type": 2,
             "subtype": [],
             "lvl": 1,
@@ -2937,13 +2937,13 @@
                 "instant"
             ],
             "text": "{trigger:cast} Back row cards opponents control gain {key:sick} and take an instance of {key:sick} damage. Draw a card for any cards that perished this way.",
-            "skill": "test",
+            "skill": null,
             "art": "wormwood.png",
             "scenepath": ""
         },
         "autoShield": {
             "name": "Auto-Shield",
-            "set": "testSet",
+            "set": "baseSet",
             "type": 2,
             "subtype": [],
             "lvl": 1,
@@ -2952,7 +2952,7 @@
                 "effect"
             ],
             "text": "Effected card gains {key:immortal} during your turns.",
-            "skill": "test2",
+            "skill": null,
             "art": "barrierInsert.png",
             "scenepath": ""
         },
@@ -3290,7 +3290,7 @@
             "art": "reap.png",
             "scenepath": ""
         },
-        "theCure?": {
+        "theCure": {
             "name": "The Cure?",
             "set": "baseSet",
             "type": 2,
@@ -3715,56 +3715,6 @@
             "skill": null,
             "art": "lastWish.png",
             "scenepath": ""
-        },
-        "randy": {
-            "name": "Randy",
-            "set": "testSet",
-            "type": 0,
-            "subtype": [
-                "Ghost"
-            ],
-            "lvl": 1,
-            "force": 2,
-            "keywords": [],
-            "text": "{trigger:enter} Discard up to 2 cards from your hand.",
-            "skill": null,
-            "art": "twistedGolem.png",
-            "scenepath": ""
-        },
-        "randy2": {
-            "name": "Randy2",
-            "set": "testSet",
-            "type": 0,
-            "subtype": [
-                "Ghost",
-                "Golem"
-            ],
-            "lvl": 1,
-            "force": 0,
-            "keywords": [
-                "effect"
-            ],
-            "text": "{trigger:perish} You gain LVL equal to this card's LVL.",
-            "skill": "test",
-            "art": "twistedGolem.png",
-            "scenepath": ""
-        },
-        "randy3": {
-            "name": "Randy3",
-            "set": "testSet",
-            "type": 0,
-            "subtype": [
-                "Monster"
-            ],
-            "lvl": 4,
-            "force": 3,
-            "keywords": [
-                "flying"
-            ],
-            "text": "",
-            "skill": "test2",
-            "art": "twistedGolem.png",
-            "scenepath": ""
         }
     },
     "skills": {
@@ -4038,7 +3988,7 @@
             "text": "Shuffle your discard: add the top card of your discard pile to your hand.",
             "type": 0
         },
-        "surprise!": {
+        "surprise": {
             "name": "Surprise!",
             "text": "Discard up to 2 cards: attach units from your deck equal to the number of cards discarded to Jack in the Box.",
             "type": 0
@@ -4088,7 +4038,7 @@
             "text": "Sacrifice a card you control: gain {force:3}.",
             "type": 0
         },
-        "fool'sGold": {
+        "foolsGold": {
             "name": "Fool's gold",
             "text": "Lose {force:1}: Sacrifice an active unit you control. Add a soul counter to Soul Oven.",
             "type": 1
@@ -4176,21 +4126,6 @@
         "upside": {
             "name": "upside",
             "text": "If a card you control has {key:doom}, draw a card.",
-            "type": 0
-        },
-        "test": {
-            "name": "test",
-            "text": "yo this is a test",
-            "type": 0
-        },
-        "test2": {
-            "name": "test2",
-            "text": "test 2 spell yo",
-            "type": 0
-        },
-        "test3": {
-            "name": "test3",
-            "text": "test 3 ayo",
             "type": 0
         }
     }

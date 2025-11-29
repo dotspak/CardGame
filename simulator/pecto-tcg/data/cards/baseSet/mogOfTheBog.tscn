@@ -1,7 +1,8 @@
-[gd_scene load_steps=40 format=3 uid="uid://cexhaghhx3j6x"]
+[gd_scene load_steps=41 format=3 uid="uid://cexhaghhx3j6x"]
 
 [ext_resource type="Script" uid="uid://dn6e7duqtsffm" path="res://src/pectoCard.gd" id="1_n02w5"]
 [ext_resource type="Texture2D" uid="uid://b1f2r0svmhmej" path="res://assets/textTexture.png" id="2_5d584"]
+[ext_resource type="Texture2D" uid="uid://b7hg6cero44fu" path="res://assets/set1/mog.png" id="2_pltus"]
 [ext_resource type="Texture2D" uid="uid://bgcxb5kcqfo72" path="res://assets/foilmaps/abstractWizard.png" id="3_pltus"]
 [ext_resource type="Texture2D" uid="uid://cnynonhm320bh" path="res://assets/rainbowGrad.tres" id="4_35esy"]
 [ext_resource type="Shader" uid="uid://brh53fytjw03j" path="res://shader/blendModes.gdshader" id="5_gpg8x"]
@@ -89,12 +90,12 @@ shader_parameter/noise_speed = 2.8570001357075
 shader_parameter/shimmer_speed = 1.65600007866
 shader_parameter/shimmer_strength = 0.5350000254125
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vnuu3"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5d584"]
 resource_local_to_scene = true
 shader = ExtResource("5_gpg8x")
 shader_parameter/mode = 0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xshqc"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pltus"]
 resource_local_to_scene = true
 bg_color = Color(0.6, 0.6, 0.6, 0)
 draw_center = false
@@ -252,7 +253,10 @@ lvl = 3
 subtype = ["Plague", "Monster"]
 keywords = ["muted", "bleed", "sick"]
 text = "Mog of the Bog gains {force:2} instead of taking sick damage."
-skillText = ""
+skillName = "Contagious"
+skillText = "Cure a card you control: give {key:sick} to another card in play. Cannot target the same card twice in one turn."
+isSkillContinuous = true
+art = ExtResource("2_pltus")
 
 [node name="cardShape" type="PanelContainer" parent="."]
 unique_name_in_owner = true
@@ -308,14 +312,14 @@ grow_vertical = 2
 expand_mode = 1
 
 [node name="shadow" type="Panel" parent="art/visual"]
-material = SubResource("ShaderMaterial_vnuu3")
+material = SubResource("ShaderMaterial_5d584")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_xshqc")
+theme_override_styles/panel = SubResource("StyleBoxFlat_pltus")
 
 [node name="border" type="Panel" parent="art/visual"]
 unique_name_in_owner = true

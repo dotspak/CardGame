@@ -2199,7 +2199,7 @@
             "art": "sunBox.png",
             "scenepath": ""
         },
-        "infection:misdirection": {
+        "infectionMisdirection": {
             "name": "Infection:Misdirection",
             "set": "baseSet",
             "type": 1,
@@ -2279,7 +2279,7 @@
                 "fragile"
             ],
             "text": "{trigger:begin} Sacrifice Jack In the Box, then set any attached units.",
-            "skill": "surprise!",
+            "skill": "surprise",
             "art": "jackInTheBox.png",
             "scenepath": ""
         },
@@ -2479,7 +2479,7 @@
             "art": "monolith.png",
             "scenepath": ""
         },
-        "crow'sNest": {
+        "crowsNest": {
             "name": "Crow's Nest",
             "set": "baseSet",
             "type": 1,
@@ -2666,7 +2666,7 @@
                 "muted"
             ],
             "text": "Soul Oven cannot gain {force:?}.",
-            "skill": "fool'sGold",
+            "skill": "foolsGold",
             "art": "soulOven.png",
             "scenepath": ""
         },
@@ -2855,7 +2855,7 @@
             "art": "goldenLand.png",
             "scenepath": ""
         },
-        "falseQueen'sCarcass": {
+        "falseQueensCarcass": {
             "name": "False Queen's Carcass",
             "set": "baseSet",
             "type": 1,
@@ -3290,7 +3290,7 @@
             "art": "reap.png",
             "scenepath": ""
         },
-        "theCure?": {
+        "theCure": {
             "name": "The Cure?",
             "set": "baseSet",
             "type": 2,
@@ -3378,8 +3378,8 @@
             "art": "dissolve.png",
             "scenepath": ""
         },
-        "s": {
-            "name": "s",
+        "seaSick": {
+            "name": "Sea Sick",
             "set": "baseSet",
             "type": 2,
             "subtype": [],
@@ -3988,7 +3988,7 @@
             "text": "Shuffle your discard: add the top card of your discard pile to your hand.",
             "type": 0
         },
-        "surprise!": {
+        "surprise": {
             "name": "Surprise!",
             "text": "Discard up to 2 cards: attach units from your deck equal to the number of cards discarded to Jack in the Box.",
             "type": 0
@@ -4038,7 +4038,7 @@
             "text": "Sacrifice a card you control: gain {force:3}.",
             "type": 0
         },
-        "fool'sGold": {
+        "foolsGold": {
             "name": "Fool's gold",
             "text": "Lose {force:1}: Sacrifice an active unit you control. Add a soul counter to Soul Oven.",
             "type": 1

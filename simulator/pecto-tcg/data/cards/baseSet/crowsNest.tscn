@@ -1,18 +1,19 @@
-[gd_scene load_steps=40 format=3 uid="uid://u7nw46ijt3et"]
+[gd_scene load_steps=41 format=3 uid="uid://crfq7cupkloo4"]
 
-[ext_resource type="Script" uid="uid://dn6e7duqtsffm" path="res://src/pectoCard.gd" id="1_5g8ql"]
-[ext_resource type="Texture2D" uid="uid://b1f2r0svmhmej" path="res://assets/textTexture.png" id="2_7bb75"]
-[ext_resource type="Texture2D" uid="uid://bgcxb5kcqfo72" path="res://assets/foilmaps/abstractWizard.png" id="3_eqco4"]
-[ext_resource type="Texture2D" uid="uid://cnynonhm320bh" path="res://assets/rainbowGrad.tres" id="4_7e1k1"]
-[ext_resource type="Shader" uid="uid://brh53fytjw03j" path="res://shader/blendModes.gdshader" id="5_uenu8"]
-[ext_resource type="FontFile" uid="uid://rhkjenklfug8" path="res://assets/fonts/AveriaLibre-Regular.ttf" id="6_bp3gn"]
-[ext_resource type="FontFile" uid="uid://1kd62leqiy8y" path="res://assets/fonts/AveriaLibre-Bold.ttf" id="7_vmgdh"]
-[ext_resource type="Script" uid="uid://daittco86fdj2" path="res://src/bbcode/triggerEffect.gd" id="8_u3c8j"]
-[ext_resource type="Texture2D" uid="uid://cdev3qnqbr6xp" path="res://assets/forceBG.png" id="9_xofok"]
-[ext_resource type="Texture2D" uid="uid://de5nr31l6262q" path="res://assets/unitIcon5.png" id="10_sbh71"]
-[ext_resource type="Texture2D" uid="uid://bsidin4i266kj" path="res://assets/levelIcon.png" id="11_1q6mb"]
-[ext_resource type="FontFile" uid="uid://d0fdt2wdmpnnu" path="res://assets/fonts/MedodicaRegular.otf" id="12_rdf5v"]
-[ext_resource type="Texture2D" uid="uid://dmhctqok0ncxr" path="res://assets/r_basic1.png" id="13_effjs"]
+[ext_resource type="Script" uid="uid://dn6e7duqtsffm" path="res://src/pectoCard.gd" id="1_5m8ug"]
+[ext_resource type="Texture2D" uid="uid://dv6ockg7dr31r" path="res://assets/set1/CrowNest.png" id="2_3paru"]
+[ext_resource type="Texture2D" uid="uid://b1f2r0svmhmej" path="res://assets/textTexture.png" id="3_4ru12"]
+[ext_resource type="Texture2D" uid="uid://bgcxb5kcqfo72" path="res://assets/foilmaps/abstractWizard.png" id="4_yldax"]
+[ext_resource type="Texture2D" uid="uid://cnynonhm320bh" path="res://assets/rainbowGrad.tres" id="5_1tity"]
+[ext_resource type="Shader" uid="uid://brh53fytjw03j" path="res://shader/blendModes.gdshader" id="6_p6eqy"]
+[ext_resource type="FontFile" uid="uid://rhkjenklfug8" path="res://assets/fonts/AveriaLibre-Regular.ttf" id="7_tjerr"]
+[ext_resource type="FontFile" uid="uid://1kd62leqiy8y" path="res://assets/fonts/AveriaLibre-Bold.ttf" id="8_jvhcf"]
+[ext_resource type="Script" uid="uid://daittco86fdj2" path="res://src/bbcode/triggerEffect.gd" id="9_ybm6u"]
+[ext_resource type="Texture2D" uid="uid://cdev3qnqbr6xp" path="res://assets/forceBG.png" id="10_ahud2"]
+[ext_resource type="Texture2D" uid="uid://de5nr31l6262q" path="res://assets/unitIcon5.png" id="11_w82f8"]
+[ext_resource type="Texture2D" uid="uid://bsidin4i266kj" path="res://assets/levelIcon.png" id="12_k4gob"]
+[ext_resource type="FontFile" uid="uid://d0fdt2wdmpnnu" path="res://assets/fonts/MedodicaRegular.otf" id="13_f2jtv"]
+[ext_resource type="Texture2D" uid="uid://dmhctqok0ncxr" path="res://assets/r_basic1.png" id="14_5cax1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3h312"]
 bg_color = Color(0.10980392, 0.10980392, 0.10980392, 1)
@@ -78,8 +79,8 @@ void fragment() {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jlkag"]
 shader = SubResource("Shader_4ay7h")
 shader_parameter/enabled = true
-shader_parameter/foil_map = ExtResource("3_eqco4")
-shader_parameter/gradient = ExtResource("4_7e1k1")
+shader_parameter/foil_map = ExtResource("4_yldax")
+shader_parameter/gradient = ExtResource("5_1tity")
 shader_parameter/speed = 0.2000000095
 shader_parameter/scale = 0.90700003982262
 shader_parameter/intensity = 0.0
@@ -89,12 +90,12 @@ shader_parameter/noise_speed = 2.8570001357075
 shader_parameter/shimmer_speed = 1.65600007866
 shader_parameter/shimmer_strength = 0.5350000254125
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vr7t1"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5m8ug"]
 resource_local_to_scene = true
-shader = ExtResource("5_uenu8")
+shader = ExtResource("6_p6eqy")
 shader_parameter/mode = 0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ts21i"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3paru"]
 resource_local_to_scene = true
 bg_color = Color(0.6, 0.6, 0.6, 0)
 draw_center = false
@@ -150,7 +151,7 @@ fill_from = Vector2(0, 0.62393165)
 fill_to = Vector2(1, 0.22649573)
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_ir3pi"]
-script = ExtResource("8_u3c8j")
+script = ExtResource("9_ybm6u")
 metadata/_custom_type_script = "uid://daittco86fdj2"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1t38k"]
@@ -231,7 +232,7 @@ colors = PackedColorArray(0.23921569, 0.23921569, 0.23921569, 1, 0.10980392, 0.1
 gradient = SubResource("Gradient_0gidb")
 
 [sub_resource type="LabelSettings" id="LabelSettings_y3ai7"]
-font = ExtResource("12_rdf5v")
+font = ExtResource("13_f2jtv")
 font_size = 80
 font_color = Color(0.91, 0.91, 0.91, 1)
 outline_size = 2
@@ -244,15 +245,17 @@ shadow_offset = Vector2(2, 2)
 custom_minimum_size = Vector2(750, 1050)
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_5g8ql")
-ID = "crow'sNest"
+script = ExtResource("1_5m8ug")
+ID = "crowsNest"
 type = 1
 cardName = "Crow's Nest"
 lvl = 3
 subtype = ["Crow", "Structure"]
 keywords = ["warden"]
 text = "When a Crow unit perishes, draw a card."
-skillText = ""
+skillName = "Gathering"
+skillText = "Create up to 2 Crow {force:1} tokens."
+art = ExtResource("2_3paru")
 
 [node name="cardShape" type="PanelContainer" parent="."]
 unique_name_in_owner = true
@@ -272,7 +275,7 @@ layout_mode = 2
 modulate = Color(1, 1, 1, 0.11764706)
 material = SubResource("CanvasItemMaterial_y3ai7")
 layout_mode = 2
-texture = ExtResource("2_7bb75")
+texture = ExtResource("3_4ru12")
 expand_mode = 1
 stretch_mode = 6
 
@@ -308,14 +311,14 @@ grow_vertical = 2
 expand_mode = 1
 
 [node name="shadow" type="Panel" parent="art/visual"]
-material = SubResource("ShaderMaterial_vr7t1")
+material = SubResource("ShaderMaterial_5m8ug")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ts21i")
+theme_override_styles/panel = SubResource("StyleBoxFlat_3paru")
 
 [node name="border" type="Panel" parent="art/visual"]
 unique_name_in_owner = true
@@ -406,7 +409,7 @@ texture = SubResource("GradientTexture2D_0gidb")
 modulate = Color(1, 1, 1, 0.11764706)
 material = SubResource("CanvasItemMaterial_y3ai7")
 layout_mode = 2
-texture = ExtResource("2_7bb75")
+texture = ExtResource("3_4ru12")
 expand_mode = 1
 stretch_mode = 6
 
@@ -424,8 +427,8 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/normal_font = ExtResource("6_bp3gn")
-theme_override_fonts/bold_font = ExtResource("7_vmgdh")
+theme_override_fonts/normal_font = ExtResource("7_tjerr")
+theme_override_fonts/bold_font = ExtResource("8_jvhcf")
 theme_override_font_sizes/normal_font_size = 30
 theme_override_font_sizes/bold_font_size = 30
 theme_override_font_sizes/bold_italics_font_size = 30
@@ -457,7 +460,7 @@ texture = SubResource("GradientTexture2D_4ay7h")
 modulate = Color(1, 1, 1, 0.11764706)
 material = SubResource("CanvasItemMaterial_y3ai7")
 layout_mode = 2
-texture = ExtResource("2_7bb75")
+texture = ExtResource("3_4ru12")
 expand_mode = 1
 stretch_mode = 6
 
@@ -510,8 +513,8 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_10mgu")
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/normal_font = ExtResource("6_bp3gn")
-theme_override_fonts/bold_font = ExtResource("7_vmgdh")
+theme_override_fonts/normal_font = ExtResource("7_tjerr")
+theme_override_fonts/bold_font = ExtResource("8_jvhcf")
 theme_override_font_sizes/normal_font_size = 30
 theme_override_font_sizes/bold_font_size = 30
 theme_override_font_sizes/bold_italics_font_size = 30
@@ -551,7 +554,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
-texture = ExtResource("9_xofok")
+texture = ExtResource("10_ahud2")
 expand_mode = 1
 
 [node name="cardForce" type="Label" parent="art/visual/border/bottomInfo/force/TextureRect"]
@@ -586,7 +589,7 @@ grow_horizontal = 2
 [node name="cardTypeIcon" type="TextureRect" parent="art/visual/topBar"]
 unique_name_in_owner = true
 layout_mode = 2
-texture = ExtResource("10_sbh71")
+texture = ExtResource("11_w82f8")
 expand_mode = 2
 
 [node name="info" type="VBoxContainer" parent="art/visual/topBar"]
@@ -627,14 +630,14 @@ modulate = Color(1, 1, 1, 0.11764706)
 material = SubResource("CanvasItemMaterial_y3ai7")
 clip_contents = true
 layout_mode = 2
-texture = ExtResource("2_7bb75")
+texture = ExtResource("3_4ru12")
 expand_mode = 3
 stretch_mode = 6
 
 [node name="lvlIcon" type="TextureRect" parent="art/visual/topBar"]
 unique_name_in_owner = true
 layout_mode = 2
-texture = ExtResource("11_1q6mb")
+texture = ExtResource("12_k4gob")
 expand_mode = 2
 
 [node name="cardLVL" type="Label" parent="art/visual/topBar/lvlIcon"]
@@ -679,5 +682,5 @@ custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-texture = ExtResource("13_effjs")
+texture = ExtResource("14_5cax1")
 expand_mode = 1

@@ -60,7 +60,7 @@ Burn,3,"{key:instant}
 Dissolve,3,"{key:instant}
 {cost:As an additional cost, discard a card from your hand.}
 {trigger:cast} Destroy target unit.",,dissolve.png
-s,3,"{key:instant}
+Sea Sick,3,"{key:instant}
 {trigger:cast} Target unit LVL 3 or less becomes a Fish {force:0}/{key:static} token.",,seaSick.png
 Melt,3,"{key:instant}
 {trigger:cast} Discard your hand. Draw an additional card during your next 2 draw phases.",,melt.png

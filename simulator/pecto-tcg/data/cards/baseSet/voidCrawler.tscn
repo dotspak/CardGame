@@ -1,6 +1,7 @@
-[gd_scene load_steps=40 format=3 uid="uid://n6f4fmmbm5w4"]
+[gd_scene load_steps=41 format=3 uid="uid://n6f4fmmbm5w4"]
 
 [ext_resource type="Script" uid="uid://dn6e7duqtsffm" path="res://src/pectoCard.gd" id="1_ekfuo"]
+[ext_resource type="Texture2D" uid="uid://6bgniltlfsjj" path="res://assets/set1/voidCrawler.png" id="2_2iali"]
 [ext_resource type="Texture2D" uid="uid://b1f2r0svmhmej" path="res://assets/textTexture.png" id="2_wb2o0"]
 [ext_resource type="Texture2D" uid="uid://bgcxb5kcqfo72" path="res://assets/foilmaps/abstractWizard.png" id="3_2iali"]
 [ext_resource type="Texture2D" uid="uid://cnynonhm320bh" path="res://assets/rainbowGrad.tres" id="4_vk0xo"]
@@ -89,12 +90,12 @@ shader_parameter/noise_speed = 2.8570001357075
 shader_parameter/shimmer_speed = 1.65600007866
 shader_parameter/shimmer_strength = 0.5350000254125
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0pifv"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wb2o0"]
 resource_local_to_scene = true
 shader = ExtResource("5_q1q61")
 shader_parameter/mode = 0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ge2i5"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2iali"]
 resource_local_to_scene = true
 bg_color = Color(0.6, 0.6, 0.6, 0)
 draw_center = false
@@ -250,7 +251,9 @@ cardName = "Void Crawler"
 force = 2
 subtype = ["Celestial", "Bug"]
 text = "When Void Crawler enters your discard, you may use {skill:void talk}. For each card voided: deal 1 damage to target card your opponent controls."
-skillText = ""
+skillName = "void talk"
+skillText = "Void up to 1 card from your deck and up to 1 card from your hand."
+art = ExtResource("2_2iali")
 
 [node name="cardShape" type="PanelContainer" parent="."]
 unique_name_in_owner = true
@@ -306,14 +309,14 @@ grow_vertical = 2
 expand_mode = 1
 
 [node name="shadow" type="Panel" parent="art/visual"]
-material = SubResource("ShaderMaterial_0pifv")
+material = SubResource("ShaderMaterial_wb2o0")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ge2i5")
+theme_override_styles/panel = SubResource("StyleBoxFlat_2iali")
 
 [node name="border" type="Panel" parent="art/visual"]
 unique_name_in_owner = true

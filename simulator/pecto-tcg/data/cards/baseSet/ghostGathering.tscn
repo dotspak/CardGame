@@ -1,7 +1,8 @@
-[gd_scene load_steps=40 format=3 uid="uid://djrkqdyt6shq3"]
+[gd_scene load_steps=41 format=3 uid="uid://djrkqdyt6shq3"]
 
 [ext_resource type="Script" uid="uid://dn6e7duqtsffm" path="res://src/pectoCard.gd" id="1_83fl3"]
 [ext_resource type="Texture2D" uid="uid://b1f2r0svmhmej" path="res://assets/textTexture.png" id="2_5fntx"]
+[ext_resource type="Texture2D" uid="uid://dxq8iy0p10qn3" path="res://assets/set1/possess.png" id="2_8o8ua"]
 [ext_resource type="Texture2D" uid="uid://bgcxb5kcqfo72" path="res://assets/foilmaps/abstractWizard.png" id="3_8o8ua"]
 [ext_resource type="Texture2D" uid="uid://cnynonhm320bh" path="res://assets/rainbowGrad.tres" id="4_22pg6"]
 [ext_resource type="Shader" uid="uid://brh53fytjw03j" path="res://shader/blendModes.gdshader" id="5_kp8cs"]
@@ -89,12 +90,12 @@ shader_parameter/noise_speed = 2.8570001357075
 shader_parameter/shimmer_speed = 1.65600007866
 shader_parameter/shimmer_strength = 0.5350000254125
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0p8h1"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5fntx"]
 resource_local_to_scene = true
 shader = ExtResource("5_kp8cs")
 shader_parameter/mode = 0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eontw"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8o8ua"]
 resource_local_to_scene = true
 bg_color = Color(0.6, 0.6, 0.6, 0)
 draw_center = false
@@ -252,7 +253,9 @@ force = 0
 lvl = 2
 keywords = ["instant"]
 text = "{trigger:cast} Create Ghost {force:1}/{key:bleed} tokens up to the amount of Units in your discard."
-skillText = ""
+skillName = "spawn"
+skillText = "Sacrifice all Ghost tokens in play: create a Ghost {force:?}/{key:bleed} token with {force:?} equal to the number of cards sacrificed."
+art = ExtResource("2_8o8ua")
 
 [node name="cardShape" type="PanelContainer" parent="."]
 unique_name_in_owner = true
@@ -308,14 +311,14 @@ grow_vertical = 2
 expand_mode = 1
 
 [node name="shadow" type="Panel" parent="art/visual"]
-material = SubResource("ShaderMaterial_0p8h1")
+material = SubResource("ShaderMaterial_5fntx")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_eontw")
+theme_override_styles/panel = SubResource("StyleBoxFlat_8o8ua")
 
 [node name="border" type="Panel" parent="art/visual"]
 unique_name_in_owner = true

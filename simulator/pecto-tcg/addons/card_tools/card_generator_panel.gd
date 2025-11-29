@@ -1,15 +1,18 @@
 @tool
 extends Control
+class_name CardGenerator
 
-var plugin
 const JSON_PATH : String = "res://data/pectoDB.json"
 const BASE_SCENE : String = "res://scenes/cardTemplates/card_pectoCard.tscn"
 
 @onready var setInput : LineEdit = %setInput
-@onready var generateButton : Button = %Button
+@onready var generateButton : Button = %generateButton
 @onready var outputLog : RichTextLabel = %outputLog
+@onready var skipButton : CheckBox = %skipDupe
 
-func _ready(): generateButton.pressed.connect(_on_generate_pressed)
+var plugin
+var DB : Dictionary = {}
+
 func _on_generate_pressed():
     var setName = setInput.text.strip_edges()
     if setName == "":
@@ -48,27 +51,32 @@ func _ensure_folder(folder : String) -> void:
 func _load_json() -> Dictionary:
     var file := FileAccess.open(JSON_PATH, FileAccess.READ)
     if !file: return {}
-    return JSON.parse_string(file.get_as_text())
+    DB = JSON.parse_string(file.get_as_text())
+    return DB
 
 
 func _create_scene(ID : String, data : Dictionary, folder : String) -> void:
     var savePath = "%s/%s.tscn" % [folder, ID]
-    if FileAccess.file_exists(savePath):
-        _log("Skipped %s - already exists" % ID)
-        return
+    var sceneInstance : PectoCard
 
-    var base = load(BASE_SCENE).instantiate()
-    base.data = data
-    base.ID = ID
-    if "update_card_data" in base:
-        base.update_card_data(false)
+    if FileAccess.file_exists(savePath):
+        if skipButton.pressed: return
+        sceneInstance = load(savePath).instantiate()
+        _log("Updating %s (existing scene)" % ID)
     else:
-        _log("Base Scene missing update_card_data()")
+        sceneInstance = load(BASE_SCENE).instantiate()
+
+    sceneInstance.db = DB
+    sceneInstance.data = data
+    sceneInstance.ID = ID
+
+    if "update_card_data" in sceneInstance: sceneInstance.update_card_data(false)
+    else: _log("Base Scene missing update_card_data()")
     
     var packed : PackedScene = PackedScene.new()
-    packed.pack(base)
+    packed.pack(sceneInstance)
     ResourceSaver.save(packed, savePath)
 
 
-func _log(msg : String):
-    outputLog.append_text(msg + "\n")
+func _log(msg : String): outputLog.append_text(msg + "\n")
+func _on_clear_log_pressed() -> void: outputLog.text = ""

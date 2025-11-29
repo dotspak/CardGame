@@ -1,6 +1,7 @@
-[gd_scene load_steps=40 format=3 uid="uid://dtmer2kghl1hr"]
+[gd_scene load_steps=41 format=3 uid="uid://dtmer2kghl1hr"]
 
 [ext_resource type="Script" uid="uid://dn6e7duqtsffm" path="res://src/pectoCard.gd" id="1_t3g6r"]
+[ext_resource type="Texture2D" uid="uid://xbysac2b8a0x" path="res://assets/set1/madnessRitual.png" id="2_1redq"]
 [ext_resource type="Texture2D" uid="uid://b1f2r0svmhmej" path="res://assets/textTexture.png" id="2_jrtdj"]
 [ext_resource type="Texture2D" uid="uid://bgcxb5kcqfo72" path="res://assets/foilmaps/abstractWizard.png" id="3_1redq"]
 [ext_resource type="Texture2D" uid="uid://cnynonhm320bh" path="res://assets/rainbowGrad.tres" id="4_8frrp"]
@@ -89,12 +90,12 @@ shader_parameter/noise_speed = 2.8570001357075
 shader_parameter/shimmer_speed = 1.65600007866
 shader_parameter/shimmer_strength = 0.5350000254125
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gfkcq"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jrtdj"]
 resource_local_to_scene = true
 shader = ExtResource("5_yjwe5")
 shader_parameter/mode = 0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u3xca"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1redq"]
 resource_local_to_scene = true
 bg_color = Color(0.6, 0.6, 0.6, 0)
 draw_center = false
@@ -251,7 +252,9 @@ cardName = "Madness Policy"
 force = 0
 lvl = 4
 text = "{trigger:enter} Any card that opposes another card is sacrificed. Add a soul counter to Madness Policy for every card sacrificed."
-skillText = ""
+skillName = "smile"
+skillText = "If Madness Policy has a soul counter, draw a card."
+art = ExtResource("2_1redq")
 
 [node name="cardShape" type="PanelContainer" parent="."]
 unique_name_in_owner = true
@@ -307,14 +310,14 @@ grow_vertical = 2
 expand_mode = 1
 
 [node name="shadow" type="Panel" parent="art/visual"]
-material = SubResource("ShaderMaterial_gfkcq")
+material = SubResource("ShaderMaterial_jrtdj")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_u3xca")
+theme_override_styles/panel = SubResource("StyleBoxFlat_1redq")
 
 [node name="border" type="Panel" parent="art/visual"]
 unique_name_in_owner = true

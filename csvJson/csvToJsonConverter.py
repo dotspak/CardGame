@@ -9,7 +9,8 @@ import os
 
 def to_camel_case(name : str) -> str:
     name = name.strip()
-    parts = re.split(r"[ _\-]+", name)
+    name = re.sub(r"[^A-Za-z0-9 _\-:]", "", name)
+    parts = re.split(r"[ _\-:]+", name)
     if not parts: return ""
     return parts[0].lower() + "".join(p.capitalize() for p in parts[1:])
 

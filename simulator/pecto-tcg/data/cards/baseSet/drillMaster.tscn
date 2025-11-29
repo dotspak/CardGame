@@ -1,7 +1,8 @@
-[gd_scene load_steps=40 format=3 uid="uid://6ujhdhimtdwp"]
+[gd_scene load_steps=41 format=3 uid="uid://6ujhdhimtdwp"]
 
 [ext_resource type="Script" uid="uid://dn6e7duqtsffm" path="res://src/pectoCard.gd" id="1_yu02c"]
 [ext_resource type="Texture2D" uid="uid://b1f2r0svmhmej" path="res://assets/textTexture.png" id="2_kidpa"]
+[ext_resource type="Texture2D" uid="uid://w8k4bkfhr43u" path="res://assets/set1/drillMaster.png" id="2_ojeoy"]
 [ext_resource type="Texture2D" uid="uid://bgcxb5kcqfo72" path="res://assets/foilmaps/abstractWizard.png" id="3_ojeoy"]
 [ext_resource type="Texture2D" uid="uid://cnynonhm320bh" path="res://assets/rainbowGrad.tres" id="4_jmnq6"]
 [ext_resource type="Shader" uid="uid://brh53fytjw03j" path="res://shader/blendModes.gdshader" id="5_tqbrt"]
@@ -89,12 +90,12 @@ shader_parameter/noise_speed = 2.8570001357075
 shader_parameter/shimmer_speed = 1.65600007866
 shader_parameter/shimmer_strength = 0.5350000254125
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_pe234"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kidpa"]
 resource_local_to_scene = true
 shader = ExtResource("5_tqbrt")
 shader_parameter/mode = 0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mbrn"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ojeoy"]
 resource_local_to_scene = true
 bg_color = Color(0.6, 0.6, 0.6, 0)
 draw_center = false
@@ -251,7 +252,10 @@ force = 2
 lvl = 2
 subtype = ["Magic", "Golem"]
 text = "Drill Master always destroys Icons in combat."
-skillText = ""
+skillName = "To The Bottom"
+skillText = "Discard the top card of your deck. If the card discarded is an Icon, become inactive then set it if able."
+isSkillContinuous = true
+art = ExtResource("2_ojeoy")
 
 [node name="cardShape" type="PanelContainer" parent="."]
 unique_name_in_owner = true
@@ -307,14 +311,14 @@ grow_vertical = 2
 expand_mode = 1
 
 [node name="shadow" type="Panel" parent="art/visual"]
-material = SubResource("ShaderMaterial_pe234")
+material = SubResource("ShaderMaterial_kidpa")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_7mbrn")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ojeoy")
 
 [node name="border" type="Panel" parent="art/visual"]
 unique_name_in_owner = true

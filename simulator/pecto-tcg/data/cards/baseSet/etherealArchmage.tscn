@@ -1,6 +1,7 @@
-[gd_scene load_steps=40 format=3 uid="uid://dep0hg8h2wovd"]
+[gd_scene load_steps=41 format=3 uid="uid://dep0hg8h2wovd"]
 
 [ext_resource type="Script" uid="uid://dn6e7duqtsffm" path="res://src/pectoCard.gd" id="1_7djbw"]
+[ext_resource type="Texture2D" uid="uid://b2xijyqh7fp17" path="res://assets/set1/etherealArchmage.png" id="2_d6358"]
 [ext_resource type="Texture2D" uid="uid://b1f2r0svmhmej" path="res://assets/textTexture.png" id="2_uxyc1"]
 [ext_resource type="Texture2D" uid="uid://bgcxb5kcqfo72" path="res://assets/foilmaps/abstractWizard.png" id="3_d6358"]
 [ext_resource type="Texture2D" uid="uid://cnynonhm320bh" path="res://assets/rainbowGrad.tres" id="4_gfc70"]
@@ -89,12 +90,12 @@ shader_parameter/noise_speed = 2.8570001357075
 shader_parameter/shimmer_speed = 1.65600007866
 shader_parameter/shimmer_strength = 0.5350000254125
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_u8ate"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uxyc1"]
 resource_local_to_scene = true
 shader = ExtResource("5_la2ks")
 shader_parameter/mode = 0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iaxqi"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d6358"]
 resource_local_to_scene = true
 bg_color = Color(0.6, 0.6, 0.6, 0)
 draw_center = false
@@ -252,7 +253,9 @@ lvl = 5
 subtype = ["Celestial", "Wizard"]
 keywords = ["delayed", "muted"]
 text = "{trigger:enter} Discard your hand."
-skillText = ""
+skillName = "Heat Death"
+skillText = "Void as many spells in your discard as you want. For every spell voided this way, deal 1 damage to each opponent."
+art = ExtResource("2_d6358")
 
 [node name="cardShape" type="PanelContainer" parent="."]
 unique_name_in_owner = true
@@ -308,14 +311,14 @@ grow_vertical = 2
 expand_mode = 1
 
 [node name="shadow" type="Panel" parent="art/visual"]
-material = SubResource("ShaderMaterial_u8ate")
+material = SubResource("ShaderMaterial_uxyc1")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_iaxqi")
+theme_override_styles/panel = SubResource("StyleBoxFlat_d6358")
 
 [node name="border" type="Panel" parent="art/visual"]
 unique_name_in_owner = true

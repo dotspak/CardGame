@@ -1,7 +1,8 @@
-[gd_scene load_steps=40 format=3 uid="uid://dlq061104xbvx"]
+[gd_scene load_steps=41 format=3 uid="uid://dlq061104xbvx"]
 
 [ext_resource type="Script" uid="uid://dn6e7duqtsffm" path="res://src/pectoCard.gd" id="1_pqajj"]
 [ext_resource type="Texture2D" uid="uid://b1f2r0svmhmej" path="res://assets/textTexture.png" id="2_7oqfy"]
+[ext_resource type="Texture2D" uid="uid://cqb0h00u43kie" path="res://assets/set1/smokeBeetle.png" id="2_c2osh"]
 [ext_resource type="Texture2D" uid="uid://bgcxb5kcqfo72" path="res://assets/foilmaps/abstractWizard.png" id="3_c2osh"]
 [ext_resource type="Texture2D" uid="uid://cnynonhm320bh" path="res://assets/rainbowGrad.tres" id="4_fbtq5"]
 [ext_resource type="Shader" uid="uid://brh53fytjw03j" path="res://shader/blendModes.gdshader" id="5_bhgte"]
@@ -89,12 +90,12 @@ shader_parameter/noise_speed = 2.8570001357075
 shader_parameter/shimmer_speed = 1.65600007866
 shader_parameter/shimmer_strength = 0.5350000254125
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wonm4"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7oqfy"]
 resource_local_to_scene = true
 shader = ExtResource("5_bhgte")
 shader_parameter/mode = 0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ouq4a"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c2osh"]
 resource_local_to_scene = true
 bg_color = Color(0.6, 0.6, 0.6, 0)
 draw_center = false
@@ -249,7 +250,9 @@ ID = "smokeBeetle"
 cardName = "Smoke Beetle"
 subtype = ["Dark", "Bug"]
 text = "If Smoke Beetle enters your discard, you may recycle your deck."
-skillText = ""
+skillName = "Dig"
+skillText = "Search your deck for a Bug and send it to your discard pile or sacrifice Grub."
+art = ExtResource("2_c2osh")
 
 [node name="cardShape" type="PanelContainer" parent="."]
 unique_name_in_owner = true
@@ -305,14 +308,14 @@ grow_vertical = 2
 expand_mode = 1
 
 [node name="shadow" type="Panel" parent="art/visual"]
-material = SubResource("ShaderMaterial_wonm4")
+material = SubResource("ShaderMaterial_7oqfy")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ouq4a")
+theme_override_styles/panel = SubResource("StyleBoxFlat_c2osh")
 
 [node name="border" type="Panel" parent="art/visual"]
 unique_name_in_owner = true

@@ -1,7 +1,8 @@
-[gd_scene load_steps=40 format=3 uid="uid://cjyqqmvwhsch6"]
+[gd_scene load_steps=41 format=3 uid="uid://cjyqqmvwhsch6"]
 
 [ext_resource type="Script" uid="uid://dn6e7duqtsffm" path="res://src/pectoCard.gd" id="1_wywf5"]
 [ext_resource type="Texture2D" uid="uid://b1f2r0svmhmej" path="res://assets/textTexture.png" id="2_acqod"]
+[ext_resource type="Texture2D" uid="uid://kun5rp8472lm" path="res://assets/set1/arbiter.png" id="2_wys41"]
 [ext_resource type="Texture2D" uid="uid://bgcxb5kcqfo72" path="res://assets/foilmaps/abstractWizard.png" id="3_wys41"]
 [ext_resource type="Texture2D" uid="uid://cnynonhm320bh" path="res://assets/rainbowGrad.tres" id="4_88fhb"]
 [ext_resource type="Shader" uid="uid://brh53fytjw03j" path="res://shader/blendModes.gdshader" id="5_r426i"]
@@ -89,12 +90,12 @@ shader_parameter/noise_speed = 2.8570001357075
 shader_parameter/shimmer_speed = 1.65600007866
 shader_parameter/shimmer_strength = 0.5350000254125
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_fbyxe"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_acqod"]
 resource_local_to_scene = true
 shader = ExtResource("5_r426i")
 shader_parameter/mode = 0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o4hxy"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wys41"]
 resource_local_to_scene = true
 bg_color = Color(0.6, 0.6, 0.6, 0)
 draw_center = false
@@ -252,7 +253,9 @@ lvl = 2
 subtype = ["Object", "Monster"]
 keywords = ["quick"]
 text = "{trigger:victor} Add 1-3 Soul counters to Arbiter."
-skillText = ""
+skillName = "Self Search"
+skillText = "Search your deck for a card with LVL equal to the amount of soul counters on Arbiter. Reveal it, then add it to your hand."
+art = ExtResource("2_wys41")
 
 [node name="cardShape" type="PanelContainer" parent="."]
 unique_name_in_owner = true
@@ -308,14 +311,14 @@ grow_vertical = 2
 expand_mode = 1
 
 [node name="shadow" type="Panel" parent="art/visual"]
-material = SubResource("ShaderMaterial_fbyxe")
+material = SubResource("ShaderMaterial_acqod")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_o4hxy")
+theme_override_styles/panel = SubResource("StyleBoxFlat_wys41")
 
 [node name="border" type="Panel" parent="art/visual"]
 unique_name_in_owner = true

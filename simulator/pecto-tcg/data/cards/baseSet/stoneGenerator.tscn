@@ -1,7 +1,8 @@
-[gd_scene load_steps=40 format=3 uid="uid://ctenlx2qsdcij"]
+[gd_scene load_steps=41 format=3 uid="uid://ctenlx2qsdcij"]
 
 [ext_resource type="Script" uid="uid://dn6e7duqtsffm" path="res://src/pectoCard.gd" id="1_fasf2"]
 [ext_resource type="Texture2D" uid="uid://b1f2r0svmhmej" path="res://assets/textTexture.png" id="2_0b0qq"]
+[ext_resource type="Texture2D" uid="uid://c2h7nufaykqqr" path="res://assets/set1/stoneGenerator.png" id="2_4mlba"]
 [ext_resource type="Texture2D" uid="uid://bgcxb5kcqfo72" path="res://assets/foilmaps/abstractWizard.png" id="3_4mlba"]
 [ext_resource type="Texture2D" uid="uid://cnynonhm320bh" path="res://assets/rainbowGrad.tres" id="4_kkfxw"]
 [ext_resource type="Shader" uid="uid://brh53fytjw03j" path="res://shader/blendModes.gdshader" id="5_nmbee"]
@@ -89,12 +90,12 @@ shader_parameter/noise_speed = 2.8570001357075
 shader_parameter/shimmer_speed = 1.65600007866
 shader_parameter/shimmer_strength = 0.5350000254125
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dv6gp"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0b0qq"]
 resource_local_to_scene = true
 shader = ExtResource("5_nmbee")
 shader_parameter/mode = 0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rxm6q"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4mlba"]
 resource_local_to_scene = true
 bg_color = Color(0.6, 0.6, 0.6, 0)
 draw_center = false
@@ -252,7 +253,9 @@ lvl = 3
 subtype = ["Golem", "Structure"]
 keywords = ["static"]
 text = ""
-skillText = ""
+skillName = "Cobbler"
+skillText = "Look at the top 3 cards of your deck. Reveal, then add any golem cards found to your hand. Send remaining cards to the top or bottom of your deck in any order."
+art = ExtResource("2_4mlba")
 
 [node name="cardShape" type="PanelContainer" parent="."]
 unique_name_in_owner = true
@@ -308,14 +311,14 @@ grow_vertical = 2
 expand_mode = 1
 
 [node name="shadow" type="Panel" parent="art/visual"]
-material = SubResource("ShaderMaterial_dv6gp")
+material = SubResource("ShaderMaterial_0b0qq")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_rxm6q")
+theme_override_styles/panel = SubResource("StyleBoxFlat_4mlba")
 
 [node name="border" type="Panel" parent="art/visual"]
 unique_name_in_owner = true

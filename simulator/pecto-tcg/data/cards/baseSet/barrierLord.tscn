@@ -1,7 +1,8 @@
-[gd_scene load_steps=40 format=3 uid="uid://bspbwd2dtvve4"]
+[gd_scene load_steps=41 format=3 uid="uid://bspbwd2dtvve4"]
 
 [ext_resource type="Script" uid="uid://dn6e7duqtsffm" path="res://src/pectoCard.gd" id="1_ae8ou"]
 [ext_resource type="Texture2D" uid="uid://b1f2r0svmhmej" path="res://assets/textTexture.png" id="2_4dh2g"]
+[ext_resource type="Texture2D" uid="uid://bct1diy8guvf1" path="res://assets/set1/barrierLord.png" id="2_50wj2"]
 [ext_resource type="Texture2D" uid="uid://bgcxb5kcqfo72" path="res://assets/foilmaps/abstractWizard.png" id="3_50wj2"]
 [ext_resource type="Texture2D" uid="uid://cnynonhm320bh" path="res://assets/rainbowGrad.tres" id="4_1y38f"]
 [ext_resource type="Shader" uid="uid://brh53fytjw03j" path="res://shader/blendModes.gdshader" id="5_biqqg"]
@@ -89,12 +90,12 @@ shader_parameter/noise_speed = 2.8570001357075
 shader_parameter/shimmer_speed = 1.65600007866
 shader_parameter/shimmer_strength = 0.5350000254125
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_pbgjv"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4dh2g"]
 resource_local_to_scene = true
 shader = ExtResource("5_biqqg")
 shader_parameter/mode = 0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_12b3h"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_50wj2"]
 resource_local_to_scene = true
 bg_color = Color(0.6, 0.6, 0.6, 0)
 draw_center = false
@@ -253,7 +254,9 @@ lvl = 4
 subtype = ["Golem"]
 keywords = ["instant", "warden", "muted"]
 text = "Does not deal combat damage. If a card you control were to take damage, Barrier Lord takes the damage instead."
-skillText = ""
+skillName = "Mighty"
+skillText = "Add {force:2} to another unit you control."
+art = ExtResource("2_50wj2")
 
 [node name="cardShape" type="PanelContainer" parent="."]
 unique_name_in_owner = true
@@ -309,14 +312,14 @@ grow_vertical = 2
 expand_mode = 1
 
 [node name="shadow" type="Panel" parent="art/visual"]
-material = SubResource("ShaderMaterial_pbgjv")
+material = SubResource("ShaderMaterial_4dh2g")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_12b3h")
+theme_override_styles/panel = SubResource("StyleBoxFlat_50wj2")
 
 [node name="border" type="Panel" parent="art/visual"]
 unique_name_in_owner = true

@@ -1,6 +1,7 @@
-[gd_scene load_steps=40 format=3 uid="uid://b00ysyuh8jj2n"]
+[gd_scene load_steps=41 format=3 uid="uid://b00ysyuh8jj2n"]
 
 [ext_resource type="Script" uid="uid://dn6e7duqtsffm" path="res://src/pectoCard.gd" id="1_qdi0h"]
+[ext_resource type="Texture2D" uid="uid://cd6hnroc06q4k" path="res://assets/set1/abyssMouth.png" id="2_1ajji"]
 [ext_resource type="Texture2D" uid="uid://b1f2r0svmhmej" path="res://assets/textTexture.png" id="2_sk25m"]
 [ext_resource type="Texture2D" uid="uid://bgcxb5kcqfo72" path="res://assets/foilmaps/abstractWizard.png" id="3_1ajji"]
 [ext_resource type="Texture2D" uid="uid://cnynonhm320bh" path="res://assets/rainbowGrad.tres" id="4_cxt8a"]
@@ -89,12 +90,12 @@ shader_parameter/noise_speed = 2.8570001357075
 shader_parameter/shimmer_speed = 1.65600007866
 shader_parameter/shimmer_strength = 0.5350000254125
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xru4g"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sk25m"]
 resource_local_to_scene = true
 shader = ExtResource("5_ynbl3")
 shader_parameter/mode = 0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2v0lx"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ajji"]
 resource_local_to_scene = true
 bg_color = Color(0.6, 0.6, 0.6, 0)
 draw_center = false
@@ -253,7 +254,9 @@ lvl = 3
 subtype = ["Structure", "God"]
 keywords = ["muted"]
 text = "{trigger:end} Attack a front row card an opponent controls or deal 2 damage to an opponent that controls no front row cards."
-skillText = ""
+skillName = "Feed The Maw"
+skillText = "Sacrifice a card you control: gain {force:3}."
+art = ExtResource("2_1ajji")
 
 [node name="cardShape" type="PanelContainer" parent="."]
 unique_name_in_owner = true
@@ -309,14 +312,14 @@ grow_vertical = 2
 expand_mode = 1
 
 [node name="shadow" type="Panel" parent="art/visual"]
-material = SubResource("ShaderMaterial_xru4g")
+material = SubResource("ShaderMaterial_sk25m")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_2v0lx")
+theme_override_styles/panel = SubResource("StyleBoxFlat_1ajji")
 
 [node name="border" type="Panel" parent="art/visual"]
 unique_name_in_owner = true
