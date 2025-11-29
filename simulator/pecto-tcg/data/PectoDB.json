@@ -1,0 +1,4132 @@
+{
+	"cards": {
+		"bottomDweller": {
+			"name": "Bottom Dweller",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Ghost"
+			],
+			"lvl": 1,
+			"force": 2,
+			"keywords": [],
+			"text": "{trigger:enter} Discard up to 2 cards from your hand.",
+			"skill": null,
+			"art": "bottomDweller.png",
+			"scenepath": ""
+		},
+		"twistedGolem": {
+			"name": "Twisted Golem",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Ghost",
+                "Golem"
+			],
+			"lvl": 1,
+			"force": 0,
+			"keywords": [
+                "effect"
+			],
+			"text": "{trigger:perish} You gain LVL equal to this card's LVL.",
+			"skill": null,
+			"art": "twistedGolem.png",
+			"scenepath": ""
+		},
+		"ghostSpellcaster": {
+			"name": "Ghost Spellcaster",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Ghost",
+                "Wizard"
+			],
+			"lvl": 1,
+			"force": 0,
+			"keywords": [],
+			"text": "",
+			"skill": "deathMagic",
+			"art": "ghostSpellcaster.png",
+			"scenepath": ""
+		},
+		"jester": {
+			"name": "Jester",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Ghost"
+			],
+			"lvl": 1,
+			"force": 1,
+			"keywords": [],
+			"text": "If jester were to enter your discard, you may setit. If Jester is set this way, deal 1 damage to all opponents.\n{trigger:perish} Shuffle Jester into your deck.",
+			"skill": null,
+			"art": "jester.png",
+			"scenepath": ""
+		},
+		"blueStar": {
+			"name": "Blue Star",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Celestial"
+			],
+			"lvl": 1,
+			"force": 1,
+			"keywords": [
+                "instant"
+			],
+			"text": "",
+			"skill": "blueGiant",
+			"art": "blueStar.png",
+			"scenepath": ""
+		},
+		"redStar": {
+			"name": "Red Star",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Celestial"
+			],
+			"lvl": 1,
+			"force": 1,
+			"keywords": [
+                "instant"
+			],
+			"text": "",
+			"skill": "redDwarf",
+			"art": "redStar.png",
+			"scenepath": ""
+		},
+		"womanFromVenus": {
+			"name": "Woman from Venus",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Celestial"
+			],
+			"lvl": 1,
+			"force": 1,
+			"keywords": [],
+			"text": "Woman From Venus has {key:Quick} when attacking. If Woman From Venus were to enter your void, you may set it instead as {force:3}.",
+			"skill": null,
+			"art": "venusWoman.png",
+			"scenepath": ""
+		},
+		"evilEgg": {
+			"name": "Evil Egg",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Monster",
+                "Object"
+			],
+			"lvl": 1,
+			"force": 0,
+			"keywords": [
+				"effect",
+                "static"
+			],
+			"text": "{trigger:perish} Search your deck for a unit. Reveal it, then add it to your hand. You cannot play it this turn.",
+			"skill": null,
+			"art": "crackedEgg.png",
+			"scenepath": ""
+		},
+		"flyingCube": {
+			"name": "Flying Cube",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Golem",
+                "Monster"
+			],
+			"lvl": 1,
+			"force": 1,
+			"keywords": [
+                "flying"
+			],
+			"text": "Gain {force:1} when a unit is played in your back row.",
+			"skill": null,
+			"art": "flyingCube.png",
+			"scenepath": ""
+		},
+		"pussBeast": {
+			"name": "Puss Beast",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Monster"
+			],
+			"lvl": 1,
+			"force": 1,
+			"keywords": [
+                "effect"
+			],
+			"text": "",
+			"skill": "congeal",
+			"art": "pussBeast.png",
+			"scenepath": ""
+		},
+		"lesserCrow": {
+			"name": "Lesser Crow",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Crow"
+			],
+			"lvl": 1,
+			"force": 0,
+			"keywords": [],
+			"text": "",
+			"skill": "flock",
+			"art": "LesserCrow.png",
+			"scenepath": ""
+		},
+		"skeleton": {
+			"name": "Skeleton",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Monster"
+			],
+			"lvl": 1,
+			"force": 3,
+			"keywords": [
+				"muted",
+				"bleed",
+                "fragile"
+			],
+			"text": "If Skeleton has at least {force:5}, remove {key:fragile}.",
+			"skill": null,
+			"art": "Skeleton.png",
+			"scenepath": ""
+		},
+		"soulLantern": {
+			"name": "Soul Lantern",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Magic",
+                "Object"
+			],
+			"lvl": 1,
+			"force": 0,
+			"keywords": [],
+			"text": "Whenever a non-token unit perishes, add a soul counter and attach the top card of your deck to Soul Lantern.\n{trigger:perish} Add attached cards to your hand.",
+			"skill": null,
+			"art": "soulLantern.png",
+			"scenepath": ""
+		},
+		"mimic": {
+			"name": "Mimic",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Shapeshifter"
+			],
+			"lvl": 1,
+			"force": 0,
+			"keywords": [
+				"effect",
+                "static"
+			],
+			"text": "{trigger:perish} The player who destroyed this card draws 2 cards.",
+			"skill": null,
+			"art": "mimic.png",
+			"scenepath": ""
+		},
+		"marlitaGray": {
+			"name": "Marlita Gray",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Marlita"
+			],
+			"lvl": 1,
+			"force": 1,
+			"keywords": [
+                "static"
+			],
+			"text": "{cost:Can only be played once per turn.}",
+			"skill": "beckoning",
+			"art": "marlitaGray.png",
+			"scenepath": ""
+		},
+		"marlitaBlack": {
+			"name": "Marlita Black",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Marlita"
+			],
+			"lvl": 1,
+			"force": 1,
+			"keywords": [
+                "bleed"
+			],
+			"text": "Whenever Marlita Black declares an attack, choose a player. That player discards cards from the top of their deck or hand up to Marlita Black's {force:?}.",
+			"skill": null,
+			"art": "marlitaBlack.png",
+			"scenepath": ""
+		},
+		"marlitaRed": {
+			"name": "Marlita Red",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Marlita"
+			],
+			"lvl": 1,
+			"force": 1,
+			"keywords": [],
+			"text": "{trigger:enter} Discard a card from your hand.\n{trigger:begin} Units you control gain {force:1}.",
+			"skill": null,
+			"art": "marlitaRed.png",
+			"scenepath": ""
+		},
+		"grub": {
+			"name": "Grub",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Bug"
+			],
+			"lvl": 1,
+			"force": 2,
+			"keywords": [
+                "effect"
+			],
+			"text": "",
+			"skill": "dig",
+			"art": "grub.png",
+			"scenepath": ""
+		},
+		"roller": {
+			"name": "Roller",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Bug"
+			],
+			"lvl": 1,
+			"force": 1,
+			"keywords": [],
+			"text": "When Roller enters your front row, deal 1 damage to the opposing card. If Roller enters the discard you may move your cards.",
+			"skill": null,
+			"art": "roller.png",
+			"scenepath": ""
+		},
+		"hematem": {
+			"name": "Hematem",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Monster"
+			],
+			"lvl": 1,
+			"force": 1,
+			"keywords": [],
+			"text": "{trigger:enter} Gain {force:1} for ever other monster card you control.",
+			"skill": null,
+			"art": "hematem.png",
+			"scenepath": ""
+		},
+		"cockroach": {
+			"name": "Cockroach",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Bug"
+			],
+			"lvl": 1,
+			"force": 2,
+			"keywords": [
+				"muted",
+                "warden"
+			],
+			"text": "",
+			"skill": "dig",
+			"art": "cockroach.png",
+			"scenepath": ""
+		},
+		"bloodRock": {
+			"name": "Blood Rock",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Shapeshifter"
+			],
+			"lvl": 1,
+			"force": 1,
+			"keywords": [
+                "bleed"
+			],
+			"text": "Units you control with {key:bleed} deal 1 extra combat damage to the opponent.",
+			"skill": null,
+			"art": "bloodRock.png",
+			"scenepath": ""
+		},
+		"smokeBeetle": {
+			"name": "Smoke Beetle",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Dark",
+                "Bug"
+			],
+			"lvl": 1,
+			"force": 1,
+			"keywords": [],
+			"text": "If Smoke Beetle enters your discard, you may recycle your deck.",
+			"skill": "dig",
+			"art": "smokeBeetle.png",
+			"scenepath": ""
+		},
+		"voidCrawler": {
+			"name": "Void Crawler",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Celestial",
+                "Bug"
+			],
+			"lvl": 1,
+			"force": 2,
+			"keywords": [],
+			"text": "When Void Crawler enters your discard, you may use {skill:void talk}. For each card voided: deal 1 damage to target card your opponent controls.",
+			"skill": "voidTalk",
+			"art": "voidCrawler.png",
+			"scenepath": ""
+		},
+		"pixie": {
+			"name": "Pixie",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Magic"
+			],
+			"lvl": 1,
+			"force": 1,
+			"keywords": [],
+			"text": "Other Magic cards you control have +{force:1}.",
+			"skill": "magicLink",
+			"art": "pixie.png",
+			"scenepath": ""
+		},
+		"sandCube": {
+			"name": "Sand Cube",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Magic",
+                "Golem"
+			],
+			"lvl": 1,
+			"force": 0,
+			"keywords": [
+				"fragile",
+                "warden"
+			],
+			"text": "{trigger:perish} If Sand Cube moved to block a unit, the blocked unit gins {key:fragile}.",
+			"skill": null,
+			"art": "sandCube.png",
+			"scenepath": ""
+		},
+		"buildingBoulder": {
+			"name": "Building Boulder",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Golem"
+			],
+			"lvl": 1,
+			"force": 2,
+			"keywords": [
+				"effect",
+                "warden"
+			],
+			"text": "{trigger:end} You gain 1 LVL.",
+			"skill": null,
+			"art": "buildingBoudler.png",
+			"scenepath": ""
+		},
+		"marlitaTeal": {
+			"name": "Marlita Teal",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Marlita"
+			],
+			"lvl": 2,
+			"force": 1,
+			"keywords": [],
+			"text": "When a non-token unit you control perishes, give {force:1} to a card you control until the end of the turn.\n{trigger:enter} Discard the top 3 cards of your deck.",
+			"skill": null,
+			"art": "marlitaTeal.png",
+			"scenepath": ""
+		},
+		"marlitaBlue": {
+			"name": "Marlita Blue",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Marlita"
+			],
+			"lvl": 2,
+			"force": 0,
+			"keywords": [],
+			"text": "When a front row card you control perishes, you may discard the top 5 cards of your deck (must be able to discard 5). If you do, return the card that perished to your hand. You cannot play it this turn.",
+			"skill": null,
+			"art": "marlitaBlue.png",
+			"scenepath": ""
+		},
+		"marlitaYellow": {
+			"name": "Marlita Yellow",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Marlita"
+			],
+			"lvl": 2,
+			"force": 1,
+			"keywords": [
+				"static",
+                "muted"
+			],
+			"text": "{trigger:breach} The opponent breached discards cards from the top of their deck equal to Marlita Yellow's {force:?}",
+			"skill": null,
+			"art": "marlitaYellow.png",
+			"scenepath": ""
+		},
+		"ashMoth": {
+			"name": "Ash Moth",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Old",
+                "Bug"
+			],
+			"lvl": 2,
+			"force": 1,
+			"keywords": [
+                "fragile"
+			],
+			"text": "{trigger:begin} Deal 1 damage to an opponent.",
+			"skill": "ashShower",
+			"art": "ashMoth2.png",
+			"scenepath": ""
+		},
+		"drillMaster": {
+			"name": "Drill Master",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Magic",
+                "Golem"
+			],
+			"lvl": 2,
+			"force": 2,
+			"keywords": [],
+			"text": "Drill Master always destroys Icons in combat.",
+			"skill": "toTheBottom",
+			"art": "drillMaster.png",
+			"scenepath": ""
+		},
+		"lastMass": {
+			"name": "Last Mass",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Magic",
+                "Ghost"
+			],
+			"lvl": 2,
+			"force": 0,
+			"keywords": [
+                "static"
+			],
+			"text": "Gain {force:1} when a card enters your discard.",
+			"skill": "suspension",
+			"art": "lastMass.png",
+			"scenepath": ""
+		},
+		"mortalityAgent": {
+			"name": "Mortality Agent",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Ghost"
+			],
+			"lvl": 2,
+			"force": 1,
+			"keywords": [],
+			"text": "{trigger:cast} Both players reveal the top card of their deck and add it to their hand. If you draw a Ghost card, you may draw an additional card.",
+			"skill": null,
+			"art": "mortalityAgent.png",
+			"scenepath": ""
+		},
+		"cloneElement": {
+			"name": "Clone Element",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Celestial",
+                "Bug"
+			],
+			"lvl": 2,
+			"force": 2,
+			"keywords": [],
+			"text": "Clone Element has {key:Quick} when attacking.\n{trigger:victor} Gain {force:2}.",
+			"skill": "cloneTrick",
+			"art": "cloneElement.png",
+			"scenepath": ""
+		},
+		"artisticGolem": {
+			"name": "Artistic Golem",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Golem"
+			],
+			"lvl": 2,
+			"force": 1,
+			"keywords": [],
+			"text": "{trigger:enter} Create a Pillar {force:2}/{key:Delayed, Muted, Warden} Token if able.",
+			"skill": null,
+			"art": "artistiGolem.png",
+			"scenepath": ""
+		},
+		"spookedGolem": {
+			"name": "Spooked Golem",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Magic",
+                "Golem"
+			],
+			"lvl": 2,
+			"force": 1,
+			"keywords": [],
+			"text": "{trigger:enter} Shuffle a unit your opponent controls into their deck.\n{trigger:end} Shuffle Spooked Golem into your deck.",
+			"skill": "magicLink",
+			"art": "spookedGolem.png",
+			"scenepath": ""
+		},
+		"greaterCrow": {
+			"name": "Greater Crow",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Crow"
+			],
+			"lvl": 2,
+			"force": 2,
+			"keywords": [
+                "delayed"
+			],
+			"text": "",
+			"skill": "gathering",
+			"art": "GreaterCrow.png",
+			"scenepath": ""
+		},
+		"homunculus": {
+			"name": "Homunculus",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Monster"
+			],
+			"lvl": 2,
+			"force": 2,
+			"keywords": [
+                "static"
+			],
+			"text": "When you draw a card, add a matter counter to Homunculus.",
+			"skill": "surge",
+			"art": "homunculus.png",
+			"scenepath": ""
+		},
+		"lonelyDrone": {
+			"name": "Lonely Drone",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Bug"
+			],
+			"lvl": 2,
+			"force": 1,
+			"keywords": [],
+			"text": "",
+			"skill": "friendship",
+			"art": "lonelyDrone.png",
+			"scenepath": ""
+		},
+		"redImp": {
+			"name": "Red Imp",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Monster"
+			],
+			"lvl": 2,
+			"force": 1,
+			"keywords": [],
+			"text": "{trigger:breach} You gain LVL equal to the damage dealt. You may move Red Imp to an open back zone.",
+			"skill": null,
+			"art": "redImp.png",
+			"scenepath": ""
+		},
+		"greenImp": {
+			"name": "Green Imp",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Monster"
+			],
+			"lvl": 2,
+			"force": 1,
+			"keywords": [],
+			"text": "{trigger:breach} Target card you control gains {force:?} equal to the damage dealt. You may move Green Imp to an open back zone.",
+			"skill": null,
+			"art": "greenImp.png",
+			"scenepath": ""
+		},
+		"blueImp": {
+			"name": "Blue Imp",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Monster"
+			],
+			"lvl": 2,
+			"force": 1,
+			"keywords": [],
+			"text": "{trigger:breach} Target player discards cards from the top of their deck up to the damage dealt (you choose the amount discarded). You may move Blue Imp to an open back zone.",
+			"skill": null,
+			"art": "blueImp.png",
+			"scenepath": ""
+		},
+		"shelledFiend": {
+			"name": "Shelled Fiend",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Dark",
+                "Bug"
+			],
+			"lvl": 2,
+			"force": 2,
+			"keywords": [],
+			"text": "If Shelled Fiend enters the discard, give {key:immortal} to a unit you control until the start of your next turn.",
+			"skill": "dig",
+			"art": "shelledFiend.png",
+			"scenepath": ""
+		},
+		"secretWizard": {
+			"name": "Secret Wizard",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Dark",
+                "Wizard"
+			],
+			"lvl": 2,
+			"force": 2,
+			"keywords": [],
+			"text": "",
+			"skill": "magician",
+			"art": "secretWizard.png",
+			"scenepath": ""
+		},
+		"arbiter": {
+			"name": "Arbiter",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Object",
+                "Monster"
+			],
+			"lvl": 2,
+			"force": 2,
+			"keywords": [
+                "quick"
+			],
+			"text": "{trigger:victor} Add 1-3 Soul counters to Arbiter.",
+			"skill": "selfSearch",
+			"art": "arbiter.png",
+			"scenepath": ""
+		},
+		"slumberingTitan": {
+			"name": "Slumbering Titan",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Golem",
+                "God"
+			],
+			"lvl": 2,
+			"force": 8,
+			"keywords": [
+                "immortal"
+			],
+			"text": "{trigger:enter} Add 2 stun counters to Slumbering Titan.",
+			"skill": null,
+			"art": "slumberingTitan.png",
+			"scenepath": ""
+		},
+		"fungalGuardian": {
+			"name": "Fungal Guardian",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Plague",
+                "Warrior"
+			],
+			"lvl": 2,
+			"force": 2,
+			"keywords": [
+                "warden"
+			],
+			"text": "{trigger:perish} Cards your opponent controls gain {key:sick}.",
+			"skill": null,
+			"art": "fungalGuardian.png",
+			"scenepath": ""
+		},
+		"banishWatcher": {
+			"name": "Banish Watcher",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Celestial"
+			],
+			"lvl": 2,
+			"force": 2,
+			"keywords": [
+                "warden"
+			],
+			"text": "When a card enters your void target unit you control gains {force:1}.",
+			"skill": null,
+			"art": "banishWatcher.png",
+			"scenepath": ""
+		},
+		"specterCube": {
+			"name": "Specter Cube",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Magic",
+                "Ghost"
+			],
+			"lvl": 2,
+			"force": 0,
+			"keywords": [
+                "fragile"
+			],
+			"text": "Other units you control in the same row as Specter Cube have +{force:?} equal to Specter Cube's {force:?}.",
+			"skill": null,
+			"art": "specterGhost.png",
+			"scenepath": ""
+		},
+		"rainDemon": {
+			"name": "Rain Demon",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Monster"
+			],
+			"lvl": 2,
+			"force": 1,
+			"keywords": [],
+			"text": "",
+			"skill": "downpour",
+			"art": "rainDemon.png",
+			"scenepath": ""
+		},
+		"livingHome": {
+			"name": "Living Home",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Structure",
+                "Golem"
+			],
+			"lvl": 2,
+			"force": 2,
+			"keywords": [],
+			"text": "Draw a card when an icon enters your control.",
+			"skill": "magicLink",
+			"art": "livingHome.png",
+			"scenepath": ""
+		},
+		"boilBeast": {
+			"name": "Boil Beast",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Plague",
+                "Monster"
+			],
+			"lvl": 3,
+			"force": 3,
+			"keywords": [],
+			"text": "Whenever an instance of sick damage occurs, draw a card.",
+			"skill": null,
+			"art": "boilBeast.png",
+			"scenepath": ""
+		},
+		"sapSpider": {
+			"name": "Sap Spider",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Monster"
+			],
+			"lvl": 3,
+			"force": 0,
+			"keywords": [
+				"instant",
+                "bleed"
+			],
+			"text": "",
+			"skill": "sucker",
+			"art": "sapSpider.png",
+			"scenepath": ""
+		},
+		"tombCrawler": {
+			"name": "Tomb Crawler",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Ghost",
+                "Monster"
+			],
+			"lvl": 3,
+			"force": 3,
+			"keywords": [
+                "quick"
+			],
+			"text": "{trigger:victor} Discard a card from your hand. If you do, draw a card.",
+			"skill": null,
+			"art": "tombCrawler.png",
+			"scenepath": ""
+		},
+		"locust": {
+			"name": "Locust",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Plague",
+                "Bug"
+			],
+			"lvl": 3,
+			"force": 2,
+			"keywords": [
+                "effect"
+			],
+			"text": "Locust has {key:Quick} when attacking. Every time a card gains {key:sick},  this card gains {force:1}.",
+			"skill": null,
+			"art": "locust.png",
+			"scenepath": ""
+		},
+		"mogOfTheBog": {
+			"name": "Mog of The Bog",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Plague",
+                "Monster"
+			],
+			"lvl": 3,
+			"force": 0,
+			"keywords": [
+				"muted",
+				"bleed",
+                "sick"
+			],
+			"text": "Mog of the Bog gains {force:2} instead of taking sick damage.",
+			"skill": "contagious",
+			"art": "mog.png",
+			"scenepath": ""
+		},
+		"conjoined": {
+			"name": "Conjoined",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Plague",
+                "Monster"
+			],
+			"lvl": 3,
+			"force": 3,
+			"keywords": [
+				"effect",
+                "sick"
+			],
+			"text": "",
+			"skill": "newPart",
+			"art": "conjoined.png",
+			"scenepath": ""
+		},
+		"doctor": {
+			"name": "Doctor",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Plague",
+                "Wizard"
+			],
+			"lvl": 3,
+			"force": 0,
+			"keywords": [
+                "static"
+			],
+			"text": "Doctor does not take sick damage.",
+			"skill": "surgery",
+			"art": "doctor.png",
+			"scenepath": ""
+		},
+		"falseGolem": {
+			"name": "False Golem",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Magic",
+                "Golem"
+			],
+			"lvl": 3,
+			"force": 0,
+			"keywords": [
+                "delayed"
+			],
+			"text": "{trigger:enter} Void a unit in your discard. False Golem gains the text and {force:?} of the voided unit (any {trigger:enter} effects retrigger). If there are no applicable cards, False Golem becomes {force:0}.",
+			"skill": null,
+			"art": "falseGolem.png",
+			"scenepath": ""
+		},
+		"pearlAggressor": {
+			"name": "Pearl Aggressor",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Golem"
+			],
+			"lvl": 3,
+			"force": 1,
+			"keywords": [
+                "bleed"
+			],
+			"text": "{cost:Must be played in the right zone.} Cards you control in the center zone get +{force:2}.",
+			"skill": "magicLink",
+			"art": "pearlGolem.png",
+			"scenepath": ""
+		},
+		"cheshireCat": {
+			"name": "Cheshire Cat",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Magic",
+                "Monster"
+			],
+			"lvl": 3,
+			"force": 2,
+			"keywords": [
+				"instant",
+                "static"
+			],
+			"text": "",
+			"skill": "evilGrin",
+			"art": "chesireCat.png",
+			"scenepath": ""
+		},
+		"skySpirit": {
+			"name": "Sky Spirit",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Magic"
+			],
+			"lvl": 3,
+			"force": 2,
+			"keywords": [],
+			"text": "",
+			"skill": "gust",
+			"art": "skySpirit.png",
+			"scenepath": ""
+		},
+		"nyx": {
+			"name": "Nyx",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Magic",
+                "Monster"
+			],
+			"lvl": 3,
+			"force": 2,
+			"keywords": [
+                "quick"
+			],
+			"text": "{cost:As an additional cost, sacrifice a card you control.}",
+			"skill": "reunion",
+			"art": "nyx.png",
+			"scenepath": ""
+		},
+		"abstractWizard": {
+			"name": "Abstract Wizard",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Old",
+                "Wizard"
+			],
+			"lvl": 3,
+			"force": 4,
+			"keywords": [
+				"delayed",
+                "safe"
+			],
+			"text": "",
+			"skill": "abstraction",
+			"art": "abstractWizard2.png",
+			"scenepath": ""
+		},
+		"corpseBeetle": {
+			"name": "Corpse Beetle",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Bug",
+                "Monster"
+			],
+			"lvl": 3,
+			"force": 2,
+			"keywords": [],
+			"text": "When Corpse Beetle enters your discard you may sacrifice a card you control.",
+			"skill": "skinner",
+			"art": "corpseBeetle2.png",
+			"scenepath": ""
+		},
+		"wretched": {
+			"name": "Wretched",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Ghost",
+                "Monster"
+			],
+			"lvl": 3,
+			"force": 1,
+			"keywords": [
+				"effect",
+                "fragile"
+			],
+			"text": "{trigger:perish} Create up to 2 Ghost {force:1}/{key:bleed} tokens.",
+			"skill": null,
+			"art": "wretched.png",
+			"scenepath": ""
+		},
+		"radiantLarva": {
+			"name": "Radiant Larva",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Bug"
+			],
+			"lvl": 3,
+			"force": 1,
+			"keywords": [
+                "delayed"
+			],
+			"text": "You may cast Radiant Larva if it enters the discard without perishing.",
+			"skill": null,
+			"art": "radiantLarva.png",
+			"scenepath": ""
+		},
+		"helpfulHoneyBee": {
+			"name": "Helpful Honey bee",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Bug"
+			],
+			"lvl": 3,
+			"force": 1,
+			"keywords": [],
+			"text": "When Helpful Honey Bee enters the discard, draw 2 cards.",
+			"skill": null,
+			"art": "honeyBee.png",
+			"scenepath": ""
+		},
+		"crowPractitioner": {
+			"name": "Crow Practitioner",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Crow"
+			],
+			"lvl": 3,
+			"force": 3,
+			"keywords": [],
+			"text": "",
+			"skill": "crowMedicine",
+			"art": "crowDoctor.png",
+			"scenepath": ""
+		},
+		"repented": {
+			"name": "Repented",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Ghost",
+                "Magic"
+			],
+			"lvl": 3,
+			"force": 2,
+			"keywords": [],
+			"text": "When Repented deals damage, deal 1 damage to all front row cards your opponent controls.",
+			"skill": null,
+			"art": "repented.png",
+			"scenepath": ""
+		},
+		"cicada": {
+			"name": "Cicada",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Dark",
+                "Bug"
+			],
+			"lvl": 3,
+			"force": 3,
+			"keywords": [],
+			"text": "If Cicada enters your discard, give {force:2} to a card you control until the end of the turn.",
+			"skill": "dig",
+			"art": "cicada.png",
+			"scenepath": ""
+		},
+		"serendipity": {
+			"name": "Serendipity",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Ghost",
+                "God"
+			],
+			"lvl": 3,
+			"force": 0,
+			"keywords": [],
+			"text": "If Serendipity is in the back row, gain {force:1} when a card enters your discard.\n{trigger:end} If Serendipity is in the front row, lose {force:2}.",
+			"skill": "undbind",
+			"art": "serendipity.png",
+			"scenepath": ""
+		},
+		"soulBaron": {
+			"name": "Soul Baron",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Magic",
+                "God"
+			],
+			"lvl": 3,
+			"force": 3,
+			"keywords": [],
+			"text": "{trigger:perish} Add attached cards to your hand.",
+			"skill": "ignite",
+			"art": "soulBaron.png",
+			"scenepath": ""
+		},
+		"voidPointer": {
+			"name": "Void Pointer",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Celestial"
+			],
+			"lvl": 3,
+			"force": 4,
+			"keywords": [
+                "delayed"
+			],
+			"text": "{trigger:enter} Void 3 cards from the top of your deck.",
+			"skill": null,
+			"art": "voidPointer.png",
+			"scenepath": ""
+		},
+		"onyxDefender": {
+			"name": "Onyx Defender",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Golem"
+			],
+			"lvl": 3,
+			"force": 3,
+			"keywords": [
+				"muted",
+                "warden"
+			],
+			"text": "{cost:Must be played in the left zone.} Cards you control in the center zone have +{force:1}.",
+			"skill": "magicLink",
+			"art": "onyxGolem.png",
+			"scenepath": ""
+		},
+		"deconstructor": {
+			"name": "Deconstructor",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Golem"
+			],
+			"lvl": 3,
+			"force": 1,
+			"keywords": [
+				"muted",
+                "warden"
+			],
+			"text": "{trigger:end} Gain {force:2}.",
+			"skill": "seperation",
+			"art": "deconstructor.png",
+			"scenepath": ""
+		},
+		"crusherGolem": {
+			"name": "Crusher Golem",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Dark",
+                "Golem"
+			],
+			"lvl": 3,
+			"force": 5,
+			"keywords": [
+                "muted"
+			],
+			"text": "Crusher Golem deals damage equal to half of the opposing card's base {force:?}, rounded up.",
+			"skill": null,
+			"art": "crusherGolem.png",
+			"scenepath": ""
+		},
+		"rasterBeast": {
+			"name": "Raster Beast",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Magic",
+                "Monster"
+			],
+			"lvl": 3,
+			"force": 3,
+			"keywords": [
+                "warden"
+			],
+			"text": "Whenever Raster Beast loses {force:?}, you may distribute the lost {force:?} among other cards you control in any way you want.",
+			"skill": null,
+			"art": "rasterBeast.png",
+			"scenepath": ""
+		},
+		"specularGolem": {
+			"name": "Specular Golem",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Golem"
+			],
+			"lvl": 3,
+			"force": 4,
+			"keywords": [
+                "effect"
+			],
+			"text": "",
+			"skill": "blindingLight",
+			"art": "specularRobot.png",
+			"scenepath": ""
+		},
+		"flowerWrangler": {
+			"name": "Flower Wrangler",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "Bug"
+			],
+			"lvl": 3,
+			"force": 3,
+			"keywords": [],
+			"text": "{trigger:enter} Target card your opponent controls gains {key:Static} and {key:sick}.",
+			"skill": null,
+			"art": "flowerWrangler.png",
+			"scenepath": ""
+		},
+		"marlitaRedToBlue": {
+			"name": "Marlita Red to Blue",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Marlita",
+                "God"
+			],
+			"lvl": 4,
+			"force": 1,
+			"keywords": [
+                "bleed"
+			],
+			"text": "{cost:As an additional cost, sacrifice at least 1 Marlita card you control.} For each card sacrificed as part of Marlita Red to Blue's cost, gain {force:3} until the end of the turn.",
+			"skill": "marletion",
+			"art": "marlitaRedToBlue.png",
+			"scenepath": ""
+		},
+		"horrorFromAbove": {
+			"name": "Horror From Above",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Dark",
+                "Monster"
+			],
+			"lvl": 4,
+			"force": 0,
+			"keywords": [
+				"bleed",
+                "doom"
+			],
+			"text": "Horror From Above's {force:?} is equal to the number of times you've played it this turn times 2.",
+			"skill": null,
+			"art": "horror.png",
+			"scenepath": ""
+		},
+		"reaper": {
+			"name": "Reaper",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Ghost",
+                "Monster"
+			],
+			"lvl": 4,
+			"force": 1,
+			"keywords": [
+                "bleed"
+			],
+			"text": "Front row cards your opponent controls have {key:Doom} while Reaper is in play. When a card enters your opponent's void, Reaper becomes {force:3} until the end of the turn.",
+			"skill": null,
+			"art": "reaper.png",
+			"scenepath": ""
+		},
+		"shinyCrow": {
+			"name": "Shiny Crow",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Magic",
+                "Crow"
+			],
+			"lvl": 4,
+			"force": 3,
+			"keywords": [
+                "effect"
+			],
+			"text": "When a Crow enters your control, deal 1 damage to a target card your opponent controls.",
+			"skill": null,
+			"art": "shinyCrow.png",
+			"scenepath": ""
+		},
+		"shadowPrince": {
+			"name": "Shadow Prince",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Magic",
+                "God"
+			],
+			"lvl": 4,
+			"force": 3,
+			"keywords": [
+				"instant",
+                "static"
+			],
+			"text": "{cost:As an additional cost, sacrifice 2 cards you control.}",
+			"skill": null,
+			"art": "ShadowPrince2.png",
+			"scenepath": ""
+		},
+		"miracleMachine": {
+			"name": "Miracle Machine",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Magic",
+                "Structure"
+			],
+			"lvl": 4,
+			"force": 0,
+			"keywords": [
+                "static"
+			],
+			"text": "If a unit you control were to perish, you may void a card from your hand: return the unit to your hand instead. If you do, gain 2 matter counters.",
+			"skill": "blender",
+			"art": "miracleMachine.png",
+			"scenepath": ""
+		},
+		"ouroboros": {
+			"name": "Ouroboros",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Celestial",
+                "Monster"
+			],
+			"lvl": 4,
+			"force": 6,
+			"keywords": [
+				"warden",
+                "delayed"
+			],
+			"text": "{cost:As an additional cost, you must control at least 3 cards.} Whenever a non-token card you control perishes except Ouroboros, you may void a card from your hand and return it to play.",
+			"skill": null,
+			"art": "ouroboros.png",
+			"scenepath": ""
+		},
+		"ratMother": {
+			"name": "Rat Mother",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Plague",
+				"Rat",
+                "God"
+			],
+			"lvl": 4,
+			"force": 3,
+			"keywords": [
+                "delayed"
+			],
+			"text": "{trigger:enter} Choose 2 players. Fill open zones of those players with Rat {force:1}/{key:sick} tokens.",
+			"skill": "ratRitual",
+			"art": "ratMother.png",
+			"scenepath": ""
+		},
+		"moonAngel": {
+			"name": "Moon Angel",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Magic",
+                "Celestial"
+			],
+			"lvl": 4,
+			"force": 4,
+			"keywords": [
+                "delayed"
+			],
+			"text": "When a unit perishes, add a soul counter to Moon Angel.",
+			"skill": "piercingLight",
+			"art": "moonAngel.png",
+			"scenepath": ""
+		},
+		"spiritualWarlord": {
+			"name": "Spiritual Warlord",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Ghost",
+                "Warrior"
+			],
+			"lvl": 4,
+			"force": 2,
+			"keywords": [
+                "quick"
+			],
+			"text": "{trigger:victor} Create a Bead {force:1}/{key:fragile} token with \"{trigger:perish} A Ghost card you control gains {force:1}\". You may move Spiritual Warlord to an open zone on your grid. If you do, Spiritual Warlord remains active.",
+			"skill": null,
+			"art": "spiritualWarrior.png",
+			"scenepath": ""
+		},
+		"phaseBeast": {
+			"name": "Phase Beast",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Ghost",
+                "Monster"
+			],
+			"lvl": 5,
+			"force": 4,
+			"keywords": [
+				"delayed",
+                "bleed"
+			],
+			"text": "If Phase Beast were to take damage, you may discard a card from your hand to ignore the damage dealt and take 1 damage instead. Phase Beast becomes inactive.",
+			"skill": null,
+			"art": "phaseBeast.png",
+			"scenepath": ""
+		},
+		"cauldronOfChaos": {
+			"name": "Cauldron Of Chaos",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Ghost",
+                "God"
+			],
+			"lvl": 5,
+			"force": 3,
+			"keywords": [
+				"delayed",
+                "static"
+			],
+			"text": "You can only use {skill:Chaotic Brew} if you have at least 10 cards in your discard.",
+			"skill": "chaoticBrew",
+			"art": "cauldronOfChaos.png",
+			"scenepath": ""
+		},
+		"saturnBear": {
+			"name": "Saturn Bear",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Celestial",
+                "Monster"
+			],
+			"lvl": 5,
+			"force": 5,
+			"keywords": [
+                "delayed"
+			],
+			"text": "{trigger:victor} Create a Celestial {force:2} token.",
+			"skill": null,
+			"art": "saturnBear.png",
+			"scenepath": ""
+		},
+		"blackHole": {
+			"name": "Black Hole",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Celestial",
+                "God"
+			],
+			"lvl": 5,
+			"force": 0,
+			"keywords": [
+                "delayed"
+			],
+			"text": "",
+			"skill": "massAbsorption",
+			"art": "blackHole.png",
+			"scenepath": ""
+		},
+		"theMoon": {
+			"name": "The Moon",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+                "God"
+			],
+			"lvl": 5,
+			"force": 7,
+			"keywords": [
+				"delayed",
+                "bleed"
+			],
+			"text": "{cost:As an additional cost, sacrifice a card you control.}",
+			"skill": "truthOfTheMoon",
+			"art": "theMoon.png",
+			"scenepath": ""
+		},
+		"emptyMan": {
+			"name": "Empty Man",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Old",
+                "God"
+			],
+			"lvl": 5,
+			"force": 10,
+			"keywords": [
+				"immortal",
+				"sealed",
+                "muted"
+			],
+			"text": "{cost:As an additional cost, sacrifice 3 cards you control. Cannot be played in the back row.}",
+			"skill": "emptiness",
+			"art": "emptyMan.png",
+			"scenepath": ""
+		},
+		"mineralGod": {
+			"name": "Mineral God",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Golem",
+                "God"
+			],
+			"lvl": 5,
+			"force": 0,
+			"keywords": [
+				"static",
+				"warden",
+                "safe"
+			],
+			"text": "{trigger:end} Sacrifice a card you control.",
+			"skill": "sumOfGod",
+			"art": "mineralGod.png",
+			"scenepath": ""
+		},
+		"crowDevourer": {
+			"name": "Crow Devourer",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Crow",
+                "Monster"
+			],
+			"lvl": 5,
+			"force": 3,
+			"keywords": [
+                "muted"
+			],
+			"text": "{trigger:enter} Attach all Crow cards in play to Crow Devourer.",
+			"skill": null,
+			"art": "CrowDevourer.png",
+			"scenepath": ""
+		},
+		"voidSaviour": {
+			"name": "Void Saviour",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Dark",
+                "God"
+			],
+			"lvl": 5,
+			"force": 3,
+			"keywords": [
+				"delayed",
+				"static",
+                "immortal"
+			],
+			"text": "{trigger:enter} Deal 2 damage to target player.",
+			"skill": "voidPrayer",
+			"art": "landTerra.png",
+			"scenepath": ""
+		},
+		"wetaphemesis": {
+			"name": "Wetaphemesis",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Bug",
+                "God"
+			],
+			"lvl": 5,
+			"force": 2,
+			"keywords": [
+				"bleed",
+				"doom",
+                "safe"
+			],
+			"text": "Gain {force:2} when a Bug enters your discard.",
+			"skill": "exoburial",
+			"art": "Wetaphemasis.png",
+			"scenepath": ""
+		},
+		"etherealWitch": {
+			"name": "Ethereal Witch",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Celestial",
+                "Wizard"
+			],
+			"lvl": 5,
+			"force": 5,
+			"keywords": [
+                "delayed"
+			],
+			"text": "When you cast your first 2 cards in a turn, draw a card.",
+			"skill": null,
+			"art": "etherealWitch.png",
+			"scenepath": ""
+		},
+		"queenBeeBwyndolyn": {
+			"name": "Queen Bee Bwyndolyn",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Bug",
+                "God"
+			],
+			"lvl": 5,
+			"force": 3,
+			"keywords": [
+                "bleed"
+			],
+			"text": "{cost:As an additional cost, sacrifice 2 cards you control.}",
+			"skill": null,
+			"art": "bwendalyn.png",
+			"scenepath": ""
+		},
+		"killerBee": {
+			"name": "Killer Bee",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Bug",
+                "Monster"
+			],
+			"lvl": 5,
+			"force": 4,
+			"keywords": [
+                "bleed"
+			],
+			"text": "{cost:As an additional cost, set your life to 1.} ",
+			"skill": null,
+			"art": "killerBee.png",
+			"scenepath": ""
+		},
+		"hiveInfiltrator": {
+			"name": "Hive Infiltrator",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Ghost",
+                "Bug"
+			],
+			"lvl": 5,
+			"force": 2,
+			"keywords": [
+                "static"
+			],
+			"text": "{cost:As an additional cost, sacrifice a card you control.}",
+			"skill": null,
+			"art": "hiveInfiltrator.png",
+			"scenepath": ""
+		},
+		"godlessVessel": {
+			"name": "Godless Vessel",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Monster",
+                "God"
+			],
+			"lvl": 5,
+			"force": 10,
+			"keywords": [
+				"delayed",
+				"immortal",
+				"bleed",
+                "static"
+			],
+			"text": "{cost:As an additional cost, sacrifice 2 cards you control. Must be played in the center zone.}",
+			"skill": null,
+			"art": "godlessVessel.png",
+			"scenepath": ""
+		},
+		"etherealArchmage": {
+			"name": "Ethereal Archmage",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Celestial",
+                "Wizard"
+			],
+			"lvl": 5,
+			"force": 5,
+			"keywords": [
+				"delayed",
+                "muted"
+			],
+			"text": "{trigger:enter} Discard your hand.",
+			"skill": "heatDeath",
+			"art": "etherealArchmage.png",
+			"scenepath": ""
+		},
+		"toxician": {
+			"name": "Toxician",
+			"set": "baseSet",
+			"type": 0,
+			"subtype": [
+				"Plague",
+                "God"
+			],
+			"lvl": 5,
+			"force": 5,
+			"keywords": [
+				"sealed",
+				"muted",
+                "immortal"
+			],
+			"text": "Toxician cannot gain {key:sick}.",
+			"skill": "snuff",
+			"art": "toxician.png",
+			"scenepath": ""
+		},
+		"corruptedPiece": {
+			"name": "Corrupted Piece",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+				"Ghost",
+                "Object"
+			],
+			"lvl": 1,
+			"force": 0,
+			"keywords": [
+				"effect",
+                "warden"
+			],
+			"text": "Whenever this card moves, gain {force:1}.",
+			"skill": null,
+			"art": "corruptedPiece.png",
+			"scenepath": ""
+		},
+		"chrysalis": {
+			"name": "Chrysalis",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+                "Structure"
+			],
+			"lvl": 1,
+			"force": 1,
+			"keywords": [
+                "static"
+			],
+			"text": "{trigger:end} You may add an attached card to your hand.",
+			"skill": "metamorphosis",
+			"art": "obviousTrap.png",
+			"scenepath": ""
+		},
+		"ringGenerator": {
+			"name": "Ring Generator",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+				"Celestial",
+                "Structure"
+			],
+			"lvl": 1,
+			"force": 1,
+			"keywords": [
+                "static"
+			],
+			"text": "When a card enters your void, target unit you control gains {force:1}.",
+			"skill": null,
+			"art": "ringGenerator.png",
+			"scenepath": ""
+		},
+		"redZone": {
+			"name": "Red Zone",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+                "Structure"
+			],
+			"lvl": 1,
+			"force": 1,
+			"keywords": [
+				"static",
+                "immortal"
+			],
+			"text": "{trigger:enter} Attach a card an opponent controls to Red Zone.",
+			"skill": null,
+			"art": "prison.png",
+			"scenepath": ""
+		},
+		"shrineOfMarlita": {
+			"name": "Shrine of Marlita",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+				"Marlita",
+                "Structure"
+			],
+			"lvl": 1,
+			"force": 1,
+			"keywords": [],
+			"text": "Cards you control are Marlitas in addition to their other types.",
+			"skill": null,
+			"art": "marlitaShrine.png",
+			"scenepath": ""
+		},
+		"homeOfMarlita": {
+			"name": "Home of Marlita",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+				"Marlita",
+                "Structure"
+			],
+			"lvl": 1,
+			"force": 1,
+			"keywords": [
+                "static"
+			],
+			"text": "",
+			"skill": "welcomeHome",
+			"art": "marlitaHome.png",
+			"scenepath": ""
+		},
+		"tunnelOfWhiteWind": {
+			"name": "Tunnel of White Wind",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+                "Structure"
+			],
+			"lvl": 1,
+			"force": 3,
+			"keywords": [
+				"muted",
+				"static",
+                "safe"
+			],
+			"text": "Whenever a unit an opponent controls perishes, Tunel of White Wind gains 1 LVL.",
+			"skill": null,
+			"art": "whiteWind.png",
+			"scenepath": ""
+		},
+		"arcaneEye": {
+			"name": "Arcane Eye",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+				"Celestial",
+                "Object"
+			],
+			"lvl": 1,
+			"force": 1,
+			"keywords": [],
+			"text": "",
+			"skill": "peer",
+			"art": "arcaneEye.png",
+			"scenepath": ""
+		},
+		"ectoplasm": {
+			"name": "Ectoplasm",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+				"Ghost",
+                "Object"
+			],
+			"lvl": 1,
+			"force": 1,
+			"keywords": [
+				"effect",
+                "warden"
+			],
+			"text": "When a non-token unit you control perishes, you may send a card from your deck to the discard.",
+			"skill": null,
+			"art": "ectoplasm.png",
+			"scenepath": ""
+		},
+		"pebble": {
+			"name": "Pebble",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+                "Shapeshifter"
+			],
+			"lvl": 1,
+			"force": 0,
+			"keywords": [
+                "warden"
+			],
+			"text": "Cards adjacent to Pebble are 1 LVL higher while Pebble is in play.",
+			"skill": null,
+			"art": "pebble.png",
+			"scenepath": ""
+		},
+		"soulStone": {
+			"name": "Soul Stone",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+				"Ghost",
+                "Golem"
+			],
+			"lvl": 1,
+			"force": 0,
+			"keywords": [
+                "delayed"
+			],
+			"text": "Whenever a card is cast, Soul Stone gains {force:1}.",
+			"skill": null,
+			"art": "soulStone2.png",
+			"scenepath": ""
+		},
+		"shinyOrb": {
+			"name": "Shiny Orb",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+				"Celestial",
+                "Object"
+			],
+			"lvl": 1,
+			"force": 0,
+			"keywords": [],
+			"text": "",
+			"skill": "ponder",
+			"art": "shinyOrb.png",
+			"scenepath": ""
+		},
+		"greenOrb": {
+			"name": "Green Orb",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+				"Plague",
+                "Object"
+			],
+			"lvl": 1,
+			"force": 1,
+			"keywords": [],
+			"text": "",
+			"skill": "infect",
+			"art": "greenOrb.png",
+			"scenepath": ""
+		},
+		"blackenedMaggot": {
+			"name": "Blackened Maggot",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+				"Old",
+                "Bug"
+			],
+			"lvl": 1,
+			"force": 1,
+			"keywords": [
+				"instant",
+				"static",
+                "fragile"
+			],
+			"text": "If Blackened Fly enters the discard, deal 1 damage to each opponent (max 3 times per turn).",
+			"skill": null,
+			"art": "blackenedMaggot.png",
+			"scenepath": ""
+		},
+		"creationFromNothing": {
+			"name": "Creation From Nothing",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+				"Celestial",
+                "Magic"
+			],
+			"lvl": 1,
+			"force": 1,
+			"keywords": [
+                "static"
+			],
+			"text": "When a card enters your void, you gain 1 LVL.",
+			"skill": "voider",
+			"art": "creationFromNothing.png",
+			"scenepath": ""
+		},
+		"royalJelly": {
+			"name": "Royal Jelly",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+				"Bug",
+                "Object"
+			],
+			"lvl": 1,
+			"force": 1,
+			"keywords": [
+				"muted",
+                "static"
+			],
+			"text": "",
+			"skill": "feed",
+			"art": "royalJelly.png",
+			"scenepath": ""
+		},
+		"magicMagnet": {
+			"name": "Magic Magnet",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+                "Golem"
+			],
+			"lvl": 1,
+			"force": 0,
+			"keywords": [
+                "muted"
+			],
+			"text": "{trigger:begin} Gain {force:1}.",
+			"skill": "magicLink",
+			"art": "magicMagnet.png",
+			"scenepath": ""
+		},
+		"morgue": {
+			"name": "Morgue",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+				"Ghost",
+                "Structure"
+			],
+			"lvl": 2,
+			"force": 1,
+			"keywords": [
+                "static"
+			],
+			"text": "",
+			"skill": "rediscover",
+			"art": "morgue.png",
+			"scenepath": ""
+		},
+		"sunBox": {
+			"name": "Sun Box",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+				"Celestial",
+                "Structure"
+			],
+			"lvl": 2,
+			"force": 1,
+			"keywords": [],
+			"text": "When a card enters your void, deal 1 damage to a target card each opponent controls. If you have at least 3 cards in your void, damage all cards your opponents control instead.",
+			"skill": null,
+			"art": "sunBox.png",
+			"scenepath": ""
+		},
+		"infection:misdirection": {
+			"name": "Infection:Misdirection",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+				"Plague",
+                "Field"
+			],
+			"lvl": 2,
+			"force": 0,
+			"keywords": [],
+			"text": "When a card you control takes sick damage: target card an opponent controls takes the damage instead.",
+			"skill": null,
+			"art": "misdirection.png",
+			"scenepath": ""
+		},
+		"vintageVessel": {
+			"name": "Vintage Vessel",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+                "Object"
+			],
+			"lvl": 2,
+			"force": 2,
+			"keywords": [
+				"effect",
+                "warden"
+			],
+			"text": "When an opposing unit perishes, add a soul counter to Vintage Vessel and then you may create a clone of it as a Memory {force:1} token with all of its text.",
+			"skill": null,
+			"art": "vintageVessel.png",
+			"scenepath": ""
+		},
+		"lifePool": {
+			"name": "Life Pool",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+                "Structure"
+			],
+			"lvl": 2,
+			"force": 0,
+			"keywords": [
+                "static"
+			],
+			"text": "Whenever you take player damage, draw a card.",
+			"skill": null,
+			"art": "lifePool.png",
+			"scenepath": ""
+		},
+		"bountifulHarvest": {
+			"name": "Bountiful Harvest",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+                "Structure"
+			],
+			"lvl": 2,
+			"force": 3,
+			"keywords": [],
+			"text": "If a card you control/play requires a non-specific sacrifice, you may instead lose {force:1} from Bountiful Harvest to pay for the sacrifice.",
+			"skill": null,
+			"art": "harvest.png",
+			"scenepath": ""
+		},
+		"jackInTheBox": {
+			"name": "Jack in the Box",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+				"Monster",
+                "Object"
+			],
+			"lvl": 2,
+			"force": 2,
+			"keywords": [
+                "fragile"
+			],
+			"text": "{trigger:begin} Sacrifice Jack In the Box, then set any attached units.",
+			"skill": "surprise!",
+			"art": "jackInTheBox.png",
+			"scenepath": ""
+		},
+		"cardDispenser": {
+			"name": "Card Dispenser",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+                "Object"
+			],
+			"lvl": 2,
+			"force": 2,
+			"keywords": [
+				"effect",
+                "static"
+			],
+			"text": "",
+			"skill": "payout",
+			"art": "cardDispenser.png",
+			"scenepath": ""
+		},
+		"blastOrb": {
+			"name": "Blast Orb",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+                "Object"
+			],
+			"lvl": 2,
+			"force": 0,
+			"keywords": [
+				"instant",
+                "static"
+			],
+			"text": "",
+			"skill": "outburst",
+			"art": "blastOrb.png",
+			"scenepath": ""
+		},
+		"tonne": {
+			"name": "Tonne",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+				"Golem",
+                "Object"
+			],
+			"lvl": 2,
+			"force": 2,
+			"keywords": [
+                "static"
+			],
+			"text": "",
+			"skill": "drop",
+			"art": "tonne.png",
+			"scenepath": ""
+		},
+		"cursedOrb": {
+			"name": "Cursed Orb",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+				"Dark",
+                "Object"
+			],
+			"lvl": 2,
+			"force": 1,
+			"keywords": [],
+			"text": "{trigger:breach} Draw a card.",
+			"skill": null,
+			"art": "cursedOrb.png",
+			"scenepath": ""
+		},
+		"pheromoneDen": {
+			"name": "Pheromone Den",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+                "Structure"
+			],
+			"lvl": 3,
+			"force": 2,
+			"keywords": [
+                "static"
+			],
+			"text": "Units you control that are LVL 2 or less have +{force:2}.",
+			"skill": null,
+			"art": "pheromoneCave.png",
+			"scenepath": ""
+		},
+		"witheringShrine": {
+			"name": "Withering Shrine",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+				"Ghost",
+                "Structure"
+			],
+			"lvl": 3,
+			"force": 2,
+			"keywords": [
+				"muted",
+                "static"
+			],
+			"text": "",
+			"skill": "fadingWithTime",
+			"art": "witheringShrine.png",
+			"scenepath": ""
+		},
+		"doorToNowhere": {
+			"name": "Door to Nowhere",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+				"Structure",
+                "God"
+			],
+			"lvl": 3,
+			"force": 3,
+			"keywords": [
+                "static"
+			],
+			"text": "When a non-token unit you control perishes, you may choose to send it to your discard, deck, void, or hand. If you return it to your hand, you cannot play it until you end a turn.",
+			"skill": null,
+			"art": "doorToNowhere.png",
+			"scenepath": ""
+		},
+		"paleMask": {
+			"name": "Pale Mask",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+				"Ghost",
+                "Equipment"
+			],
+			"lvl": 3,
+			"force": 3,
+			"keywords": [
+                "effect"
+			],
+			"text": "When a unit you control perishes, you may create a Ghost {force:1}/{key:bleed} token.",
+			"skill": null,
+			"art": "paleMask.png",
+			"scenepath": ""
+		},
+		"temporaryRelief": {
+			"name": "Temporary Relief",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+				"Plague",
+                "Object"
+			],
+			"lvl": 3,
+			"force": 0,
+			"keywords": [
+                "static"
+			],
+			"text": "If a card you control were to take sick damage, that card instead gains {force:1}.",
+			"skill": null,
+			"art": "temporaryRelief.png",
+			"scenepath": ""
+		},
+		"stoneGenerator": {
+			"name": "Stone Generator",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+				"Golem",
+                "Structure"
+			],
+			"lvl": 3,
+			"force": 1,
+			"keywords": [
+                "static"
+			],
+			"text": "",
+			"skill": "cobbler",
+			"art": "stoneGenerator.png",
+			"scenepath": ""
+		},
+		"monolith": {
+			"name": "Monolith",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+				"Structure",
+                "God"
+			],
+			"lvl": 3,
+			"force": 2,
+			"keywords": [
+                "static"
+			],
+			"text": "Monolith can only attack if the opponent controls no back row cards. Whenever you draw a card gain {force:1}.",
+			"skill": "prayerAndSpeech",
+			"art": "monolith.png",
+			"scenepath": ""
+		},
+		"crow'sNest": {
+			"name": "Crow's Nest",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+				"Crow",
+                "Structure"
+			],
+			"lvl": 3,
+			"force": 1,
+			"keywords": [
+                "warden"
+			],
+			"text": "When a Crow unit perishes, draw a card.",
+			"skill": "gathering",
+			"art": "CrowNest.png",
+			"scenepath": ""
+		},
+		"cleaver": {
+			"name": "Cleaver",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+                "Object"
+			],
+			"lvl": 3,
+			"force": 2,
+			"keywords": [],
+			"text": "Units you control have {key:bleed} during your turns.",
+			"skill": null,
+			"art": "cleaver.png",
+			"scenepath": ""
+		},
+		"combatIdol": {
+			"name": "Combat Idol",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+				"Golem",
+                "Structure"
+			],
+			"lvl": 3,
+			"force": 2,
+			"keywords": [
+                "static"
+			],
+			"text": "While Combat Idol is in play, the effect of {key:muted} is nullified.",
+			"skill": null,
+			"art": "offense.png",
+			"scenepath": ""
+		},
+		"bigCatch": {
+			"name": "Big Catch",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+                "Structure"
+			],
+			"lvl": 3,
+			"force": 3,
+			"keywords": [
+				"muted",
+                "static"
+			],
+			"text": "",
+			"skill": "reelIn",
+			"art": "bigCatch.png",
+			"scenepath": ""
+		},
+		"trickyOrb": {
+			"name": "Tricky Orb",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+                "Object"
+			],
+			"lvl": 3,
+			"force": 2,
+			"keywords": [
+                "warden"
+			],
+			"text": "Whenever Tricky Orb moves, deal 1 damage to a back row card an opponent controls.",
+			"skill": null,
+			"art": "trickyOrb.png",
+			"scenepath": ""
+		},
+		"frogTrophy": {
+			"name": "Frog Trophy",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+				"Frog",
+                "Object"
+			],
+			"lvl": 3,
+			"force": 3,
+			"keywords": [
+                "instant"
+			],
+			"text": "Does not deal damage when attacked. When Frog Trophy moves, target card gains {key:fragile} until Frog Trophy perishes.",
+			"skill": "wither",
+			"art": "frogTrophy.png",
+			"scenepath": ""
+		},
+		"dustPixie": {
+			"name": "Dust Pixie",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+				"Magic",
+                "Bug"
+			],
+			"lvl": 3,
+			"force": 2,
+			"keywords": [
+                "effect"
+			],
+			"text": "{trigger:enter} Add a soul counter to this card.",
+			"skill": null,
+			"art": "dustPixie.png",
+			"scenepath": ""
+		},
+		"abyssalMaw": {
+			"name": "Abyssal Maw",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+				"Structure",
+                "God"
+			],
+			"lvl": 3,
+			"force": 0,
+			"keywords": [
+                "muted"
+			],
+			"text": "{trigger:end} Attack a front row card an opponent controls or deal 2 damage to an opponent that controls no front row cards.",
+			"skill": "feedTheMaw",
+			"art": "abyssMouth.png",
+			"scenepath": ""
+		},
+		"tightSpot": {
+			"name": "Tight Spot",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+                "Structure"
+			],
+			"lvl": 3,
+			"force": 1,
+			"keywords": [
+                "static"
+			],
+			"text": "When an opponent moves a card, that card takes 1 damage.",
+			"skill": null,
+			"art": "tightSpot.png",
+			"scenepath": ""
+		},
+		"gargoyle": {
+			"name": "Gargoyle",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+                "Golem"
+			],
+			"lvl": 3,
+			"force": 2,
+			"keywords": [],
+			"text": "{trigger:breach} Target front row unit your opponent controls gains {key:fragile} until Gargoyle perishes.",
+			"skill": null,
+			"art": "gargoyle.png",
+			"scenepath": ""
+		},
+		"soulOven": {
+			"name": "Soul Oven",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+				"Golem",
+                "Structure"
+			],
+			"lvl": 4,
+			"force": 3,
+			"keywords": [
+				"static",
+                "muted"
+			],
+			"text": "Soul Oven cannot gain {force:?}.",
+			"skill": "fool'sGold",
+			"art": "soulOven.png",
+			"scenepath": ""
+		},
+		"doomChain": {
+			"name": "Doom Chain",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+				"Monster",
+                "Object"
+			],
+			"lvl": 4,
+			"force": 2,
+			"keywords": [
+                "delayed"
+			],
+			"text": "Any unit that opposes a Monster has {key:doom}.",
+			"skill": "pullUnder",
+			"art": "doomChain.png",
+			"scenepath": ""
+		},
+		"theSeal": {
+			"name": "The Seal",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+                "Structure"
+			],
+			"lvl": 4,
+			"force": 0,
+			"keywords": [
+				"static",
+                "muted"
+			],
+			"text": "{cost:Must be played in the front row.} Other Back row cards you control cannot take damage.",
+			"skill": null,
+			"art": "shield.png",
+			"scenepath": ""
+		},
+		"formalWizard": {
+			"name": "Formal Wizard",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+				"Object",
+                "Wizard"
+			],
+			"lvl": 4,
+			"force": 3,
+			"keywords": [],
+			"text": "",
+			"skill": "foolishMockery",
+			"art": "formalWizard.png",
+			"scenepath": ""
+		},
+		"portal": {
+			"name": "Portal",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+				"Celestial",
+                "Object"
+			],
+			"lvl": 4,
+			"force": 0,
+			"keywords": [
+				"static",
+				"muted",
+                "doom"
+			],
+			"text": "",
+			"skill": "grandJourney",
+			"art": "portal2.png",
+			"scenepath": ""
+		},
+		"mercuryPool": {
+			"name": "Mercury Pool",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+				"Celestial",
+                "Field"
+			],
+			"lvl": 4,
+			"force": 3,
+			"keywords": [
+				"muted",
+                "static"
+			],
+			"text": "Other cards you control have +{force:?} equal to the number of soul counters on Mercury Pool.",
+			"skill": null,
+			"art": "mercuryPool.png",
+			"scenepath": ""
+		},
+		"warOnPluto": {
+			"name": "War on Pluto",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+				"Celestial",
+                "Field"
+			],
+			"lvl": 4,
+			"force": 3,
+			"keywords": [
+                "fragile"
+			],
+			"text": "{trigger:begin} All Units attack if able. This does not cause them to become inactive, and does not count as them attacking.",
+			"skill": null,
+			"art": "warPluto.png",
+			"scenepath": ""
+		},
+		"meltingIdol": {
+			"name": "Melting Idol",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+				"Ghost",
+                "Structure"
+			],
+			"lvl": 4,
+			"force": 2,
+			"keywords": [
+                "delayed"
+			],
+			"text": "Melting Idol cannot gain {force:?}.",
+			"skill": "reanimate",
+			"art": "meltedIdol.png",
+			"scenepath": ""
+		},
+		"barrierLord": {
+			"name": "Barrier Lord",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+                "Golem"
+			],
+			"lvl": 4,
+			"force": 6,
+			"keywords": [
+				"instant",
+				"warden",
+                "muted"
+			],
+			"text": "Does not deal combat damage. If a card you control were to take damage, Barrier Lord takes the damage instead.",
+			"skill": "mighty",
+			"art": "barrierLord.png",
+			"scenepath": ""
+		},
+		"voidWorld": {
+			"name": "Void World",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+				"Field",
+                "God"
+			],
+			"lvl": 5,
+			"force": 4,
+			"keywords": [
+				"delayed",
+				"static",
+                "safe"
+			],
+			"text": "{cost:sacrifice 3 cards you control.} Center zone cards you control have +{force:3} and {key:immortal}.",
+			"skill": null,
+			"art": "voidWorld.png",
+			"scenepath": ""
+		},
+		"landterra": {
+			"name": "Landterra",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+				"Field",
+                "God"
+			],
+			"lvl": 5,
+			"force": 5,
+			"keywords": [
+				"static",
+                "muted"
+			],
+			"text": "{trigger:enter} Reveal the top 3 cards of your deck. Then recycle your deck with those 3 cards. When you play any of those 3 cards, add a Gold Leaf counter to Landterra. If Landterra has 3 Gold Leaf counters on it, cards you control have {key:immortal}.",
+			"skill": null,
+			"art": "goldenLand.png",
+			"scenepath": ""
+		},
+		"falseQueen'sCarcass": {
+			"name": "False Queen's Carcass",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+				"Bug",
+                "God"
+			],
+			"lvl": 5,
+			"force": 3,
+			"keywords": [
+				"static",
+                "fragile"
+			],
+			"text": "Non-Bug units have {key:fragile} while False Queen's Carcass is in play.",
+			"skill": "zombify",
+			"art": "BeeCarcass.png",
+			"scenepath": ""
+		},
+		"deathPact": {
+			"name": "Death Pact",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+				"Ghost",
+                "Magic"
+			],
+			"lvl": 5,
+			"force": 2,
+			"keywords": [
+                "static"
+			],
+			"text": "When a card you control perishes on your turn, deal 1 damage to target player {max 3 per turn.}",
+			"skill": null,
+			"art": "deathPact.png",
+			"scenepath": ""
+		},
+		"puelPurifico": {
+			"name": "Puel Purifico",
+			"set": "baseSet",
+			"type": 1,
+			"subtype": [
+				"Dark",
+                "Golem"
+			],
+			"lvl": 5,
+			"force": 4,
+			"keywords": [
+				"delayed",
+                "warden"
+			],
+			"text": "{cost: As an additionl cost, sacrifice 2 cards you control.}",
+			"skill": null,
+			"art": "puelPurifico.png",
+			"scenepath": ""
+		},
+		"fleshboundRitual": {
+			"name": "Fleshbound Ritual",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 1,
+			"force": 0,
+			"keywords": [
+                "effect"
+			],
+			"text": "{trigger:perish} Set a unit from your discard except its LVL is 1.",
+			"skill": null,
+			"art": "fleshboundRitual.png",
+			"scenepath": ""
+		},
+		"wormWood": {
+			"name": "Worm Wood",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 1,
+			"force": 0,
+			"keywords": [
+                "instant"
+			],
+			"text": "{trigger:cast} Back row cards opponents control gain {key:sick} and take an instance of {key:sick} damage. Draw a card for any cards that perished this way.",
+			"skill": null,
+			"art": "wormwood.png",
+			"scenepath": ""
+		},
+		"autoShield": {
+			"name": "Auto-Shield",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 1,
+			"force": 0,
+			"keywords": [
+                "effect"
+			],
+			"text": "Effected card gains {key:immortal} during your turns.",
+			"skill": null,
+			"art": "barrierInsert.png",
+			"scenepath": ""
+		},
+		"abstractMirror": {
+			"name": "Abstract Mirror",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 1,
+			"force": 0,
+			"keywords": [
+                "instant"
+			],
+			"text": "{trigger:cast} Choose a subtype. Target unit in play becomes the chosen subtype.",
+			"skill": null,
+			"art": "abstractMirror.png",
+			"scenepath": ""
+		},
+		"hexagonalVision": {
+			"name": "Hexagonal Vision",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 1,
+			"force": 0,
+			"keywords": [
+                "instant"
+			],
+			"text": "{trigger:cast} Search your deck for a LVL 1 unit. Reveal it, then add it to your hand.",
+			"skill": null,
+			"art": "hexagonalVision.png",
+			"scenepath": ""
+		},
+		"churn": {
+			"name": "Churn",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 1,
+			"force": 0,
+			"keywords": [],
+			"text": "{trigger:cast} Reveal the top 3 cards of your deck. You may add up to 3 cards of different types to your hand. You cannot play them this turn. Void the remaining cards.",
+			"skill": null,
+			"art": "churn.png",
+			"scenepath": ""
+		},
+		"tranquility": {
+			"name": "Tranquility",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 1,
+			"force": 0,
+			"keywords": [
+                "instant"
+			],
+			"text": "{key:muted} units you control have +{force:3}.",
+			"skill": null,
+			"art": "tranquility.png",
+			"scenepath": ""
+		},
+		"raster": {
+			"name": "Raster",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 2,
+			"force": 0,
+			"keywords": [
+                "instant"
+			],
+			"text": "{trigger:cast} Choose a front row card you control and a front row card an opponent controls. Destroy both. Target frontline card you control becomes gains {force:?} equal to the total {force:?} among the cards and is {key:muted} until the end of the turn.",
+			"skill": null,
+			"art": "raster.png",
+			"scenepath": ""
+		},
+		"starShower": {
+			"name": "Star Shower",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 2,
+			"force": 0,
+			"keywords": [
+                "instant"
+			],
+			"text": "{trigger:cast} Choose up to 3 open zones on either side of the grid. Create a Celestial {force:2} token in each, then sacrifice them until 1 remains.",
+			"skill": null,
+			"art": "starShower.png",
+			"scenepath": ""
+		},
+		"ghostGathering": {
+			"name": "Ghost Gathering",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 2,
+			"force": 0,
+			"keywords": [
+                "instant"
+			],
+			"text": "{trigger:cast} Create Ghost {force:1}/{key:bleed} tokens up to the amount of Units in your discard.",
+			"skill": "spawn",
+			"art": "possess.png",
+			"scenepath": ""
+		},
+		"particleCannon": {
+			"name": "Particle Cannon",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 2,
+			"force": 0,
+			"keywords": [
+                "effect"
+			],
+			"text": "",
+			"skill": "evaporate",
+			"art": "particleCannon.png",
+			"scenepath": ""
+		},
+		"carve": {
+			"name": "Carve",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 2,
+			"force": 0,
+			"keywords": [],
+			"text": "{trigger:cast} Target card takes 2 damage and gains {key:bleed}.",
+			"skill": null,
+			"art": "carve.png",
+			"scenepath": ""
+		},
+		"crowAlchemy": {
+			"name": "Crow Alchemy",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 2,
+			"force": 0,
+			"keywords": [
+                "instant"
+			],
+			"text": "{trigger:cast} Sacrifice a card you control: create up to 2 Crow {force:1} tokens.",
+			"skill": null,
+			"art": "CrowAlchemy.png",
+			"scenepath": ""
+		},
+		"bloodRage": {
+			"name": "Blood Rage",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 2,
+			"force": 0,
+			"keywords": [
+                "instant"
+			],
+			"text": "{trigger:cast} Target active unit you control becomes inactive and deals damage equal to their {force:?} to a target card then loses {force:2}.",
+			"skill": null,
+			"art": "bloodRage.png",
+			"scenepath": ""
+		},
+		"sprint": {
+			"name": "Sprint",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 2,
+			"force": 0,
+			"keywords": [],
+			"text": "{trigger:enter} Target unit gains {key:quick}.",
+			"skill": null,
+			"art": "sprint.png",
+			"scenepath": ""
+		},
+		"kickTheHive": {
+			"name": "Kick The Hive",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 2,
+			"force": 0,
+			"keywords": [],
+			"text": "{trigger:cast} Sacrifice a Bug you control: set a unit from your hand. If the set unit's LVL is greater than 3, its {key:delayed}.",
+			"skill": null,
+			"art": "kickTheHive.png",
+			"scenepath": ""
+		},
+		"falsePower": {
+			"name": "False Power",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 2,
+			"force": 0,
+			"keywords": [
+                "effect"
+			],
+			"text": "Effected card's {force:?} is equal to the {force:?} of the card they currently oppose. If there is no opposing card, they are {force:0}.",
+			"skill": null,
+			"art": "falsePower.png",
+			"scenepath": ""
+		},
+		"quickPlay": {
+			"name": "Quick Play",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 2,
+			"force": 0,
+			"keywords": [],
+			"text": "You may play Units at {key:instant} speed.",
+			"skill": null,
+			"art": "quickPlay.png",
+			"scenepath": ""
+		},
+		"doomsdayBarrel": {
+			"name": "Doomsday Barrel",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 2,
+			"force": 0,
+			"keywords": [],
+			"text": "{trigger:cast} Remove 4 nuclear counters from Doomsday Barrel: Deal 4 damage to any target.",
+			"skill": "readyForDoom",
+			"art": "doomsdayBarrel.png",
+			"scenepath": ""
+		},
+		"prophecyOfPlague": {
+			"name": "Prophecy of Plague",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 2,
+			"force": 0,
+			"keywords": [],
+			"text": "All units enter with {key:sick}.\n{trigger:perish} Destroy all {key:sick} cards in play.\n{trigger:cast} Destroy a {key:sick} card in play.",
+			"skill": null,
+			"art": "prophecyOfPlague.png",
+			"scenepath": ""
+		},
+		"pinCushion": {
+			"name": "Pin Cushion",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 2,
+			"force": 0,
+			"keywords": [],
+			"text": "Whenever you take non-combat damage, deal damage to an opponent equal to the damage taken.\n{trigger:cast} Deal 1 damage to a front row unit in play.",
+			"skill": null,
+			"art": "pinCushion.png",
+			"scenepath": ""
+		},
+		"avidCollector": {
+			"name": "Avid Collector",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 3,
+			"force": 0,
+			"keywords": [],
+			"text": "{trigger:cast} Sacrifice any number of tokens you control: draw cards equal to the number of tokens sacrificed.",
+			"skill": "collecting",
+			"art": "avidCollector.png",
+			"scenepath": ""
+		},
+		"boil": {
+			"name": "Boil",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 3,
+			"force": 0,
+			"keywords": [],
+			"text": "{trigger:cast} Target unit and any adjacent units take 1 damage.",
+			"skill": null,
+			"art": "boil.png",
+			"scenepath": ""
+		},
+		"dyingStar": {
+			"name": "Dying Star",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 3,
+			"force": 0,
+			"keywords": [],
+			"text": "{trigger:cast} Void Dying Star.\n{trigger:begin} If Dying Star is in your void, deal 1 damage to any target.",
+			"skill": null,
+			"art": "dyingStar.png",
+			"scenepath": ""
+		},
+		"sacrificialKnife": {
+			"name": "Sacrificial Knife",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 3,
+			"force": 0,
+			"keywords": [],
+			"text": "Draw a card whenever an opponent sacrifices a card.\n{trigger:cast} Destroy target card. The owner of the card draws a card.",
+			"skill": null,
+			"art": "sacrficialKnife.png",
+			"scenepath": ""
+		},
+		"graveDigger": {
+			"name": "Grave Digger",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 3,
+			"force": 0,
+			"keywords": [],
+			"text": "{trigger:cast} Shuffle your discard pile, then draw up to 2 cards from it.",
+			"skill": null,
+			"art": "graveDigger.png",
+			"scenepath": ""
+		},
+		"reapTheDead": {
+			"name": "Reap The Dead",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 3,
+			"force": 0,
+			"keywords": [
+                "instant"
+			],
+			"text": "{trigger:cast} Set a unit from your discard, then take damage equal to it's LVL.",
+			"skill": null,
+			"art": "reap.png",
+			"scenepath": ""
+		},
+		"theCure?": {
+			"name": "The Cure?",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 3,
+			"force": 0,
+			"keywords": [
+                "instant"
+			],
+			"text": "{trigger:cast} Choose a player. Cards that player controls gain {key:sick}.",
+			"skill": null,
+			"art": "cure.png",
+			"scenepath": ""
+		},
+		"rockThrow": {
+			"name": "Rock Throw",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 3,
+			"force": 0,
+			"keywords": [],
+			"text": "When a Golem enters your discard, target unit you control gains {force:1}.\n{trigger:cast} You may discard any number of Golems in your hand or void any number of Golems in your discard. For each card discarded/voided this way, deal 3 damage to a target card or draw a card.",
+			"skill": null,
+			"art": "rockThrow.png",
+			"scenepath": ""
+		},
+		"unstasis": {
+			"name": "Unstasis",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 3,
+			"force": 0,
+			"keywords": [
+                "effect"
+			],
+			"text": "The effects of {key:static} are nullified for the effected card.",
+			"skill": null,
+			"art": "unstasis.png",
+			"scenepath": ""
+		},
+		"comingOfMarlita": {
+			"name": "Coming of Marlita",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 3,
+			"force": 0,
+			"keywords": [
+                "instant"
+			],
+			"text": "{trigger:cast} Draw a card. If you control a Marlita, draw an additional card.",
+			"skill": null,
+			"art": "comingOfMarlita.png",
+			"scenepath": ""
+		},
+		"burn": {
+			"name": "Burn",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 3,
+			"force": 0,
+			"keywords": [
+                "instant"
+			],
+			"text": "{trigger:cast} Deal 2 damage to any target.",
+			"skill": null,
+			"art": "burn.png",
+			"scenepath": ""
+		},
+		"dissolve": {
+			"name": "Dissolve",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 3,
+			"force": 0,
+			"keywords": [
+                "instant"
+			],
+			"text": "{cost:As an additional cost, discard a card from your hand.}",
+			"skill": null,
+			"art": "dissolve.png",
+			"scenepath": ""
+		},
+		"s": {
+			"name": "s",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 3,
+			"force": 0,
+			"keywords": [
+                "instant"
+			],
+			"text": "{trigger:cast} Target unit LVL 3 or less becomes a Fish {force:0}/{key:static} token.",
+			"skill": null,
+			"art": "seaSick.png",
+			"scenepath": ""
+		},
+		"melt": {
+			"name": "Melt",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 3,
+			"force": 0,
+			"keywords": [
+                "instant"
+			],
+			"text": "{trigger:cast} Discard your hand. Draw an additional card during your next 2 draw phases.",
+			"skill": null,
+			"art": "melt.png",
+			"scenepath": ""
+		},
+		"messageFromMars": {
+			"name": "Message From Mars",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 3,
+			"force": 0,
+			"keywords": [],
+			"text": "{trigger:cast} Reveal the top 5 cards of your deck and choose up to 3 of them. For each card chosen, void a card from your hand. Discard remaining revealed cards.",
+			"skill": null,
+			"art": "messageFromMars.png",
+			"scenepath": ""
+		},
+		"transmogriphy": {
+			"name": "Transmogriphy",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 3,
+			"force": 0,
+			"keywords": [],
+			"text": "",
+			"skill": "somethingNew",
+			"art": "transmorgiphy.png",
+			"scenepath": ""
+		},
+		"reconstruction": {
+			"name": "Reconstruction",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 4,
+			"force": 0,
+			"keywords": [
+                "instant"
+			],
+			"text": "",
+			"skill": "repurpose",
+			"art": "reconstruction.png",
+			"scenepath": ""
+		},
+		"elderSpell": {
+			"name": "Elder Spell",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 4,
+			"force": 0,
+			"keywords": [
+                "instant"
+			],
+			"text": "{trigger:cast} Return all spells to their owner's hands. All cards in play take damage equal to half of their {force:?}, rounded down. All players draw a card.",
+			"skill": null,
+			"art": "elderSpell.png",
+			"scenepath": ""
+		},
+		"itGetsWorse": {
+			"name": "It Gets Worse",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 4,
+			"force": 0,
+			"keywords": [
+                "instant"
+			],
+			"text": "{trigger:cast} Up to 3 target units gain {key:sick}. If 3 cards were targetted by It Gets Worse, draw a card.",
+			"skill": "sickening",
+			"art": "itGetsWorse.png",
+			"scenepath": ""
+		},
+		"madnessPolicy": {
+			"name": "Madness Policy",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 4,
+			"force": 0,
+			"keywords": [],
+			"text": "{trigger:enter} Any card that opposes another card is sacrificed. Add a soul counter to Madness Policy for every card sacrificed.",
+			"skill": "smile",
+			"art": "madnessRitual.png",
+			"scenepath": ""
+		},
+		"borderOfLife": {
+			"name": "Border of Life",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 4,
+			"force": 0,
+			"keywords": [
+                "effect"
+			],
+			"text": "Effected card is {key:immortal} and {key:safe}. If the effected card perishes, you may attach Border of Life to another card you control. If you do not contol any cards, void Border of Life.",
+			"skill": null,
+			"art": "borderOfLife.png",
+			"scenepath": ""
+		},
+		"mutation": {
+			"name": "Mutation",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 4,
+			"force": 0,
+			"keywords": [
+                "effect"
+			],
+			"text": "Effected unit gains {key:quick} and {force:3}.",
+			"skill": null,
+			"art": "mutation.png",
+			"scenepath": ""
+		},
+		"powder": {
+			"name": "Powder",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 4,
+			"force": 0,
+			"keywords": [],
+			"text": "{trigger:cast} Can only be cast during the opponent's turn: all front row cards gain {key:fragile} until the end of the turn.",
+			"skill": null,
+			"art": "powder.png",
+			"scenepath": ""
+		},
+		"flock": {
+			"name": "Flock",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 4,
+			"force": 0,
+			"keywords": [],
+			"text": "{trigger:cast} Create up to 2 Crow {force:1} tokens and draw a card.",
+			"skill": null,
+			"art": "flock.png",
+			"scenepath": ""
+		},
+		"honeyCoating": {
+			"name": "Honey Coating",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 4,
+			"force": 0,
+			"keywords": [
+                "effect"
+			],
+			"text": "{trigger:begin} Effected unit gains {force:2}.",
+			"skill": null,
+			"art": "honeyCoating.png",
+			"scenepath": ""
+		},
+		"holyPulse": {
+			"name": "Holy Pulse",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 4,
+			"force": 0,
+			"keywords": [],
+			"text": "{trigger:cast} Draw cards equal to the number of immortal cards you control.",
+			"skill": "immortalize",
+			"art": "holyPulse.png",
+			"scenepath": ""
+		},
+		"swarm": {
+			"name": "Swarm",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 4,
+			"force": 0,
+			"keywords": [],
+			"text": "{trigger:cast} Return up to 3 units from your discard pile to your hand. You cannot play them this turn.",
+			"skill": null,
+			"art": "swarm.png",
+			"scenepath": ""
+		},
+		"beehmothStinger": {
+			"name": "Beehmoth Stinger",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 4,
+			"force": 0,
+			"keywords": [
+                "effect"
+			],
+			"text": "Effected card gains {force:1}. Gain {force:2} instead if the effected card is a bug.",
+			"skill": "warCry",
+			"art": "beehemothStinger.png",
+			"scenepath": ""
+		},
+		"bloodsong": {
+			"name": "Bloodsong",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 4,
+			"force": 0,
+			"keywords": [],
+			"text": "{trigger:cast} Choose a number from 1-5: Deal damage equal to the number chosen to all cards in play.",
+			"skill": null,
+			"art": "bloodSong.png",
+			"scenepath": ""
+		},
+		"deeperUntilTheEnd": {
+			"name": "Deeper Until The End",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 4,
+			"force": 0,
+			"keywords": [],
+			"text": "{trigger:cast} Discard cards from the top of your deck up to the number of cards you control, then void Deeper Until the End. \n{trigger:begin} If Deeper Until the End is in your void: discard a card: return Deeper Until the End to your hand.",
+			"skill": null,
+			"art": "digDeeper.png",
+			"scenepath": ""
+		},
+		"skeletonKey": {
+			"name": "Skeleton Key",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 5,
+			"force": 0,
+			"keywords": [],
+			"text": "{trigger:cast} Sacrifice an active card you control: draw cards equal to its {force:?} (max 3).",
+			"skill": null,
+			"art": "skeletonKey.png",
+			"scenepath": ""
+		},
+		"lastChance": {
+			"name": "Last Chance",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 5,
+			"force": 0,
+			"keywords": [
+                "instant"
+			],
+			"text": "You cannot lose the game due to your life being 0 or less.",
+			"skill": null,
+			"art": "lastChance.png",
+			"scenepath": ""
+		},
+		"nullAndCreation": {
+			"name": "Null and Creation",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 5,
+			"force": 0,
+			"keywords": [
+                "instant"
+			],
+			"text": "{trigger:cast} All cards your opponents control gain {key:doom} until the end of the turn. For every card affected, add {force:1} to a card you control.",
+			"skill": "upside",
+			"art": "nullAndCreation.png",
+			"scenepath": ""
+		},
+		"fractalBlade": {
+			"name": "Fractal Blade",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 5,
+			"force": 0,
+			"keywords": [
+                "effect"
+			],
+			"text": "{cost:Can only be attached to a front row card. Can only be played once a turn.}",
+			"skill": null,
+			"art": "fractalBlade.png",
+			"scenepath": ""
+		},
+		"shatter": {
+			"name": "Shatter",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 5,
+			"force": 0,
+			"keywords": [
+                "instant"
+			],
+			"text": "{trigger:cast} Target card is now {force:0} (does not cause the card to perish). Draw a card.",
+			"skill": null,
+			"art": "shatter.png",
+			"scenepath": ""
+		},
+		"lastWish": {
+			"name": "Last Wish",
+			"set": "baseSet",
+			"type": 2,
+			"subtype": [],
+			"lvl": 5,
+			"force": 0,
+			"keywords": [],
+			"text": "{trigger:enter} All players choose a card they control. Sacrifice any card not chosen. For the remaining cards, set their LVL to 1, then set both player's LVL to 1. Neither player can attack until the start of your next turn.",
+			"skill": null,
+			"art": "lastWish.png",
+			"scenepath": ""
+		}
+	},
+	"skills": {
+		"deathMagic": {
+			"name": "Death Magic",
+			"text": "Shuffle your discard pile and look at the top 3 cards. If at least 1 spell is within the 3 cards, add 1 to your hand and sacrifice Ghost Spellcaster.",
+			"type": 0
+		},
+		"blueGiant": {
+			"name": "Blue Giant",
+			"text": "Search your deck for a Celestial or God. Reveal it, then add it to your hand.",
+			"type": 0
+		},
+		"redDwarf": {
+			"name": "Red Dwarf",
+			"text": "Add a Celestial or God from your discard to your hand.",
+			"type": 0
+		},
+		"congeal": {
+			"name": "Congeal",
+			"text": "Other Monster cards you control gain {force:2} until the end of the turn.",
+			"type": 0
+		},
+		"flock": {
+			"name": "Flock",
+			"text": "Search your deck for a Crow. Reveal it, then add it to your hand.",
+			"type": 0
+		},
+		"beckoning": {
+			"name": "Beckoning",
+			"text": "Return Coming of Marlita from your discard pile to your hand: return Marlita Gray to your hand.",
+			"type": 0
+		},
+		"dig": {
+			"name": "Dig",
+			"text": "Search your deck for a Bug and send it to your discard pile or sacrifice Grub.",
+			"type": 0
+		},
+		"voidTalk": {
+			"name": "void talk",
+			"text": "Void up to 1 card from your deck and up to 1 card from your hand.",
+			"type": 0
+		},
+		"magicLink": {
+			"name": "Magic Link",
+			"text": "Search your deck for a card with {skill:Magic Link} and reveal it, or set a card from your hand with {skill:Magic Link}.",
+			"type": 0
+		},
+		"ashShower": {
+			"name": "Ash Shower",
+			"text": "Create a {force:0} clone of Ash Moth in the same row as this card.",
+			"type": 1
+		},
+		"toTheBottom": {
+			"name": "To The Bottom",
+			"text": "Discard the top card of your deck. If the card discarded is an Icon, become inactive then set it if able.",
+			"type": 1
+		},
+		"suspension": {
+			"name": "suspension",
+			"text": "Discard a card from your hand: draw a card.",
+			"type": 0
+		},
+		"cloneTrick": {
+			"name": "Clone Trick",
+			"text": "Clone this card. Clones do not have Clone Trick.",
+			"type": 0
+		},
+		"gathering": {
+			"name": "Gathering",
+			"text": "Create up to 2 Crow {force:1} tokens.",
+			"type": 0
+		},
+		"surge": {
+			"name": "Surge",
+			"text": "Remove a matter counter: Gain {force:1} or deal 1 damage to a target card.",
+			"type": 1
+		},
+		"friendship": {
+			"name": "Friendship",
+			"text": "Target unit gains {force:?} equal to Lonely Drone's {force:?}.",
+			"type": 0
+		},
+		"magician": {
+			"name": "Magician",
+			"text": "Create a Magic {force:?} token with {force:?} equal to the number of spells in your discard. If the token has more than {force:3}, it is {key:delayed}.",
+			"type": 0
+		},
+		"selfSearch": {
+			"name": "Self Search",
+			"text": "Search your deck for a card with LVL equal to the amount of soul counters on Arbiter. Reveal it, then add it to your hand.",
+			"type": 0
+		},
+		"downpour": {
+			"name": "downpour",
+			"text": "Discard 2 cards from your hand: deal damage to a front row card in play equal to the lowest LVL of the cards discarded.",
+			"type": 0
+		},
+		"sucker": {
+			"name": "Sucker",
+			"text": "Sap Spider swaps {force:?} with target unit your opponent controls.",
+			"type": 0
+		},
+		"contagious": {
+			"name": "Contagious",
+			"text": "Cure a card you control: give {key:sick} to another card in play. Cannot target the same card twice in one turn.",
+			"type": 1
+		},
+		"newPart": {
+			"name": "New Part",
+			"text": "Create a Mold {force:1} token, then attach a unit from your hand to it. Mold gains the text of the attached unit (the attached unit goes to the discard when Mold perishes).",
+			"type": 0
+		},
+		"surgery": {
+			"name": "Surgery",
+			"text": "Cure a card: target unit you control gains {force:3}.",
+			"type": 1
+		},
+		"evilGrin": {
+			"name": "Evil Grin",
+			"text": "Choose a card type (cannot chose token). Discard cards from the top of your deck until you discard a card of the chosen type or your deck runs out of cards. Add the card of the chosen type to your hand.",
+			"type": 0
+		},
+		"gust": {
+			"name": "Gust",
+			"text": "Gain an extra movement phase this turn.",
+			"type": 0
+		},
+		"reunion": {
+			"name": "Reunion",
+			"text": "For every other card named Nyx you control, sacrifice them and add their {force:?} and attached cards to this one.",
+			"type": 1
+		},
+		"abstraction": {
+			"name": "Abstraction",
+			"text": "Copy your next spell cast, then return this card to your hand.",
+			"type": 0
+		},
+		"skinner": {
+			"name": "Skinner",
+			"text": "Sacrifice a card you control: gain {force:2}.",
+			"type": 0
+		},
+		"crowMedicine": {
+			"name": "Crow Medicine",
+			"text": "Add a unit from your discard pile to your hand. It cannot be played this turn.",
+			"type": 0
+		},
+		"undbind": {
+			"name": "undbind",
+			"text": "Discard 3 cards from the top of your deck. Remain active if your deck is empty after discarding cards.",
+			"type": 0
+		},
+		"ignite": {
+			"name": "Ignite",
+			"text": "Attach the top 2 cards of your deck and add 2 soul counters to Soul Baron. If Soul Lantern is attached, set it instead.",
+			"type": 0
+		},
+		"seperation": {
+			"name": "Seperation",
+			"text": "You may remove up to {force:3} from Deconstructor and give it to another card you control.",
+			"type": 0
+		},
+		"blindingLight": {
+			"name": "Blinding Light",
+			"text": "Target card cannot deal combat damage until the end of the turn.",
+			"type": 0
+		},
+		"marletion": {
+			"name": "marletion",
+			"text": "Return all Marlita cards from your discard to your hand.",
+			"type": 0
+		},
+		"blender": {
+			"name": "Blender",
+			"text": "Remove a matter counter: deal 1 damage to a target front row card.",
+			"type": 1
+		},
+		"ratRitual": {
+			"name": "Rat Ritual",
+			"text": "Sacrifice all Rat tokens in play: deal 1 damage to an opponent for each Rat sacrificed.",
+			"type": 0
+		},
+		"piercingLight": {
+			"name": "Piercing Light",
+			"text": "Remove all soul counters from cards you control: deal damage equal to the number of soul counters removed to all opposing cards.",
+			"type": 0
+		},
+		"chaoticBrew": {
+			"name": "Chaotic Brew",
+			"text": "Shuffle your discard pile and swap it with your deck, then add 2 cards from your discard to your hand. This change does not count as adding cards to your discard pile.",
+			"type": 0
+		},
+		"massAbsorption": {
+			"name": "Mass Absorption",
+			"text": "Void a card you control: gain {force:?} equal to the {force:?} of the voided card.",
+			"type": 1
+		},
+		"truthOfTheMoon": {
+			"name": "Truth of The Moon",
+			"text": "Cards you control gain {key:immortal} until the start of your next turn.",
+			"type": 0
+		},
+		"emptiness": {
+			"name": "Emptiness",
+			"text": "Deal 5 damage to all units your opponent controls.",
+			"type": 0
+		},
+		"sumOfGod": {
+			"name": "Sum of God",
+			"text": "Sacrifice all units you control. Gain 2x{force:?} of the units sacrificed. Mineral God is {key:muted} until the end of the turn.",
+			"type": 1
+		},
+		"voidPrayer": {
+			"name": "Void Prayer",
+			"text": "Reveal the top 3 cards of your deck. Add 2 to your hand, void the rest.",
+			"type": 0
+		},
+		"exoburial": {
+			"name": "Exoburial",
+			"text": "Return a Bug from your discard to your hand.",
+			"type": 1
+		},
+		"heatDeath": {
+			"name": "Heat Death",
+			"text": "Void as many spells in your discard as you want. For every spell voided this way, deal 1 damage to each opponent.",
+			"type": 0
+		},
+		"snuff": {
+			"name": "snuff",
+			"text": "Destroy any number of sick cards in play.",
+			"type": 0
+		},
+		"metamorphosis": {
+			"name": "Metamorphosis",
+			"text": "Attach up to 3 units from your discard to Chrysalis.",
+			"type": 0
+		},
+		"welcomeHome": {
+			"name": "Welcome Home",
+			"text": "Sacrifice Home of Marlita: Recycle your deck, then search your deck for a Marlita Card.",
+			"type": 0
+		},
+		"peer": {
+			"name": "peer",
+			"text": "Reveal the top card of your deck. If the card's LVL is greater or equal to your current LVL, you may set it. Otherwise, void it or send it to the bottom of your deck.",
+			"type": 0
+		},
+		"ponder": {
+			"name": "ponder",
+			"text": "Draw 2 cards: discard a card from your hand.",
+			"type": 0
+		},
+		"infect": {
+			"name": "infect",
+			"text": "Target card gains {key:sick}.",
+			"type": 0
+		},
+		"voider": {
+			"name": "Voider",
+			"text": "Void a card from your hand.",
+			"type": 0
+		},
+		"feed": {
+			"name": "feed",
+			"text": "Target unit gains {force:1} and 1 LVL.",
+			"type": 0
+		},
+		"rediscover": {
+			"name": "Rediscover",
+			"text": "Shuffle your discard: add the top card of your discard pile to your hand.",
+			"type": 0
+		},
+		"surprise!": {
+			"name": "Surprise!",
+			"text": "Discard up to 2 cards: attach units from your deck equal to the number of cards discarded to Jack in the Box.",
+			"type": 0
+		},
+		"payout": {
+			"name": "payout",
+			"text": "Lose 1 LVL: Draw 2 cards.",
+			"type": 0
+		},
+		"outburst": {
+			"name": "outburst",
+			"text": "Deal 2 damage to a front row card.",
+			"type": 0
+		},
+		"drop": {
+			"name": "Drop",
+			"text": "Move Tonne to an open front row zone on an opponent's grid, and remove this skill.",
+			"type": 0
+		},
+		"fadingWithTime": {
+			"name": "Fading with time",
+			"text": "Search your deck for a card and reveal it. Shuffle your deck, then place the card on top of your deck.",
+			"type": 0
+		},
+		"cobbler": {
+			"name": "Cobbler",
+			"text": "Look at the top 3 cards of your deck. Reveal, then add any golem cards found to your hand. Send remaining cards to the top or bottom of your deck in any order.",
+			"type": 0
+		},
+		"prayerAndSpeech": {
+			"name": "Prayer and Speech",
+			"text": "Lose {force:2}. units you control gain {force:1}.",
+			"type": 1
+		},
+		"reelIn": {
+			"name": "Reel in",
+			"text": "{key:instant} Lose {force:1}: Create a Fish {force:0}/{key: static, sealed} token.",
+			"type": 1
+		},
+		"wither": {
+			"name": "wither",
+			"text": "Lose {force:1}: Cards with {key:fragile} take 1 damage.",
+			"type": 0
+		},
+		"feedTheMaw": {
+			"name": "Feed The Maw",
+			"text": "Sacrifice a card you control: gain {force:3}.",
+			"type": 0
+		},
+		"fool'sGold": {
+			"name": "Fool's gold",
+			"text": "Lose {force:1}: Sacrifice an active unit you control. Add a soul counter to Soul Oven.",
+			"type": 1
+		},
+		"pullUnder": {
+			"name": "Pull Under",
+			"text": "Lose {force:1}: Destroy a card with {key:doom}.",
+			"type": 0
+		},
+		"foolishMockery": {
+			"name": "Foolish Mockery",
+			"text": "Return a spell that was placed in your discard this turn to your hand. You cannot play that spell this turn.",
+			"type": 0
+		},
+		"grandJourney": {
+			"name": "Grand Journey",
+			"text": "Set a unit from your deck except it is LVL 1.",
+			"type": 0
+		},
+		"reanimate": {
+			"name": "Reanimate",
+			"text": "Lose {force:1}: set an attached unit.",
+			"type": 0
+		},
+		"mighty": {
+			"name": "Mighty",
+			"text": "Add {force:2} to another unit you control.",
+			"type": 0
+		},
+		"zombify": {
+			"name": "Zombify",
+			"text": "Sacrifice a unit you control: return another unit from your discard pile to your hand.",
+			"type": 0
+		},
+		"spawn": {
+			"name": "spawn",
+			"text": "Sacrifice all Ghost tokens in play: create a Ghost {force:?}/{key:bleed} token with {force:?} equal to the number of cards sacrificed.",
+			"type": 0
+		},
+		"evaporate": {
+			"name": "Evaporate",
+			"text": "Destroy the opposing front row card. Effected card takes 2 damage.",
+			"type": 0
+		},
+		"readyForDoom": {
+			"name": "ready for doom",
+			"text": "Add 2 nuclear counters to Doomsday Barrel.",
+			"type": 0
+		},
+		"collecting": {
+			"name": "collecting",
+			"text": "Create an Object {force:0}/{key:static} token.",
+			"type": 0
+		},
+		"somethingNew": {
+			"name": "Something New",
+			"text": "Sacrifice a card you control: set the top card of your deck.",
+			"type": 0
+		},
+		"repurpose": {
+			"name": "repurpose",
+			"text": "Sacrifice a card you control: search your deck for a Golem or Structure. Reveal it, then add it to your hand.",
+			"type": 0
+		},
+		"sickening": {
+			"name": "sickening",
+			"text": "{key:sick} cards your opponent controls take an instance of sick damage.",
+			"type": 0
+		},
+		"smile": {
+			"name": "smile",
+			"text": "If Madness Policy has a soul counter, draw a card.",
+			"type": 0
+		},
+		"immortalize": {
+			"name": "immortalize",
+			"text": "Target unit you control gains {key:immortal}.",
+			"type": 0
+		},
+		"warCry": {
+			"name": "War Cry",
+			"text": "Bugs you control gain {key:quick} until the end of the turn.",
+			"type": 0
+		},
+		"upside": {
+			"name": "upside",
+			"text": "If a card you control has {key:doom}, draw a card.",
+			"type": 0
+		}
+	}
+}

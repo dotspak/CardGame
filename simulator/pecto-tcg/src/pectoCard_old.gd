@@ -1,21 +1,23 @@
 @tool
 @icon("uid://b0psj1ihvfcu6")
 extends Control
-class_name PectoCard
+class_name PectoCardOLD
 
 #region Data
-var db : Dictionary
-var data : Dictionary
+var db : SQLite
 
-@export_group("Data")
-@export var ID : String = "" ## reference to the database's card ID for retrieving data
-@export_tool_button("Update Card")
-var updateButton = func():
-	data = PectoCard.get_card_data(self)
-	update_card_data()
+@export_group("Database")
+@export var ID : String = "" : ## reference to the database's Primary Key for retrieving data
+	set(val): 
+		ID = val
+		ID = ID.replace(" ", "_").to_upper()
 
-@export_tool_button("Reset Card")
-var resetButton = reset_card_data
+@export var table : String = "set1"
+@export_tool_button("Update Database")
+var updateButton = update_db
+
+@export_tool_button("Retrieve Data")
+var retrieveButton = retrieve_from_db
 
 const BASIC_ICON : Texture = preload("uid://dmhctqok0ncxr")
 const RARE_ICON : Texture = preload("uid://db7a3ny4orsly")
@@ -38,8 +40,21 @@ const SKILL_COLOR : Color = Color("e44298")
 const FSKILL_COLOR : Color = Color("16a98fff")
 
 const KEYWORD_COLOR : Color = Color.ORANGE
+const BANISHED_COLOR : Color = Color("ff7e87")
 
-enum CARD_TYPE{Unit, Icon, Spell, Token}
+enum CARD_TYPE{Unit, Offsite, Spell, Token}
+
+enum TRIBE{
+	Ghost, Golem, Wizard, Monster, 
+	Magic, God, Warrior, Celestial,
+	Bug, Object, Old, Plague, Rat,
+	Dark, Structure, Shapeshifter, 
+	Crow, Marlita, Bee, Queen, 
+	Equipment, Field, Bead, Fish}
+
+enum KEYWORD{Instant, Effect,
+	Flying, Static, Bleed, Sealed, Quick,
+	Delayed, Sick, Fragile, Immortal, Doom,}
 
 enum RARITY{Basic, Rare, Superrare, Divinerare}
 	
@@ -52,6 +67,12 @@ var TEXT_TAGS : Dictionary = {
 
 #region Visual
 @export_group("info")
+@export_tool_button("Set Mode")
+var setModeButton = enter_set_mode
+
+@export_tool_button("Full Mode")
+var fullModeButton = enter_full_mode
+
 @export var type : CARD_TYPE = CARD_TYPE.Unit : 
 	set(val):
 		type = val
@@ -86,22 +107,27 @@ var TEXT_TAGS : Dictionary = {
 		lvl = clamp(val, 0, 99)
 		if is_node_ready():
 			%cardLVL.text = str(lvl)
-
-@export var subtype : Array :
+		
+@export var banished : bool = false :
 	set(val):
-		subtype = val
+		banished = val
+		if is_node_ready():
+			%lvlIcon.modulate = BANISHED_COLOR if banished else Color.WHITE
+
+@export var tribe : Array[TRIBE] :
+	set(val):
+		tribe = val
 		update_type_label()
 
-@export var keywords : Array = [] :
+@export var keywords : Array[KEYWORD] = [] :
 	set(val):
 		keywords = val
 		if is_node_ready():
 			%cardKeywords.text = "[i][color=%s]"%KEYWORD_COLOR.to_html()
 			
 			for i : int in keywords.size():
-				var key : String = keywords[i]
-				keywords[i] = key.to_lower()
-				%cardKeywords.text += key.capitalize()
+				var k : KEYWORD = keywords[i]
+				%cardKeywords.text += KEYWORD.keys()[k]
 				if i < keywords.size() - 1:
 					%cardKeywords.text += ", "
 				
@@ -198,14 +224,14 @@ var active : bool = true :
 			activeStatusChanged.emit(active)
 
 func _ready():
-	subtype = subtype
+	tribe = tribe
 	type = type
 
 func _enter() -> void:
 	inPlay = true
 	enter.emit(self)
 	
-	if keywords.has("delayed"): active = false
+	if keywords.has(KEYWORD.Delayed): active = false
 	else: active = true
 
 
@@ -255,7 +281,7 @@ func attack_aftermath(target : Node) -> void:
 
 func deal_damage(amount : int) -> void: force -= amount
 func heal_damage(amount : int) -> void: force += amount
-func has_keyword(key : String) -> bool: return keywords.has(key)
+func has_keyword(key : String) -> bool: return keywords.has(KEYWORD[key.capitalize()]) 
 #endregion
 
 #region functions
@@ -294,80 +320,72 @@ func parse_card_text(string : String) -> String:
 	return output
 
 
-static func get_card_data(card : PectoCard) -> Dictionary:
-	var retrieved : Dictionary = {}
-	var msg : String = ""
-	card.db = {}
+func update_db() -> void:
+	if ID == "":
+		printerr("ID not set!")
+		return
+	
+	if scene_file_path == "":
+		printerr("Scene not saved!")
+		return
+	
+	var tableRef : String = "pecto_" + table
+	
+	open_database()
 
-	if card.ID == "": 
-		msg = "Card ID is invalid!"
+	db.query("""
+		CREATE TABLE IF NOT EXISTS %s (
+			ID TEXT PRIMARY KEY,
+			name TEXT,
+			type TEXT,
+			rarity TEXT,
+			force INTEGER,
+			lvl INTEGER)""" % tableRef)
+
+	db.query_with_bindings("SELECT * FROM %s WHERE ID=?;" % tableRef, [ID])
+
+	# insert new entry into database
+	if db.query_result.size() <= 0:
+		db.query_with_bindings("""
+			INSERT INTO %s (ID, name, type, rarity, force, lvl, scene)
+			VALUES (?, ?, ?, ?, ?, ?, ?)""" % tableRef, 
+			[ID, cardName, type, rarity, force, lvl, scene_file_path])
+		print("added card ", cardName, " to database at:", str(ID))
+
+	# update existing entry
 	else:
-		if Engine.is_editor_hint():
-			var DB_PATH : String = "res://data/pectoDB.json"
-			if FileAccess.file_exists(GameManager.DB_PATH):
-				var file : FileAccess = FileAccess.open(DB_PATH, FileAccess.READ)
-				card.db = JSON.parse_string(file.get_as_text())
-			else:
-				printerr("File Doesn't Exist!")
-		else:
-			card.db = GameManager.DB
-
-		# data has been found, see if the card exists in it
-		if card.db:
-			if card.db["cards"].keys().has(card.ID):
-				retrieved = card.db["cards"][card.ID]
-				msg = "Data retrieved successfully!"
-	print(msg)
-	print(retrieved)
-	return retrieved
+		db.query_with_bindings("""
+			UPDATE %s
+			SET name=?, type=?, rarity=?, force=?, lvl=?, scene=? 
+			WHERE ID=?""" % tableRef,
+		[cardName, type, rarity, force, lvl, scene_file_path, ID])
+		print("updated card ", cardName, " at:", str(ID))
 
 
-func update_card_data() -> void:
-	cardName = data["name"]
-	type = data["type"]
-	subtype = data["subtype"]
+func retrieve_from_db() -> void:
+	var tableRef : String = "pecto_" + table
+	open_database()
+	db.query_with_bindings("SELECT * FROM %s WHERE ID=?;" % tableRef, [ID])
+	
+	if db.query_result.size() > 0:
+		var result : Dictionary = db.query_result[0]
+		cardName = result["name"]
+		lvl = result["lvl"]
+		rarity = result["rarity"]
+		type = result["type"]
+		force = result["force"]
 
-	lvl = data["lvl"]
-	force = data["force"]
-
-	keywords = data["keywords"]
-	text = data["text"]
-
-	if data["skill"]:
-		var skillData : Dictionary = db["skills"][data["skill"]]
-		skillName = skillData["name"]
-		skillText = skillData["text"]
-		isSkillContinuous = skillData["type"]
-
-	# set scene path for the given card
-	if Engine.is_editor_hint():
-		pass
-
-
-func reset_card_data() -> void:
-	cardName = "dummy"
-	type = CARD_TYPE.Unit
-	subtype = []
-
-	lvl = 1
-	force = 0
-
-	keywords = []
-	text = "insert dummy text here!"
-
-	skillName = ""
-	skillText = ""
-	isSkillContinuous = false
-
-	art = null
+		print("reset data succesfully")
+	else:
+		printerr("Card does not exist in database!")
 
 
 func update_type_label() -> void:
 	if !is_node_ready(): return
-	var subtypeText : String = ""
-	for s : String in subtype: subtypeText += s + " "
+	var tribeText : String = ""
+	for t : TRIBE in tribe: tribeText += TRIBE.keys()[t] + " "
 
-	%cardType.text = subtypeText
+	%cardType.text = tribeText
 	%cardType.text.strip_edges()
 	%cardType.visible = %cardType.text != ""
 
@@ -399,7 +417,7 @@ func get_card_skill() -> String: return %cardSkill.text if skillName != "" else 
 func get_card_name() -> String: 
 	return %cardName.text + " " + "[bgcolor=%s][b] %s [/b][/bgcolor]" % \
 		[Color("e44298").to_html(), force] + \
-		"/" + "[color=%s]LVL: %s" % [Color.WHITE.to_html(), lvl]
+		"/" + "[color=%s]LVL: %s" % [Color.WHITE.to_html() if !banished else Color.RED.to_html(), lvl]
 func get_card_art() -> Texture: return art
 func get_card_types() -> PackedStringArray: 
 	var types : PackedStringArray = []
@@ -409,3 +427,7 @@ func get_card_types() -> PackedStringArray:
 	t = r.sub(t, " ", true)
 	types = t.split(" ", false)
 	return types
+
+func open_database() -> void:
+	if GameManager.DB: db = GameManager.DB
+	else: db = GameManager.open_database()

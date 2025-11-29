@@ -27,7 +27,7 @@ def parse_skill(raw : str, skills : dict):
         r"\{(skill|fskill):([^}]+)\}\s*(.*)",
         raw.strip())
 
-    if not match: return None #return {"name" : "", "text" : "", "type" : 0}
+    if not match: return None
 
     keyword = match.group(1)
     name = match.group(2).strip()
@@ -128,6 +128,7 @@ def load_cards_from_csv(csv_path : str, cardType : int, skills : dict, setName :
 
 
 def load_all_cards(units, icons, spells, output, set):
+    # check if any data is already loaded in the file
     if os.path.isfile(output) and os.path.getsize(output) > 0:
         with open(output, "r", encoding="utf-8") as f:
             try:
@@ -141,15 +142,23 @@ def load_all_cards(units, icons, spells, output, set):
     else:
         cards = {}
         skills = {}
+    
+    # overwrite the json file
+    shouldCheckDupeID = input("Check for duplicate IDs? (y/n) ") == "y"
+    for cardType, csvPath in [(0, units), (1, icons), (2, spells)]:
+        if not csvPath: continue
+        newCards = load_cards_from_csv(csvPath, cardType, skills, set)
+        
+        for cardID, cardData in newCards.items():
+            if cardID in cards and shouldCheckDupeID:
+                if input(f"Card '{cardID}' already exists. Overwrite? (y/n) ") == "y":
+                    cards[cardID] = cardData
+                else:
+                    print(f"Skipped '{cardID}'")
+            else:
+                cards[cardID] = cardData
 
-    if units: cards.update(load_cards_from_csv(units, 0, skills, set))
-    if icons: cards.update(load_cards_from_csv(icons, 1, skills, set))
-    if spells: cards.update(load_cards_from_csv(spells, 2, skills, set))
-
-    print(cards)
-    print(skills)
-
-    final = { 
+    final = {
         "cards" : cards,
         "skills" : skills
     }
@@ -172,7 +181,7 @@ def get_file_path(prompt):
 
 def get_output_path(prompt):
     while True:
-        path = input(f"{prompt} (will be created/overwritten): ").strip()
+        path = input(f"{prompt} (will be created/overwritten): ").strip() + ".json"
         if os.path.isfile(path): return path
         else: print("Please enter a valid file path.")
 
@@ -191,13 +200,13 @@ def find_csv_files(folder):
 
 if __name__ == "__main__":
     print("=== Pecto CSV -> JSON Converter V1.0 ===\n")
-    csvFolder = get_file_path("Enter path to set folder.")
+    csvFolder = get_file_path("Enter set folder name.")
     csvs = find_csv_files(csvFolder)
 
     missing = [k for k,v in csvs.items() if v is None]
     if missing: print(f"Warning: could not find {', '.join(missing)}")
 
-    outputJSON = get_output_path("Enter path for output JSON")
+    outputJSON = get_output_path("Enter filename for output JSON")
     
     load_all_cards(
         units=csvs.get("units"), 
