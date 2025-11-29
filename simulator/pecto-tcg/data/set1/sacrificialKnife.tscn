@@ -1,0 +1,77 @@
+[gd_scene load_steps=9 format=3 uid="uid://cspfenb815xiy"]
+
+[ext_resource type="PackedScene" uid="uid://uqcqlr8xi5yc" path="res://scenes/cardTemplates/card_pectoCard.tscn" id="1_0nvhh"]
+[ext_resource type="Texture2D" uid="uid://cth6f1e6jwkwu" path="res://assets/set1/sacrficialKnife.png" id="2_n36ak"]
+[ext_resource type="Shader" uid="uid://brh53fytjw03j" path="res://shader/blendModes.gdshader" id="3_0nvhh"]
+[ext_resource type="Texture2D" uid="uid://b613u8p8qy5pc" path="res://assets/spellIcon5.png" id="3_u25cl"]
+
+[sub_resource type="Gradient" id="Gradient_ng0j1"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.53333336, 0.07058824, 0.07058824, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jys35"]
+gradient = SubResource("Gradient_ng0j1")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n36ak"]
+resource_local_to_scene = true
+shader = ExtResource("3_0nvhh")
+shader_parameter/mode = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u25cl"]
+resource_local_to_scene = true
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+border_width_left = 50
+border_width_top = 50
+border_width_right = 50
+border_width_bottom = 50
+border_color = Color(0.43529412, 0.43529412, 0.43529412, 1)
+
+[node name="sacrificalKnife" instance=ExtResource("1_0nvhh")]
+ID = "sacrificialKnife"
+type = 2
+cardName = "Sacrificial Knife"
+lvl = 3
+text = "Draw a card whenever an opponent sacrifices a card.
+{trigger:cast} Destroy target card. The owner of the card draws a card."
+art = ExtResource("2_n36ak")
+bg = SubResource("GradientTexture1D_jys35")
+rarity = 1
+
+[node name="cardBackground" parent="cardShape" index="0"]
+texture = SubResource("GradientTexture1D_jys35")
+
+[node name="cardArt" parent="art/visual" index="0"]
+texture = ExtResource("2_n36ak")
+
+[node name="shadow" parent="art/visual" index="1"]
+material = SubResource("ShaderMaterial_n36ak")
+theme_override_styles/panel = SubResource("StyleBoxFlat_u25cl")
+
+[node name="border" parent="art/visual" index="2"]
+self_modulate = Color(0.101960786, 0.57254905, 0.80784315, 1)
+
+[node name="textContainer" parent="art/visual/border/bottomInfo/MarginContainer/text" index="1"]
+self_modulate = Color(0.101960786, 0.57254905, 0.80784315, 1)
+
+[node name="cardText" parent="art/visual/border/bottomInfo/MarginContainer/text/textContainer/MarginContainer/VBoxContainer" index="0"]
+text = "Draw a card whenever an opponent sacrifices a card.
+[bgcolor=orange][b]➥CAST[/b][/bgcolor] Destroy target card. The owner of the card draws a card."
+
+[node name="skillContainer" parent="art/visual/border/bottomInfo/MarginContainer/text" index="2"]
+self_modulate = Color(0.101960786, 0.57254905, 0.80784315, 1)
+
+[node name="force" parent="art/visual/border/bottomInfo" index="1"]
+visible = false
+
+[node name="cardTypeIcon" parent="art/visual/topBar" index="0"]
+texture = ExtResource("3_u25cl")
+
+[node name="nameContainer" parent="art/visual/topBar/info" index="0"]
+self_modulate = Color(0.101960786, 0.57254905, 0.80784315, 1)
+
+[node name="cardName" parent="art/visual/topBar/info/nameContainer/HBoxContainer" index="0"]
+text = "Sacrificial Knife"
+
+[node name="cardLVL" parent="art/visual/topBar/lvlIcon" index="0"]
+text = "3"

@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://dotqt5ved5jhj"]
+
+[ext_resource type="PackedScene" uid="uid://uqcqlr8xi5yc" path="res://scenes/cardTemplates/card_pectoCard.tscn" id="1_4skeq"]
+[ext_resource type="Texture2D" uid="uid://jmlinqsnajtl" path="res://assets/set1/tombCrawler.png" id="2_ik86u"]
+[ext_resource type="Shader" uid="uid://brh53fytjw03j" path="res://shader/blendModes.gdshader" id="3_ik86u"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_owokc"]
+resource_local_to_scene = true
+shader = ExtResource("3_ik86u")
+shader_parameter/mode = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tysg8"]
+resource_local_to_scene = true
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+border_width_left = 50
+border_width_top = 50
+border_width_right = 50
+border_width_bottom = 50
+border_color = Color(0.43529412, 0.43529412, 0.43529412, 1)
+
+[node name="tombCrawler" instance=ExtResource("1_4skeq")]
+ID = "tombCrawler"
+cardName = "Tomb Crawler"
+force = 3
+lvl = 3
+subtype = ["Ghost", "Monster"]
+keywords = ["quick"]
+text = "{trigger:victor} Discard a card from your hand. If you do, draw a card."
+art = ExtResource("2_ik86u")
+
+[node name="cardArt" parent="art/visual" index="0"]
+texture = ExtResource("2_ik86u")
+
+[node name="shadow" parent="art/visual" index="1"]
+material = SubResource("ShaderMaterial_owokc")
+theme_override_styles/panel = SubResource("StyleBoxFlat_tysg8")
+
+[node name="cardType" parent="art/visual/border/bottomInfo/MarginContainer/text/HBoxContainer" index="0"]
+visible = true
+text = "Ghost Monster "
+
+[node name="cardKeywords" parent="art/visual/border/bottomInfo/MarginContainer/text/HBoxContainer" index="1"]
+text = "[i][color=ffa500ff]Quick"
+
+[node name="cardText" parent="art/visual/border/bottomInfo/MarginContainer/text/textContainer/MarginContainer/VBoxContainer" index="0"]
+text = "[bgcolor=orange][b]➥VICTOR[/b][/bgcolor] Discard a card from your hand. If you do, draw a card."
+
+[node name="cardForce" parent="art/visual/border/bottomInfo/force/TextureRect" index="0"]
+text = "3"
+
+[node name="cardName" parent="art/visual/topBar/info/nameContainer/HBoxContainer" index="0"]
+text = "Tomb Crawler"
+
+[node name="cardLVL" parent="art/visual/topBar/lvlIcon" index="0"]
+text = "3"

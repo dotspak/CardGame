@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=3 uid="uid://cpd75prx0jb0v"]
+
+[ext_resource type="PackedScene" uid="uid://uqcqlr8xi5yc" path="res://scenes/cardTemplates/card_pectoCard.tscn" id="1_ajnrj"]
+[ext_resource type="Texture2D" uid="uid://b8fv0jeg41l0r" path="res://assets/set1/blastOrb.png" id="2_lcw8r"]
+[ext_resource type="Shader" uid="uid://brh53fytjw03j" path="res://shader/blendModes.gdshader" id="3_6ike3"]
+[ext_resource type="Texture2D" uid="uid://brxxnkd348fxh" path="res://assets/offSiteIcon5.png" id="4_nlngj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ega2o"]
+resource_local_to_scene = true
+shader = ExtResource("3_6ike3")
+shader_parameter/mode = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bdh3n"]
+resource_local_to_scene = true
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+border_width_left = 50
+border_width_top = 50
+border_width_right = 50
+border_width_bottom = 50
+border_color = Color(0.43529412, 0.43529412, 0.43529412, 1)
+
+[node name="blastOrb" instance=ExtResource("1_ajnrj")]
+ID = "blastOrb"
+type = 1
+cardName = "Blast Orb"
+lvl = 2
+subtype = ["Object"]
+keywords = ["instant", "static"]
+text = ""
+skillName = "outburst"
+skillText = "Deal 2 damage to a front row card."
+art = ExtResource("2_lcw8r")
+
+[node name="cardArt" parent="art/visual" index="0"]
+texture = ExtResource("2_lcw8r")
+
+[node name="shadow" parent="art/visual" index="1"]
+material = SubResource("ShaderMaterial_ega2o")
+theme_override_styles/panel = SubResource("StyleBoxFlat_bdh3n")
+
+[node name="border" parent="art/visual" index="2"]
+self_modulate = Color(1, 0.75686276, 0.078431375, 1)
+
+[node name="cardType" parent="art/visual/border/bottomInfo/MarginContainer/text/HBoxContainer" index="0"]
+visible = true
+text = "Object "
+
+[node name="cardKeywords" parent="art/visual/border/bottomInfo/MarginContainer/text/HBoxContainer" index="1"]
+text = "[i][color=ffa500ff]Instant, Static"
+
+[node name="textContainer" parent="art/visual/border/bottomInfo/MarginContainer/text" index="1"]
+visible = false
+self_modulate = Color(1, 0.75686276, 0.078431375, 1)
+
+[node name="cardText" parent="art/visual/border/bottomInfo/MarginContainer/text/textContainer/MarginContainer/VBoxContainer" index="0"]
+text = ""
+
+[node name="skillContainer" parent="art/visual/border/bottomInfo/MarginContainer/text" index="2"]
+visible = true
+self_modulate = Color(1, 0.75686276, 0.078431375, 1)
+
+[node name="cardSkill" parent="art/visual/border/bottomInfo/MarginContainer/text/skillContainer/MarginContainer/VBoxContainer" index="1"]
+text = "[bgcolor=e44298ff][b]★OUTBURST[/b][/bgcolor] Deal 2 damage to a front row card."
+
+[node name="cardTypeIcon" parent="art/visual/topBar" index="0"]
+texture = ExtResource("4_nlngj")
+
+[node name="nameContainer" parent="art/visual/topBar/info" index="0"]
+self_modulate = Color(1, 0.75686276, 0.078431375, 1)
+
+[node name="cardName" parent="art/visual/topBar/info/nameContainer/HBoxContainer" index="0"]
+text = "Blast Orb"
+
+[node name="cardLVL" parent="art/visual/topBar/lvlIcon" index="0"]
+text = "2"

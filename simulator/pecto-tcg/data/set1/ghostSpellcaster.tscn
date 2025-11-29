@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://dlie6efp0fojy"]
+
+[ext_resource type="PackedScene" uid="uid://uqcqlr8xi5yc" path="res://scenes/cardTemplates/card_pectoCard.tscn" id="1_x7kjx"]
+[ext_resource type="Texture2D" uid="uid://b6ld8075x26sm" path="res://assets/set1/ghostSpellcaster.png" id="2_wjckw"]
+[ext_resource type="Shader" uid="uid://brh53fytjw03j" path="res://shader/blendModes.gdshader" id="3_wjckw"]
+
+[sub_resource type="Gradient" id="Gradient_vr8m0"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.21313475, 0.0663086, 0.30312502, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ihilk"]
+gradient = SubResource("Gradient_vr8m0")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vr8m0"]
+resource_local_to_scene = true
+shader = ExtResource("3_wjckw")
+shader_parameter/mode = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ihilk"]
+resource_local_to_scene = true
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+border_width_left = 50
+border_width_top = 50
+border_width_right = 50
+border_width_bottom = 50
+border_color = Color(0.43529412, 0.43529412, 0.43529412, 1)
+
+[node name="ghostSpellcaster" instance=ExtResource("1_x7kjx")]
+ID = "ghostSpellcaster"
+cardName = "Ghost Spellcaster"
+subtype = ["Ghost", "Wizard"]
+text = ""
+skillName = "Death Magic"
+skillText = "Shuffle your discard pile and look at the top 3 cards. If at least 1 spell is within the 3 cards, add 1 to your hand and sacrifice Ghost Spellcaster."
+art = ExtResource("2_wjckw")
+bg = SubResource("GradientTexture1D_ihilk")
+rarity = 1
+
+[node name="cardBackground" parent="cardShape" index="0"]
+texture = SubResource("GradientTexture1D_ihilk")
+
+[node name="cardArt" parent="art/visual" index="0"]
+texture = ExtResource("2_wjckw")
+
+[node name="shadow" parent="art/visual" index="1"]
+material = SubResource("ShaderMaterial_vr8m0")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ihilk")
+
+[node name="cardType" parent="art/visual/border/bottomInfo/MarginContainer/text/HBoxContainer" index="0"]
+visible = true
+text = "Ghost Wizard "
+
+[node name="textContainer" parent="art/visual/border/bottomInfo/MarginContainer/text" index="1"]
+visible = false
+
+[node name="cardText" parent="art/visual/border/bottomInfo/MarginContainer/text/textContainer/MarginContainer/VBoxContainer" index="0"]
+text = ""
+
+[node name="skillContainer" parent="art/visual/border/bottomInfo/MarginContainer/text" index="2"]
+visible = true
+
+[node name="cardSkill" parent="art/visual/border/bottomInfo/MarginContainer/text/skillContainer/MarginContainer/VBoxContainer" index="1"]
+text = "[bgcolor=e44298ff][b]★DEATH MAGIC[/b][/bgcolor] Shuffle your discard pile and look at the top 3 cards. If at least 1 spell is within the 3 cards, add 1 to your hand and sacrifice Ghost Spellcaster."
+
+[node name="cardName" parent="art/visual/topBar/info/nameContainer/HBoxContainer" index="0"]
+text = "Ghost Spellcaster"

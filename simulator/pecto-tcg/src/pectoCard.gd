@@ -11,8 +11,8 @@ var data : Dictionary
 @export var ID : String = "" ## reference to the database's card ID for retrieving data
 @export_tool_button("Update Card")
 var updateButton = func():
-	data = PectoCard.get_card_data(self)
-	update_card_data()
+	PectoCard.get_card_data(self)
+	update_card_data(true)
 
 @export_tool_button("Reset Card")
 var resetButton = reset_card_data
@@ -198,8 +198,8 @@ var active : bool = true :
 			activeStatusChanged.emit(active)
 
 func _ready():
-	subtype = subtype
-	type = type
+	PectoCard.get_card_data(self)
+	update_card_data(Engine.is_editor_hint())
 
 func _enter() -> void:
 	inPlay = true
@@ -319,10 +319,11 @@ static func get_card_data(card : PectoCard) -> Dictionary:
 				msg = "Data retrieved successfully!"
 	print(msg)
 	print(retrieved)
-	return retrieved
+	card.data = retrieved
+	return card.data
 
 
-func update_card_data() -> void:
+func update_card_data(updateScenePath : bool = false) -> void:
 	cardName = data["name"]
 	type = data["type"]
 	subtype = data["subtype"]
@@ -339,13 +340,32 @@ func update_card_data() -> void:
 		skillText = skillData["text"]
 		isSkillContinuous = skillData["type"]
 
+	if FileAccess.file_exists("res://assets/set1/" + data["art"]):
+		art = load("res://assets/set1/" + data["art"])
+
 	# set scene path for the given card
-	if Engine.is_editor_hint():
-		pass
+	if updateScenePath:
+		var scenePath : String = get_tree().edited_scene_root.scene_file_path
+		if scenePath == "" || scenePath == "res://scenes/cardTemplates/card_pectoCard.tscn":
+			print("No scene path (unsaved scene). Skipping scenepath update.")
+			return
+		
+		db["cards"][ID]["scenepath"] = scenePath
+
+		var file := FileAccess.open("res://data/pectoDB.json", FileAccess.WRITE)
+		if file:
+			file.store_string(JSON.stringify(db, "\t"))
+			file.close()
+			print("Database saved to ", "res://data/pectoDB.json")
+		else:
+			push_error("Failed to save card DB to: " + "res://data/pectoDB.json")
+
 
 
 func reset_card_data() -> void:
-	cardName = "dummy"
+	ID = ""
+	
+	cardName = "Dummy"
 	type = CARD_TYPE.Unit
 	subtype = []
 

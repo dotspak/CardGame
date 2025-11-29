@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://tgwg37s4khbg"]
+
+[ext_resource type="PackedScene" uid="uid://uqcqlr8xi5yc" path="res://scenes/cardTemplates/card_pectoCard.tscn" id="1_fahiy"]
+[ext_resource type="Texture2D" uid="uid://dsemqjnsd305b" path="res://assets/set1/jester.png" id="2_6hsu1"]
+[ext_resource type="Shader" uid="uid://brh53fytjw03j" path="res://shader/blendModes.gdshader" id="3_a22p7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5o765"]
+resource_local_to_scene = true
+shader = ExtResource("3_a22p7")
+shader_parameter/mode = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p0h3i"]
+resource_local_to_scene = true
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+border_width_left = 50
+border_width_top = 50
+border_width_right = 50
+border_width_bottom = 50
+border_color = Color(0.43529412, 0.43529412, 0.43529412, 1)
+
+[node name="jester" instance=ExtResource("1_fahiy")]
+ID = "jester"
+cardName = "Jester"
+force = 1
+subtype = ["Ghost"]
+text = "If jester were to enter your discard, you may setit. If Jester is set this way, deal 1 damage to all opponents.
+{trigger:perish} Shuffle Jester into your deck."
+art = ExtResource("2_6hsu1")
+
+[node name="cardArt" parent="art/visual" index="0"]
+texture = ExtResource("2_6hsu1")
+
+[node name="shadow" parent="art/visual" index="1"]
+material = SubResource("ShaderMaterial_5o765")
+theme_override_styles/panel = SubResource("StyleBoxFlat_p0h3i")
+
+[node name="cardType" parent="art/visual/border/bottomInfo/MarginContainer/text/HBoxContainer" index="0"]
+visible = true
+text = "Ghost "
+
+[node name="cardText" parent="art/visual/border/bottomInfo/MarginContainer/text/textContainer/MarginContainer/VBoxContainer" index="0"]
+text = "If jester were to enter your discard, you may setit. If Jester is set this way, deal 1 damage to all opponents.
+[bgcolor=orange][b]➥PERISH[/b][/bgcolor] Shuffle Jester into your deck."
+
+[node name="cardForce" parent="art/visual/border/bottomInfo/force/TextureRect" index="0"]
+text = "1"
+
+[node name="cardName" parent="art/visual/topBar/info/nameContainer/HBoxContainer" index="0"]
+text = "Jester"

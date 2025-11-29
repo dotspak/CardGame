@@ -88,6 +88,7 @@ func fade_screen(duration : float = 0.2, fadeIn : bool = true) -> void:
 
 func start_turn() -> void:
 	turnCount += 1
+	if turnCount > 1: currentTurn.lvl += 1
 	currentTurn.draw_card()
 	currentTurn.toggle_active(true)
 	update_turn_label()

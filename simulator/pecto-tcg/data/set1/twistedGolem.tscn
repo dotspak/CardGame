@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://dogvhasbjfn2x"]
+
+[ext_resource type="PackedScene" uid="uid://uqcqlr8xi5yc" path="res://scenes/cardTemplates/card_pectoCard.tscn" id="1_vy5xm"]
+[ext_resource type="Texture2D" uid="uid://cqia3yeagyjga" path="res://assets/set1/twistedGolem.png" id="2_uok2t"]
+[ext_resource type="Shader" uid="uid://brh53fytjw03j" path="res://shader/blendModes.gdshader" id="3_uok2t"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xk5vg"]
+resource_local_to_scene = true
+shader = ExtResource("3_uok2t")
+shader_parameter/mode = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l88is"]
+resource_local_to_scene = true
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+border_width_left = 50
+border_width_top = 50
+border_width_right = 50
+border_width_bottom = 50
+border_color = Color(0.43529412, 0.43529412, 0.43529412, 1)
+
+[node name="twistedGolem" instance=ExtResource("1_vy5xm")]
+ID = "twistedGolem"
+cardName = "Twisted Golem"
+subtype = ["Ghost", "Golem"]
+keywords = ["effect"]
+text = "{trigger:perish} You gain LVL equal to this card's LVL."
+art = ExtResource("2_uok2t")
+
+[node name="cardArt" parent="art/visual" index="0"]
+texture = ExtResource("2_uok2t")
+
+[node name="shadow" parent="art/visual" index="1"]
+material = SubResource("ShaderMaterial_xk5vg")
+theme_override_styles/panel = SubResource("StyleBoxFlat_l88is")
+
+[node name="cardType" parent="art/visual/border/bottomInfo/MarginContainer/text/HBoxContainer" index="0"]
+visible = true
+text = "Ghost Golem "
+
+[node name="cardKeywords" parent="art/visual/border/bottomInfo/MarginContainer/text/HBoxContainer" index="1"]
+text = "[i][color=ffa500ff]Effect"
+
+[node name="cardText" parent="art/visual/border/bottomInfo/MarginContainer/text/textContainer/MarginContainer/VBoxContainer" index="0"]
+text = "[bgcolor=orange][b]➥PERISH[/b][/bgcolor] You gain LVL equal to this card's LVL."
+
+[node name="cardName" parent="art/visual/topBar/info/nameContainer/HBoxContainer" index="0"]
+text = "Twisted Golem"

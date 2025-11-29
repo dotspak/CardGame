@@ -80,20 +80,19 @@ func start_game() -> void:
 func load_deck() -> void:
 	var baseScene : PackedScene = load("uid://buocg07fg5px0")
 	for cardID : String in deckToLoad:
-		var card : PectoCard = fetch_card(cardID, GameManager.DB)
+		var card : PectoCard = fetch_card(cardID)
 		if card:
 			var card3D : PectoCard3D = baseScene.instantiate()
 			card3D.set_front_face(card)
 			card3D.face_down = true
 			cardPool.append(card3D)
-			
 			add_card_to_deck(card3D)
 
 
-func fetch_card(cardID : String, db : SQLite) -> PectoCard:
+func fetch_card(cardID : String) -> PectoCard:
 	var card : PectoCard = null
-	db.query_with_bindings("SELECT scene FROM pecto_set1 WHERE ID=?;", [cardID])
-	if db.query_result.size() > 0: card = load(db.query_result[0]["scene"]).instantiate()
+	if GameManager.DB["cards"][cardID]:
+		card = load(GameManager.DB["cards"][cardID]["scenepath"]).instantiate()
 	return card
 
 
@@ -107,17 +106,7 @@ func get_highest_playable() -> int:
 	return final
 
 
-func get_starting_hand() -> void:
-	var lvl1cards : Array[PectoCard3D] = []
-	for c : PectoCard3D in cardPool:
-		if c.card.lvl == 1 && c.card.type != PectoCard.CARD_TYPE.Spell:
-			lvl1cards.append(c)
-			print(c.name)
-
-	add_card_to_hand(lvl1cards.pick_random())
-	for _i : int in 4: draw_card()
-
-
+func get_starting_hand() -> void: for _i : int in 5: draw_card()
 func shuffle_deck() -> void: deck.cards.shuffle()
 func recycle_deck() -> void:
 	for c : Card3D in discard.cards: add_card_to_deck(c)

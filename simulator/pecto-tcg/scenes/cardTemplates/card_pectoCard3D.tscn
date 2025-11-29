@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dxpc2iac0hjpw" path="res://addons/card_3d/scenes/card_3d.tscn" id="1_0xa8b"]
 [ext_resource type="Script" uid="uid://b0fdm3p04aufi" path="res://PectoCard3D.gd" id="2_omhgn"]
-[ext_resource type="PackedScene" uid="uid://b8uwted6lh1x5" path="res://data/set1/offsite_monolith.tscn" id="3_0xa8b"]
+[ext_resource type="PackedScene" uid="uid://b8uwted6lh1x5" path="res://data/set1/monolith.tscn" id="3_0xa8b"]
 [ext_resource type="FontFile" uid="uid://fpqgiu5d1pkr" path="res://assets/fonts/Higher Jump.ttf" id="4_sw0d4"]
 [ext_resource type="PackedScene" uid="uid://c4c6pl5m22jp2" path="res://scenes/cardTemplates/card_back.tscn" id="4_wt3j3"]
 [ext_resource type="FontFile" uid="uid://1kd62leqiy8y" path="res://assets/fonts/AveriaLibre-Bold.ttf" id="5_omhgn"]

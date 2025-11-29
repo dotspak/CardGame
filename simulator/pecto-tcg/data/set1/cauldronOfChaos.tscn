@@ -1,0 +1,93 @@
+[gd_scene load_steps=9 format=3 uid="uid://byts10lq8fgfh"]
+
+[ext_resource type="PackedScene" uid="uid://uqcqlr8xi5yc" path="res://scenes/cardTemplates/card_pectoCard.tscn" id="1_g7mmx"]
+[ext_resource type="Texture2D" uid="uid://c7r5feyvwgfy" path="res://assets/set1/cauldronOfChaos.png" id="2_a5nvm"]
+[ext_resource type="Shader" uid="uid://brh53fytjw03j" path="res://shader/blendModes.gdshader" id="3_81gg7"]
+
+[sub_resource type="Gradient" id="Gradient_81gg7"]
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0, 0.17197452, 0.3343949, 0.5127388, 0.66560507, 0.84076434, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.015686275, 0.015686275, 0.78039217, 1, 0.54901963, 0.99215686, 0.78039217, 1, 0.7254902, 0.8156863, 0.5294118, 1, 0.21568628, 0.17254902, 0.43529412, 1, 0.7647059, 0.03137255, 0.4745098, 1, 0.13333334, 0.24705882, 0.8980392, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_76sir"]
+gradient = SubResource("Gradient_81gg7")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_w6038"]
+blend_mode = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_76sir"]
+resource_local_to_scene = true
+shader = ExtResource("3_81gg7")
+shader_parameter/mode = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w6038"]
+resource_local_to_scene = true
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+border_width_left = 50
+border_width_top = 50
+border_width_right = 50
+border_width_bottom = 50
+border_color = Color(0.43529412, 0.43529412, 0.43529412, 1)
+
+[node name="cauldronOfChaos" instance=ExtResource("1_g7mmx")]
+ID = "cauldronOfChaos"
+cardName = "Cauldron Of Chaos"
+force = 3
+lvl = 5
+subtype = ["Ghost", "God"]
+keywords = ["delayed", "static"]
+text = "You can only use {skill:Chaotic Brew} if you have at least 10 cards in your discard."
+skillName = "Chaotic Brew"
+skillText = "Shuffle your discard pile and swap it with your deck, then add 2 cards from your discard to your hand. This change does not count as adding cards to your discard pile."
+art = ExtResource("2_a5nvm")
+bg = SubResource("GradientTexture2D_76sir")
+foil = true
+rarity = 3
+
+[node name="cardBackground" parent="cardShape" index="0"]
+texture = SubResource("GradientTexture2D_76sir")
+
+[node name="TextureRect" type="TextureRect" parent="cardShape/cardBackground" index="0"]
+material = SubResource("CanvasItemMaterial_w6038")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_a5nvm")
+
+[node name="cardArt" parent="art/visual" index="0"]
+texture = ExtResource("2_a5nvm")
+
+[node name="shadow" parent="art/visual" index="1"]
+material = SubResource("ShaderMaterial_76sir")
+theme_override_styles/panel = SubResource("StyleBoxFlat_w6038")
+
+[node name="cardType" parent="art/visual/border/bottomInfo/MarginContainer/text/HBoxContainer" index="0"]
+visible = true
+text = "Ghost God "
+
+[node name="cardKeywords" parent="art/visual/border/bottomInfo/MarginContainer/text/HBoxContainer" index="1"]
+text = "[i][color=ffa500ff]Delayed, Static"
+
+[node name="cardText" parent="art/visual/border/bottomInfo/MarginContainer/text/textContainer/MarginContainer/VBoxContainer" index="0"]
+text = "You can only use [bgcolor=e44298ff][b]★CHAOTIC BREW[/b][/bgcolor] if you have at least 10 cards in your discard."
+
+[node name="skillContainer" parent="art/visual/border/bottomInfo/MarginContainer/text" index="2"]
+visible = true
+
+[node name="cardSkill" parent="art/visual/border/bottomInfo/MarginContainer/text/skillContainer/MarginContainer/VBoxContainer" index="1"]
+text = "[bgcolor=e44298ff][b]★CHAOTIC BREW[/b][/bgcolor] Shuffle your discard pile and swap it with your deck, then add 2 cards from your discard to your hand. This change does not count as adding cards to your discard pile."
+
+[node name="cardForce" parent="art/visual/border/bottomInfo/force/TextureRect" index="0"]
+text = "3"
+
+[node name="cardName" parent="art/visual/topBar/info/nameContainer/HBoxContainer" index="0"]
+text = "Cauldron Of Chaos"
+
+[node name="cardLVL" parent="art/visual/topBar/lvlIcon" index="0"]
+text = "5"

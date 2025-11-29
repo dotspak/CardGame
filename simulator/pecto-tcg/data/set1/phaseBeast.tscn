@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://de3522pc7e6q6"]
+
+[ext_resource type="PackedScene" uid="uid://uqcqlr8xi5yc" path="res://scenes/cardTemplates/card_pectoCard.tscn" id="1_67rdx"]
+[ext_resource type="Texture2D" uid="uid://b04x168vwbv3f" path="res://assets/set1/phaseBeast.png" id="2_b8djg"]
+[ext_resource type="Shader" uid="uid://brh53fytjw03j" path="res://shader/blendModes.gdshader" id="3_ony5u"]
+
+[sub_resource type="Gradient" id="Gradient_h73ln"]
+offsets = PackedFloat32Array(0.015923567, 1)
+colors = PackedColorArray(0.14509805, 0.22352941, 0.36078432, 1, 0.683775, 0.6723, 0.81, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_i3nmk"]
+gradient = SubResource("Gradient_h73ln")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b8djg"]
+resource_local_to_scene = true
+shader = ExtResource("3_ony5u")
+shader_parameter/mode = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v7y00"]
+resource_local_to_scene = true
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+border_width_left = 50
+border_width_top = 50
+border_width_right = 50
+border_width_bottom = 50
+border_color = Color(0.43529412, 0.43529412, 0.43529412, 1)
+
+[node name="PectoCard" instance=ExtResource("1_67rdx")]
+ID = "phaseBeast"
+cardName = "Phase Beast"
+force = 4
+lvl = 5
+subtype = ["Ghost", "Monster"]
+keywords = ["delayed", "bleed"]
+text = "If Phase Beast were to take damage, you may discard a card from your hand to ignore the damage dealt and take 1 damage instead. Phase Beast becomes inactive."
+art = ExtResource("2_b8djg")
+bg = SubResource("GradientTexture2D_i3nmk")
+foil = true
+rarity = 2
+
+[node name="cardBackground" parent="cardShape" index="0"]
+texture = SubResource("GradientTexture2D_i3nmk")
+
+[node name="cardArt" parent="art/visual" index="0"]
+texture = ExtResource("2_b8djg")
+
+[node name="shadow" parent="art/visual" index="1"]
+material = SubResource("ShaderMaterial_b8djg")
+theme_override_styles/panel = SubResource("StyleBoxFlat_v7y00")
+
+[node name="cardType" parent="art/visual/border/bottomInfo/MarginContainer/text/HBoxContainer" index="0"]
+visible = true
+text = "Ghost Monster "
+
+[node name="cardKeywords" parent="art/visual/border/bottomInfo/MarginContainer/text/HBoxContainer" index="1"]
+text = "[i][color=ffa500ff]Delayed, Bleed"
+
+[node name="cardText" parent="art/visual/border/bottomInfo/MarginContainer/text/textContainer/MarginContainer/VBoxContainer" index="0"]
+text = "If Phase Beast were to take damage, you may discard a card from your hand to ignore the damage dealt and take 1 damage instead. Phase Beast becomes inactive."
+
+[node name="cardForce" parent="art/visual/border/bottomInfo/force/TextureRect" index="0"]
+text = "4"
+
+[node name="cardName" parent="art/visual/topBar/info/nameContainer/HBoxContainer" index="0"]
+text = "Phase Beast"
+
+[node name="cardLVL" parent="art/visual/topBar/lvlIcon" index="0"]
+text = "5"

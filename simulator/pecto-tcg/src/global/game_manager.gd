@@ -15,9 +15,11 @@ func load_DB() -> void:
     else:
         printerr("File Doesn't Exist!")
 
-# func _ready(): open_database()
-# func open_database() -> SQLite:
-#     DB = SQLite.new()
-#     DB.path = DB_PATH
-#     DB.open_db()
-#     return DB
+func save_DB() -> void:
+    var file := FileAccess.open(DB_PATH, FileAccess.WRITE)
+    if file:
+        file.store_string(JSON.stringify(DB, "\t")) # pretty print
+        file.close()
+        print("Database saved to ", DB_PATH)
+    else:
+        push_error("Failed to save card DB to: " + DB_PATH)

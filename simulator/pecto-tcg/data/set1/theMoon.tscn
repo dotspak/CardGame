@@ -1,0 +1,98 @@
+[gd_scene load_steps=10 format=3 uid="uid://es0mijmrrpoq"]
+
+[ext_resource type="PackedScene" uid="uid://uqcqlr8xi5yc" path="res://scenes/cardTemplates/card_pectoCard.tscn" id="1_xtsg6"]
+[ext_resource type="Texture2D" uid="uid://cgux2enhwprs5" path="res://assets/set1/theMoon.png" id="2_x3a8r"]
+[ext_resource type="Shader" uid="uid://brh53fytjw03j" path="res://shader/blendModes.gdshader" id="3_4e5xi"]
+[ext_resource type="Texture2D" uid="uid://d1kafd45aa4e" path="res://assets/r_divine1.png" id="3_q8lv5"]
+
+[sub_resource type="Gradient" id="Gradient_x3a8r"]
+offsets = PackedFloat32Array(0, 0.14012739, 0.25796178, 0.38535032, 0.64012736, 0.75159234, 0.87261146, 1)
+colors = PackedColorArray(0.13725491, 0.21176471, 0.40392157, 1, 0.4862745, 0.2509804, 0.3882353, 1, 0.40784314, 0.62352943, 0.38039216, 1, 1, 1, 1, 1, 0.9735, 1, 0.97, 1, 0.40784314, 0.62352943, 0.38039216, 1, 0.4862745, 0.2509804, 0.3882353, 1, 0.13725491, 0.21176471, 0.40392157, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_q8lv5"]
+gradient = SubResource("Gradient_x3a8r")
+width = 750
+height = 1050
+fill_from = Vector2(0, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_x3a8r"]
+blend_mode = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d0egu"]
+resource_local_to_scene = true
+shader = ExtResource("3_4e5xi")
+shader_parameter/mode = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nenop"]
+resource_local_to_scene = true
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+border_width_left = 50
+border_width_top = 50
+border_width_right = 50
+border_width_bottom = 50
+border_color = Color(0.43529412, 0.43529412, 0.43529412, 1)
+
+[node name="theMoon" instance=ExtResource("1_xtsg6")]
+ID = "theMoon"
+cardName = "The Moon"
+force = 7
+lvl = 5
+subtype = ["God"]
+keywords = ["delayed", "bleed"]
+text = "{cost:As an additional cost, sacrifice a card you control.}"
+skillName = "Truth of The Moon"
+skillText = "Cards you control gain {key:immortal} until the start of your next turn."
+art = ExtResource("2_x3a8r")
+bg = SubResource("GradientTexture2D_q8lv5")
+foil = true
+rarity = 3
+
+[node name="cardBackground" parent="cardShape" index="0"]
+texture = SubResource("GradientTexture2D_q8lv5")
+stretch_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="cardShape/cardBackground" index="0"]
+material = SubResource("CanvasItemMaterial_x3a8r")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_x3a8r")
+
+[node name="cardArt" parent="art/visual" index="0"]
+texture = ExtResource("2_x3a8r")
+
+[node name="shadow" parent="art/visual" index="1"]
+material = SubResource("ShaderMaterial_d0egu")
+theme_override_styles/panel = SubResource("StyleBoxFlat_nenop")
+
+[node name="cardType" parent="art/visual/border/bottomInfo/MarginContainer/text/HBoxContainer" index="0"]
+visible = true
+text = "God "
+
+[node name="cardKeywords" parent="art/visual/border/bottomInfo/MarginContainer/text/HBoxContainer" index="1"]
+text = "[i][color=ffa500ff]Delayed, Bleed"
+
+[node name="cardText" parent="art/visual/border/bottomInfo/MarginContainer/text/textContainer/MarginContainer/VBoxContainer" index="0"]
+text = "{cost:As an additional cost, sacrifice a card you control.}"
+
+[node name="skillContainer" parent="art/visual/border/bottomInfo/MarginContainer/text" index="2"]
+visible = true
+
+[node name="cardSkill" parent="art/visual/border/bottomInfo/MarginContainer/text/skillContainer/MarginContainer/VBoxContainer" index="1"]
+text = "[bgcolor=e44298ff][b]★TRUTH OF THE MOON[/b][/bgcolor] Cards you control gain {key:immortal} until the start of your next turn."
+
+[node name="cardForce" parent="art/visual/border/bottomInfo/force/TextureRect" index="0"]
+text = "7"
+
+[node name="cardName" parent="art/visual/topBar/info/nameContainer/HBoxContainer" index="0"]
+text = "The Moon"
+
+[node name="cardLVL" parent="art/visual/topBar/lvlIcon" index="0"]
+text = "5"
+
+[node name="rarity" parent="art/visual/extraInfo" index="1"]
+texture = ExtResource("3_q8lv5")

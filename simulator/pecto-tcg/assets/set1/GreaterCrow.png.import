@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ber3pi442jxhr"
-path="res://.godot/imported/GreaterCrow.png-9c2eb989cabfecb00b11f9fc714b3b88.ctex"
+uid="uid://ch2v3sskf272r"
+path="res://.godot/imported/greaterCrow.png-dad3277fe6042b5830ae37f0280c3fc2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/set1/GreaterCrow.png"
-dest_files=["res://.godot/imported/GreaterCrow.png-9c2eb989cabfecb00b11f9fc714b3b88.ctex"]
+source_file="res://assets/set1/greaterCrow.png"
+dest_files=["res://.godot/imported/greaterCrow.png-dad3277fe6042b5830ae37f0280c3fc2.ctex"]
 
 [params]
 

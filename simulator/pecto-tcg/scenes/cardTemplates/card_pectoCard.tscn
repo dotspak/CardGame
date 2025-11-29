@@ -7,12 +7,12 @@
 [ext_resource type="FontFile" uid="uid://1kd62leqiy8y" path="res://assets/fonts/AveriaLibre-Bold.ttf" id="3_tong0"]
 [ext_resource type="Texture2D" uid="uid://cnynonhm320bh" path="res://assets/rainbowGrad.tres" id="4_1t38k"]
 [ext_resource type="Shader" uid="uid://brh53fytjw03j" path="res://shader/blendModes.gdshader" id="5_4ay7h"]
-[ext_resource type="FontFile" uid="uid://fpqgiu5d1pkr" path="res://assets/fonts/Higher Jump.ttf" id="5_jv68f"]
 [ext_resource type="FontFile" uid="uid://rhkjenklfug8" path="res://assets/fonts/AveriaLibre-Regular.ttf" id="6_tong0"]
 [ext_resource type="Texture2D" uid="uid://de5nr31l6262q" path="res://assets/unitIcon5.png" id="7_y3ai7"]
 [ext_resource type="Script" uid="uid://daittco86fdj2" path="res://src/bbcode/triggerEffect.gd" id="8_ir3pi"]
 [ext_resource type="Texture2D" uid="uid://cdev3qnqbr6xp" path="res://assets/forceBG.png" id="8_ja440"]
 [ext_resource type="Texture2D" uid="uid://dmhctqok0ncxr" path="res://assets/r_basic1.png" id="12_ja440"]
+[ext_resource type="FontFile" uid="uid://d0fdt2wdmpnnu" path="res://assets/fonts/MedodicaRegular.otf" id="13_10mgu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3h312"]
 bg_color = Color(0.10980392, 0.10980392, 0.10980392, 1)
@@ -103,17 +103,23 @@ border_width_top = 50
 border_width_right = 50
 border_width_bottom = 50
 border_color = Color(0.43529412, 0.43529412, 0.43529412, 1)
-border_blend = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0gidb"]
 draw_center = false
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
 border_color = Color(1, 1, 1, 1)
 shadow_color = Color(0.42, 0.42, 0.42, 1)
 shadow_size = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ja440"]
+bg_color = Color(0, 0, 0, 0.5882353)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4cas"]
 content_margin_left = 10.0
@@ -126,17 +132,17 @@ corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y3ai7"]
 draw_center = false
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
 border_color = Color(1, 1, 1, 1)
 shadow_color = Color(0.14, 0.1134, 0.1134, 1)
 shadow_size = 10
 
 [sub_resource type="Gradient" id="Gradient_jv68f"]
 offsets = PackedFloat32Array(0, 0.8026756)
-colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.24705882)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.5882353)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_0gidb"]
 gradient = SubResource("Gradient_jv68f")
@@ -149,17 +155,17 @@ metadata/_custom_type_script = "uid://daittco86fdj2"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1t38k"]
 draw_center = false
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
 border_color = Color(1, 1, 1, 1)
 shadow_color = Color(0.14, 0.1134, 0.1134, 1)
 shadow_size = 10
 
 [sub_resource type="Gradient" id="Gradient_ja440"]
 offsets = PackedFloat32Array(0, 0.8026756)
-colors = PackedColorArray(0.89411765, 0.8589644, 0.8562938, 1, 0.41960785, 0.27058825, 0.6117647, 0.24705882)
+colors = PackedColorArray(0.89411765, 0.8589644, 0.8562938, 1, 0.41642666, 0.2684, 0.61, 0.5882353)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_4ay7h"]
 gradient = SubResource("Gradient_ja440")
@@ -210,44 +216,39 @@ border_blend = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ir3pi"]
 draw_center = false
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
 border_color = Color(1, 1, 1, 1)
 shadow_color = Color(0.14, 0.1134, 0.1134, 1)
 shadow_size = 10
 
 [sub_resource type="Gradient" id="Gradient_0gidb"]
-colors = PackedColorArray(0, 0, 0, 1, 0.10980392, 0.10980392, 0.10980392, 1)
+colors = PackedColorArray(0.23921569, 0.23921569, 0.23921569, 1, 0.10980392, 0.10980392, 0.10980392, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_y3ai7"]
 gradient = SubResource("Gradient_0gidb")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ja440"]
-bg_color = Color(0, 0, 0, 0.5882353)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-expand_margin_left = 10.0
-expand_margin_right = 10.0
-
 [sub_resource type="LabelSettings" id="LabelSettings_y3ai7"]
-font = ExtResource("5_jv68f")
-font_size = 24
+font = ExtResource("13_10mgu")
+font_size = 80
 font_color = Color(0.91, 0.91, 0.91, 1)
-outline_size = 1
+outline_size = 2
 outline_color = Color(0, 0, 0, 1)
-shadow_color = Color(0.2010927, 0.5673567, 0.8666667, 1)
+shadow_size = 15
+shadow_color = Color(0.23485918, 0.74897057, 0.87058824, 0.60784316)
+shadow_offset = Vector2(2, 2)
 
 [node name="PectoCard" type="Control"]
 custom_minimum_size = Vector2(750, 1050)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_y3ai7")
-ID = "bottomDweller"
-subtype = null
+cardName = "Dummy"
+force = 0
+text = "insert dummy text here!"
+skillText = ""
 
 [node name="cardShape" type="PanelContainer" parent="."]
 unique_name_in_owner = true
@@ -269,7 +270,7 @@ material = SubResource("CanvasItemMaterial_y3ai7")
 layout_mode = 2
 texture = ExtResource("1_0gidb")
 expand_mode = 1
-stretch_mode = 1
+stretch_mode = 6
 
 [node name="art" type="PanelContainer" parent="."]
 clip_children = 1
@@ -356,14 +357,34 @@ layout_mode = 2
 size_flags_vertical = 8
 metadata/_edit_use_anchors_ = true
 
-[node name="cardKeywords" type="RichTextLabel" parent="art/visual/border/bottomInfo/MarginContainer/text"]
+[node name="HBoxContainer" type="HBoxContainer" parent="art/visual/border/bottomInfo/MarginContainer/text"]
+layout_mode = 2
+
+[node name="cardType" type="Label" parent="art/visual/border/bottomInfo/MarginContainer/text/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_ja440")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="cardKeywords" type="RichTextLabel" parent="art/visual/border/bottomInfo/MarginContainer/text/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/italics_font_size = 30
+theme_override_font_sizes/mono_font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_m4cas")
 bbcode_enabled = true
 text = "[i][color=ffa500ff]"
 fit_content = true
 autowrap_mode = 0
+horizontal_alignment = 2
 
 [node name="textContainer" type="PanelContainer" parent="art/visual/border/bottomInfo/MarginContainer/text"]
 unique_name_in_owner = true
@@ -383,14 +404,14 @@ material = SubResource("CanvasItemMaterial_y3ai7")
 layout_mode = 2
 texture = ExtResource("1_0gidb")
 expand_mode = 1
-stretch_mode = 1
+stretch_mode = 6
 
 [node name="MarginContainer" type="MarginContainer" parent="art/visual/border/bottomInfo/MarginContainer/text/textContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="art/visual/border/bottomInfo/MarginContainer/text/textContainer/MarginContainer"]
 layout_mode = 2
@@ -401,12 +422,13 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/normal_font = ExtResource("6_tong0")
 theme_override_fonts/bold_font = ExtResource("3_tong0")
-theme_override_font_sizes/normal_font_size = 24
-theme_override_font_sizes/bold_font_size = 24
-theme_override_font_sizes/bold_italics_font_size = 24
-theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/italics_font_size = 30
+theme_override_font_sizes/mono_font_size = 30
 bbcode_enabled = true
-text = "Dummy text goes here!"
+text = "insert dummy text here!"
 fit_content = true
 vertical_alignment = 1
 custom_effects = [SubResource("RichTextEffect_ir3pi")]
@@ -433,7 +455,7 @@ material = SubResource("CanvasItemMaterial_y3ai7")
 layout_mode = 2
 texture = ExtResource("1_0gidb")
 expand_mode = 1
-stretch_mode = 1
+stretch_mode = 6
 
 [node name="MarginContainer" type="MarginContainer" parent="art/visual/border/bottomInfo/MarginContainer/text/skillContainer"]
 layout_mode = 2
@@ -486,12 +508,13 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/normal_font = ExtResource("6_tong0")
 theme_override_fonts/bold_font = ExtResource("3_tong0")
-theme_override_font_sizes/normal_font_size = 24
-theme_override_font_sizes/bold_font_size = 24
-theme_override_font_sizes/bold_italics_font_size = 24
-theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/italics_font_size = 30
+theme_override_font_sizes/mono_font_size = 30
 bbcode_enabled = true
-text = "{skill:} Dummy text goes here!"
+text = "{skill:} "
 fit_content = true
 vertical_alignment = 1
 
@@ -542,7 +565,7 @@ grow_vertical = 2
 theme_override_constants/outline_size = 10
 theme_override_constants/shadow_outline_size = 10
 theme_override_font_sizes/font_size = 48
-text = "1"
+text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
@@ -581,7 +604,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ir3pi")
 unique_name_in_owner = true
 layout_mode = 2
 texture = SubResource("GradientTexture1D_y3ai7")
-expand_mode = 1
+expand_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="art/visual/topBar/info/nameContainer"]
 layout_mode = 2
@@ -590,28 +613,19 @@ alignment = 1
 [node name="cardName" type="Label" parent="art/visual/topBar/info/nameContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Abstract Wizard"
+theme_override_font_sizes/font_size = 36
+text = "Dummy"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="dots" type="TextureRect" parent="art/visual/topBar/info/nameContainer"]
 modulate = Color(1, 1, 1, 0.11764706)
 material = SubResource("CanvasItemMaterial_y3ai7")
+clip_contents = true
 layout_mode = 2
 texture = ExtResource("1_0gidb")
-expand_mode = 1
-stretch_mode = 1
-
-[node name="cardType" type="Label" parent="art/visual/topBar/info"]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_ja440")
-horizontal_alignment = 1
-vertical_alignment = 1
+expand_mode = 3
+stretch_mode = 6
 
 [node name="lvlIcon" type="TextureRect" parent="art/visual/topBar"]
 unique_name_in_owner = true
