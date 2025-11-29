@@ -1,0 +1,684 @@
+[gd_scene load_steps=41 format=3 uid="uid://lw01dx6qdxav"]
+
+[ext_resource type="Script" uid="uid://dn6e7duqtsffm" path="res://src/pectoCard.gd" id="1_wiyqb"]
+[ext_resource type="Texture2D" uid="uid://d0r1k0e0oh63y" path="res://assets/set1/sunBox.png" id="2_b2gtk"]
+[ext_resource type="Texture2D" uid="uid://b1f2r0svmhmej" path="res://assets/textTexture.png" id="3_l6i6t"]
+[ext_resource type="Texture2D" uid="uid://bgcxb5kcqfo72" path="res://assets/foilmaps/abstractWizard.png" id="4_mn66h"]
+[ext_resource type="Texture2D" uid="uid://cnynonhm320bh" path="res://assets/rainbowGrad.tres" id="5_hhb1u"]
+[ext_resource type="Shader" uid="uid://brh53fytjw03j" path="res://shader/blendModes.gdshader" id="6_75mhs"]
+[ext_resource type="FontFile" uid="uid://rhkjenklfug8" path="res://assets/fonts/AveriaLibre-Regular.ttf" id="7_eb5ah"]
+[ext_resource type="FontFile" uid="uid://1kd62leqiy8y" path="res://assets/fonts/AveriaLibre-Bold.ttf" id="8_bsndp"]
+[ext_resource type="Script" uid="uid://daittco86fdj2" path="res://src/bbcode/triggerEffect.gd" id="9_2gsb4"]
+[ext_resource type="Texture2D" uid="uid://cdev3qnqbr6xp" path="res://assets/forceBG.png" id="10_863ur"]
+[ext_resource type="Texture2D" uid="uid://de5nr31l6262q" path="res://assets/unitIcon5.png" id="11_0k1a7"]
+[ext_resource type="Texture2D" uid="uid://bsidin4i266kj" path="res://assets/levelIcon.png" id="12_bwpsk"]
+[ext_resource type="FontFile" uid="uid://d0fdt2wdmpnnu" path="res://assets/fonts/MedodicaRegular.otf" id="13_e2vjf"]
+[ext_resource type="Texture2D" uid="uid://dmhctqok0ncxr" path="res://assets/r_basic1.png" id="14_afxp0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3h312"]
+bg_color = Color(0.10980392, 0.10980392, 0.10980392, 1)
+corner_radius_top_left = 48
+corner_radius_top_right = 48
+corner_radius_bottom_right = 48
+corner_radius_bottom_left = 48
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_y3ai7"]
+blend_mode = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jlkag"]
+corner_radius_top_left = 48
+corner_radius_top_right = 48
+corner_radius_bottom_right = 48
+corner_radius_bottom_left = 48
+
+[sub_resource type="Shader" id="Shader_4ay7h"]
+code = "shader_type canvas_item;
+
+uniform bool enabled = true;
+uniform sampler2D foil_map;
+uniform sampler2D gradient;
+uniform sampler2D noise_tex;
+
+uniform float speed : hint_range(0.0, 10.0) = 1.0;
+uniform float scale : hint_range(0.1, 5.0) = 1.0;
+uniform float intensity : hint_range(0.0, 3.0) = 1.2;
+uniform float angle : hint_range(0.0, 360.0) = 45.0;
+uniform float noise_strength : hint_range(0.0, 1.0) = 0.25;
+uniform float noise_speed : hint_range(0.0, 5.0) = 0.5;
+uniform float shimmer_speed : hint_range(0.0, 10.0) = 2.0;
+uniform float shimmer_strength : hint_range(0.0, 2.0) = 0.5;
+
+void fragment() {
+	if (enabled) {
+	    vec2 uv = UV;
+
+	    float rad = radians(angle);
+	    mat2 rot = mat2(vec2(cos(rad), -sin(rad)), vec2(sin(rad),  cos(rad)));
+	    vec2 rotated_uv = rot * (uv - 0.5) + 0.5;
+
+	    vec2 scroll_uv = rotated_uv * scale;
+	    scroll_uv.x += TIME * speed;
+
+	    vec2 noise_uv = uv * 2.0 + vec2(TIME * noise_speed, TIME * noise_speed);
+	    float n = texture(noise_tex, noise_uv).r;
+	    scroll_uv.x += (n - 0.5) * noise_strength;
+		
+	    vec4 grad_col = texture(gradient, vec2(fract(scroll_uv.x), 0.5));
+	    float shimmer = 1.0 + sin(TIME * shimmer_speed + uv.y * 10.0) * shimmer_strength;
+
+	    float foil_mask = texture(foil_map, uv).r;
+
+	    vec4 foil_col = grad_col * foil_mask * intensity * shimmer;
+	    vec4 base_col = texture(TEXTURE, uv);
+
+	    COLOR = base_col + foil_col * base_col.a;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jlkag"]
+shader = SubResource("Shader_4ay7h")
+shader_parameter/enabled = true
+shader_parameter/foil_map = ExtResource("4_mn66h")
+shader_parameter/gradient = ExtResource("5_hhb1u")
+shader_parameter/speed = 0.2000000095
+shader_parameter/scale = 0.90700003982262
+shader_parameter/intensity = 0.0
+shader_parameter/angle = 191.75200910822
+shader_parameter/noise_strength = 0.6270000297825
+shader_parameter/noise_speed = 2.8570001357075
+shader_parameter/shimmer_speed = 1.65600007866
+shader_parameter/shimmer_strength = 0.5350000254125
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oovmf"]
+resource_local_to_scene = true
+shader = ExtResource("6_75mhs")
+shader_parameter/mode = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fkrfv"]
+resource_local_to_scene = true
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+border_width_left = 50
+border_width_top = 50
+border_width_right = 50
+border_width_bottom = 50
+border_color = Color(0.43529412, 0.43529412, 0.43529412, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0gidb"]
+draw_center = false
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+shadow_color = Color(0.42, 0.42, 0.42, 1)
+shadow_size = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ja440"]
+bg_color = Color(0, 0, 0, 0.5882353)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4cas"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0, 0, 0, 0.5882353)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y3ai7"]
+draw_center = false
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+shadow_color = Color(0.14, 0.1134, 0.1134, 1)
+shadow_size = 10
+
+[sub_resource type="Gradient" id="Gradient_jv68f"]
+offsets = PackedFloat32Array(0, 0.8026756)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.5882353)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0gidb"]
+gradient = SubResource("Gradient_jv68f")
+fill_from = Vector2(0, 0.62393165)
+fill_to = Vector2(1, 0.22649573)
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_ir3pi"]
+script = ExtResource("9_2gsb4")
+metadata/_custom_type_script = "uid://daittco86fdj2"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1t38k"]
+draw_center = false
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+shadow_color = Color(0.14, 0.1134, 0.1134, 1)
+shadow_size = 10
+
+[sub_resource type="Gradient" id="Gradient_ja440"]
+offsets = PackedFloat32Array(0, 0.8026756)
+colors = PackedColorArray(0.89411765, 0.8589644, 0.8562938, 1, 0.41642666, 0.2684, 0.61, 0.5882353)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4ay7h"]
+gradient = SubResource("Gradient_ja440")
+fill_from = Vector2(0, 0.62393165)
+fill_to = Vector2(1, 0.22649573)
+
+[sub_resource type="Gradient" id="Gradient_y3ai7"]
+offsets = PackedFloat32Array(0.20973782, 0.7715356)
+colors = PackedColorArray(0.6431373, 0.27058825, 0.6, 1, 0.89, 0.89, 0.89, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1t38k"]
+gradient = SubResource("Gradient_y3ai7")
+fill_from = Vector2(0.36324787, 1)
+fill_to = Vector2(0.7393162, 0.012820513)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ir3pi"]
+content_margin_left = 10.0
+content_margin_top = 0.0
+content_margin_right = 10.0
+content_margin_bottom = 0.0
+texture = SubResource("GradientTexture2D_1t38k")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_10mgu"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ay7h"]
+bg_color = Color(1, 0, 0.85604095, 1)
+draw_center = false
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ir3pi"]
+draw_center = false
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+shadow_color = Color(0.14, 0.1134, 0.1134, 1)
+shadow_size = 10
+
+[sub_resource type="Gradient" id="Gradient_0gidb"]
+colors = PackedColorArray(0.23921569, 0.23921569, 0.23921569, 1, 0.10980392, 0.10980392, 0.10980392, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_y3ai7"]
+gradient = SubResource("Gradient_0gidb")
+
+[sub_resource type="LabelSettings" id="LabelSettings_y3ai7"]
+font = ExtResource("13_e2vjf")
+font_size = 80
+font_color = Color(0.91, 0.91, 0.91, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 15
+shadow_color = Color(0.23485918, 0.74897057, 0.87058824, 0.60784316)
+shadow_offset = Vector2(2, 2)
+
+[node name="PectoCard" type="Control"]
+custom_minimum_size = Vector2(750, 1050)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_wiyqb")
+ID = "sunBox"
+type = 1
+cardName = "Sun Box"
+lvl = 2
+subtype = ["Celestial", "Structure"]
+text = "When a card enters your void, deal 1 damage to a target card each opponent controls. If you have at least 3 cards in your void, damage all cards your opponents control instead."
+skillText = ""
+art = ExtResource("2_b2gtk")
+
+[node name="cardShape" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+clip_children = 2
+clip_contents = true
+custom_minimum_size = Vector2(750, 1050)
+layout_mode = 0
+offset_right = 750.0
+offset_bottom = 1050.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3h312")
+
+[node name="cardBackground" type="TextureRect" parent="cardShape"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="dots" type="TextureRect" parent="cardShape"]
+modulate = Color(1, 1, 1, 0.11764706)
+material = SubResource("CanvasItemMaterial_y3ai7")
+layout_mode = 2
+texture = ExtResource("3_l6i6t")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="art" type="PanelContainer" parent="."]
+clip_children = 1
+z_index = 1
+custom_minimum_size = Vector2(700, 1000)
+layout_mode = 0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 725.0
+offset_bottom = 1025.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_jlkag")
+
+[node name="visual" type="Control" parent="art"]
+clip_contents = true
+custom_minimum_size = Vector2(700, 1000)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="cardArt" type="TextureRect" parent="art/visual"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_jlkag")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="shadow" type="Panel" parent="art/visual"]
+material = SubResource("ShaderMaterial_oovmf")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fkrfv")
+
+[node name="border" type="Panel" parent="art/visual"]
+unique_name_in_owner = true
+self_modulate = Color(0.72156864, 0.4117647, 0.6666667, 1)
+custom_minimum_size = Vector2(600, 900)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -445.0
+offset_right = 300.0
+offset_bottom = 451.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0gidb")
+
+[node name="bottomInfo" type="Control" parent="art/visual/border"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="art/visual/border/bottomInfo"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="text" type="VBoxContainer" parent="art/visual/border/bottomInfo/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="art/visual/border/bottomInfo/MarginContainer/text"]
+layout_mode = 2
+
+[node name="cardType" type="Label" parent="art/visual/border/bottomInfo/MarginContainer/text/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_ja440")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="cardKeywords" type="RichTextLabel" parent="art/visual/border/bottomInfo/MarginContainer/text/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/italics_font_size = 30
+theme_override_font_sizes/mono_font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_m4cas")
+bbcode_enabled = true
+text = "[i][color=ffa500ff]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 2
+
+[node name="textContainer" type="PanelContainer" parent="art/visual/border/bottomInfo/MarginContainer/text"]
+unique_name_in_owner = true
+self_modulate = Color(0.72156864, 0.4117647, 0.6666667, 1)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_y3ai7")
+
+[node name="bg" type="TextureRect" parent="art/visual/border/bottomInfo/MarginContainer/text/textContainer"]
+show_behind_parent = true
+layout_mode = 2
+texture = SubResource("GradientTexture2D_0gidb")
+
+[node name="dots" type="TextureRect" parent="art/visual/border/bottomInfo/MarginContainer/text/textContainer"]
+modulate = Color(1, 1, 1, 0.11764706)
+material = SubResource("CanvasItemMaterial_y3ai7")
+layout_mode = 2
+texture = ExtResource("3_l6i6t")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="art/visual/border/bottomInfo/MarginContainer/text/textContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="art/visual/border/bottomInfo/MarginContainer/text/textContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="cardText" type="RichTextLabel" parent="art/visual/border/bottomInfo/MarginContainer/text/textContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("7_eb5ah")
+theme_override_fonts/bold_font = ExtResource("8_bsndp")
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/italics_font_size = 30
+theme_override_font_sizes/mono_font_size = 30
+bbcode_enabled = true
+text = "insert dummy text here!"
+fit_content = true
+vertical_alignment = 1
+custom_effects = [SubResource("RichTextEffect_ir3pi")]
+
+[node name="skillContainer" type="PanelContainer" parent="art/visual/border/bottomInfo/MarginContainer/text"]
+unique_name_in_owner = true
+visible = false
+self_modulate = Color(0.72156864, 0.4117647, 0.6666667, 1)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_1t38k")
+
+[node name="skillBG" type="TextureRect" parent="art/visual/border/bottomInfo/MarginContainer/text/skillContainer"]
+unique_name_in_owner = true
+modulate = Color(0.89411765, 0.25882354, 0.59607846, 1)
+self_modulate = Color(0.66, 0.66, 0.66, 1)
+show_behind_parent = true
+layout_mode = 2
+texture = SubResource("GradientTexture2D_4ay7h")
+
+[node name="dots" type="TextureRect" parent="art/visual/border/bottomInfo/MarginContainer/text/skillContainer"]
+modulate = Color(1, 1, 1, 0.11764706)
+material = SubResource("CanvasItemMaterial_y3ai7")
+layout_mode = 2
+texture = ExtResource("3_l6i6t")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="art/visual/border/bottomInfo/MarginContainer/text/skillContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="art/visual/border/bottomInfo/MarginContainer/text/skillContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="skillName" type="RichTextLabel" parent="art/visual/border/bottomInfo/MarginContainer/text/skillContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_shadow_color = Color(0.13346595, 0.15180609, 0.30312502, 1)
+bbcode_enabled = true
+text = "[bgcolor=e44298ff]★DIPPY DOG[/bgcolor]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="grad" type="Panel" parent="art/visual/border/bottomInfo/MarginContainer/text/skillContainer/MarginContainer/VBoxContainer/skillName"]
+visible = false
+modulate = Color(0.08627451, 0.6627451, 0.56078434, 1)
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ir3pi")
+
+[node name="Panel" type="Panel" parent="art/visual/border/bottomInfo/MarginContainer/text/skillContainer/MarginContainer/VBoxContainer/skillName"]
+visible = false
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_10mgu")
+
+[node name="cardSkill" type="RichTextLabel" parent="art/visual/border/bottomInfo/MarginContainer/text/skillContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("7_eb5ah")
+theme_override_fonts/bold_font = ExtResource("8_bsndp")
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/italics_font_size = 30
+theme_override_font_sizes/mono_font_size = 30
+bbcode_enabled = true
+text = "{skill:} "
+fit_content = true
+vertical_alignment = 1
+
+[node name="force" type="Panel" parent="art/visual/border/bottomInfo"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(96, 48)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = -22.0
+offset_right = 48.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_4ay7h")
+
+[node name="TextureRect" type="TextureRect" parent="art/visual/border/bottomInfo/force"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture = ExtResource("10_863ur")
+expand_mode = 1
+
+[node name="cardForce" type="Label" parent="art/visual/border/bottomInfo/force/TextureRect"]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -19.5
+offset_bottom = 19.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 48
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="topBar" type="HBoxContainer" parent="art/visual"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 132)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 64.0
+grow_horizontal = 2
+
+[node name="cardTypeIcon" type="TextureRect" parent="art/visual/topBar"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("11_0k1a7")
+expand_mode = 2
+
+[node name="info" type="VBoxContainer" parent="art/visual/topBar"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="nameContainer" type="PanelContainer" parent="art/visual/topBar/info"]
+unique_name_in_owner = true
+self_modulate = Color(0.72156864, 0.4117647, 0.6666667, 1)
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_ir3pi")
+
+[node name="nameBackground" type="TextureRect" parent="art/visual/topBar/info/nameContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = SubResource("GradientTexture1D_y3ai7")
+expand_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="art/visual/topBar/info/nameContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="cardName" type="Label" parent="art/visual/topBar/info/nameContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Dummy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="dots" type="TextureRect" parent="art/visual/topBar/info/nameContainer"]
+modulate = Color(1, 1, 1, 0.11764706)
+material = SubResource("CanvasItemMaterial_y3ai7")
+clip_contents = true
+layout_mode = 2
+texture = ExtResource("3_l6i6t")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="lvlIcon" type="TextureRect" parent="art/visual/topBar"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("12_bwpsk")
+expand_mode = 2
+
+[node name="cardLVL" type="Label" parent="art/visual/topBar/lvlIcon"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+label_settings = SubResource("LabelSettings_y3ai7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="extraInfo" type="HBoxContainer" parent="art/visual"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -295.0
+offset_top = -48.0
+offset_right = 297.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 2
+
+[node name="setnum" type="Label" parent="art/visual/extraInfo"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "Cole Smith-Evans 1/220"
+
+[node name="rarity" type="TextureRect" parent="art/visual/extraInfo"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = ExtResource("14_afxp0")
+expand_mode = 1

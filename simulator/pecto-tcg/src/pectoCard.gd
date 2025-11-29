@@ -323,7 +323,7 @@ static func get_card_data(card : PectoCard) -> Dictionary:
 	return card.data
 
 
-func update_card_data(updateScenePath : bool = false) -> void:
+func update_card_data(_updateScenePath : bool = false) -> void:
 	cardName = data["name"]
 	type = data["type"]
 	subtype = data["subtype"]
@@ -342,24 +342,6 @@ func update_card_data(updateScenePath : bool = false) -> void:
 
 	if FileAccess.file_exists("res://assets/set1/" + data["art"]):
 		art = load("res://assets/set1/" + data["art"])
-
-	# set scene path for the given card
-	if updateScenePath:
-		var scenePath : String = get_tree().edited_scene_root.scene_file_path
-		if scenePath == "" || scenePath == "res://scenes/cardTemplates/card_pectoCard.tscn":
-			print("No scene path (unsaved scene). Skipping scenepath update.")
-			return
-		
-		db["cards"][ID]["scenepath"] = scenePath
-
-		var file := FileAccess.open("res://data/pectoDB.json", FileAccess.WRITE)
-		if file:
-			file.store_string(JSON.stringify(db, "\t"))
-			file.close()
-			print("Database saved to ", "res://data/pectoDB.json")
-		else:
-			push_error("Failed to save card DB to: " + "res://data/pectoDB.json")
-
 
 
 func reset_card_data() -> void:

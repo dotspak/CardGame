@@ -80,20 +80,13 @@ func start_game() -> void:
 func load_deck() -> void:
 	var baseScene : PackedScene = load("uid://buocg07fg5px0")
 	for cardID : String in deckToLoad:
-		var card : PectoCard = fetch_card(cardID)
+		var card : PectoCard = GameManager.fetch_card(cardID)
 		if card:
 			var card3D : PectoCard3D = baseScene.instantiate()
 			card3D.set_front_face(card)
 			card3D.face_down = true
 			cardPool.append(card3D)
 			add_card_to_deck(card3D)
-
-
-func fetch_card(cardID : String) -> PectoCard:
-	var card : PectoCard = null
-	if GameManager.DB["cards"][cardID]:
-		card = load(GameManager.DB["cards"][cardID]["scenepath"]).instantiate()
-	return card
 
 
 func get_influence() -> int: return lvl + floatingLVL

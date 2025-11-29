@@ -263,7 +263,7 @@
 			],
 			"lvl": 2.0,
 			"name": "Blast Orb",
-			"scenepath": "res://data/set1/blastOrb.tscn",
+			"scenepath": "res://scenes/game.tscn",
 			"set": "baseSet",
 			"skill": "outburst",
 			"subtype": [
@@ -399,7 +399,7 @@
 			"keywords": [],
 			"lvl": 1.0,
 			"name": "Bottom Dweller",
-			"scenepath": "res://data/set1/bottomDweller.tscn",
+			"scenepath": "res://scenes/game.tscn",
 			"set": "baseSet",
 			"skill": null,
 			"subtype": [
@@ -2118,7 +2118,7 @@
 			],
 			"lvl": 3.0,
 			"name": "Monolith",
-			"scenepath": "res://data/set1/monolith.tscn",
+			"scenepath": "res://scenes/game.tscn",
 			"set": "baseSet",
 			"skill": "prayerAndSpeech",
 			"subtype": [
@@ -2792,7 +2792,7 @@
 			"keywords": [],
 			"lvl": 3.0,
 			"name": "Sacrificial Knife",
-			"scenepath": "res://data/set1/sacrificialKnife.tscn",
+			"scenepath": "res://scenes/game.tscn",
 			"set": "baseSet",
 			"skill": null,
 			"subtype": [],
@@ -3322,7 +3322,7 @@
 			],
 			"lvl": 5.0,
 			"name": "The Moon",
-			"scenepath": "res://data/set1/theMoon.tscn",
+			"scenepath": "res://scenes/game.tscn",
 			"set": "baseSet",
 			"skill": "truthOfTheMoon",
 			"subtype": [
@@ -3657,7 +3657,7 @@
 			],
 			"lvl": 3.0,
 			"name": "Withering Shrine",
-			"scenepath": "res://data/set1/witheringShrine.tscn",
+			"scenepath": "res://scenes/game.tscn",
 			"set": "baseSet",
 			"skill": "fadingWithTime",
 			"subtype": [
