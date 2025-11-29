@@ -1,0 +1,170 @@
+{
+    "cards": {
+        "randy": {
+            "name": "Randy",
+            "set": "base",
+            "type": 0,
+            "subtype": [
+                "Ghost"
+            ],
+            "lvl": 1,
+            "force": 2,
+            "keywords": [],
+            "text": "{trigger:enter} Discard up to 2 cards from your hand.",
+            "skill": null,
+            "art": "twistedGolem.png",
+            "scenepath": ""
+        },
+        "randy2": {
+            "name": "Randy2",
+            "set": "base",
+            "type": 0,
+            "subtype": [
+                "Ghost",
+                "Golem"
+            ],
+            "lvl": 1,
+            "force": 0,
+            "keywords": [
+                "effect"
+            ],
+            "text": "{trigger:perish} You gain LVL equal to this card's LVL.",
+            "skill": "test",
+            "art": "twistedGolem.png",
+            "scenepath": ""
+        },
+        "randy3": {
+            "name": "Randy3",
+            "set": "base",
+            "type": 0,
+            "subtype": [
+                "Monster"
+            ],
+            "lvl": 4,
+            "force": 3,
+            "keywords": [
+                "flying"
+            ],
+            "text": "",
+            "skill": "test2",
+            "art": "twistedGolem.png",
+            "scenepath": ""
+        },
+        "corruptedPiece": {
+            "name": "Corrupted Piece",
+            "set": "base",
+            "type": 1,
+            "subtype": [
+                "Ghost",
+                "Object"
+            ],
+            "lvl": 1,
+            "force": 0,
+            "keywords": [
+                "effect",
+                "warden"
+            ],
+            "text": "Whenever this card moves, gain {force:1}.",
+            "skill": null,
+            "art": "corruptedPiece.png",
+            "scenepath": ""
+        },
+        "chrysalis": {
+            "name": "Chrysalis",
+            "set": "base",
+            "type": 1,
+            "subtype": [
+                "Structure"
+            ],
+            "lvl": 1,
+            "force": 1,
+            "keywords": [
+                "static"
+            ],
+            "text": "{trigger:end} You may add an attached card to your hand.",
+            "skill": "test",
+            "art": "obviousTrap.png",
+            "scenepath": ""
+        },
+        "ringGenerator": {
+            "name": "Ring Generator",
+            "set": "base",
+            "type": 1,
+            "subtype": [
+                "Celestial",
+                "Structure"
+            ],
+            "lvl": 1,
+            "force": 1,
+            "keywords": [
+                "static"
+            ],
+            "text": "When a card enters your void, target unit you control gains {force:1}.",
+            "skill": null,
+            "art": "ringGenerator.png",
+            "scenepath": ""
+        },
+        "fleshboundRitual": {
+            "name": "Fleshbound Ritual",
+            "set": "base",
+            "type": 2,
+            "subtype": [],
+            "lvl": 1,
+            "force": 0,
+            "keywords": [
+                "effect"
+            ],
+            "text": "{trigger:perish} Set a unit from your discard except its LVL is 1.",
+            "skill": "test3",
+            "art": "fleshboundRitual.png",
+            "scenepath": ""
+        },
+        "wormWood": {
+            "name": "Worm Wood",
+            "set": "base",
+            "type": 2,
+            "subtype": [],
+            "lvl": 1,
+            "force": 0,
+            "keywords": [
+                "instant"
+            ],
+            "text": "{trigger:cast} Back row cards opponents control gain {key:sick} and take an instance of {key:sick} damage. Draw a card for any cards that perished this way.",
+            "skill": "test",
+            "art": "wormwood.png",
+            "scenepath": ""
+        },
+        "autoShield": {
+            "name": "Auto-Shield",
+            "set": "base",
+            "type": 2,
+            "subtype": [],
+            "lvl": 1,
+            "force": 0,
+            "keywords": [
+                "effect"
+            ],
+            "text": "Effected card gains {key:immortal} during your turns.",
+            "skill": "test2",
+            "art": "barrierInsert.png",
+            "scenepath": ""
+        }
+    },
+    "skills": {
+        "test": {
+            "name": "test",
+            "text": "yo this is a test",
+            "type": 0
+        },
+        "test2": {
+            "name": "test2",
+            "text": "test 2 spell yo",
+            "type": 0
+        },
+        "test3": {
+            "name": "test3",
+            "text": "test 3 ayo",
+            "type": 0
+        }
+    }
+}

@@ -1,10 +1,9 @@
 extends CardCollection3D
 class_name GridSlot
 
-var board : PectoBoard3D
-
-@export_enum("Unit", "Offsite") var type : int = 0
 @export var linkedSlot : MeshInstance3D
+
+var board : PectoBoard3D
 var defaultColor : Color
 
 func _ready():
@@ -35,6 +34,12 @@ func get_slot_mat() -> StandardMaterial3D:
 
 
 func _on_card_moved(_card: Variant, _from: Variant, _to: Variant) -> void: drag_strategy.can_select = false
-func _on_card_added(_card: Variant) -> void:
-	#await get_tree().create_timer(0.1).timeout
-	drag_strategy.can_select = true
+func _on_card_added(_card: Variant) -> void: drag_strategy.can_select = true
+
+func get_player() -> PectoBoard3D:
+	board = get_parent().get_parent()
+	return board
+
+func _on_card_hover(card: Card3D):
+	if !hover_disabled: _hovered_card = card
+	if highlight_on_hover: card.set_hovered()

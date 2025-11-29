@@ -1,8 +1,8 @@
 extends Card3D
 class_name PectoCard3D
 
-@onready var frontFace = %frontFace
-@onready var backFace = %backFace
+@onready var frontFace : SubViewport = %frontFace
+@onready var backFace : SubViewport = %backFace
 @onready var anim : AnimationPlayer = $AnimationPlayer
 @onready var iconAnim : AnimationPlayer = $iconAnimator
 
@@ -12,6 +12,8 @@ var collectionIDX : int
 var controller : PectoBoard3D
 
 func _ready():
+	%frontFace.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+	%frontFace.render_target_update_mode = SubViewport.UPDATE_ONCE
 	%forcceIcon.hide()
 	%lvlIcon.hide()
 
@@ -118,3 +120,5 @@ func use_skill() -> void:
 func active_anim(status : bool) -> void:
 	if !status: anim.play("inactive")
 	else: anim.play_backwards("inactive")
+
+func get_lvl() -> int: return card.lvl

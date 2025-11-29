@@ -70,7 +70,8 @@ func _input(event):
 
 
 func _on_collection_card_selected(card: Card3D, collection: CardCollection3D):
-	_drag_card_start(card, collection)
+	if !collection is GridSlot:
+		_drag_card_start(card, collection)
 
 
 func _on_collection_mouse_enter_drop_zone(collection: CardCollection3D):

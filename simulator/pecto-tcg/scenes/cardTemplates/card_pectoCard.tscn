@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://uqcqlr8xi5yc"]
+[gd_scene load_steps=40 format=3 uid="uid://uqcqlr8xi5yc"]
 
 [ext_resource type="Texture2D" uid="uid://b1f2r0svmhmej" path="res://assets/textTexture.png" id="1_0gidb"]
 [ext_resource type="Script" uid="uid://dn6e7duqtsffm" path="res://src/pectoCard.gd" id="1_y3ai7"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bsidin4i266kj" path="res://assets/levelIcon.png" id="3_mn7ii"]
 [ext_resource type="FontFile" uid="uid://1kd62leqiy8y" path="res://assets/fonts/AveriaLibre-Bold.ttf" id="3_tong0"]
 [ext_resource type="Texture2D" uid="uid://cnynonhm320bh" path="res://assets/rainbowGrad.tres" id="4_1t38k"]
+[ext_resource type="Shader" uid="uid://brh53fytjw03j" path="res://shader/blendModes.gdshader" id="5_4ay7h"]
 [ext_resource type="FontFile" uid="uid://fpqgiu5d1pkr" path="res://assets/fonts/Higher Jump.ttf" id="5_jv68f"]
 [ext_resource type="FontFile" uid="uid://rhkjenklfug8" path="res://assets/fonts/AveriaLibre-Regular.ttf" id="6_tong0"]
 [ext_resource type="Texture2D" uid="uid://de5nr31l6262q" path="res://assets/unitIcon5.png" id="7_y3ai7"]
@@ -88,10 +89,13 @@ shader_parameter/noise_speed = 2.8570001357075
 shader_parameter/shimmer_speed = 1.65600007866
 shader_parameter/shimmer_strength = 0.5350000254125
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_tong0"]
-blend_mode = 3
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_10mgu"]
+resource_local_to_scene = true
+shader = ExtResource("5_4ay7h")
+shader_parameter/mode = 0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jv68f"]
+resource_local_to_scene = true
 bg_color = Color(0.6, 0.6, 0.6, 0)
 draw_center = false
 border_width_left = 50
@@ -241,7 +245,6 @@ shadow_color = Color(0.2010927, 0.5673567, 0.8666667, 1)
 custom_minimum_size = Vector2(750, 1050)
 layout_mode = 3
 anchors_preset = 0
-scale = Vector2(0.5, 0.5)
 script = ExtResource("1_y3ai7")
 
 [node name="cardShape" type="PanelContainer" parent="."]
@@ -298,7 +301,7 @@ grow_vertical = 2
 expand_mode = 1
 
 [node name="shadow" type="Panel" parent="art/visual"]
-material = SubResource("CanvasItemMaterial_tong0")
+material = SubResource("ShaderMaterial_10mgu")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -600,11 +603,11 @@ stretch_mode = 1
 
 [node name="cardType" type="Label" parent="art/visual/topBar/info"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_ja440")
-text = "Unit"
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -1,0 +1,24 @@
+{
+    "cards" : {
+        "monolith" : {
+            "scenepath" : "",
+            "name" : "Monolith",
+            "type" : 0,
+            "subtypes" : [],
+            "lvl" : 0,
+            "force" : 0,
+            "keywords" : [],
+            "text" : "",
+            "skill" : {"name" : "", "text" : "", "type" : 0},
+            "art" : "monolith.png",
+            "set" : "base"
+        }
+    },
+    "skills" : {
+        "voider" : {
+            "name" : "Voider",
+            "text" : "Void a card from your hand.",
+            "type" : 0
+        }
+    }
+}

@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://b82p64sv3xjup"]
+[gd_scene load_steps=89 format=3 uid="uid://b82p64sv3xjup"]
 
 [ext_resource type="Script" uid="uid://krrob1jjjfjs" path="res://src/game.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://do6yql4uw2cjr" path="res://scenes/playerBoard.tscn" id="1_lnu2h"]
@@ -354,6 +354,7 @@ texture_filter = 2
 resource_local_to_scene = true
 script = ExtResource("13_ca42v")
 can_select = false
+can_remove = false
 can_reorder = false
 metadata/_custom_type_script = "uid://c6xj7aq0a3xj7"
 
@@ -361,6 +362,7 @@ metadata/_custom_type_script = "uid://c6xj7aq0a3xj7"
 resource_local_to_scene = true
 script = ExtResource("13_ca42v")
 can_select = false
+can_remove = false
 can_reorder = false
 metadata/_custom_type_script = "uid://c6xj7aq0a3xj7"
 
@@ -368,30 +370,23 @@ metadata/_custom_type_script = "uid://c6xj7aq0a3xj7"
 resource_local_to_scene = true
 script = ExtResource("13_ca42v")
 can_select = false
+can_remove = false
 can_reorder = false
 metadata/_custom_type_script = "uid://c6xj7aq0a3xj7"
 
 [sub_resource type="Resource" id="Resource_svpld"]
 resource_local_to_scene = true
 script = ExtResource("13_ca42v")
-slotType = 1
 can_select = false
+can_remove = false
 can_reorder = false
 metadata/_custom_type_script = "uid://c6xj7aq0a3xj7"
 
-[sub_resource type="Resource" id="Resource_ssvqc"]
+[sub_resource type="Resource" id="Resource_nc1hs"]
 resource_local_to_scene = true
 script = ExtResource("13_ca42v")
-slotType = 1
 can_select = false
-can_reorder = false
-metadata/_custom_type_script = "uid://c6xj7aq0a3xj7"
-
-[sub_resource type="Resource" id="Resource_264po"]
-resource_local_to_scene = true
-script = ExtResource("13_ca42v")
-slotType = 1
-can_select = false
+can_remove = false
 can_reorder = false
 metadata/_custom_type_script = "uid://c6xj7aq0a3xj7"
 
@@ -410,99 +405,101 @@ can_reorder = false
 can_insert = false
 metadata/_custom_type_script = "uid://dkckfib3cljd1"
 
-[sub_resource type="Gradient" id="Gradient_bg0yk"]
+[sub_resource type="Gradient" id="Gradient_sww3w"]
 offsets = PackedFloat32Array(0.92517006, 1)
 colors = PackedColorArray(0, 0, 0, 0.5294118, 1, 1, 1, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_yt3ua"]
-gradient = SubResource("Gradient_bg0yk")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_suyxu"]
+gradient = SubResource("Gradient_sww3w")
 fill = 2
 fill_from = Vector2(0.5, 0.5)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0tnpc"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_264po"]
 resource_local_to_scene = true
 render_priority = -1
 transparency = 1
 albedo_color = Color(0.49019608, 0.54901963, 0.92941177, 1)
-albedo_texture = SubResource("GradientTexture2D_yt3ua")
+albedo_texture = SubResource("GradientTexture2D_suyxu")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vtaks"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1kice"]
 resource_local_to_scene = true
 render_priority = -1
 transparency = 1
 albedo_color = Color(0.49019608, 0.54901963, 0.92941177, 1)
-albedo_texture = SubResource("GradientTexture2D_yt3ua")
+albedo_texture = SubResource("GradientTexture2D_suyxu")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kvpfn"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5newe"]
 resource_local_to_scene = true
 render_priority = -1
 transparency = 1
 albedo_color = Color(0.49019608, 0.54901963, 0.92941177, 1)
-albedo_texture = SubResource("GradientTexture2D_yt3ua")
+albedo_texture = SubResource("GradientTexture2D_suyxu")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dinhu"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_37s47"]
 resource_local_to_scene = true
 render_priority = -1
 transparency = 1
-albedo_color = Color(0.25882354, 0.2901961, 0.49019608, 1)
-albedo_texture = SubResource("GradientTexture2D_yt3ua")
+albedo_color = Color(0.49019608, 0.54901963, 0.92941177, 1)
+albedo_texture = SubResource("GradientTexture2D_suyxu")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kvuet"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bt5mj"]
 resource_local_to_scene = true
 render_priority = -1
 transparency = 1
-albedo_color = Color(0.25882354, 0.2901961, 0.49019608, 1)
-albedo_texture = SubResource("GradientTexture2D_yt3ua")
+albedo_color = Color(0.49019608, 0.54901963, 0.92941177, 1)
+albedo_texture = SubResource("GradientTexture2D_suyxu")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_trtic"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e1j6l"]
 resource_local_to_scene = true
 render_priority = -1
 transparency = 1
-albedo_color = Color(0.25882354, 0.2901961, 0.49019608, 1)
-albedo_texture = SubResource("GradientTexture2D_yt3ua")
+albedo_color = Color(0.49019608, 0.54901963, 0.92941177, 1)
+albedo_texture = SubResource("GradientTexture2D_suyxu")
 
-[sub_resource type="Resource" id="Resource_1kice"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pl11u"]
+resource_local_to_scene = true
+render_priority = -1
+transparency = 1
+albedo_color = Color(0.49019608, 0.54901963, 0.92941177, 1)
+albedo_texture = SubResource("GradientTexture2D_suyxu")
+
+[sub_resource type="Resource" id="Resource_sww3w"]
 resource_local_to_scene = true
 script = ExtResource("13_ca42v")
 can_select = false
+can_remove = false
 can_reorder = false
 metadata/_custom_type_script = "uid://c6xj7aq0a3xj7"
 
-[sub_resource type="Resource" id="Resource_5newe"]
+[sub_resource type="Resource" id="Resource_suyxu"]
 resource_local_to_scene = true
 script = ExtResource("13_ca42v")
 can_select = false
+can_remove = false
 can_reorder = false
 metadata/_custom_type_script = "uid://c6xj7aq0a3xj7"
 
-[sub_resource type="Resource" id="Resource_37s47"]
+[sub_resource type="Resource" id="Resource_sgl2t"]
 resource_local_to_scene = true
 script = ExtResource("13_ca42v")
 can_select = false
+can_remove = false
 can_reorder = false
 metadata/_custom_type_script = "uid://c6xj7aq0a3xj7"
 
-[sub_resource type="Resource" id="Resource_bt5mj"]
+[sub_resource type="Resource" id="Resource_qouja"]
 resource_local_to_scene = true
 script = ExtResource("13_ca42v")
-slotType = 1
 can_select = false
+can_remove = false
 can_reorder = false
 metadata/_custom_type_script = "uid://c6xj7aq0a3xj7"
 
-[sub_resource type="Resource" id="Resource_e1j6l"]
+[sub_resource type="Resource" id="Resource_wljb1"]
 resource_local_to_scene = true
 script = ExtResource("13_ca42v")
-slotType = 1
 can_select = false
-can_reorder = false
-metadata/_custom_type_script = "uid://c6xj7aq0a3xj7"
-
-[sub_resource type="Resource" id="Resource_pl11u"]
-resource_local_to_scene = true
-script = ExtResource("13_ca42v")
-slotType = 1
-can_select = false
+can_remove = false
 can_reorder = false
 metadata/_custom_type_script = "uid://c6xj7aq0a3xj7"
 
@@ -521,55 +518,53 @@ can_reorder = false
 can_insert = false
 metadata/_custom_type_script = "uid://dkckfib3cljd1"
 
-[sub_resource type="Gradient" id="Gradient_sww3w"]
-offsets = PackedFloat32Array(0.92517006, 1)
-colors = PackedColorArray(0, 0, 0, 0.5294118, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_suyxu"]
-gradient = SubResource("Gradient_sww3w")
-fill = 2
-fill_from = Vector2(0.5, 0.5)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sgl2t"]
-resource_local_to_scene = true
-render_priority = -1
-transparency = 1
-albedo_color = Color(0.7411765, 0.21568628, 0.27450982, 1)
-albedo_texture = SubResource("GradientTexture2D_suyxu")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qouja"]
-resource_local_to_scene = true
-render_priority = -1
-transparency = 1
-albedo_color = Color(0.7411765, 0.21568628, 0.27450982, 1)
-albedo_texture = SubResource("GradientTexture2D_suyxu")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wljb1"]
-resource_local_to_scene = true
-render_priority = -1
-transparency = 1
-albedo_color = Color(0.7411765, 0.21568628, 0.27450982, 1)
-albedo_texture = SubResource("GradientTexture2D_suyxu")
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v2yb1"]
 resource_local_to_scene = true
 render_priority = -1
 transparency = 1
-albedo_color = Color(0.45490196, 0.29803923, 0.34117648, 1)
+albedo_color = Color(0.7411765, 0.21568628, 0.27450982, 1)
 albedo_texture = SubResource("GradientTexture2D_suyxu")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_js0lu"]
 resource_local_to_scene = true
 render_priority = -1
 transparency = 1
-albedo_color = Color(0.45490196, 0.29803923, 0.34117648, 1)
+albedo_color = Color(0.7411765, 0.21568628, 0.27450982, 1)
 albedo_texture = SubResource("GradientTexture2D_suyxu")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gxtfn"]
 resource_local_to_scene = true
 render_priority = -1
 transparency = 1
-albedo_color = Color(0.45490196, 0.29803923, 0.34117648, 1)
+albedo_color = Color(0.7411765, 0.21568628, 0.27450982, 1)
+albedo_texture = SubResource("GradientTexture2D_suyxu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_twgab"]
+resource_local_to_scene = true
+render_priority = -1
+transparency = 1
+albedo_color = Color(0.7411765, 0.21568628, 0.27450982, 1)
+albedo_texture = SubResource("GradientTexture2D_suyxu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_02fa5"]
+resource_local_to_scene = true
+render_priority = -1
+transparency = 1
+albedo_color = Color(0.7411765, 0.21568628, 0.27450982, 1)
+albedo_texture = SubResource("GradientTexture2D_suyxu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nepv3"]
+resource_local_to_scene = true
+render_priority = -1
+transparency = 1
+albedo_color = Color(0.7411765, 0.21568628, 0.27450982, 1)
+albedo_texture = SubResource("GradientTexture2D_suyxu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7025r"]
+resource_local_to_scene = true
+render_priority = -1
+transparency = 1
+albedo_color = Color(0.7411765, 0.21568628, 0.27450982, 1)
 albedo_texture = SubResource("GradientTexture2D_suyxu")
 
 [sub_resource type="Gradient" id="Gradient_p57ef"]
@@ -1157,94 +1152,100 @@ metadata/_edit_lock_ = true
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
 
-[node name="unit_0" parent="playerBoard/DragController" index="0"]
+[node name="front_0" parent="playerBoard/DragController" index="0"]
 drag_strategy = SubResource("Resource_1r01h")
 
-[node name="unit_1" parent="playerBoard/DragController" index="1"]
+[node name="front_1" parent="playerBoard/DragController" index="1"]
 drag_strategy = SubResource("Resource_6bc8p")
 
-[node name="unit_2" parent="playerBoard/DragController" index="2"]
+[node name="front_2" parent="playerBoard/DragController" index="2"]
 drag_strategy = SubResource("Resource_fy6ix")
 
-[node name="offsite_0" parent="playerBoard/DragController" index="3"]
+[node name="back_0" parent="playerBoard/DragController" index="3"]
 drag_strategy = SubResource("Resource_svpld")
 
-[node name="offsite_1" parent="playerBoard/DragController" index="4"]
-drag_strategy = SubResource("Resource_ssvqc")
+[node name="back_1" parent="playerBoard/DragController" index="4"]
+drag_strategy = SubResource("Resource_nc1hs")
 
-[node name="offsite_2" parent="playerBoard/DragController" index="5"]
-drag_strategy = SubResource("Resource_264po")
-
-[node name="Hand" parent="playerBoard/DragController" index="9"]
+[node name="Hand" parent="playerBoard/DragController" index="8"]
 card_layout_strategy = SubResource("Resource_8ykwa")
 
-[node name="PlayZone" parent="playerBoard/DragController" index="10"]
+[node name="PlayZone" parent="playerBoard/DragController" index="9"]
 drag_strategy = SubResource("Resource_sic6o")
 
-[node name="unit_0" parent="playerBoard/slotMeshes" index="0"]
-material_override = SubResource("StandardMaterial3D_0tnpc")
+[node name="front_0" parent="playerBoard/slotMeshes" index="0"]
+material_override = SubResource("StandardMaterial3D_264po")
 
-[node name="unit_1" parent="playerBoard/slotMeshes" index="1"]
-material_override = SubResource("StandardMaterial3D_vtaks")
+[node name="front_1" parent="playerBoard/slotMeshes" index="1"]
+material_override = SubResource("StandardMaterial3D_1kice")
 
-[node name="unit_2" parent="playerBoard/slotMeshes" index="2"]
-surface_material_override/0 = SubResource("StandardMaterial3D_kvpfn")
+[node name="front_2" parent="playerBoard/slotMeshes" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_5newe")
 
-[node name="offsite_0" parent="playerBoard/slotMeshes" index="3"]
-surface_material_override/0 = SubResource("StandardMaterial3D_dinhu")
+[node name="back_0" parent="playerBoard/slotMeshes" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_37s47")
 
-[node name="offsite_1" parent="playerBoard/slotMeshes" index="4"]
-material_override = SubResource("StandardMaterial3D_kvuet")
+[node name="back_2" parent="playerBoard/slotMeshes" index="4"]
+material_override = SubResource("StandardMaterial3D_bt5mj")
 
-[node name="offsite_2" parent="playerBoard/slotMeshes" index="5"]
-material_override = SubResource("StandardMaterial3D_trtic")
+[node name="deck" parent="playerBoard/slotMeshes" index="5"]
+surface_material_override/0 = SubResource("StandardMaterial3D_e1j6l")
+
+[node name="discard" parent="playerBoard/slotMeshes" index="6"]
+surface_material_override/0 = SubResource("StandardMaterial3D_pl11u")
+
+[node name="void" parent="playerBoard/slotMeshes" index="7"]
+surface_material_override/0 = SubResource("StandardMaterial3D_pl11u")
 
 [node name="opponentBoard" parent="." instance=ExtResource("1_lnu2h")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -1, 0, 0, 0, 1, -4, 0, 0)
 boardSide = 1
 
-[node name="unit_0" parent="opponentBoard/DragController" index="0"]
-drag_strategy = SubResource("Resource_1kice")
+[node name="front_0" parent="opponentBoard/DragController" index="0"]
+drag_strategy = SubResource("Resource_sww3w")
 
-[node name="unit_1" parent="opponentBoard/DragController" index="1"]
-drag_strategy = SubResource("Resource_5newe")
+[node name="front_1" parent="opponentBoard/DragController" index="1"]
+drag_strategy = SubResource("Resource_suyxu")
 
-[node name="unit_2" parent="opponentBoard/DragController" index="2"]
-drag_strategy = SubResource("Resource_37s47")
+[node name="front_2" parent="opponentBoard/DragController" index="2"]
+drag_strategy = SubResource("Resource_sgl2t")
 
-[node name="offsite_0" parent="opponentBoard/DragController" index="3"]
-drag_strategy = SubResource("Resource_bt5mj")
+[node name="back_0" parent="opponentBoard/DragController" index="3"]
+drag_strategy = SubResource("Resource_qouja")
 
-[node name="offsite_1" parent="opponentBoard/DragController" index="4"]
-drag_strategy = SubResource("Resource_e1j6l")
+[node name="back_1" parent="opponentBoard/DragController" index="4"]
+drag_strategy = SubResource("Resource_wljb1")
 
-[node name="offsite_2" parent="opponentBoard/DragController" index="5"]
-drag_strategy = SubResource("Resource_pl11u")
-
-[node name="Hand" parent="opponentBoard/DragController" index="9"]
+[node name="Hand" parent="opponentBoard/DragController" index="8"]
 card_layout_strategy = SubResource("Resource_bhx41")
 
-[node name="PlayZone" parent="opponentBoard/DragController" index="10"]
+[node name="PlayZone" parent="opponentBoard/DragController" index="9"]
 drag_strategy = SubResource("Resource_qnb83")
 
-[node name="unit_0" parent="opponentBoard/slotMeshes" index="0"]
-material_override = SubResource("StandardMaterial3D_sgl2t")
+[node name="front_0" parent="opponentBoard/slotMeshes" index="0"]
+material_override = SubResource("StandardMaterial3D_v2yb1")
 
-[node name="unit_1" parent="opponentBoard/slotMeshes" index="1"]
-material_override = SubResource("StandardMaterial3D_qouja")
-
-[node name="unit_2" parent="opponentBoard/slotMeshes" index="2"]
-surface_material_override/0 = SubResource("StandardMaterial3D_wljb1")
-
-[node name="offsite_0" parent="opponentBoard/slotMeshes" index="3"]
-surface_material_override/0 = SubResource("StandardMaterial3D_v2yb1")
-
-[node name="offsite_1" parent="opponentBoard/slotMeshes" index="4"]
+[node name="front_1" parent="opponentBoard/slotMeshes" index="1"]
 material_override = SubResource("StandardMaterial3D_js0lu")
 
-[node name="offsite_2" parent="opponentBoard/slotMeshes" index="5"]
-material_override = SubResource("StandardMaterial3D_gxtfn")
+[node name="front_2" parent="opponentBoard/slotMeshes" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_gxtfn")
+
+[node name="back_0" parent="opponentBoard/slotMeshes" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_twgab")
+
+[node name="back_2" parent="opponentBoard/slotMeshes" index="4"]
+material_override = SubResource("StandardMaterial3D_02fa5")
+
+[node name="deck" parent="opponentBoard/slotMeshes" index="5"]
+surface_material_override/0 = SubResource("StandardMaterial3D_nepv3")
+
+[node name="discard" parent="opponentBoard/slotMeshes" index="6"]
+surface_material_override/0 = SubResource("StandardMaterial3D_7025r")
+
+[node name="void" parent="opponentBoard/slotMeshes" index="7"]
+surface_material_override/0 = SubResource("StandardMaterial3D_7025r")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 unique_name_in_owner = true

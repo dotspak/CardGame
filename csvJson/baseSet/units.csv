@@ -1,0 +1,207 @@
+name,force,lvl,subtype,text,skill,art
+Bottom Dweller,2,1,Ghost,{trigger:enter} Discard up to 2 cards from your hand.,,bottomDweller.png
+Twisted Golem,0,1,Ghost Golem,"{key:effect}
+{trigger:perish} You gain LVL equal to this card's LVL.",,twistedGolem.png
+Ghost Spellcaster,0,1,Ghost Wizard,,"{skill: Death Magic} Shuffle your discard pile and look at the top 3 cards. If at least 1 spell is within the 3 cards, add 1 to your hand and sacrifice Ghost Spellcaster.",ghostSpellcaster.png
+Jester,1,1,Ghost,"If jester were to enter your discard, you may setit. If Jester is set this way, deal 1 damage to all opponents.
+{trigger:perish} Shuffle Jester into your deck.",,jester.png
+Blue Star,1,1,Celestial,,"{key:instant}
+{skill:Blue Giant} Search your deck for a Celestial or God. Reveal it, then add it to your hand.",blueStar.png
+Red Star,1,1,Celestial,,"{key:instant}
+{skill:Red Dwarf} Add a Celestial or God from your discard to your hand.",redStar.png
+Woman from Venus,1,1,Celestial,"Woman From Venus has {key:Quick} when attacking. If Woman From Venus were to enter your void, you may set it instead as {force:3}.",,venusWoman.png
+Evil Egg,0,1,Monster Object,"{key:effect, Static}
+{trigger:perish} Search your deck for a unit. Reveal it, then add it to your hand. You cannot play it this turn.",,crackedEgg.png
+Flying Cube,1,1,Golem Monster,"{key:Flying}
+Gain {force:1} when a unit is played in your back row.",,flyingCube.png
+Puss Beast,1,1,Monster,,"{key:effect}
+{skill:Congeal} Other Monster cards you control gain {force:2} until the end of the turn.",pussBeast.png
+Lesser Crow,0,1,Crow,,"{skill:Flock} Search your deck for a Crow. Reveal it, then add it to your hand.",LesserCrow.png
+Skeleton,3,1,Monster,"{key:Muted, Bleed, Fragile}
+If Skeleton has at least {force:5}, remove {key:fragile}.",,Skeleton.png
+Soul Lantern,0,1,Magic Object,"Whenever a non-token unit perishes, add a soul counter and attach the top card of your deck to Soul Lantern.
+{trigger:perish} Add attached cards to your hand.",,soulLantern.png
+Mimic,0,1,Shapeshifter,"{key:effect, static}
+{trigger:perish} The player who destroyed this card draws 2 cards.",,mimic.png
+Marlita Gray,1,1,Marlita,"{key:static}
+{cost:Can only be played once per turn.}",{skill:Beckoning} Return Coming of Marlita from your discard pile to your hand: return Marlita Gray to your hand.,marlitaGray.png
+Marlita Black,1,1,Marlita,"{key:Bleed}
+Whenever Marlita Black declares an attack, choose a player. That player discards cards from the top of their deck or hand up to Marlita Black's {force:?}.",,marlitaBlack.png
+Marlita Red,1,1,Marlita,"{trigger:enter} Discard a card from your hand.
+{trigger:begin} Units you control gain {force:1}.",,marlitaRed.png
+Grub,2,1,Bug,,"{key:effect}
+{skill:Dig} Search your deck for a Bug and send it to your discard pile or sacrifice Grub.",grub.png
+Roller,1,1,Bug,"When Roller enters your front row, deal 1 damage to the opposing card. If Roller enters the discard you may move your cards.",,roller.png
+Hematem,1,1,Monster,{trigger:enter} Gain {force:1} for ever other monster card you control.,,hematem.png
+Cockroach,2,1,Bug,,"{key:muted, warden}
+{skill:Dig} Search your deck for a Bug and send it to your discard pile or sacrifice Cockroach.",cockroach.png
+Blood Rock,1,1,Shapeshifter,"{key:Bleed}
+Units you control with {key:bleed} deal 1 extra combat damage to the opponent.",,bloodRock.png
+Smoke Beetle,1,1,Dark Bug,"If Smoke Beetle enters your discard, you may recycle your deck.",{skill:Dig} Search your deck for a Bug and send it to your discard pile or sacrifice Smoke Beetle.,smokeBeetle.png
+Void Crawler,2,1,Celestial Bug,"When Void Crawler enters your discard, you may use {skill:void talk}. For each card voided: deal 1 damage to target card your opponent controls.",{skill:void talk} Void up to 1 card from your deck and up to 1 card from your hand.,voidCrawler.png
+Pixie,1,1,Magic,Other Magic cards you control have +{force:1}.,"{skill:Magic Link} Search your deck for a card with {skill:Magic Link} and reveal it, or set a card from your hand with {skill:Magic Link}.",pixie.png
+Sand Cube,0,1,Magic Golem,"{key:fragile, warden}
+{trigger:perish} If Sand Cube moved to block a unit, the blocked unit gins {key:fragile}.",,sandCube.png
+Building Boulder,2,1,Golem,"{key:effect, warden}
+{trigger:end} You gain 1 LVL.",,buildingBoudler.png
+Marlita Teal,1,2,Marlita,"When a non-token unit you control perishes, give {force:1} to a card you control until the end of the turn.
+{trigger:enter} Discard the top 3 cards of your deck.",,marlitaTeal.png
+Marlita Blue,0,2,Marlita,"When a front row card you control perishes, you may discard the top 5 cards of your deck (must be able to discard 5). If you do, return the card that perished to your hand. You cannot play it this turn.",,marlitaBlue.png
+Marlita Yellow,1,2,Marlita,"{key:Static, muted}
+{trigger:breach} The opponent breached discards cards from the top of their deck equal to Marlita Yellow's {force:?}
+{trigger:enter} Discard the top 5 cards of your deck.",,marlitaYellow.png
+Ash Moth,1,2,Old Bug,"{key:Fragile}
+{trigger:begin} Deal 1 damage to an opponent.",{fskill:Ash Shower} Create a {force:0} clone of Ash Moth in the same row as this card.,ashMoth2.png
+Drill Master,2,2,Magic Golem,Drill Master always destroys Icons in combat.,"{fskill:To The Bottom} Discard the top card of your deck. If the card discarded is an Icon, become inactive then set it if able.",drillMaster.png
+Last Mass,0,2,Magic Ghost,"{key:static}
+Gain {force:1} when a card enters your discard.",{skill:suspension} Discard a card from your hand: draw a card.,lastMass.png
+Mortality Agent,1,2,Ghost,"{trigger:cast} Both players reveal the top card of their deck and add it to their hand. If you draw a Ghost card, you may draw an additional card.",,mortalityAgent.png
+Clone Element,2,2,Celestial Bug,"Clone Element has {key:Quick} when attacking.
+{trigger:victor} Gain {force:2}.",{skill:Clone Trick} Clone this card. Clones do not have Clone Trick.,cloneElement.png
+Artistic Golem,1,2,Golem,"{trigger:enter} Create a Pillar {force:2}/{key:Delayed, Muted, Warden} Token if able.",,artistiGolem.png
+Spooked Golem,1,2,Magic Golem,"{trigger:enter} Shuffle a unit your opponent controls into their deck.
+{trigger:end} Shuffle Spooked Golem into your deck.","{skill:Magic Link} Search your deck for a card with {skill:Magic Link} and reveal it, or set a card from your hand with {skill:Magic Link}.",spookedGolem.png
+Greater Crow,2,2,Crow,,"{key:Delayed}
+{skill:Gathering} Create up to 2 Crow {force:1} tokens.",GreaterCrow.png
+Homunculus,2,2,Monster,"{key:static}
+When you draw a card, add a matter counter to Homunculus.",{fskill:Surge} Remove a matter counter: Gain {force:1} or deal 1 damage to a target card.,homunculus.png
+Lonely Drone,1,2,Bug,,{skill:Friendship} Target unit gains {force:?} equal to Lonely Drone's {force:?}.,lonelyDrone.png
+Red Imp,1,2,Monster,{trigger:breach} You gain LVL equal to the damage dealt. You may move Red Imp to an open back zone.,,redImp.png
+Green Imp,1,2,Monster,{trigger:breach} Target card you control gains {force:?} equal to the damage dealt. You may move Green Imp to an open back zone.,,greenImp.png
+Blue Imp,1,2,Monster,{trigger:breach} Target player discards cards from the top of their deck up to the damage dealt (you choose the amount discarded). You may move Blue Imp to an open back zone.,,blueImp.png
+Shelled Fiend,2,2,Dark Bug,"If Shelled Fiend enters the discard, give {key:immortal} to a unit you control until the start of your next turn.","{skill:Dig} Search your deck for a Bug, and send it to your discard pile or sacrifice Shelled Fiend.",shelledFiend.png
+Secret Wizard,2,2,Dark Wizard,,"{skill:Magician} Create a Magic {force:?} token with {force:?} equal to the number of spells in your discard. If the token has more than {force:3}, it is {key:delayed}.",secretWizard.png
+Arbiter,2,2,Object Monster,"{key:quick}
+{trigger:victor} Add 1-3 Soul counters to Arbiter.","{skill: Self Search} Search your deck for a card with LVL equal to the amount of soul counters on Arbiter. Reveal it, then add it to your hand.",arbiter.png
+Slumbering Titan,8,2,Golem God,"{key:immortal}
+{trigger:enter} Add 2 stun counters to Slumbering Titan.",,slumberingTitan.png
+Fungal Guardian,2,2,Plague Warrior,"{key:warden}
+{trigger:perish} Cards your opponent controls gain {key:sick}.",,fungalGuardian.png
+Banish Watcher,2,2,Celestial,"{key:warden}
+When a card enters your void target unit you control gains {force:1}.",,banishWatcher.png
+Specter Cube,0,2,Magic Ghost,"{key:fragile}
+Other units you control in the same row as Specter Cube have +{force:?} equal to Specter Cube's {force:?}.",,specterGhost.png
+Rain Demon,1,2,Monster,,{skill:downpour} Discard 2 cards from your hand: deal damage to a front row card in play equal to the lowest LVL of the cards discarded.,rainDemon.png
+Living Home,2,2,Structure Golem,Draw a card when an icon enters your control.,"{skill:Magic Link} Search your deck for a card with {skill:Magic Link} and reveal it, or set a card from your hand with {skill:Magic Link}.",livingHome.png
+Boil Beast,3,3,Plague Monster,"Whenever an instance of sick damage occurs, draw a card.",,boilBeast.png
+Sap Spider,0,3,Monster,,"{key:instant, bleed}
+{skill:Sucker} Sap Spider swaps {force:?} with target unit your opponent controls.",sapSpider.png
+Tomb Crawler,3,3,Ghost Monster,"{key:Quick}
+{trigger:victor} Discard a card from your hand. If you do, draw a card.",,tombCrawler.png
+Locust,2,3,Plague Bug,"{key:effect}
+Locust has {key:Quick} when attacking. Every time a card gains {key:sick},  this card gains {force:1}.",,locust.png
+Mog of The Bog,0,3,Plague Monster,"{key:muted, Bleed, Sick}
+Mog of the Bog gains {force:2} instead of taking sick damage.",{fskill:Contagious} Cure a card you control: give {key:sick} to another card in play. Cannot target the same card twice in one turn.,mog.png
+Conjoined,3,3,Plague Monster,,"{key:effect, sick}
+{skill:New Part} Create a Mold {force:1} token, then attach a unit from your hand to it. Mold gains the text of the attached unit (the attached unit goes to the discard when Mold perishes).",conjoined.png
+Doctor,0,3,Plague Wizard,"{key:Static}
+Doctor does not take sick damage.",{fskill:Surgery} Cure a card: target unit you control gains {force:3}.,doctor.png
+False Golem,?,3,Magic Golem,"{key:delayed}
+{trigger:enter} Void a unit in your discard. False Golem gains the text and {force:?} of the voided unit (any {trigger:enter} effects retrigger). If there are no applicable cards, False Golem becomes {force:0}.",,falseGolem.png
+Pearl Aggressor,1,3,Golem,"{key:bleed}
+{cost:Must be played in the right zone.} Cards you control in the center zone get +{force:2}.","{skill:Magic Link} Search your deck for a card with {skill:Magic Link} and reveal it, or set a card from your hand with {skill:Magic Link}.",pearlGolem.png
+Cheshire Cat,2,3,Magic Monster,,"{key:instant, static}
+{skill:Evil Grin} Choose a card type (cannot chose token). Discard cards from the top of your deck until you discard a card of the chosen type or your deck runs out of cards. Add the card of the chosen type to your hand.",chesireCat.png
+Sky Spirit,2,3,Magic,,{skill:Gust} Gain an extra movement phase this turn.,skySpirit.png
+Nyx,2,3,Magic Monster,"{key:Quick}
+{cost:As an additional cost, sacrifice a card you control.}
+{trigger:victor} You may clone Nyx.","{fskill:Reunion} For every other card named Nyx you control, sacrifice them and add their {force:?} and attached cards to this one.",nyx.png
+Abstract Wizard,4,3,Old Wizard,,"{key:delayed, safe}
+{skill:Abstraction} Copy your next spell cast, then return this card to your hand.",abstractWizard2.png
+Corpse Beetle,2,3,Bug Monster,When Corpse Beetle enters your discard you may sacrifice a card you control.,{skill:Skinner} Sacrifice a card you control: gain {force:2}.,corpseBeetle2.png
+Wretched,1,3,Ghost Monster,"{key:effect, fragile}
+{trigger:perish} Create up to 2 Ghost {force:1}/{key:bleed} tokens.",,wretched.png
+Radiant Larva,1,3,Bug,"{key:Delayed}
+You may cast Radiant Larva if it enters the discard without perishing.
+{trigger:cast} Set a Bug card from your deck or discard except it is LVL 1.",,radiantLarva.png
+Helpful Honey bee,1,3,Bug,"When Helpful Honey Bee enters the discard, draw 2 cards.",,honeyBee.png
+Crow Practitioner,3,3,Crow,,{skill:Crow Medicine} Add a unit from your discard pile to your hand. It cannot be played this turn.,crowDoctor.png
+Repented,2,3,Ghost Magic,"When Repented deals damage, deal 1 damage to all front row cards your opponent controls.",,repented.png
+Cicada,3,3,Dark Bug,"If Cicada enters your discard, give {force:2} to a card you control until the end of the turn.","{skill:Dig} Search your deck for a Bug, and send it to your discard pile or sacrifice Cicada.",cicada.png
+Serendipity,0,3,Ghost God,"If Serendipity is in the back row, gain {force:1} when a card enters your discard.
+{trigger:end} If Serendipity is in the front row, lose {force:2}.",{skill:undbind} Discard 3 cards from the top of your deck. Remain active if your deck is empty after discarding cards.,serendipity.png
+Soul Baron,3,3,Magic God,{trigger:perish} Add attached cards to your hand.,"{skill:Ignite} Attach the top 2 cards of your deck and add 2 soul counters to Soul Baron. If Soul Lantern is attached, set it instead.",soulBaron.png
+Void Pointer,4,3,Celestial,"{key:delayed}
+{trigger:enter} Void 3 cards from the top of your deck.
+{trigger:perish} Add up to 2 of the voided cards to your hand.",,voidPointer.png
+Onyx Defender,3,3,Golem,"{key:muted, warden}
+{cost:Must be played in the left zone.} Cards you control in the center zone have +{force:1}.","{skill:Magic Link} Search your deck for a card with {skill:Magic Link} and reveal it, or set a card from your hand with {skill:Magic Link}.",onyxGolem.png
+Deconstructor,1,3,Golem,"{key:muted, warden}
+{trigger:end} Gain {force:2}.",{skill:Seperation} You may remove up to {force:3} from Deconstructor and give it to another card you control.,deconstructor.png
+Crusher Golem,5,3,Dark Golem,"{key:muted}
+Crusher Golem deals damage equal to half of the opposing card's base {force:?}, rounded up.",,crusherGolem.png
+Raster Beast,3,3,Magic Monster,"{key:warden}
+Whenever Raster Beast loses {force:?}, you may distribute the lost {force:?} among other cards you control in any way you want.",,rasterBeast.png
+Specular Golem,4,3,Golem,,"{key:effect}
+{skill:Blinding Light} Target card cannot deal combat damage until the end of the turn.",specularRobot.png
+Flower Wrangler,3,3,Bug,{trigger:enter} Target card your opponent controls gains {key:Static} and {key:sick}.,,flowerWrangler.png
+Marlita Red to Blue,1,4,Marlita God,"{key:Bleed}
+{cost:As an additional cost, sacrifice at least 1 Marlita card you control.} For each card sacrificed as part of Marlita Red to Blue's cost, gain {force:3} until the end of the turn.",{skill:marletion} Return all Marlita cards from your discard to your hand.,marlitaRedToBlue.png
+Horror From Above,?,4,Dark Monster,"{key:Bleed, Doom}
+Horror From Above's {force:?} is equal to the number of times you've played it this turn times 2.
+{trigger:victor} Return Horror From Above to your Hand.",,horror.png
+Reaper,1,4,Ghost Monster,"{key:Bleed}
+Front row cards your opponent controls have {key:Doom} while Reaper is in play. When a card enters your opponent's void, Reaper becomes {force:3} until the end of the turn.",,reaper.png
+Shiny Crow,3,4,Magic Crow,"{key:effect}
+When a Crow enters your control, deal 1 damage to a target card your opponent controls.",,shinyCrow.png
+Shadow Prince,3,4,Magic God,"{key:instant, static}
+{cost:As an additional cost, sacrifice 2 cards you control.}
+{trigger:enter} Reveal cards from the top of your deck equal to your LVL, then add up to 1 card of each LVL among them to your hand. You cannot play the cards this turn. Send the rest to the bottom of your deck.",,ShadowPrince2.png
+Miracle Machine,0,4,Magic Structure,"{key:Static}
+If a unit you control were to perish, you may void a card from your hand: return the unit to your hand instead. If you do, gain 2 matter counters.",{fskill: Blender} Remove a matter counter: deal 1 damage to a target front row card.,miracleMachine.png
+Ouroboros,6,4,Celestial Monster,"{key:Warden, Delayed}
+{cost:As an additional cost, you must control at least 3 cards.} Whenever a non-token card you control perishes except Ouroboros, you may void a card from your hand and return it to play.
+{trigger:perish} Return Ouroboros to your hand.",,ouroboros.png
+Rat Mother,3,4,Plague Rat God,"{key:Delayed}
+{trigger:enter} Choose 2 players. Fill open zones of those players with Rat {force:1}/{key:sick} tokens.",{skill:Rat Ritual} Sacrifice all Rat tokens in play: deal 1 damage to an opponent for each Rat sacrificed.,ratMother.png
+Moon Angel,4,4,Magic Celestial,"{key:delayed}
+When a unit perishes, add a soul counter to Moon Angel.",{skill:Piercing Light} Remove all soul counters from cards you control: deal damage equal to the number of soul counters removed to all opposing cards.,moonAngel.png
+Spiritual Warlord,2,4,Ghost Warrior,"{key:Quick}
+{trigger:victor} Create a Bead {force:1}/{key:fragile} token with ""{trigger:perish} A Ghost card you control gains {force:1}"". You may move Spiritual Warlord to an open zone on your grid. If you do, Spiritual Warlord remains active.
+{trigger:breach} Draw cards equal to the damage dealt by Spiritual Warlord.",,spiritualWarrior.png
+Phase Beast,4,5,Ghost Monster,"{key:Delayed, Bleed}
+If Phase Beast were to take damage, you may discard a card from your hand to ignore the damage dealt and take 1 damage instead. Phase Beast becomes inactive.",,phaseBeast.png
+Cauldron Of Chaos,3,5,Ghost God,"{key:Delayed, static}
+You can only use {skill:Chaotic Brew} if you have at least 10 cards in your discard.","{skill:Chaotic Brew} Shuffle your discard pile and swap it with your deck, then add 2 cards from your discard to your hand. This change does not count as adding cards to your discard pile. ",cauldronOfChaos.png
+Saturn Bear,5,5,Celestial Monster,"{key:Delayed}
+{trigger:victor} Create a Celestial {force:2} token.",,saturnBear.png
+Black Hole,0,5,Celestial God,,"{key:Delayed}
+{fskill:Mass Absorption} Void a card you control: gain {force:?} equal to the {force:?} of the voided card.",blackHole.png
+The Moon,7,5,God,"{key:Delayed, Bleed}
+{cost:As an additional cost, sacrifice a card you control.}",{skill:Truth of The Moon} Cards you control gain {key:immortal} until the start of your next turn.,theMoon.png
+Empty Man,10,5,Old God,"{key:Immortal, Sealed, muted}
+{cost:As an additional cost, sacrifice 3 cards you control. Cannot be played in the back row.}",{skill:Emptiness} Deal 5 damage to all units your opponent controls.,emptyMan.png
+Mineral God,0,5,Golem God,"{key:static, warden, safe}
+{trigger:end} Sacrifice a card you control.
+{trigger:breach} Set a unit from your discard.",{fskill:Sum of God} Sacrifice all units you control. Gain 2x{force:?} of the units sacrificed. Mineral God is {key:muted} until the end of the turn.,mineralGod.png
+Crow Devourer,3,5,Crow Monster,"{key:muted}
+{trigger:enter} Attach all Crow cards in play to Crow Devourer.
+{trigger:breach} Deal damage to the opponent equal to the number of Crow cards attached to Crow Devourer.",,CrowDevourer.png
+Void Saviour,3,5,Dark God,"{key:Delayed, Static, Immortal}
+{trigger:enter} Deal 2 damage to target player.","{skill:Void Prayer} Reveal the top 3 cards of your deck. Add 2 to your hand, void the rest.",landTerra.png
+Wetaphemesis,2,5,Bug God,"{key:Bleed, Doom, safe}
+Gain {force:2} when a Bug enters your discard.",{fskill: Exoburial} Return a Bug from your discard to your hand.,Wetaphemasis.png
+Ethereal Witch,5,5,Celestial Wizard,"{key:delayed}
+When you cast your first 2 cards in a turn, draw a card.
+{trigger:enter} Discard your hand.",,etherealWitch.png
+Queen Bee Bwyndolyn,3,5,Bug God,"{key:Bleed}
+{cost:As an additional cost, sacrifice 2 cards you control.}
+{trigger:enter} Cards you control gain {key:bleed}.
+{trigger:cast} Destroy all non-Bug units in play.",,bwendalyn.png
+Killer Bee,4,5,Bug Monster,"{key:bleed}
+{cost:As an additional cost, set your life to 1.} 
+{trigger:victor} You may destroy a card in play.
+{trigger:breach} Gain {force:1}.",,killerBee.png
+Hive Infiltrator,2,5,Ghost Bug,"{key:Static}
+{cost:As an additional cost, sacrifice a card you control.}
+{trigger:perish} If Hive Infiltrator does not have {key:fragile}, return it to play as {force:2} with {key:fragile} and {key:delayed}.
+{trigger:breach} If Hive Infiltrator has {key:fragile}, remove it and gain {force:1}.",,hiveInfiltrator.png
+Godless Vessel,10,5,Monster God,"{key:Delayed, Immortal, Bleed, Static}
+{cost:As an additional cost, sacrifice 2 cards you control. Must be played in the center zone.}
+{trigger:perish} Destroy all units in play.
+{trigger:begin} Sacrifice a unit you control.",,godlessVessel.png
+Ethereal Archmage,5,5,Celestial Wizard,"{key:delayed, muted}
+{trigger:enter} Discard your hand.","{skill:Heat Death} Void as many spells in your discard as you want. For every spell voided this way, deal 1 damage to each opponent.",etherealArchmage.png
+Toxician,5,5,Plague God,"{key:sealed, muted, immortal}
+Toxician cannot gain {key:sick}.
+{trigger:begin} Up to 2 target cards gain {key:sick}.",{skill:snuff} Destroy any number of sick cards in play.,toxician.png

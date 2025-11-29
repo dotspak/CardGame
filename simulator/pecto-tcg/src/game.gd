@@ -162,6 +162,7 @@ func animate_icon(node : Control) -> void:
 
 
 func _on_player_card_selected(card3D: Card3D) -> void:
+	print("selected ", card3D.name)
 	if infoHidden: await update_info_box(card3D)
 	else: update_info_box(card3D)
 

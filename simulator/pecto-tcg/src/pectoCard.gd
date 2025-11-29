@@ -4,7 +4,6 @@ extends Control
 class_name PectoCard
 
 #region Data
-const DB_PATH : String = "res://data/pectoDB.db"
 var db : SQLite
 
 @export_group("Database")
@@ -331,10 +330,8 @@ func update_db() -> void:
 		return
 	
 	var tableRef : String = "pecto_" + table
-
-	db = SQLite.new()
-	db.path = DB_PATH
-	db.open_db()
+	
+	open_database()
 
 	db.query("""
 		CREATE TABLE IF NOT EXISTS %s (
@@ -364,14 +361,10 @@ func update_db() -> void:
 		[cardName, type, rarity, force, lvl, scene_file_path, ID])
 		print("updated card ", cardName, " at:", str(ID))
 
-	db.close_db()
-
 
 func retrieve_from_db() -> void:
 	var tableRef : String = "pecto_" + table
-	db = SQLite.new()
-	db.path = DB_PATH
-	db.open_db()
+	open_database()
 	db.query_with_bindings("SELECT * FROM %s WHERE ID=?;" % tableRef, [ID])
 	
 	if db.query_result.size() > 0:
@@ -383,7 +376,6 @@ func retrieve_from_db() -> void:
 		force = result["force"]
 
 		print("reset data succesfully")
-		db.close_db()
 	else:
 		printerr("Card does not exist in database!")
 
@@ -435,3 +427,7 @@ func get_card_types() -> PackedStringArray:
 	t = r.sub(t, " ", true)
 	types = t.split(" ", false)
 	return types
+
+func open_database() -> void:
+	if GameManager.DB: db = GameManager.DB
+	else: db = GameManager.open_database()
