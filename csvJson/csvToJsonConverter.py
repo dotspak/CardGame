@@ -128,8 +128,20 @@ def load_cards_from_csv(csv_path : str, cardType : int, skills : dict, setName :
 
 
 def load_all_cards(units, icons, spells, output, set):
-    cards = {}
-    skills = {}
+    if os.path.isfile(output) and os.path.getsize(output) > 0:
+        with open(output, "r", encoding="utf-8") as f:
+            try:
+                current = json.load(f)
+                cards = current.get("cards", {})
+                skills = current.get("skills", {})
+            except json.JSONDecodeError:
+                print("Warning: JSON is invalid, resetting the file.")
+                cards = {}
+                skills = {}
+    else:
+        cards = {}
+        skills = {}
+
     if units: cards.update(load_cards_from_csv(units, 0, skills, set))
     if icons: cards.update(load_cards_from_csv(icons, 1, skills, set))
     if spells: cards.update(load_cards_from_csv(spells, 2, skills, set))
