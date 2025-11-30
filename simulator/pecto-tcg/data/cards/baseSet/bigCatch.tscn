@@ -1,11 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cc0jvm8sg7lbh"]
+[gd_scene load_steps=3 format=3 uid="uid://cc0jvm8sg7lbh"]
 
 [ext_resource type="Script" uid="uid://dn6e7duqtsffm" path="res://src/pectoCard.gd" id="1_jssbd"]
 [ext_resource type="Texture2D" uid="uid://ch3ogljvj5iop" path="res://assets/set1/bigCatch.png" id="2_wj6us"]
-[ext_resource type="PackedScene" uid="uid://c3kn87u2lnjlx" path="res://scenes/cardTemplates/card_visuals.tscn" id="3_hy78m"]
-[ext_resource type="Script" uid="uid://dbxnrbs17ldxf" path="res://scenes/cardTemplates/CardVisuals.gd" id="4_lyqj0"]
 
 [node name="bigCatch" type="Control"]
+custom_minimum_size = Vector2(750, 1050)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_jssbd")
@@ -21,12 +20,3 @@ skillName = "Reel in"
 skillText = "{key:instant} Lose {force:1}: Create a Fish {force:0}/{key: static, sealed} token."
 isSkillContinuous = true
 art = ExtResource("2_wj6us")
-
-[node name="cardVisuals" type="Control" parent="." instance=ExtResource("3_hy78m")]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("4_lyqj0")

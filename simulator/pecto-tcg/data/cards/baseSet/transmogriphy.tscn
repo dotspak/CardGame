@@ -1,11 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://6nxtp5sf6uvi"]
+[gd_scene load_steps=3 format=3 uid="uid://6nxtp5sf6uvi"]
 
 [ext_resource type="Script" uid="uid://dn6e7duqtsffm" path="res://src/pectoCard.gd" id="1_6gsoy"]
 [ext_resource type="Texture2D" uid="uid://bhy51ft4gybbl" path="res://assets/set1/transmorgiphy.png" id="2_clgvl"]
-[ext_resource type="PackedScene" uid="uid://c3kn87u2lnjlx" path="res://scenes/cardTemplates/card_visuals.tscn" id="3_offty"]
-[ext_resource type="Script" uid="uid://dbxnrbs17ldxf" path="res://scenes/cardTemplates/CardVisuals.gd" id="4_23udx"]
 
 [node name="transmogriphy" type="Control"]
+custom_minimum_size = Vector2(750, 1050)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_6gsoy")
@@ -18,12 +17,3 @@ text = ""
 skillName = "Something New"
 skillText = "Sacrifice a card you control: set the top card of your deck."
 art = ExtResource("2_clgvl")
-
-[node name="cardVisuals" type="Control" parent="." instance=ExtResource("3_offty")]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("4_23udx")

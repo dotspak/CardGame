@@ -142,9 +142,7 @@
             ],
             "lvl": 1,
             "force": 1,
-            "keywords": [
-                "flying"
-            ],
+            "keywords": [],
             "text": "Gain {force:1} when a unit is played in your back row.",
             "skill": null,
             "art": "flyingCube.png",
@@ -247,7 +245,7 @@
             "keywords": [
                 "static"
             ],
-            "text": "{cost:Can only be played once per turn.}",
+            "text": "Marlita Gray can only be played once per turn.",
             "skill": "beckoning",
             "art": "marlitaGray.png",
             "scenepath": ""
@@ -493,7 +491,7 @@
                 "static",
                 "muted"
             ],
-            "text": "{trigger:breach} The opponent breached discards cards from the top of their deck equal to Marlita Yellow's {force:?}",
+            "text": "{trigger:breach} The opponent breached discards cards from the top of their deck equal to Marlita Yellow's {force:?}\n{trigger:enter} Discard the top 5 cards of your deck.",
             "skill": null,
             "art": "marlitaYellow.png",
             "scenepath": ""
@@ -1015,7 +1013,7 @@
             "keywords": [
                 "bleed"
             ],
-            "text": "{cost:Must be played in the right zone.} Cards you control in the center zone get +{force:2}.",
+            "text": "RITUAL: Must be played in the right zone. \nCards you control in the center zone get +{force:2}.",
             "skill": "magicLink",
             "art": "pearlGolem.png",
             "scenepath": ""
@@ -1067,7 +1065,7 @@
             "keywords": [
                 "quick"
             ],
-            "text": "{cost:As an additional cost, sacrifice a card you control.}",
+            "text": "RITUAL: Sacrifice a card you control.\n{trigger:victor} You may clone Nyx.",
             "skill": "reunion",
             "art": "nyx.png",
             "scenepath": ""
@@ -1138,7 +1136,7 @@
             "keywords": [
                 "delayed"
             ],
-            "text": "You may cast Radiant Larva if it enters the discard without perishing.",
+            "text": "You may cast Radiant Larva if it enters the discard without perishing.\n{trigger:cast} Set a Bug card from your deck or discard except it is LVL 1.",
             "skill": null,
             "art": "radiantLarva.png",
             "scenepath": ""
@@ -1249,7 +1247,7 @@
             "keywords": [
                 "delayed"
             ],
-            "text": "{trigger:enter} Void 3 cards from the top of your deck.",
+            "text": "{trigger:enter} Void 3 cards from the top of your deck.\n{trigger:perish} Add up to 2 of the voided cards to your hand.",
             "skill": null,
             "art": "voidPointer.png",
             "scenepath": ""
@@ -1267,7 +1265,7 @@
                 "muted",
                 "warden"
             ],
-            "text": "{cost:Must be played in the left zone.} Cards you control in the center zone have +{force:1}.",
+            "text": "RITUAL: Must be played in the left zone. \nCards you control in the center zone have +{force:1}.",
             "skill": "magicLink",
             "art": "onyxGolem.png",
             "scenepath": ""
@@ -1371,7 +1369,7 @@
             "keywords": [
                 "bleed"
             ],
-            "text": "{cost:As an additional cost, sacrifice at least 1 Marlita card you control.} For each card sacrificed as part of Marlita Red to Blue's cost, gain {force:3} until the end of the turn.",
+            "text": "RITUAL: Sacrifice at least 1 Marlita card you control. For each card sacrificed gain {force:3} until the end of the turn.",
             "skill": "marletion",
             "art": "marlitaRedToBlue.png",
             "scenepath": ""
@@ -1390,7 +1388,7 @@
                 "bleed",
                 "doom"
             ],
-            "text": "Horror From Above's {force:?} is equal to the number of times you've played it this turn times 2.",
+            "text": "Horror From Above's {force:?} is equal to the number of times you've played it this turn times 2.\n{trigger:victor} Return Horror From Above to your Hand.",
             "skill": null,
             "art": "horror.png",
             "scenepath": ""
@@ -1445,7 +1443,7 @@
                 "instant",
                 "static"
             ],
-            "text": "{cost:As an additional cost, sacrifice 2 cards you control.}",
+            "text": "RITUAL: Sacrifice 2 cards you control.\n{trigger:enter} Reveal cards from the top of your deck equal to your LVL, then add up to 1 card of each LVL among them to your hand. You cannot play the cards this turn. Send the rest to the bottom of your deck.",
             "skill": null,
             "art": "ShadowPrince2.png",
             "scenepath": ""
@@ -1482,7 +1480,7 @@
                 "warden",
                 "delayed"
             ],
-            "text": "{cost:As an additional cost, you must control at least 3 cards.} Whenever a non-token card you control perishes except Ouroboros, you may void a card from your hand and return it to play.",
+            "text": "You must control 3 cards to play Ouroboros. Whenever a non-token card you control perishes except Ouroboros, you may void a card from your hand and return it to play.\n{trigger:perish} Return Ouroboros to your hand.",
             "skill": null,
             "art": "ouroboros.png",
             "scenepath": ""
@@ -1537,7 +1535,7 @@
             "keywords": [
                 "quick"
             ],
-            "text": "{trigger:victor} Create a Bead {force:1}/{key:fragile} token with \"{trigger:perish} A Ghost card you control gains {force:1}\". You may move Spiritual Warlord to an open zone on your grid. If you do, Spiritual Warlord remains active.",
+            "text": "{trigger:victor} Create a Bead {force:1}/{key:fragile} token with \"{trigger:perish} A Ghost card you control gains {force:1}\". You may move Spiritual Warlord to an open zone on your grid. If you do, Spiritual Warlord remains active.\n{trigger:breach} Draw cards equal to the damage dealt by Spiritual Warlord.",
             "skill": null,
             "art": "spiritualWarrior.png",
             "scenepath": ""
@@ -1629,7 +1627,7 @@
                 "delayed",
                 "bleed"
             ],
-            "text": "{cost:As an additional cost, sacrifice a card you control.}",
+            "text": "RITUAL: Sacrifice a card you control.",
             "skill": "truthOfTheMoon",
             "art": "theMoon.png",
             "scenepath": ""
@@ -1649,7 +1647,7 @@
                 "sealed",
                 "muted"
             ],
-            "text": "{cost:As an additional cost, sacrifice 3 cards you control. Cannot be played in the back row.}",
+            "text": "RITUAL: Sacrifice 3 cards you control. Must be played in the front row.",
             "skill": "emptiness",
             "art": "emptyMan.png",
             "scenepath": ""
@@ -1669,7 +1667,7 @@
                 "warden",
                 "safe"
             ],
-            "text": "{trigger:end} Sacrifice a card you control.",
+            "text": "{trigger:end} Sacrifice a card you control.\n{trigger:breach} Set a unit from your discard.",
             "skill": "sumOfGod",
             "art": "mineralGod.png",
             "scenepath": ""
@@ -1687,7 +1685,7 @@
             "keywords": [
                 "muted"
             ],
-            "text": "{trigger:enter} Attach all Crow cards in play to Crow Devourer.",
+            "text": "{trigger:enter} Attach all Crow cards in play to Crow Devourer.\n{trigger:breach} Deal damage to the opponent equal to the number of Crow cards attached to Crow Devourer.",
             "skill": null,
             "art": "CrowDevourer.png",
             "scenepath": ""
@@ -1745,7 +1743,7 @@
             "keywords": [
                 "delayed"
             ],
-            "text": "When you cast your first 2 cards in a turn, draw a card.",
+            "text": "When you cast your first 2 cards in a turn, draw a card.\n{trigger:enter} Discard your hand.",
             "skill": null,
             "art": "etherealWitch.png",
             "scenepath": ""
@@ -1763,7 +1761,7 @@
             "keywords": [
                 "bleed"
             ],
-            "text": "{cost:As an additional cost, sacrifice 2 cards you control.}",
+            "text": "RITUAL: Sacrifice 2 cards you control.\n{trigger:enter} Cards you control gain {key:bleed}.\n{trigger:cast} Destroy all non-Bug units in play.",
             "skill": null,
             "art": "bwendalyn.png",
             "scenepath": ""
@@ -1781,7 +1779,7 @@
             "keywords": [
                 "bleed"
             ],
-            "text": "{cost:As an additional cost, set your life to 1.} ",
+            "text": "RITUAL: Set your life to 1.\n{trigger:victor} You may destroy a card in play.\n{trigger:breach} Gain {force:1}.",
             "skill": null,
             "art": "killerBee.png",
             "scenepath": ""
@@ -1799,7 +1797,7 @@
             "keywords": [
                 "static"
             ],
-            "text": "{cost:As an additional cost, sacrifice a card you control.}",
+            "text": "RITUAL: Sacrifice a card you control.\n{trigger:perish} If Hive Infiltrator does not have {key:fragile}, return it to play as {force:2} with {key:fragile} and {key:delayed}.\n{trigger:breach} If Hive Infiltrator has {key:fragile}, remove it and gain {force:1}.",
             "skill": null,
             "art": "hiveInfiltrator.png",
             "scenepath": ""
@@ -1820,7 +1818,7 @@
                 "bleed",
                 "static"
             ],
-            "text": "{cost:As an additional cost, sacrifice 2 cards you control. Must be played in the center zone.}",
+            "text": "RITUAL: Sacrifice 2 cards you control. Must be played in the center row.\n{trigger:perish} Destroy all units in play.\n{trigger:begin} Sacrifice a unit you control.",
             "skill": null,
             "art": "godlessVessel.png",
             "scenepath": ""
@@ -1859,7 +1857,7 @@
                 "muted",
                 "immortal"
             ],
-            "text": "Toxician cannot gain {key:sick}.",
+            "text": "Toxician cannot gain {key:sick}.\n{trigger:begin} Up to 2 target cards gain {key:sick}.",
             "skill": "snuff",
             "art": "toxician.png",
             "scenepath": ""
@@ -2106,7 +2104,7 @@
                 "static",
                 "fragile"
             ],
-            "text": "If Blackened Fly enters the discard, deal 1 damage to each opponent (max 3 times per turn).",
+            "text": "If Blackened Fly enters the discard, deal 1 damage to each opponent (max 3 times per turn).\n{trigger:cast} Target unit gains {key:fragile} until the end of the turn.",
             "skill": null,
             "art": "blackenedMaggot.png",
             "scenepath": ""
@@ -2160,7 +2158,7 @@
             "keywords": [
                 "muted"
             ],
-            "text": "{trigger:begin} Gain {force:1}.",
+            "text": "{trigger:begin} Gain {force:1}.\n{trigger:cast} Target card you control gains {force:?} equal to Magic Magnet's {force:?}.",
             "skill": "magicLink",
             "art": "magicMagnet.png",
             "scenepath": ""
@@ -2420,7 +2418,7 @@
             "keywords": [
                 "effect"
             ],
-            "text": "When a unit you control perishes, you may create a Ghost {force:1}/{key:bleed} token.",
+            "text": "When a unit you control perishes, you may create a Ghost {force:1}/{key:bleed} token.\n{trigger:breach} Sacrifice all Ghost tokens: deal damage to an opponent equal to the amount of tokens sacrificed.",
             "skill": null,
             "art": "paleMask.png",
             "scenepath": ""
@@ -2492,7 +2490,7 @@
             "keywords": [
                 "warden"
             ],
-            "text": "When a Crow unit perishes, draw a card.",
+            "text": "When a Crow unit perishes, draw a card.\n{trigger:breach} Return a Crow card from your discard to your hand.",
             "skill": "gathering",
             "art": "CrowNest.png",
             "scenepath": ""
@@ -2596,7 +2594,7 @@
             "keywords": [
                 "effect"
             ],
-            "text": "{trigger:enter} Add a soul counter to this card.",
+            "text": "{trigger:enter} Add a soul counter to this card.\n{trigger:perish} Remove a soul counter: Return this card to play as {force:1}.",
             "skill": null,
             "art": "dustPixie.png",
             "scenepath": ""
@@ -2665,7 +2663,7 @@
                 "static",
                 "muted"
             ],
-            "text": "Soul Oven cannot gain {force:?}.",
+            "text": "Soul Oven cannot gain {force:?}.\n{trigger:perish} Draw cards equal to the number of soul counters on Soul Oven.\n{trigger:end} Sacrifice Soul Oven.",
             "skill": "foolsGold",
             "art": "soulOven.png",
             "scenepath": ""
@@ -2701,7 +2699,7 @@
                 "static",
                 "muted"
             ],
-            "text": "{cost:Must be played in the front row.} Other Back row cards you control cannot take damage.",
+            "text": "RITUAL: Must be played in the front row.\nOther Back row cards you control cannot take damage.",
             "skill": null,
             "art": "shield.png",
             "scenepath": ""
@@ -2756,7 +2754,7 @@
                 "muted",
                 "static"
             ],
-            "text": "Other cards you control have +{force:?} equal to the number of soul counters on Mercury Pool.",
+            "text": "Other cards you control have +{force:?} equal to the number of soul counters on Mercury Pool.\n{trigger:begin} Add a soul counter to Mercury Pool.",
             "skill": null,
             "art": "mercuryPool.png",
             "scenepath": ""
@@ -2792,7 +2790,7 @@
             "keywords": [
                 "delayed"
             ],
-            "text": "Melting Idol cannot gain {force:?}.",
+            "text": "Melting Idol cannot gain {force:?}.\n{trigger:enter} Attach a unit from your discard pile to Melting Idol. If that card perishes while Melting Idol is in play, attach it to a card you control.",
             "skill": "reanimate",
             "art": "meltedIdol.png",
             "scenepath": ""
@@ -2831,7 +2829,7 @@
                 "static",
                 "safe"
             ],
-            "text": "{cost:sacrifice 3 cards you control.} Center zone cards you control have +{force:3} and {key:immortal}.",
+            "text": "RITUAL: Sacrifice 3 cards you control. \n{trigger:enter} Draw 2 cards.\nCenter zone cards you control have +{force:3} and {key:immortal}.",
             "skill": null,
             "art": "voidWorld.png",
             "scenepath": ""
@@ -2906,7 +2904,7 @@
                 "delayed",
                 "warden"
             ],
-            "text": "{cost: As an additionl cost, sacrifice 2 cards you control.}",
+            "text": "RITUAL: Sacrifice 2 cards you control.\n{trigger:enter} All players discard their hands, recycle their decks, then draw 5 cards.",
             "skill": null,
             "art": "puelPurifico.png",
             "scenepath": ""
@@ -2951,7 +2949,7 @@
             "keywords": [
                 "effect"
             ],
-            "text": "Effected card gains {key:immortal} during your turns.",
+            "text": "Effected card gains {key:immortal} during your turns.\n{trigger:victor} Draw a card.",
             "skill": null,
             "art": "barrierInsert.png",
             "scenepath": ""
@@ -3009,7 +3007,7 @@
             "keywords": [
                 "instant"
             ],
-            "text": "{key:muted} units you control have +{force:3}.",
+            "text": "{key:muted} units you control have +{force:3}.\n{trigger:cast} {key:muted} units you control gain {force:1}.",
             "skill": null,
             "art": "tranquility.png",
             "scenepath": ""
@@ -3373,7 +3371,7 @@
             "keywords": [
                 "instant"
             ],
-            "text": "{cost:As an additional cost, discard a card from your hand.}",
+            "text": "RITUAL: Discard a card from your hand.\n{trigger:cast} Destroy target unit.",
             "skill": null,
             "art": "dissolve.png",
             "scenepath": ""
@@ -3517,7 +3515,7 @@
             "keywords": [
                 "effect"
             ],
-            "text": "Effected unit gains {key:quick} and {force:3}.",
+            "text": "Effected unit gains {key:quick} and {force:3}.\n{trigger:end} If this card is not {key:sick}: Sacrifice effected card.",
             "skill": null,
             "art": "mutation.png",
             "scenepath": ""
@@ -3653,7 +3651,7 @@
             "keywords": [
                 "instant"
             ],
-            "text": "You cannot lose the game due to your life being 0 or less.",
+            "text": "You cannot lose the game due to your life being 0 or less.\n{trigger:perish} You lose the game.",
             "skill": null,
             "art": "lastChance.png",
             "scenepath": ""
@@ -3683,7 +3681,7 @@
             "keywords": [
                 "effect"
             ],
-            "text": "{cost:Can only be attached to a front row card. Can only be played once a turn.}",
+            "text": "RITUAL: Can only be attached to a front row card. Can only be played once a turn.\nEffected card gains {force:4} and {key:quick}.\n{trigger:victor} Sacrifice the effected card, then return Fractal Blade to your hand.",
             "skill": null,
             "art": "fractalBlade.png",
             "scenepath": ""

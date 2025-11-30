@@ -1,11 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvjn1waolpuog"]
+[gd_scene load_steps=3 format=3 uid="uid://bvjn1waolpuog"]
 
 [ext_resource type="Script" uid="uid://dn6e7duqtsffm" path="res://src/pectoCard.gd" id="1_wh0id"]
 [ext_resource type="Texture2D" uid="uid://dgnw5hu02jp3b" path="res://assets/set1/killerBee.png" id="2_yacmd"]
-[ext_resource type="PackedScene" uid="uid://c3kn87u2lnjlx" path="res://scenes/cardTemplates/card_visuals.tscn" id="3_h0at6"]
-[ext_resource type="Script" uid="uid://dbxnrbs17ldxf" path="res://scenes/cardTemplates/CardVisuals.gd" id="4_x2yml"]
 
 [node name="killerBee" type="Control"]
+custom_minimum_size = Vector2(750, 1050)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_wh0id")
@@ -15,14 +14,7 @@ force = 4
 lvl = 5
 subtype = ["Bug", "Monster"]
 keywords = ["bleed"]
-text = "{cost:As an additional cost, set your life to 1.} "
+text = "RITUAL: Set your life to 1.
+{trigger:victor} You may destroy a card in play.
+{trigger:breach} Gain {force:1}."
 art = ExtResource("2_yacmd")
-
-[node name="cardVisuals" type="Control" parent="." instance=ExtResource("3_h0at6")]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("4_x2yml")

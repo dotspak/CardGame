@@ -1,104 +1,110 @@
-name,lvl,text,skill,art
-Fleshbound Ritual,1,"{key:effect}
-{trigger:perish} Set a unit from your discard except its LVL is 1.",,fleshboundRitual.png
-Worm Wood,1,"{key:instant}
-{trigger:cast} Back row cards opponents control gain {key:sick} and take an instance of {key:sick} damage. Draw a card for any cards that perished this way.",,wormwood.png
-Auto-Shield,1,"{key:Effect}
+Copies,Nickname,name,name style,lvl,text,skill,skill style,art,card_background,card_background style,shadows,shadows style,rarity
+1,fleshbound,Fleshbound Ritual,superRare,1,"{key:effect}
+{trigger:perish} Set a unit from your discard except its LVL is 1.",,,fleshboundRitual.png,,"{background:linear-gradient(180deg, rgba(118,16,21,1) 31%, rgba(252, 240, 242, 1) 100%)}",,,.sr
+1,wormWood,Worm Wood,,1,"{key:instant}
+{trigger:cast} Back row cards opponents control gain {key:sick} and take an instance of {key:sick} damage. Draw a card for any cards that perished this way.",,,wormwood.png,,,,,.b
+1,barrierInsert,Auto-Shield,,1,"{key:Effect}
 Effected card gains {key:immortal} during your turns.
-{trigger:victor} Draw a card.",,barrierInsert.png
-Abstract Mirror,1,"{key:instant}
-{trigger:cast} Choose a subtype. Target unit in play becomes the chosen subtype.",,abstractMirror.png
-Hexagonal Vision,1,"{key:instant}
-{trigger:cast} Search your deck for a LVL 1 unit. Reveal it, then add it to your hand.",,hexagonalVision.png
-Churn,1,{trigger:cast} Reveal the top 3 cards of your deck. You may add up to 3 cards of different types to your hand. You cannot play them this turn. Void the remaining cards.,,churn.png
-Tranquility,1,"{key:instant}
+{trigger:victor} Draw a card.",,,barrierInsert.png,,,,,.b
+1,mirror,Abstract Mirror,,1,"{key:instant}
+{trigger:cast} Choose a subtype. Target unit in play becomes the chosen subtype.",,,abstractMirror.png,,"{background:rgba(154, 136, 122, 1)}",,{mixBlendMode:color-dodge},.r
+1,hexagonalVision,Hexagonal Vision,,1,"{key:instant}
+{trigger:cast} Search your deck for a LVL 1 unit. Reveal it, then add it to your hand.",,,hexagonalVision.png,,,,,
+1,,Churn,,1,{trigger:cast} Reveal the top 3 cards of your deck. You may add up to 3 cards of different types to your hand. You cannot play them this turn. Void the remaining cards.,,,churn.png,,,,,
+1,tranquility,Tranquility,rrare,1,"{key:instant}
 {key:muted} units you control have +{force:3}.
-{trigger:cast} {key:muted} units you control gain {force:1}.",,tranquility.png
-Raster,2,"{key:instant}
-{trigger:cast} Choose a front row card you control and a front row card an opponent controls. Destroy both. Target frontline card you control becomes gains {force:?} equal to the total {force:?} among the cards and is {key:muted} until the end of the turn.",,raster.png
-Star Shower,2,"{key:instant}
-{trigger:cast} Choose up to 3 open zones on either side of the grid. Create a Celestial {force:2} token in each, then sacrifice them until 1 remains.",,starShower.png
-Ghost Gathering,2,"{key:instant}
-{trigger:cast} Create Ghost {force:1}/{key:bleed} tokens up to the amount of Units in your discard.",{skill:spawn} Sacrifice all Ghost tokens in play: create a Ghost {force:?}/{key:bleed} token with {force:?} equal to the number of cards sacrificed.,possess.png
-Particle Cannon,2,,"{key:Effect}
-{skill:Evaporate} Destroy the opposing front row card. Effected card takes 2 damage.",particleCannon.png
-Carve,2,{trigger:cast} Target card takes 2 damage and gains {key:bleed}.,,carve.png
-Crow Alchemy,2,"{key:instant}
-{trigger:cast} Sacrifice a card you control: create up to 2 Crow {force:1} tokens.",,CrowAlchemy.png
-Blood Rage,2,"{key:instant}
-{trigger:cast} Target active unit you control becomes inactive and deals damage equal to their {force:?} to a target card then loses {force:2}.",,bloodRage.png
-Sprint,2,{trigger:enter} Target unit gains {key:quick}.,,sprint.png
-Kick The Hive,2,"{trigger:cast} Sacrifice a Bug you control: set a unit from your hand. If the set unit's LVL is greater than 3, its {key:delayed}.",,kickTheHive.png
-False Power,2,"{key:Effect}
-Effected card's {force:?} is equal to the {force:?} of the card they currently oppose. If there is no opposing card, they are {force:0}.",,falsePower.png
-Quick Play,2,You may play Units at {key:instant} speed.,,quickPlay.png
-Doomsday Barrel,2,{trigger:cast} Remove 4 nuclear counters from Doomsday Barrel: Deal 4 damage to any target.,{skill:ready for doom} Add 2 nuclear counters to Doomsday Barrel.,doomsdayBarrel.png
-Prophecy of Plague,2,"All units enter with {key:sick}.
+{trigger:cast} {key:muted} units you control gain {force:1}.",,,tranquility.png,,"{background:rgba(255, 216, 0, 1)}",,,.r
+1,raster,Raster,divineRare,2,"{key:instant}
+{trigger:cast} Choose a front row card you control and a front row card an opponent controls. Destroy both. Target frontline card you control becomes gains {force:?} equal to the total {force:?} among the cards and is {key:muted} until the end of the turn.",,,raster.png,,"{background:conic-gradient(rgba(48, 255, 214, 1) 0%, rgba(255, 188, 66, 1) 28%, rgba(236, 32, 41, 1) 50%, rgba(48, 255, 214, 1) 66%, rgba(255, 188, 66, 1) 76%, rgba(236, 32, 41, 1) 94%, rgba(48, 255, 214, 1) 100%)}",,"{mixBlendMode:exclusion}
+{outlineColor:rgba(228, 66, 152, 1)}",.dr
+1,starShower,Star Shower,rrare,2,"{key:instant}
+{trigger:cast} Choose up to 3 open zones on either side of the grid. Create a Celestial {force:2} token in each, then sacrifice them until 1 remains.",,,starShower.png,,"{background:rgba(186, 170, 82, 1)}",,"{mixBlendMode:screen}
+{outlineColor:rgba(73, 11, 14, 1)}",.r
+1,possess,Ghost Gathering,,2,"{key:instant}
+{trigger:cast} Create Ghost {force:1}/{key:bleed} tokens up to the amount of Units in your discard.",{skill:spawn} Sacrifice all Ghost tokens in play: create a Ghost {force:?}/{key:bleed} token with {force:?} equal to the number of cards sacrificed.,,possess.png,,,,"{outlineColor:rgba(130, 109, 45, 0.3)}
+{mixBlendMode:difference}",.b
+1,particleCannon,Particle Cannon,,2,,"{key:Effect}
+{skill:Evaporate} Destroy the opposing front row card. Effected card takes 2 damage.",,particleCannon.png,,,,,.r
+1,carve,Carve,,2,{trigger:cast} Target card takes 2 damage and gains {key:bleed}.,,,carve.png,,,,,.b
+1,crowAlchemy,Crow Alchemy,rrare,2,"{key:instant}
+{trigger:cast} Sacrifice a card you control: create up to 2 Crow {force:1} tokens.",,,CrowAlchemy.png,,"{background:rgba(197, 132, 132, 1)}",,,.r
+1,bloodRage,Blood Rage,,2,"{key:instant}
+{trigger:cast} Target active unit you control becomes inactive and deals damage equal to their {force:?} to a target card then loses {force:2}.",,,bloodRage.png,,,,,.b
+1,sprint,Sprint,rrare,2,{trigger:enter} Target unit gains {key:quick}.,,,sprint.png,,"{background:rgba(0, 99, 123, 1)}",,,.r
+1,kickTheHive,Kick The Hive,superRare,2,"{trigger:cast} Sacrifice a Bug you control: set a unit from your hand. If the set unit's LVL is greater than 3, its {key:delayed}.",,,kickTheHive.png,,"{background:linear-gradient(180deg, rgba(202, 221, 144, 1) 0%, rgba(152, 117, 24, 1) 100%)}",,,.sr
+1,falsePower,False Power,rrare,2,"{key:Effect}
+Effected card's {force:?} is equal to the {force:?} of the card they currently oppose. If there is no opposing card, they are {force:0}.",,,falsePower.png,,"{background:rgba(255, 255, 255, 1)}",,"{outlineColor:rgba(229, 218, 235, 1)}",.r
+1,,Quick Play,,2,You may play Units at {key:instant} speed.,,,quickPlay.png,,,,,
+1,,Doomsday Barrel,,2,{trigger:cast} Remove 4 nuclear counters from Doomsday Barrel: Deal 4 damage to any target.,{skill:ready for doom} Add 2 nuclear counters to Doomsday Barrel.,,doomsdayBarrel.png,,"{background:rgba(31, 210, 14, 1)}",,,.r
+1,,Prophecy of Plague,,2,"All units enter with {key:sick}.
 {trigger:perish} Destroy all {key:sick} cards in play.
-{trigger:cast} Destroy a {key:sick} card in play.",,prophecyOfPlague.png
-Pin Cushion,2,"Whenever you take non-combat damage, deal damage to an opponent equal to the damage taken.
-{trigger:cast} Deal 1 damage to a front row unit in play.",,pinCushion.png
-Avid Collector,3,{trigger:cast} Sacrifice any number of tokens you control: draw cards equal to the number of tokens sacrificed.,{skill:collecting} Create an Object {force:0}/{key:static} token.,avidCollector.png
-Boil,3,{trigger:cast} Target unit and any adjacent units take 1 damage.,,boil.png
-Dying Star,3,"{trigger:cast} Void Dying Star.
-{trigger:begin} If Dying Star is in your void, deal 1 damage to any target.",,dyingStar.png
-Sacrificial Knife,3,"Draw a card whenever an opponent sacrifices a card.
-{trigger:cast} Destroy target card. The owner of the card draws a card.",,sacrficialKnife.png
-Grave Digger,3,"{trigger:cast} Shuffle your discard pile, then draw up to 2 cards from it.",,graveDigger.png
-Reap The Dead,3,"{key:instant}
-{trigger:cast} Set a unit from your discard, then take damage equal to it's LVL.",,reap.png
-The Cure?,3,"{key:instant}
-{trigger:cast} Choose a player. Cards that player controls gain {key:sick}.",,cure.png
-Rock Throw,3,"When a Golem enters your discard, target unit you control gains {force:1}.
-{trigger:cast} You may discard any number of Golems in your hand or void any number of Golems in your discard. For each card discarded/voided this way, deal 3 damage to a target card or draw a card.",,rockThrow.png
-Unstasis,3,"{key:effect}
-The effects of {key:static} are nullified for the effected card.",,unstasis.png
-Coming of Marlita,3,"{key:instant}
-{trigger:cast} Draw a card. If you control a Marlita, draw an additional card.",,comingOfMarlita.png
-Burn,3,"{key:instant}
-{trigger:cast} Deal 2 damage to any target.",,burn.png
-Dissolve,3,"{key:instant}
-{cost:As an additional cost, discard a card from your hand.}
-{trigger:cast} Destroy target unit.",,dissolve.png
-Sea Sick,3,"{key:instant}
-{trigger:cast} Target unit LVL 3 or less becomes a Fish {force:0}/{key:static} token.",,seaSick.png
-Melt,3,"{key:instant}
-{trigger:cast} Discard your hand. Draw an additional card during your next 2 draw phases.",,melt.png
-Message From Mars,3,"{trigger:cast} Reveal the top 5 cards of your deck and choose up to 3 of them. For each card chosen, void a card from your hand. Discard remaining revealed cards.",,messageFromMars.png
-Transmogriphy,3,,{skill:Something New} Sacrifice a card you control: set the top card of your deck.,transmorgiphy.png
-Reconstruction,4,,"{key:instant}
-{skill:repurpose} Sacrifice a card you control: search your deck for a Golem or Structure. Reveal it, then add it to your hand.",reconstruction.png
-Elder Spell,4,"{key:instant}
-{trigger:cast} Return all spells to their owner's hands. All cards in play take damage equal to half of their {force:?}, rounded down. All players draw a card.",,elderSpell.png
-It Gets Worse,4,"{key:instant}
-{trigger:cast} Up to 3 target units gain {key:sick}. If 3 cards were targetted by It Gets Worse, draw a card.",{skill:sickening} {key:sick} cards your opponent controls take an instance of sick damage.,itGetsWorse.png
-Madness Policy,4,{trigger:enter} Any card that opposes another card is sacrificed. Add a soul counter to Madness Policy for every card sacrificed.,"{skill:smile} If Madness Policy has a soul counter, draw a card.",madnessRitual.png
-Border of Life,4,"{key:Effect}
-Effected card is {key:immortal} and {key:safe}. If the effected card perishes, you may attach Border of Life to another card you control. If you do not contol any cards, void Border of Life.",,borderOfLife.png
-Mutation,4,"{key:effect}
+{trigger:cast} Destroy a {key:sick} card in play.",,,prophecyOfPlague.png,,,,,
+1,,Pin Cushion,,2,"Whenever you take non-combat damage, deal damage to an opponent equal to the damage taken.
+{trigger:cast} Deal 1 damage to a front row unit in play.",,,pinCushion.png,,,,,
+1,,Avid Collector,,3,{trigger:cast} Sacrifice any number of tokens you control: draw cards equal to the number of tokens sacrificed.,{skill:collecting} Create an Object {force:0}/{key:static} token.,,avidCollector.png,,,,,
+1,,Boil,,3,{trigger:cast} Target unit and any adjacent units take 1 damage.,,,boil.png,,,,,
+1,dyingStar,Dying Star,,3,"{trigger:cast} Void Dying Star.
+{trigger:begin} If Dying Star is in your void, deal 1 damage to any target.",,,dyingStar.png,,,,,.b
+1,sacrificialKnife,Sacrificial Knife,,3,"Draw a card whenever an opponent sacrifices a card.
+{trigger:cast} Destroy target card. The owner of the card draws a card.",,,sacrficialKnife.png,,,,,.b
+1,graveDigger,Grave Digger,,3,"{trigger:cast} Shuffle your discard pile, then draw up to 2 cards from it.",,,graveDigger.png,,,,,.b
+1,reapTheDead,Reap The Dead,rrare,3,"{key:instant}
+{trigger:cast} Set a unit from your discard, then take damage equal to it's LVL.",,,reap.png,,"{background:rgba(142, 142, 173, 1)}",,,.r
+1,theCure,The Cure?,,3,"{key:instant}
+{trigger:cast} Choose a player. Cards that player controls gain {key:sick}.",,,cure.png,,,,,.b
+1,rockThrow,Rock Throw,,3,"When a Golem enters your discard, target unit you control gains {force:1}.
+{trigger:cast} You may discard any number of Golems in your hand or void any number of Golems in your discard. For each card discarded/voided this way, deal 3 damage to a target card or draw a card.",,,rockThrow.png,,,,,.b
+1,unstasis,Unstasis,rrare,3,"{key:effect}
+The effects of {key:static} are nullified for the effected card.",,,unstasis.png,,"{background:rgba(233, 237, 241, 1)}",,"{mixBlendMode:difference}
+{outlineColor:rgba(0, 249, 255, 1)}",.r
+1,comingMarlita,Coming of Marlita,rrare,3,"{key:instant}
+{trigger:cast} Draw a card. If you control a Marlita, draw an additional card.",,,comingOfMarlita.png,,"{background:rgba(255, 216, 0, 1)}",,,.r
+1,burn,Burn,,3,"{key:instant}
+{trigger:cast} Deal 2 damage to any target.",,,burn.png,,,,,
+1,dissolve,Dissolve,rrare,3,"{key:instant}
+RITUAL: Discard a card from your hand.
+{trigger:cast} Destroy target unit.",,,dissolve.png,,"{background:rgba(156, 164, 166, 1)}",,,.r
+1,,Sea Sick,,3,"{key:instant}
+{trigger:cast} Target unit LVL 3 or less becomes a Fish {force:0}/{key:static} token.",,,seaSick.png,,,,,
+1,melt,Melt,rrare,3,"{key:instant}
+{trigger:cast} Discard your hand. Draw an additional card during your next 2 draw phases.",,,melt.png,,"{background:rgba(183, 116, 93, 1)}",,,.r
+1,messageMars,Message From Mars,superRare,3,"{trigger:cast} Reveal the top 5 cards of your deck and choose up to 3 of them. For each card chosen, void a card from your hand. Discard remaining revealed cards.",,,messageFromMars.png,,"{background:conic-gradient(rgba(171, 12, 169, 1) 0%, rgba(173, 74, 74, 1) 21%, rgba(221, 175, 121, 1) 85%, rgba(171, 12, 168, 1) 100%)}",,,.sr
+1,,Transmogriphy,,3,,{skill:Something New} Sacrifice a card you control: set the top card of your deck.,,transmorgiphy.png,,"{background:linear-gradient(180deg, rgba(250, 97, 218, 1) 10%, rgba(86, 245, 149, 1) 30%, rgba(249, 81, 216, 1) 76%, rgba(86,245,149,1) 100%)}",,"{mixBlendMode:difference}{outlineColor:rgba(247, 238, 35, 1)}",.dr
+1,reconstruction,Reconstruction,superRare,4,,"{key:instant}
+{skill:repurpose} Sacrifice a card you control: search your deck for a Golem or Structure. Reveal it, then add it to your hand.",,reconstruction.png,,"{background:linear-gradient(249deg, rgba(0, 0, 89, 1) 0%, rgba(255, 255, 55, 1) 26%, rgba(0, 159, 108, 1) 52%, rgba(121, 90, 254, 1) 79%, rgba(0, 113, 215, 1) 100%)}",,,.sr
+1,elderSpell,Elder Spell,rrare,4,"{key:instant}
+{trigger:cast} Return all spells to their owner's hands. All cards in play take damage equal to half of their {force:?}, rounded down. All players draw a card.",,,elderSpell.png,,"{background:rgba(103, 162, 99, 1)}",,,.r
+1,itGetsWorse,It Gets Worse,,4,"{key:instant}
+{trigger:cast} Up to 3 target units gain {key:sick}. If 3 cards were targetted by It Gets Worse, draw a card.",{skill:sickening} {key:sick} cards your opponent controls take an instance of sick damage.,,itGetsWorse.png,,,,,.b
+1,madnessPolicy,Madness Policy,rrare,4,{trigger:enter} Any card that opposes another card is sacrificed. Add a soul counter to Madness Policy for every card sacrificed.,"{skill:smile} If Madness Policy has a soul counter, draw a card.",,madnessRitual.png,,"{background:rgba(79, 87, 75, 1)}",,"{mixBlendMode:exclusion}
+{outlineColor:rgba(43, 25, 36, 1)}",.r
+1,borderLife,Border of Life,rrare,4,"{key:Effect}
+Effected card is {key:immortal} and {key:safe}. If the effected card perishes, you may attach Border of Life to another card you control. If you do not contol any cards, void Border of Life.",,,borderOfLife.png,,"{background:rgba(249, 242, 249, 1)}",,"{outlineColor:rgba(184, 105, 170, 1)}
+{mixBlendMode:difference}",.r
+1,mutation,Mutation,,4,"{key:effect}
 Effected unit gains {key:quick} and {force:3}.
-{trigger:end} If this card is not {key:sick}: Sacrifice effected card.",,mutation.png
-Powder,4,{trigger:cast} Can only be cast during the opponent's turn: all front row cards gain {key:fragile} until the end of the turn.,,powder.png
-Flock,4,{trigger:cast} Create up to 2 Crow {force:1} tokens and draw a card.,,flock.png
-Honey Coating,4,"{key:Effect}
-{trigger:begin} Effected unit gains {force:2}.",,honeyCoating.png
-Holy Pulse,4,{trigger:cast} Draw cards equal to the number of immortal cards you control.,{skill:immortalize} Target unit you control gains {key:immortal}.,holyPulse.png
-Swarm,4,{trigger:cast} Return up to 3 units from your discard pile to your hand. You cannot play them this turn.,,swarm.png
-Beehmoth Stinger,4,"{key:effect}
-Effected card gains {force:1}. Gain {force:2} instead if the effected card is a bug.",{skill:War Cry} Bugs you control gain {key:quick} until the end of the turn.,beehemothStinger.png
-Bloodsong,4,{trigger:cast} Choose a number from 1-5: Deal damage equal to the number chosen to all cards in play.,,bloodSong.png
-Deeper Until The End,4,"{trigger:cast} Discard cards from the top of your deck up to the number of cards you control, then void Deeper Until the End. 
-{trigger:begin} If Deeper Until the End is in your void: discard a card: return Deeper Until the End to your hand.",,digDeeper.png
-Skeleton Key,5,{trigger:cast} Sacrifice an active card you control: draw cards equal to its {force:?} (max 3).,,skeletonKey.png
-Last Chance,5,"{key:instant}
+{trigger:end} If this card is not {key:sick}: Sacrifice effected card.",,,mutation.png,,,,,.b
+1,powder,Powder,rrare,4,{trigger:cast} Can only be cast during the opponent's turn: all front row cards gain {key:fragile} until the end of the turn.,,,powder.png,,"{background:rgba(91, 14, 18, 1)}",,,.r
+1,flock,Flock,,4,{trigger:cast} Create up to 2 Crow {force:1} tokens and draw a card.,,,flock.png,,,,,.b
+1,honeyCoating,Honey Coating,,4,"{key:Effect}
+{trigger:begin} Effected unit gains {force:2}.",,,honeyCoating.png,,,,,
+1,holyPulse,Holy Pulse,,4,{trigger:cast} Draw cards equal to the number of immortal cards you control.,{skill:immortalize} Target unit you control gains {key:immortal}.,,holyPulse.png,,,,,
+1,swarm,Swarm,,4,{trigger:cast} Return up to 3 units from your discard pile to your hand. You cannot play them this turn.,,,swarm.png,,,,,
+1,beehemothStinger,Beehmoth Stinger,rrare,4,"{key:effect}
+Effected card gains {force:1}. Gain {force:2} instead if the effected card is a bug.",{skill:War Cry} Bugs you control gain {key:quick} until the end of the turn.,,beehemothStinger.png,,"{background:rgba(201, 181, 83, 1)}",,,.r
+1,bloodsong,Bloodsong,superRare,4,{trigger:cast} Choose a number from 1-5: Deal damage equal to the number chosen to all cards in play.,,]sskill,bloodSong.png,,"{background:linear-gradient(180deg, rgba(111, 0, 0, 1) 11%, rgba(24, 0, 0, 1) 100%) no-repeat 50% 50% / 100% 100%}",,,.sr
+1,deeperUntilTheEnd,Deeper Until The End,,4,"{trigger:cast} Discard cards from the top of your deck up to the number of cards you control, then void Deeper Until the End. 
+{trigger:begin} If Deeper Until the End is in your void: discard a card: return Deeper Until the End to your hand.",,,digDeeper.png,,,,,
+1,skeletonKey,Skeleton Key,rrare,5,{trigger:cast} Sacrifice an active card you control: draw cards equal to its {force:?} (max 3).,,,skeletonKey.png,,"{background:rgba(159, 149, 53, 1)}",,,.r
+1,lastChance,Last Chance,superRare,5,"{key:instant}
 You cannot lose the game due to your life being 0 or less.
-{trigger:perish} You lose the game.",,lastChance.png
-Null and Creation,5,"{key:instant}
-{trigger:cast} All cards your opponents control gain {key:doom} until the end of the turn. For every card affected, add {force:1} to a card you control.","{skill:upside} If a card you control has {key:doom}, draw a card.",nullAndCreation.png
-Fractal Blade,5,"{key:effect}
-{cost:Can only be attached to a front row card. Can only be played once a turn.}
+{trigger:perish} You lose the game.",,,lastChance.png,,"{background:conic-gradient(rgba(102, 96, 199, 1) 0%, rgba(216, 92, 201, 1) 26%, rgba(255, 255, 255, 1) 53%, rgba(34, 28, 165, 1) 73%, rgba(102, 96, 199, 1) 100%)}",,,.sr
+1,nullAndCreation,Null and Creation,,5,"{key:instant}
+{trigger:cast} All cards your opponents control gain {key:doom} until the end of the turn. For every card affected, add {force:1} to a card you control.","{skill:upside} If a card you control has {key:doom}, draw a card.",,nullAndCreation.png,,,,,
+1,fractalBlade,Fractal Blade,divineRare,5,"{key:effect}
+RITUAL: Can only be attached to a front row card. Can only be played once a turn.
 Effected card gains {force:4} and {key:quick}.
-{trigger:victor} Sacrifice the effected card, then return Fractal Blade to your hand.",,fractalBlade.png
-Shatter,5,"{key:instant}
-{trigger:cast} Target card is now {force:0} (does not cause the card to perish). Draw a card.",,shatter.png
-Last Wish,5,"{trigger:enter} All players choose a card they control. Sacrifice any card not chosen. For the remaining cards, set their LVL to 1, then set both player's LVL to 1. Neither player can attack until the start of your next turn.",,lastWish.png
+{trigger:victor} Sacrifice the effected card, then return Fractal Blade to your hand.",,,fractalBlade.png,,"{background:conic-gradient(rgba(159, 192, 255, 1) 0%, rgba(243, 69, 214, 1) 14%, rgba(43, 114, 42, 1) 28%, rgba(244, 242, 152, 1) 42%, rgba(159, 192, 255, 1) 57%, rgba(243, 69, 214, 1) 71%, rgba(43, 114, 42, 1) 80%, rgba(244, 242, 152, 1) 92%, rgba(159, 192, 255, 1) 100%) no-repeat 50% 50% / 100% 100%}",,,.dr
+1,shatter,Shatter,,5,"{key:instant}
+{trigger:cast} Target card is now {force:0} (does not cause the card to perish). Draw a card.",,,shatter.png,,,,,
+1,,Last Wish,superRare,5,"{trigger:enter} All players choose a card they control. Sacrifice any card not chosen. For the remaining cards, set their LVL to 1, then set both player's LVL to 1. Neither player can attack until the start of your next turn.",,,lastWish.png,,"{background:linear-gradient(180deg, rgba(206, 214, 214, 1) 0%, rgba(34, 42, 42, 1) 100%) no-repeat 50% 50% / 100% 100%}",,,.sr

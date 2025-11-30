@@ -2,6 +2,7 @@ import csv
 import json
 import re
 import os
+import pandas as pd
 
 # ---------------------------------------------
 # Converter Code
@@ -56,9 +57,9 @@ def parse_subtypes(raw : str):
 def extract_keywords(s : str):
     if not s: return [], s
 
-    s = s.strip()
+    s = s.lstrip()
 
-    match = re.match(r"^\{key:([^}]+)\}\s*(.*)", s)
+    match = re.match(r"^\{key:([^}]+)\}\s*(.*)", s, flags=re.DOTALL)
     if not match: return [], s
 
     raw = match.group(1)
@@ -69,62 +70,66 @@ def extract_keywords(s : str):
 
 
 def load_cards_from_csv(csv_path : str, cardType : int, skills : dict, setName : str):
+    df = pd.read_csv(
+        csv_path,
+        delimiter=',',
+        quotechar='"',
+        doublequote=True,
+        skipinitialspace=True,
+        engine='python',
+        keep_default_na=False
+    ).fillna("")
     cards = {}
-    with open(csv_path, newline='', encoding='utf-8') as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            name = row.get("name", "").strip()
-            if not name: continue
-            
-            ID = to_camel_case(name)
-            rawText = row.get("text", "").strip()
-            rawSkill = row.get("skill", "").strip()
 
-            # extract keywords from text or skills
-            keywords, cleanText = extract_keywords(rawText)
-            if not keywords: keywords, cleanSkill = extract_keywords(rawSkill)
-            else: cleanSkill = rawSkill
-            
-            # get the skill id
-            skillID = parse_skill(cleanSkill, skills)
-            
-            # subtypes parsing
-            if cardType < 2:
-                subtypes = parse_subtypes(
-                    row.get("subtype", "").strip())
-            else:
-                subtypes = []
+    for _, row in df.iterrows():
+        name = str(row.get("name", "")).strip()
+        if not name: continue
+        
+        ID = to_camel_case(name)
+        rawText = str(row.get("text", "")).strip()
+        rawSkill = str(row.get("skill", "")).strip()
 
-            # lvl and force
-            try: lvl = int(row.get("lvl", 0))
-            except ValueError: lvl = 1
+        # extract keywords from text or skills
+        keywords, cleanText = extract_keywords(rawText)
+        if not keywords: keywords, cleanSkill = extract_keywords(rawSkill)
+        else: cleanSkill = rawSkill
+        
+        if ID == "killerBee": print(cleanText)
+        # get the skill id
+        skillID = parse_skill(cleanSkill, skills)
+        
+        # subtypes parsing
+        subtypes = parse_subtypes(str(row.get("subtype", "")).strip()) if cardType < 2 else []
 
-            if cardType < 2:
-                try: force = int(row.get("force", 0))
-                except ValueError: force = 0
-            else:
-                force = 0
+        # lvl and force
+        try: lvl = int(row.get("lvl", 0))
+        except ValueError: lvl = 1
 
-            # art
-            try: art = row.get("art", "").strip()
-            except ValueError: art = "monolith.png"
+        if cardType < 2:
+            try: force = int(row.get("force", 0))
+            except ValueError: force = 0
+        else:
+            force = 0
 
-            # finalized JSON for the card
-            card = {
-                "name" : name,
-                "set" : setName,
-                "type" : cardType,
-                "subtype" : subtypes,
-                "lvl" : lvl,
-                "force" : force,
-                "keywords" : keywords,
-                "text" : cleanText,
-                "skill" : skillID,
-                "art" : art,
-                "scenepath" : ""
-            }
+        # art
+        art = str(row.get("art", "")).strip() or "monolith.png"
 
-            cards[ID] = card
+        # finalized JSON for the card
+        card = {
+            "name" : name,
+            "set" : setName,
+            "type" : cardType,
+            "subtype" : subtypes,
+            "lvl" : lvl,
+            "force" : force,
+            "keywords" : keywords,
+            "text" : cleanText,
+            "skill" : skillID,
+            "art" : art,
+            "scenepath" : ""
+        }
+
+        cards[ID] = card
     return cards
 
 

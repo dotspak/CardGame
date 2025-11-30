@@ -257,7 +257,7 @@ _drop_zone_collision_shape_3d = NodePath("../DropZone/CollisionShape3D")
 
 [node name="Hand" parent="DragController" instance=ExtResource("5_6bc8p")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.98480767, -0.17364816, 0, 0.17364816, 0.98480767, 2, -9, 7)
+transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 2, -8, 5)
 card_layout_strategy = SubResource("Resource_8ykwa")
 
 [node name="PlayZone" parent="DragController" instance=ExtResource("10_nc1hs")]

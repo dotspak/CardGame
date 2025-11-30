@@ -2,6 +2,8 @@
 extends Control
 class_name CardVisuals
 
+const TEXT_SIZE : int = 30
+
 const BASIC_ICON : Texture = preload("uid://dmhctqok0ncxr")
 const RARE_ICON : Texture = preload("uid://db7a3ny4orsly")
 const SUPERRARE_ICON : Texture = preload("uid://b7pbscney3tcv")
@@ -30,7 +32,8 @@ var TEXT_TAGS : Dictionary = {
 	"trigger": {"color" : "orange", "icon" : "➥"},
 	"skill" : {"color" : SKILL_COLOR.to_html(), "icon" : "★"},
 	"fskill" : {"color" : FSKILL_COLOR.to_html(), "icon" : "★"},
-	"force" : {"color" : "e44298", "icon" : ""}}
+	"force" : {"color" : "e44298", "icon" : ""},
+	"key" : {"color" : KEYWORD_COLOR.to_html(), "icon" : ""}}
 
 #region Variables
 var type : int = 0 : 
@@ -53,7 +56,7 @@ var cardName : String = "Dummy" :
 	set(val):
 		cardName = val
 		if is_node_ready():
-			%cardName.text = cardName
+			%cardName.text = to_small_caps(cardName, 40, 28)
 			%cardName.text.strip_edges()
 
 var force : int = 1 :
@@ -200,16 +203,48 @@ func parse_card_text(string : String) -> String:
 		var replacement : String = m.get_string(0)
 		
 		if TEXT_TAGS.has(tag):
-			if tag != "force":
+			if tag == "key":
+				var kw = format_keywords_list(value)
+				var color = TEXT_TAGS[tag]["color"]
+				replacement = "[bgcolor=#00000088][color=%s][i]%s[/i][/color][/bgcolor]" % [color, kw]
+			elif tag != "force":
 				var icon : String = TEXT_TAGS[tag]["icon"]
 				var color : String = TEXT_TAGS[tag]["color"]
-				replacement = "[bgcolor=%s][b]%s%s[/b][/bgcolor]" % [color, icon, value]
+				var sc = to_small_caps(value)
+				replacement = "[bgcolor=%s][b]%s%s[/b][/bgcolor]" % [color, icon, sc]
 			else:
 				var color : String = TEXT_TAGS[tag]["color"]
-				replacement = "[bgcolor=%s][b] %s [/b][/bgcolor]" % [color, value]
+				replacement = "[img=32 align=center]res://assets/forceBG.png[/img][b]%s[/b]" % [value]
 
 		output = output.substr(0, m.get_start()) + replacement + output.substr(m.get_end())
+	
+	var ritualRegex : RegEx = RegEx.new()
+	ritualRegex.compile(r"(RITUAL:)")
+	output = ritualRegex.sub(output, "[bgcolor=f00]💀%s[/bgcolor]" % to_small_caps("RITUAL"))
 	return output
+
+
+func to_small_caps(string : String, bigSize : int = TEXT_SIZE, smallSize : int = TEXT_SIZE - 8) -> String:
+	var words = string.strip_edges().to_upper().split(" ")
+	var parts : Array = []
+	for w in words:
+		if w.length() <= 1:
+			parts.append("[font_size=%d]%s[/font_size]" % [bigSize, w])
+		else:
+			var first = w[0]
+			var rest = w.substr(1)
+			parts.append("[font_size=%d]%s[/font_size][font_size=%d]%s[/font_size]" % [bigSize, first, smallSize, rest])
+	return " ".join(parts)
+
+
+func format_keywords_list(string : String) -> String:
+	var items = string.split(",", false)
+	var out : Array = []
+	for item in items:
+		item = item.strip_edges()
+		if item.length() > 0:
+			out.append(item.capitalize())
+	return ", ".join(out)
 
 #endregion
 

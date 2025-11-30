@@ -308,10 +308,10 @@ func change_lvl(amount : int = 1) -> void: lvl += amount
 #endregion
 
 #region getters
-func get_card_text() -> String: return $cardVisuals.get_card_text()
-func get_card_keyword_text() -> String: return $cardVisuals.get_card_keyword_text()
-func get_card_skill() -> String: return $cardVisuals.get_card_skill()
-func get_card_name() -> String: return $cardVisuals.get_card_name()
-func get_card_art() -> Texture: return $cardVisuals.get_card_art()
-func get_card_types() -> PackedStringArray: return $cardVisuals.get_card_types()
+func get_card_text() -> String: return cardVisuals.get_card_text()
+func get_card_keyword_text() -> String: return cardVisuals.get_card_keyword_text()
+func get_card_skill() -> String: return cardVisuals.get_card_skill()
+func get_card_name() -> String: return cardVisuals.get_card_name()
+func get_card_art() -> Texture: return cardVisuals.get_card_art()
+func get_card_types() -> PackedStringArray: return cardVisuals.get_card_types()
 #endregion

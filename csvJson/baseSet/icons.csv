@@ -1,119 +1,126 @@
-name,force,lvl,subtype,text,skill,art
-Corrupted Piece,0,1,Ghost Object,"{key:effect, warden}
-Whenever this card moves, gain {force:1}.",,corruptedPiece.png
-Chrysalis,1,1,Structure,"{key:static}
-{trigger:end} You may add an attached card to your hand.",{skill:Metamorphosis} Attach up to 3 units from your discard to Chrysalis.,obviousTrap.png
-Ring Generator,1,1,Celestial Structure,"{key:static}
-When a card enters your void, target unit you control gains {force:1}.",,ringGenerator.png
-Red Zone,1,1,Structure,"{key:static, immortal}
-{trigger:enter} Attach a card an opponent controls to Red Zone.",,prison.png
-Shrine of Marlita,1,1,Marlita Structure,Cards you control are Marlitas in addition to their other types.,,marlitaShrine.png
-Home of Marlita,1,1,Marlita Structure,,"{key:static}
-{skill:Welcome Home} Sacrifice Home of Marlita: Recycle your deck, then search your deck for a Marlita Card.",marlitaHome.png
-Tunnel of White Wind,3,1,Structure,"{key:muted, static, safe}
-Whenever a unit an opponent controls perishes, Tunel of White Wind gains 1 LVL.",,whiteWind.png
-Arcane Eye,1,1,Celestial Object,,"{skill:peer} Reveal the top card of your deck. If the card's LVL is greater or equal to your current LVL, you may set it. Otherwise, void it or send it to the bottom of your deck.",arcaneEye.png
-Ectoplasm,1,1,Ghost Object,"{key:effect, warden}
-When a non-token unit you control perishes, you may send a card from your deck to the discard.",,ectoplasm.png
-Pebble,0,1,Shapeshifter,"{key:warden}
-Cards adjacent to Pebble are 1 LVL higher while Pebble is in play.",,pebble.png
-Soul Stone,0,1,Ghost Golem,"{key:delayed}
-Whenever a card is cast, Soul Stone gains {force:1}.",,soulStone2.png
-Shiny Orb,0,1,Celestial Object,,{skill:ponder} Draw 2 cards: discard a card from your hand.,shinyOrb.png
-Green Orb,1,1,Plague Object,,{skill:infect} Target card gains {key:sick}.,greenOrb.png
-Blackened Maggot,1,1,Old Bug,"{key:instant, static, fragile}
+Copies,Nickname,name,name style,force,lvl,subtype,text,skill,skill style,art,card_background,card_background style,shadows,shadows style,rarity
+1,piece,Corrupted Piece,,0,1,Ghost Object,"{key:effect, warden}
+Whenever this card moves, gain {force:1}.",,,corruptedPiece.png,,,,,.b
+1,chrysalis,Chrysalis,,1,1,Structure,"{key:static}
+{trigger:end} You may add an attached card to your hand.",{skill:Metamorphosis} Attach up to 3 units from your discard to Chrysalis.,,obviousTrap.png,,,,,.b
+1,ringGenerator,Ring Generator,,1,1,Celestial Structure,"{key:static}
+When a card enters your void, target unit you control gains {force:1}.",,,ringGenerator.png,,,,,.b
+1,redZone,Red Zone,,1,1,Structure,"{key:static, immortal}
+{trigger:enter} Attach a card an opponent controls to Red Zone.",,,prison.png,,,,,.b
+1,marlitaShrine,Shrine of Marlita,,1,1,Marlita Structure,Cards you control are Marlitas in addition to their other types.,,,marlitaShrine.png,,,,,.b
+1,marlitaHome,Home of Marlita,,1,1,Marlita Structure,,"{key:static}
+{skill:Welcome Home} Sacrifice Home of Marlita: Recycle your deck, then search your deck for a Marlita Card.",,marlitaHome.png,,,,,.b
+1,tunnelOfWhiteWind,Tunnel of White Wind,rrare,3,1,Structure,"{key:muted, static, safe}
+Whenever a unit an opponent controls perishes, Tunel of White Wind gains 1 LVL.",,,whiteWind.png,,"{background:rgba(255, 255, 255, 1)}",,,.r
+1,,Arcane Eye,divineRare,1,1,Celestial Object,,"{skill:peer} Reveal the top card of your deck. If the card's LVL is greater or equal to your current LVL, you may set it. Otherwise, void it or send it to the bottom of your deck.",,arcaneEye.png,,"{background:radial-gradient(rgba(255, 0, 226, 1) 62%, rgba(185, 232, 77, 1) 73%, rgba(91, 197, 222, 1) 84%, rgba(177, 199, 187, 1) 94%) no-repeat 50% 50% / 100% 100%}",,,.dr
+1,,Ectoplasm,rrare,1,1,Ghost Object,"{key:effect, warden}
+When a non-token unit you control perishes, you may send a card from your deck to the discard.",,,ectoplasm.png,,"{background:rgba(120, 27, 35, 1)}",,,.r
+1,pebble,Pebble,rrare,0,1,Shapeshifter,"{key:warden}
+Cards adjacent to Pebble are 1 LVL higher while Pebble is in play.",,,pebble.png,,"{background:rgba(136, 231, 238, 1)}",,,.r
+1,soulStone,Soul Stone,rrare,0,1,Ghost Golem,"{key:delayed}
+Whenever a card is cast, Soul Stone gains {force:1}.",,,soulStone2.png,,"{background:rgba(82, 229, 225, 1)}",,,.r
+1,shinyOrb,Shiny Orb,,0,1,Celestial Object,,{skill:ponder} Draw 2 cards: discard a card from your hand.,,shinyOrb.png,,,,,.b
+1,greenOrb,Green Orb,,1,1,Plague Object,,{skill:infect} Target card gains {key:sick}.,,greenOrb.png,,,,,.b
+1,blackWing,Blackened Maggot,,1,1,Old Bug,"{key:instant, static, fragile}
 If Blackened Fly enters the discard, deal 1 damage to each opponent (max 3 times per turn).
-{trigger:cast} Target unit gains {key:fragile} until the end of the turn.",,blackenedMaggot.png
-Creation From Nothing,1,1,Celestial Magic,"{key:static}
-When a card enters your void, you gain 1 LVL.",{skill:Voider} Void a card from your hand.,creationFromNothing.png
-Royal Jelly,1,1,Bug Object,,"{key:muted, static}
-{skill:feed} Target unit gains {force:1} and 1 LVL.",royalJelly.png
-Magic Magnet,0,1,Golem,"{key:muted}
+{trigger:cast} Target unit gains {key:fragile} until the end of the turn.",,,blackenedMaggot.png,,,,"{mixBlendMode:exclusion}
+{outlineColor:rgba(244, 241, 248, 1)}",
+1,,Creation From Nothing,{fontSize:11px}divineRare,1,1,Celestial Magic,"{key:static}
+When a card enters your void, you gain 1 LVL.",{skill:Voider} Void a card from your hand.,,creationFromNothing.png,,"{background:linear-gradient(125deg, rgba(33, 37, 157, 1) 0%, rgba(237, 105, 31, 1) 100%)}",,,.dr
+1,,Royal Jelly,,1,1,Bug Object,,"{key:muted, static}
+{skill:feed} Target unit gains {force:1} and 1 LVL.",,royalJelly.png,,,,,
+1,,Magic Magnet,,0,1,Golem,"{key:muted}
 {trigger:begin} Gain {force:1}.
-{trigger:cast} Target card you control gains {force:?} equal to Magic Magnet's {force:?}.","{skill:Magic Link} Search your deck for a card with {skill:Magic Link} and reveal it, or set a card from your hand with {skill:Magic Link}.",magicMagnet.png
-Morgue,1,2,Ghost Structure,,"{key:static}
-{skill:Rediscover} Shuffle your discard: add the top card of your discard pile to your hand.",morgue.png
-Sun Box,1,2,Celestial Structure,"When a card enters your void, deal 1 damage to a target card each opponent controls. If you have at least 3 cards in your void, damage all cards your opponents control instead.",,sunBox.png
-Infection:Misdirection,0,2,Plague Field,When a card you control takes sick damage: target card an opponent controls takes the damage instead.,,misdirection.png
-Vintage Vessel,2,2,Object,"{key:effect, warden}
-When an opposing unit perishes, add a soul counter to Vintage Vessel and then you may create a clone of it as a Memory {force:1} token with all of its text.",,vintageVessel.png
-Life Pool,0,2,Structure,"{key:static}
-Whenever you take player damage, draw a card.",,lifePool.png
-Bountiful Harvest,3,2,Structure,"If a card you control/play requires a non-specific sacrifice, you may instead lose {force:1} from Bountiful Harvest to pay for the sacrifice.",,harvest.png
-Jack in the Box,2,2,Monster Object,"{key:fragile}
-{trigger:begin} Sacrifice Jack In the Box, then set any attached units.",{skill:Surprise!} Discard up to 2 cards: attach units from your deck equal to the number of cards discarded to Jack in the Box.,jackInTheBox.png
-Card Dispenser,2,2,Object,,"{key:effect, static}
-{skill:payout} Lose 1 LVL: Draw 2 cards.",cardDispenser.png
-Blast Orb,0,2,Object,,"{key:instant, static}
-{skill:outburst} Deal 2 damage to a front row card.",blastOrb.png
-Tonne,2,2,Golem Object,,"{key:static}
-{skill:Drop} Move Tonne to an open front row zone on an opponent's grid, and remove this skill.",tonne.png
-Cursed Orb,1,2,Dark Object,{trigger:breach} Draw a card.,,cursedOrb.png
-Pheromone Den,2,3,Structure,"{key:static}
-Units you control that are LVL 2 or less have +{force:2}.",,pheromoneCave.png
-Withering Shrine,2,3,Ghost Structure,,"{key:muted, static}
-{skill:Fading with time} Search your deck for a card and reveal it. Shuffle your deck, then place the card on top of your deck.",witheringShrine.png
-Door to Nowhere,3,3,Structure God,"{key:static}
-When a non-token unit you control perishes, you may choose to send it to your discard, deck, void, or hand. If you return it to your hand, you cannot play it until you end a turn.",,doorToNowhere.png
-Pale Mask,3,3,Ghost Equipment,"{key:effect}
+{trigger:cast} Target card you control gains {force:?} equal to Magic Magnet's {force:?}.","{skill:Magic Link} Search your deck for a card with {skill:Magic Link} and reveal it, or set a card from your hand with {skill:Magic Link}.",,magicMagnet.png,,,,,
+1,morgue,Morgue,,1,2,Ghost Structure,,"{key:static}
+{skill:Rediscover} Shuffle your discard: add the top card of your discard pile to your hand.",,morgue.png,,,,,.b
+1,sunBox,Sun Box,divineRare,1,2,Celestial Structure,"When a card enters your void, deal 1 damage to a target card each opponent controls. If you have at least 3 cards in your void, damage all cards your opponents control instead.",,,sunBox.png,,"{background:linear-gradient(0deg, rgba(49, 18, 73, 1) 0%, rgba(32, 76, 217, 1) 17%, rgba(112, 50, 104, 1) 34%, rgba(239, 189, 33, 1) 50%, rgba(112, 50, 104, 1) 66%, rgba(32, 76, 217, 1) 85%, rgba(49, 18, 73, 1) 100%)}",,,.dr
+1,infectionMisdirection,Infection:Misdirection,superRare{fontSize:11px},0,2,Plague Field,When a card you control takes sick damage: target card an opponent controls takes the damage instead.,,,misdirection.png,,"{background:linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(189, 132, 230, 1) 100%)}",,,.sr
+1,vintageVessel,Vintage Vessel,,2,2,Object,"{key:effect, warden}
+When an opposing unit perishes, add a soul counter to Vintage Vessel and then you may create a clone of it as a Memory {force:1} token with all of its text.",,,vintageVessel.png,,,,,.b
+1,lifePool,Life Pool,,0,2,Structure,"{key:static}
+Whenever you take player damage, draw a card.",,,lifePool.png,,,,,.b
+1,,Bountiful Harvest,,3,2,Structure,"If a card you control/play requires a non-specific sacrifice, you may instead lose {force:1} from Bountiful Harvest to pay for the sacrifice.",,,harvest.png,,,,,
+1,,Jack in the Box,rrare,2,2,Monster Object,"{key:fragile}
+{trigger:begin} Sacrifice Jack In the Box, then set any attached units.",{skill:Surprise!} Discard up to 2 cards: attach units from your deck equal to the number of cards discarded to Jack in the Box.,,jackInTheBox.png,,"{background:rgba(88, 16, 27, 1)}",,,.r
+1,,Card Dispenser,,2,2,Object,,"{key:effect, static}
+{skill:payout} Lose 1 LVL: Draw 2 cards.",,cardDispenser.png,,,,,
+1,blastOrb,Blast Orb,,0,2,Object,,"{key:instant, static}
+{skill:outburst} Deal 2 damage to a front row card.",,blastOrb.png,,,,,
+1,tonne,Tonne,,2,2,Golem Object,,"{key:static}
+{skill:Drop} Move Tonne to an open front row zone on an opponent's grid, and remove this skill.",,tonne.png,,,,,.b
+1,,Cursed Orb,,1,2,Dark Object,{trigger:breach} Draw a card.,,,cursedOrb.png,,,,,
+1,pheromoneDen,Pheromone Den,rrare,2,3,Structure,"{key:static}
+Units you control that are LVL 2 or less have +{force:2}.",,,pheromoneCave.png,,"{background:rgba(180, 141, 183, 1)}",,,.r
+1,witheringShrine,Withering Shrine,rrare,2,3,Ghost Structure,,"{key:muted, static}
+{skill:Fading with time} Search your deck for a card and reveal it. Shuffle your deck, then place the card on top of your deck.",,witheringShrine.png,,"{background:rgba(84, 139, 124, 1)}",,"{mixBlendMode:exclusion}
+{outlineColor:rgba(105, 174, 147, 1)}",.r
+1,doorToNowhere,Door to Nowhere,superRare,3,3,Structure God,"{key:static}
+When a non-token unit you control perishes, you may choose to send it to your discard, deck, void, or hand. If you return it to your hand, you cannot play it until you end a turn.",,,doorToNowhere.png,,"{background:linear-gradient(180deg, rgba(181, 173, 156, 1) 0%, rgba(41, 58, 49, 1) 100%)}",,,.sr
+1,mask,Pale Mask,rrare,3,3,Ghost Equipment,"{key:effect}
 When a unit you control perishes, you may create a Ghost {force:1}/{key:bleed} token.
-{trigger:breach} Sacrifice all Ghost tokens: deal damage to an opponent equal to the amount of tokens sacrificed.",,paleMask.png
-Temporary Relief,0,3,Plague Object,"{key:static}
-If a card you control were to take sick damage, that card instead gains {force:1}.",,temporaryRelief.png
-Stone Generator,1,3,Golem Structure,,"{key:static}
-{skill:Cobbler} Look at the top 3 cards of your deck. Reveal, then add any golem cards found to your hand. Send remaining cards to the top or bottom of your deck in any order.",stoneGenerator.png
-Monolith,2,3,Structure God,"{key:static}
-Monolith can only attack if the opponent controls no back row cards. Whenever you draw a card gain {force:1}.",{fskill:Prayer and Speech} Lose {force:2}. units you control gain {force:1}.,monolith.png
-Crow's Nest,1,3,Crow Structure,"{key:warden}
+{trigger:breach} Sacrifice all Ghost tokens: deal damage to an opponent equal to the amount of tokens sacrificed.",,,paleMask.png,,"{background:rgba(148, 206, 239, 1)}",,,.r
+1,temporaryRelief,Temporary Relief,superRare,0,3,Plague Object,"{key:static}
+If a card you control were to take sick damage, that card instead gains {force:1}.",,,temporaryRelief.png,,"{background:linear-gradient(180deg, rgba(85, 247, 189, 1) 27%, rgba(214, 33, 222, 1) 82%)}",,,.sr
+1,stoneGenerator,Stone Generator,superRare,1,3,Golem Structure,,"{key:static}
+{skill:Cobbler} Look at the top 3 cards of your deck. Reveal, then add any golem cards found to your hand. Send remaining cards to the top or bottom of your deck in any order.",,stoneGenerator.png,,"{background:linear-gradient(54deg, rgba(150, 111, 103, 1) 0%, rgba(90, 115, 156, 1) 100%)}",,,.sr
+1,monolith,Monolith,divineRare,2,3,Structure God,"{key:static}
+Monolith can only attack if the opponent controls no back row cards. Whenever you draw a card gain {force:1}.",{fskill:Prayer and Speech} Lose {force:2}. units you control gain {force:1}.,]fskill,monolith.png,,"{background:linear-gradient(125deg, rgba(0, 0, 0, 1) 0%, rgba(70, 115, 115, 1) 23%, rgba(203, 22, 15, 1) 50%, rgba(115,73,78,1) 77%, rgba(0, 0, 0, 1) 100%)}",,"{mixBlendMode:color-dodge}
+{outlineColor:rgba(22, 169, 143, 1)}",.dr
+1,crowNest,Crow's Nest,rrare,1,3,Crow Structure,"{key:warden}
 When a Crow unit perishes, draw a card.
-{trigger:breach} Return a Crow card from your discard to your hand.",{skill:Gathering} Create a Crow {force:1} token.,CrowNest.png
-Cleaver,2,3,Object,Units you control have {key:bleed} during your turns.,,cleaver.png
-Combat Idol,2,3,Golem Structure,"{key:static}
-While Combat Idol is in play, the effect of {key:muted} is nullified.",,offense.png
-Big Catch,3,3,Structure,,"{key:muted, static}
-{fskill:Reel in} {key:instant} Lose {force:1}: Create a Fish {force:0}/{key: static, sealed} token.",bigCatch.png
-Tricky Orb,2,3,Object,"{key:warden}
-Whenever Tricky Orb moves, deal 1 damage to a back row card an opponent controls.",,trickyOrb.png
-Frog Trophy,3,3,Frog Object,"{key:instant}
-Does not deal damage when attacked. When Frog Trophy moves, target card gains {key:fragile} until Frog Trophy perishes.",{skill:wither} Lose {force:1}: Cards with {key:fragile} take 1 damage.,frogTrophy.png
-Dust Pixie,2,3,Magic Bug,"{key:effect}
+{trigger:breach} Return a Crow card from your discard to your hand.",{skill:Gathering} Create a Crow {force:1} token.,,CrowNest.png,,"{background:rgba(167, 138, 116, 1)}",,,.r
+1,cleaver,Cleaver,,2,3,Object,Units you control have {key:bleed} during your turns.,,,cleaver.png,,,,,.b
+1,,Combat Idol,rrare,2,3,Golem Structure,"{key:static}
+While Combat Idol is in play, the effect of {key:muted} is nullified.",,,offense.png,,"{background:rgba(124, 0, 0, 1)}",,,.r
+1,,Big Catch,rrare,3,3,Structure,,"{key:muted, static}
+{fskill:Reel in} {key:instant} Lose {force:1}: Create a Fish {force:0}/{key: static, sealed} token.",]fskill,bigCatch.png,,"{background:rgba(123, 99, 173, 1)}",,,.r
+1,lightningOrb,Tricky Orb,,2,3,Object,"{key:warden}
+Whenever Tricky Orb moves, deal 1 damage to a back row card an opponent controls.",,,trickyOrb.png,,,,,
+1,frogTrophy,Frog Trophy,superRare,3,3,Frog Object,"{key:instant}
+Does not deal damage when attacked. When Frog Trophy moves, target card gains {key:fragile} until Frog Trophy perishes.",{skill:wither} Lose {force:1}: Cards with {key:fragile} take 1 damage.,,frogTrophy.png,,"{background:linear-gradient(180deg, rgba(22, 169, 143, 1) 0%, rgba(205, 234, 230, 1) 100%) no-repeat 50% 50% / 100% 100%}",,,
+1,,Dust Pixie,,2,3,Magic Bug,"{key:effect}
 {trigger:enter} Add a soul counter to this card.
-{trigger:perish} Remove a soul counter: Return this card to play as {force:1}. ",,dustPixie.png
-Abyssal Maw,0,3,Structure God,"{key:muted}
-{trigger:end} Attack a front row card an opponent controls or deal 2 damage to an opponent that controls no front row cards.",{skill:Feed The Maw} Sacrifice a card you control: gain {force:3}.,abyssMouth.png
-Tight Spot,1,3,Structure,"{key:static}
-When an opponent moves a card, that card takes 1 damage.",,tightSpot.png
-Gargoyle,2,3,Golem,{trigger:breach} Target front row unit your opponent controls gains {key:fragile} until Gargoyle perishes.,,gargoyle.png
-Soul Oven,3,4,Golem Structure,"{key:static, muted}
+{trigger:perish} Remove a soul counter: Return this card to play as {force:1}. ",,,dustPixie.png,,,,,
+1,abyssMaw,Abyssal Maw,rrare,0,3,Structure God,"{key:muted}
+{trigger:end} Attack a front row card an opponent controls or deal 2 damage to an opponent that controls no front row cards.",{skill:Feed The Maw} Sacrifice a card you control: gain {force:3}.,,abyssMouth.png,,"{boxShadow:0px 5px 10px rgba(93, 33, 25, 0), 5px 0px 10px rgba(93, 33, 25, 0), 5px 5px 10px rgba(93, 33, 25, 0)}
+{background:rgba(92, 32, 24, 1)}",,{mixBlendMode:difference},.r
+1,,Tight Spot,,1,3,Structure,"{key:static}
+When an opponent moves a card, that card takes 1 damage.",,,tightSpot.png,,,,,
+1,,Gargoyle,,2,3,Golem,{trigger:breach} Target front row unit your opponent controls gains {key:fragile} until Gargoyle perishes.,,,gargoyle.png,,,,,
+1,goldVein,Soul Oven,rrare,3,4,Golem Structure,"{key:static, muted}
 Soul Oven cannot gain {force:?}.
 {trigger:perish} Draw cards equal to the number of soul counters on Soul Oven.
-{trigger:end} Sacrifice Soul Oven.",{fskill:Fool's gold} Lose {force:1}: Sacrifice an active unit you control. Add a soul counter to Soul Oven.,soulOven.png
-Doom Chain,2,4,Monster Object,"{key:delayed}
-Any unit that opposes a Monster has {key:doom}.",{skill:Pull Under} Lose {force:1}: Destroy a card with {key:doom}.,doomChain.png
-The Seal,0,4,Structure,"{key:static, muted}
-{cost:Must be played in the front row.} Other Back row cards you control cannot take damage.",,shield.png
-Formal Wizard,3,4,Object Wizard,,{skill:Foolish Mockery} Return a spell that was placed in your discard this turn to your hand. You cannot play that spell this turn.,formalWizard.png
-Portal,0,4,Celestial Object,,"{key:static, muted, doom}
-{skill:Grand Journey} Set a unit from your deck except it is LVL 1.",portal2.png
-Mercury Pool,3,4,Celestial Field,"{key:muted, static}
+{trigger:end} Sacrifice Soul Oven.",{fskill:Fool's gold} Lose {force:1}: Sacrifice an active unit you control. Add a soul counter to Soul Oven.,]fskill,soulOven.png,,"{background:rgba(247, 243, 136, 1)}",,,.r
+1,doomChain,Doom Chain,,2,4,Monster Object,"{key:delayed}
+Any unit that opposes a Monster has {key:doom}.",{skill:Pull Under} Lose {force:1}: Destroy a card with {key:doom}.,,doomChain.png,,,,,.b
+1,,The Seal,rrare,0,4,Structure,"{key:static, muted}
+RITUAL: Must be played in the front row.
+Other Back row cards you control cannot take damage.",,,shield.png,,"{background:rgba(132, 173, 189, 1)}",,,.r
+1,formalWizard,Formal Wizard,rrare,3,4,Object Wizard,,{skill:Foolish Mockery} Return a spell that was placed in your discard this turn to your hand. You cannot play that spell this turn.,,formalWizard.png,,"{background:rgba(49, 60, 123, 1)}",,,.r
+1,portal,Portal,superRare,0,4,Celestial Object,,"{key:static, muted, doom}
+{skill:Grand Journey} Set a unit from your deck except it is LVL 1.",,portal2.png,,"{background:linear-gradient(180deg, rgba(54, 145, 120, 1) 7%, rgba(161, 45, 144, 1) 100%)}",,,.sr
+1,mercuryPool,Mercury Pool,,3,4,Celestial Field,"{key:muted, static}
 Other cards you control have +{force:?} equal to the number of soul counters on Mercury Pool.
-{trigger:begin} Add a soul counter to Mercury Pool.",,mercuryPool.png
-War on Pluto,3,4,Celestial Field,"{key:fragile}
-{trigger:begin} All Units attack if able. This does not cause them to become inactive, and does not count as them attacking.",,warPluto.png
-Melting Idol,2,4,Ghost Structure,"{key:delayed}
+{trigger:begin} Add a soul counter to Mercury Pool.",,,mercuryPool.png,,,,,.b
+1,warOnPluto,War on Pluto,rrare,3,4,Celestial Field,"{key:fragile}
+{trigger:begin} All Units attack if able. This does not cause them to become inactive, and does not count as them attacking.",,,warPluto.png,,"{background:linear-gradient(180deg, rgba(216, 176, 119, 1) 0%, rgba(216, 176, 119, 1) 100%)}",,,.r
+1,meltingIdol,Melting Idol,superRare,2,4,Ghost Structure,"{key:delayed}
 Melting Idol cannot gain {force:?}.
-{trigger:enter} Attach a unit from your discard pile to Melting Idol. If that card perishes while Melting Idol is in play, attach it to a card you control.",{skill:Reanimate} Lose {force:1}: set an attached unit.,meltedIdol.png
-Barrier Lord,6,4,Golem,"{key:instant, warden, muted}
-Does not deal combat damage. If a card you control were to take damage, Barrier Lord takes the damage instead.",{skill:Mighty} Add {force:2} to another unit you control.,barrierLord.png
-Void World,4,5,Field God,"{key:delayed, static, safe}
-{cost:sacrifice 3 cards you control.} Center zone cards you control have +{force:3} and {key:immortal}.
-{trigger:enter} Draw 2 cards.",,voidWorld.png
-Landterra,5,5,Field God,"{key:static, muted}
-{trigger:enter} Reveal the top 3 cards of your deck. Then recycle your deck with those 3 cards. When you play any of those 3 cards, add a Gold Leaf counter to Landterra. If Landterra has 3 Gold Leaf counters on it, cards you control have {key:immortal}.",,goldenLand.png
-False Queen's Carcass,3,5,Bug God,"{key:static, Fragile}
-Non-Bug units have {key:fragile} while False Queen's Carcass is in play.",{skill:Zombify} Sacrifice a unit you control: return another unit from your discard pile to your hand.,BeeCarcass.png
-Death Pact,2,5,Ghost Magic,"{key:static}
-When a card you control perishes on your turn, deal 1 damage to target player {max 3 per turn.}",,deathPact.png
-Puel Purifico,4,5,Dark Golem,"{key:delayed, warden}
-{cost: As an additionl cost, sacrifice 2 cards you control.}
-{trigger:enter} All players discard their hands, recycle their decks, then draw 5 cards.",,puelPurifico.png
+{trigger:enter} Attach a unit from your discard pile to Melting Idol. If that card perishes while Melting Idol is in play, attach it to a card you control.",{skill:Reanimate} Lose {force:1}: set an attached unit.,,meltedIdol.png,,"{background:linear-gradient(180deg, rgba(146, 37, 48, 1) 0%, rgba(26, 150, 150, 1) 100%)}",,,.sr
+1,barLord,Barrier Lord,divineRare,6,4,Golem,"{key:instant, warden, muted}
+Does not deal combat damage. If a card you control were to take damage, Barrier Lord takes the damage instead.",{skill:Mighty} Add {force:2} to another unit you control.,,barrierLord.png,,"{background:conic-gradient(rgba(95, 12, 18, 1) 0%, rgba(5, 41, 64, 1) 19%, rgba(78, 94, 7, 1) 40%, rgba(5, 41, 64, 1) 61%, rgba(68, 116, 166, 1) 78%, rgba(95, 12, 18, 1) 100%)}",,,.dr
+1,voidWorld,Void World,divineRare,4,5,Field God,"{key:delayed, static, safe}
+RITUAL: Sacrifice 3 cards you control. 
+{trigger:enter} Draw 2 cards.
+Center zone cards you control have +{force:3} and {key:immortal}.",,,voidWorld.png,,"{background:radial-gradient(rgba(92, 35, 124, 1) 75%, rgba(33, 4, 145, 1) 84%, rgba(0,0,0,1) 91%, rgba(171, 168, 171, 1) 100%)}",,,.dr
+1,landterra,Landterra,divineRare,5,5,Field God,"{key:static, muted}
+{trigger:enter} Reveal the top 3 cards of your deck. Then recycle your deck with those 3 cards. When you play any of those 3 cards, add a Gold Leaf counter to Landterra. If Landterra has 3 Gold Leaf counters on it, cards you control have {key:immortal}.",,,goldenLand.png,,"{background:conic-gradient(rgba(87, 161, 9, 1) 0%, rgba(214, 235, 53, 1) 15%, rgba(50, 166, 217, 1) 33%, rgba(251, 253, 218, 1) 38%, rgba(225, 240, 102, 1) 61%, rgba(50, 166, 217, 1) 79%, rgba(251,253,218,1) 93%, rgba(87, 161, 9, 1) 100%) no-repeat 50% 50% / 100% 100%}",,,.dr
+1,falseQueenCarcass,False Queen's Carcass,superRare{fontSize:11px},3,5,Bug God,"{key:static, Fragile}
+Non-Bug units have {key:fragile} while False Queen's Carcass is in play.",{skill:Zombify} Sacrifice a unit you control: return another unit from your discard pile to your hand.,,BeeCarcass.png,,"{background:linear-gradient(0deg, rgba(165, 156, 123, 1) 0%, rgba(127, 0, 0, 1) 100%) no-repeat 50% 50% / 100% 100%}",,,.sr
+1,,Death Pact,rrare,2,5,Ghost Magic,"{key:static}
+When a card you control perishes on your turn, deal 1 damage to target player {max 3 per turn.}",,,deathPact.png,,"{background:rgba(140, 24, 33, 1)}",,,.r
+1,,Puel Purifico,divineRare,4,5,Dark Golem,"{key:delayed, warden}
+RITUAL: Sacrifice 2 cards you control.
+{trigger:enter} All players discard their hands, recycle their decks, then draw 5 cards.",,,puelPurifico.png,,"{background:conic-gradient(rgba(11, 87, 165, 1) 0%, rgba(209, 12, 27, 1) 18%, rgba(64, 90, 153, 1) 36%, rgba(81, 230, 174, 1) 57%, rgba(209, 12, 27, 1) 73%, rgba(81, 230, 174, 1) 89%, rgba(11, 87, 165, 1) 100%) no-repeat 50% 50% / 100% 100%}",,"{mixBlendMode:difference}
+{outlineColor:rgba(26, 146, 206, 1)}",.dr

@@ -106,8 +106,9 @@ border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
 border_color = Color(1, 1, 1, 1)
-shadow_color = Color(0.42, 0.42, 0.42, 1)
-shadow_size = 24
+corner_detail = 12
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 12
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ja440"]
 bg_color = Color(0, 0, 0, 0.5882353)
@@ -126,14 +127,15 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y3ai7"]
-draw_center = false
+bg_color = Color(0, 0, 0, 0)
 border_width_left = 4
 border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
 border_color = Color(1, 1, 1, 1)
-shadow_color = Color(0.14, 0.1134, 0.1134, 1)
+shadow_color = Color(0, 0, 0, 0.5)
 shadow_size = 10
+shadow_offset = Vector2(4, 4)
 
 [sub_resource type="Gradient" id="Gradient_jv68f"]
 offsets = PackedFloat32Array(0, 0.8026756)
@@ -148,19 +150,11 @@ fill_to = Vector2(1, 0.22649573)
 script = ExtResource("8_6lhvh")
 metadata/_custom_type_script = "uid://daittco86fdj2"
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1t38k"]
-draw_center = false
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(1, 1, 1, 1)
-shadow_color = Color(0.14, 0.1134, 0.1134, 1)
-shadow_size = 10
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jgaw7"]
 
 [sub_resource type="Gradient" id="Gradient_ja440"]
-offsets = PackedFloat32Array(0, 0.8026756)
-colors = PackedColorArray(0.89411765, 0.8589644, 0.8562938, 1, 0.41642666, 0.2684, 0.61, 0.5882353)
+offsets = PackedFloat32Array(0, 0.8773006)
+colors = PackedColorArray(0.89411765, 0.8589644, 0.8562938, 1, 0.41960785, 0.27058825, 0.6117647, 0.6)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_4ay7h"]
 gradient = SubResource("Gradient_ja440")
@@ -383,6 +377,7 @@ size_flags_vertical = 8
 theme_override_styles/panel = SubResource("StyleBoxFlat_y3ai7")
 
 [node name="bg" type="TextureRect" parent="visual/border/bottomInfo/MarginContainer/text/textContainer"]
+modulate = Color(1, 1, 1, 0.8)
 show_behind_parent = true
 layout_mode = 2
 texture = SubResource("GradientTexture2D_0gidb")
@@ -425,26 +420,26 @@ custom_effects = [SubResource("RichTextEffect_ir3pi")]
 [node name="skillContainer" type="PanelContainer" parent="visual/border/bottomInfo/MarginContainer/text"]
 unique_name_in_owner = true
 visible = false
-self_modulate = Color(0.72156864, 0.4117647, 0.6666667, 1)
+self_modulate = Color(0.89411765, 0.25882354, 0.59607846, 1)
 layout_mode = 2
 size_flags_vertical = 8
-theme_override_styles/panel = SubResource("StyleBoxFlat_1t38k")
-
-[node name="skillBG" type="TextureRect" parent="visual/border/bottomInfo/MarginContainer/text/skillContainer"]
-unique_name_in_owner = true
-modulate = Color(0.89411765, 0.25882354, 0.59607846, 1)
-self_modulate = Color(0.66, 0.66, 0.66, 1)
-show_behind_parent = true
-layout_mode = 2
-texture = SubResource("GradientTexture2D_4ay7h")
+theme_override_styles/panel = SubResource("StyleBoxFlat_y3ai7")
 
 [node name="dots" type="TextureRect" parent="visual/border/bottomInfo/MarginContainer/text/skillContainer"]
 modulate = Color(1, 1, 1, 0.11764706)
-material = SubResource("CanvasItemMaterial_y3ai7")
+material = SubResource("CanvasItemMaterial_jgaw7")
 layout_mode = 2
 texture = ExtResource("2_c7xu5")
 expand_mode = 1
 stretch_mode = 6
+
+[node name="skillBG" type="TextureRect" parent="visual/border/bottomInfo/MarginContainer/text/skillContainer"]
+unique_name_in_owner = true
+modulate = Color(0.89411765, 0.25882354, 0.59607846, 1)
+self_modulate = Color(2.454227, 2.454227, 2.454227, 1)
+show_behind_parent = true
+layout_mode = 2
+texture = SubResource("GradientTexture2D_4ay7h")
 
 [node name="MarginContainer" type="MarginContainer" parent="visual/border/bottomInfo/MarginContainer/text/skillContainer"]
 layout_mode = 2
@@ -599,11 +594,14 @@ expand_mode = 2
 layout_mode = 2
 alignment = 1
 
-[node name="cardName" type="Label" parent="visual/topBar/info/nameContainer/HBoxContainer"]
+[node name="cardName" type="RichTextLabel" parent="visual/topBar/info/nameContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
 text = "Dummy"
+fit_content = true
+autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
