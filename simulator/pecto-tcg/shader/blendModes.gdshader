@@ -42,5 +42,5 @@ vec4 get_mode(vec4 screenColor, vec4 color) {
 
 void fragment() {
 	vec4 screenColor = texture(SCREEN, SCREEN_UV);
-	COLOR.rgb = get_mode(screenColor, COLOR).rgb;
+	COLOR = get_mode(COLOR, screenColor);
 }

@@ -63,7 +63,14 @@ func _process(_delta):
 
 
 func start_game() -> void:
-	if deckToLoad.is_empty(): return
+	if deckToLoad.is_empty(): 
+		deckToLoad.clear()
+		var allCards : Array = GameManager.DB["cards"].keys()
+		for i in 20:
+			var cardID : String = allCards.pick_random()
+			allCards.erase(cardID)
+			deckToLoad.append(cardID)
+		
 	for c : Node in dragController.get_children():
 		if (c.name.contains("front") || c.name.contains("back")) && c is CardCollection3D:
 			zones.append(c)

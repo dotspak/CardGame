@@ -157,7 +157,6 @@ albedo_texture = SubResource("GradientTexture2D_suyxu")
 
 [node name="PectoBoard" type="Node3D"]
 script = ExtResource("1_sic6o")
-deckToLoad = Array[String](["monolith", "blastOrb", "witheringShrine", "cauldronOfChaos", "ghostSpellcaster", "jester", "sacrificialKnife", "twistedGolem", "phaseBeast", "lastMass"])
 
 [node name="DragController" type="Node3D" parent="."]
 unique_name_in_owner = true

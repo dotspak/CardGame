@@ -1,8 +1,7 @@
-[gd_scene load_steps=36 format=3 uid="uid://buocg07fg5px0"]
+[gd_scene load_steps=35 format=3 uid="uid://buocg07fg5px0"]
 
 [ext_resource type="PackedScene" uid="uid://dxpc2iac0hjpw" path="res://addons/card_3d/scenes/card_3d.tscn" id="1_0xa8b"]
 [ext_resource type="Script" uid="uid://b0fdm3p04aufi" path="res://PectoCard3D.gd" id="2_omhgn"]
-[ext_resource type="PackedScene" uid="uid://b8uwted6lh1x5" path="res://data/cards/baseSet/monolith.tscn" id="3_0xa8b"]
 [ext_resource type="FontFile" uid="uid://fpqgiu5d1pkr" path="res://assets/fonts/Higher Jump.ttf" id="4_sw0d4"]
 [ext_resource type="PackedScene" uid="uid://c4c6pl5m22jp2" path="res://scenes/cardTemplates/card_back.tscn" id="4_wt3j3"]
 [ext_resource type="FontFile" uid="uid://1kd62leqiy8y" path="res://assets/fonts/AveriaLibre-Bold.ttf" id="5_omhgn"]
@@ -603,8 +602,6 @@ gui_disable_input = true
 size = Vector2i(750, 1050)
 size_2d_override_stretch = true
 render_target_update_mode = 1
-
-[node name="monolith" parent="frontFace" index="0" instance=ExtResource("3_0xa8b")]
 
 [node name="backFace" type="SubViewport" parent="." index="3"]
 unique_name_in_owner = true

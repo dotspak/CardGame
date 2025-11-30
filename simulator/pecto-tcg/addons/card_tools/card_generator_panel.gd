@@ -4,6 +4,7 @@ class_name CardGenerator
 
 const JSON_PATH : String = "res://data/pectoDB.json"
 const BASE_SCENE : String = "res://scenes/cardTemplates/card_pectoCard.tscn"
+const TEMPLATE_SCENE : String = "res://scenes/cardTemplates/card_visuals.tscn"
 
 @onready var setInput : LineEdit = %setInput
 @onready var generateButton : Button = %generateButton
@@ -57,24 +58,29 @@ func _load_json() -> Dictionary:
 
 func _create_scene(ID : String, data : Dictionary, folder : String) -> void:
     var savePath = "%s/%s.tscn" % [folder, ID]
-    var sceneInstance : PectoCard
+    var card : PectoCard
 
+    # find the card if it exists, create a new one if not
     if FileAccess.file_exists(savePath):
         if skipButton.pressed: return
-        sceneInstance = load(savePath).instantiate()
+        card = load(savePath).instantiate()
         _log("Updating %s (existing scene)" % ID)
     else:
-        sceneInstance = load(BASE_SCENE).instantiate()
+        card = PectoCard.new()
+        _log("Creating new card: %s" % ID)
 
-    sceneInstance.db = DB
-    sceneInstance.data = data
-    sceneInstance.ID = ID
+    # load the card data
+    card.db = DB
+    card.data = data
+    card.ID = ID
+    card.name = ID
 
-    if "update_card_data" in sceneInstance: sceneInstance.update_card_data(false)
+    if "update_card_data" in card: card.update_card_data(false)
     else: _log("Base Scene missing update_card_data()")
-    
+
+    # pack the scene and save it
     var packed : PackedScene = PackedScene.new()
-    packed.pack(sceneInstance)
+    packed.pack(card)
     ResourceSaver.save(packed, savePath)
 
 

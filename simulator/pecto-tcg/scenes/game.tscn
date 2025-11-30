@@ -1,20 +1,14 @@
-[gd_scene load_steps=89 format=3 uid="uid://b82p64sv3xjup"]
+[gd_scene load_steps=83 format=3 uid="uid://b82p64sv3xjup"]
 
 [ext_resource type="Script" uid="uid://krrob1jjjfjs" path="res://src/game.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://do6yql4uw2cjr" path="res://scenes/playerBoard.tscn" id="1_lnu2h"]
-[ext_resource type="PackedScene" uid="uid://cpd75prx0jb0v" path="res://data/cards/baseSet/blastOrb.tscn" id="2_ir15t"]
 [ext_resource type="FontFile" uid="uid://fpqgiu5d1pkr" path="res://assets/fonts/Higher Jump.ttf" id="2_lbhrr"]
-[ext_resource type="PackedScene" uid="uid://bd5x8tl7fbrhf" path="res://data/cards/baseSet/bottomDweller.tscn" id="3_ca42v"]
 [ext_resource type="Texture2D" uid="uid://bsidin4i266kj" path="res://assets/levelIcon.png" id="3_iywne"]
 [ext_resource type="Texture2D" uid="uid://d6ixysc00hxh" path="res://assets/set1/monolith.png" id="4_gee14"]
-[ext_resource type="PackedScene" uid="uid://es0mijmrrpoq" path="res://data/cards/baseSet/theMoon.tscn" id="4_rysoc"]
-[ext_resource type="PackedScene" uid="uid://b8uwted6lh1x5" path="res://data/cards/baseSet/monolith.tscn" id="4_vtaks"]
 [ext_resource type="Texture2D" uid="uid://c8qk8km7h4a3b" path="res://assets/icon_pullOut.png" id="5_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://yv0ay28yfo7i" path="res://addons/kenney_particle_pack/magic_05.png" id="5_iywne"]
 [ext_resource type="Script" uid="uid://7sguf1kjbe8s" path="res://addons/card_3d/scripts/card_layouts/fan_card_layout.gd" id="5_u5sy4"]
 [ext_resource type="Script" uid="uid://dkckfib3cljd1" path="res://src/pectoPlayZoneStrat.gd" id="6_gee14"]
-[ext_resource type="PackedScene" uid="uid://dtfwerbpe0fv4" path="res://data/cards/baseSet/witheringShrine.tscn" id="6_ssvqc"]
-[ext_resource type="PackedScene" uid="uid://cspfenb815xiy" path="res://data/cards/baseSet/sacrificialKnife.tscn" id="7_264po"]
 [ext_resource type="Texture2D" uid="uid://cbj46tvlq801k" path="res://assets/icon_confirm.png" id="12_264po"]
 [ext_resource type="Texture2D" uid="uid://c0ohl5etrs7l0" path="res://assets/icon_pass.png" id="12_rysoc"]
 [ext_resource type="Texture2D" uid="uid://blkrus3hcauee" path="res://assets/icon_cancel.png" id="13_1kice"]
@@ -650,33 +644,13 @@ theme_override_constants/separation = 0
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="blastOrb" parent="cardViewport/vbox/units" instance=ExtResource("2_ir15t")]
-layout_mode = 2
-
-[node name="PectoCard" parent="cardViewport/vbox/units" instance=ExtResource("3_ca42v")]
-layout_mode = 2
-skillText = "Dummy text goes here!"
-
-[node name="theMoon" parent="cardViewport/vbox/units" instance=ExtResource("4_rysoc")]
-layout_mode = 2
-
 [node name="offsites" type="HBoxContainer" parent="cardViewport/vbox"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="monolith" parent="cardViewport/vbox/offsites" instance=ExtResource("4_vtaks")]
-layout_mode = 2
-
-[node name="witheringShrine" parent="cardViewport/vbox/offsites" instance=ExtResource("6_ssvqc")]
-layout_mode = 2
-
 [node name="spells" type="HBoxContainer" parent="cardViewport/vbox"]
 layout_mode = 2
 theme_override_constants/separation = 0
-
-[node name="sacrificalKnife" parent="cardViewport/vbox/spells" instance=ExtResource("7_264po")]
-layout_mode = 2
-skillText = "Dummy text goes here!"
 
 [node name="tokens" type="HBoxContainer" parent="cardViewport/vbox"]
 layout_mode = 2
