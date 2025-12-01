@@ -1,18 +1,18 @@
-[gd_scene load_steps=83 format=3 uid="uid://b82p64sv3xjup"]
+[gd_scene load_steps=53 format=3 uid="uid://b82p64sv3xjup"]
 
 [ext_resource type="Script" uid="uid://krrob1jjjfjs" path="res://src/game.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://do6yql4uw2cjr" path="res://scenes/playerBoard.tscn" id="1_lnu2h"]
 [ext_resource type="FontFile" uid="uid://fpqgiu5d1pkr" path="res://assets/fonts/Higher Jump.ttf" id="2_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://bsidin4i266kj" path="res://assets/levelIcon.png" id="3_iywne"]
 [ext_resource type="Texture2D" uid="uid://d6ixysc00hxh" path="res://assets/set1/monolith.png" id="4_gee14"]
+[ext_resource type="FontFile" uid="uid://d0fdt2wdmpnnu" path="res://assets/fonts/MedodicaRegular.otf" id="4_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://c8qk8km7h4a3b" path="res://assets/icon_pullOut.png" id="5_0tnpc"]
+[ext_resource type="Texture2D" uid="uid://cdev3qnqbr6xp" path="res://assets/forceBG.png" id="5_dinhu"]
 [ext_resource type="Texture2D" uid="uid://yv0ay28yfo7i" path="res://addons/kenney_particle_pack/magic_05.png" id="5_iywne"]
-[ext_resource type="Script" uid="uid://7sguf1kjbe8s" path="res://addons/card_3d/scripts/card_layouts/fan_card_layout.gd" id="5_u5sy4"]
-[ext_resource type="Script" uid="uid://dkckfib3cljd1" path="res://src/pectoPlayZoneStrat.gd" id="6_gee14"]
+[ext_resource type="PackedScene" uid="uid://d0oo3nh8tyxfh" path="res://data/cards/baseSet/monolith.tscn" id="6_kvuet"]
 [ext_resource type="Texture2D" uid="uid://cbj46tvlq801k" path="res://assets/icon_confirm.png" id="12_264po"]
 [ext_resource type="Texture2D" uid="uid://c0ohl5etrs7l0" path="res://assets/icon_pass.png" id="12_rysoc"]
 [ext_resource type="Texture2D" uid="uid://blkrus3hcauee" path="res://assets/icon_cancel.png" id="13_1kice"]
-[ext_resource type="Script" uid="uid://c6xj7aq0a3xj7" path="res://src/pectoDragStrat.gd" id="13_ca42v"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ca42v"]
 blend_mode = 3
@@ -25,6 +25,21 @@ border_width_right = 55
 border_color = Color(0.43529412, 0.43529412, 0.43529412, 1)
 border_blend = true
 
+[sub_resource type="LabelSettings" id="LabelSettings_u5sy4"]
+font = ExtResource("4_kvpfn")
+font_size = 96
+font_color = Color(0.91, 0.91, 0.91, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dinhu"]
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_offset = Vector2(2, 2)
+
 [sub_resource type="LabelSettings" id="LabelSettings_gee14"]
 font = ExtResource("2_lbhrr")
 font_size = 24
@@ -34,7 +49,7 @@ outline_color = Color(0, 0, 0, 1)
 shadow_color = Color(0.2010927, 0.5673567, 0.8666667, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0tnpc"]
-font = ExtResource("2_lbhrr")
+font = ExtResource("4_kvpfn")
 font_size = 48
 font_color = Color(0.91, 0.91, 0.91, 1)
 outline_size = 1
@@ -42,29 +57,6 @@ outline_color = Color(0, 0, 0, 1)
 shadow_size = 5
 shadow_color = Color(0.2010927, 0.5673567, 0.8666667, 1)
 shadow_offset = Vector2(3, 3)
-
-[sub_resource type="Gradient" id="Gradient_ti0og"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0.77506775, 0.96476966)
-colors = PackedColorArray(1, 0.52, 0.91199994, 1, 1, 0.52, 0.91199994, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_p57ef"]
-gradient = SubResource("Gradient_ti0og")
-width = 196
-height = 196
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.5, 0)
-
-[sub_resource type="LabelSettings" id="LabelSettings_u5sy4"]
-font = ExtResource("2_lbhrr")
-font_size = 64
-font_color = Color(0.91, 0.91, 0.91, 1)
-outline_size = 10
-outline_color = Color(0, 0, 0, 1)
-shadow_size = 30
-shadow_color = Color(0.65, 0.032500006, 0, 0.48235294)
-shadow_offset = Vector2(10, 10)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gee14"]
 content_margin_left = 10.0
@@ -79,6 +71,8 @@ border_width_bottom = 2
 border_color = Color(1, 1, 1, 1)
 shadow_color = Color(0.14, 0.1134, 0.1134, 0.5882353)
 shadow_size = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kvuet"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0tnpc"]
 content_margin_left = 10.0
@@ -100,8 +94,6 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
-expand_margin_left = 10.0
-expand_margin_right = 10.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kvpfn"]
 content_margin_left = 10.0
@@ -322,8 +314,8 @@ size = Vector2(100, 100)
 
 [sub_resource type="Gradient" id="Gradient_ca42v"]
 interpolation_color_space = 2
-offsets = PackedFloat32Array(0, 0.28911564, 0.67346936, 1)
-colors = PackedColorArray(0.32735175, 0.24202523, 0.41640627, 1, 0.34332517, 0.32248273, 0.63475764, 1, 0.8241639, 0.376921, 0.8273039, 1, 0.9920244, 1, 0.6041969, 1)
+offsets = PackedFloat32Array(0.32993197, 1)
+colors = PackedColorArray(0.16559999, 0.1495, 0.23, 1, 0.26207998, 0.24080001, 0.56, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_rysoc"]
 noise_type = 4
@@ -338,228 +330,10 @@ color_ramp = SubResource("Gradient_ca42v")
 seamless = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p57ef"]
-albedo_color = Color(0.4142314, 0.7289063, 0.47443163, 1)
 albedo_texture = SubResource("NoiseTexture2D_ssvqc")
 uv1_scale = Vector3(0.1, 0.1, 0.1)
 uv1_triplanar = true
 texture_filter = 2
-
-[sub_resource type="Resource" id="Resource_1r01h"]
-resource_local_to_scene = true
-script = ExtResource("13_ca42v")
-can_select = false
-can_remove = false
-can_reorder = false
-metadata/_custom_type_script = "uid://c6xj7aq0a3xj7"
-
-[sub_resource type="Resource" id="Resource_6bc8p"]
-resource_local_to_scene = true
-script = ExtResource("13_ca42v")
-can_select = false
-can_remove = false
-can_reorder = false
-metadata/_custom_type_script = "uid://c6xj7aq0a3xj7"
-
-[sub_resource type="Resource" id="Resource_fy6ix"]
-resource_local_to_scene = true
-script = ExtResource("13_ca42v")
-can_select = false
-can_remove = false
-can_reorder = false
-metadata/_custom_type_script = "uid://c6xj7aq0a3xj7"
-
-[sub_resource type="Resource" id="Resource_svpld"]
-resource_local_to_scene = true
-script = ExtResource("13_ca42v")
-can_select = false
-can_remove = false
-can_reorder = false
-metadata/_custom_type_script = "uid://c6xj7aq0a3xj7"
-
-[sub_resource type="Resource" id="Resource_nc1hs"]
-resource_local_to_scene = true
-script = ExtResource("13_ca42v")
-can_select = false
-can_remove = false
-can_reorder = false
-metadata/_custom_type_script = "uid://c6xj7aq0a3xj7"
-
-[sub_resource type="Resource" id="Resource_8ykwa"]
-resource_local_to_scene = true
-script = ExtResource("5_u5sy4")
-arc_angle_deg = 20.0
-arc_radius = 35.0
-
-[sub_resource type="Resource" id="Resource_sic6o"]
-resource_local_to_scene = true
-script = ExtResource("6_gee14")
-can_select = false
-can_remove = false
-can_reorder = false
-can_insert = false
-metadata/_custom_type_script = "uid://dkckfib3cljd1"
-
-[sub_resource type="Gradient" id="Gradient_sww3w"]
-offsets = PackedFloat32Array(0.92517006, 1)
-colors = PackedColorArray(0, 0, 0, 0.5294118, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_suyxu"]
-gradient = SubResource("Gradient_sww3w")
-fill = 2
-fill_from = Vector2(0.5, 0.5)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_264po"]
-resource_local_to_scene = true
-render_priority = -1
-transparency = 1
-albedo_color = Color(0.49019608, 0.54901963, 0.92941177, 1)
-albedo_texture = SubResource("GradientTexture2D_suyxu")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1kice"]
-resource_local_to_scene = true
-render_priority = -1
-transparency = 1
-albedo_color = Color(0.49019608, 0.54901963, 0.92941177, 1)
-albedo_texture = SubResource("GradientTexture2D_suyxu")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5newe"]
-resource_local_to_scene = true
-render_priority = -1
-transparency = 1
-albedo_color = Color(0.49019608, 0.54901963, 0.92941177, 1)
-albedo_texture = SubResource("GradientTexture2D_suyxu")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_37s47"]
-resource_local_to_scene = true
-render_priority = -1
-transparency = 1
-albedo_color = Color(0.49019608, 0.54901963, 0.92941177, 1)
-albedo_texture = SubResource("GradientTexture2D_suyxu")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bt5mj"]
-resource_local_to_scene = true
-render_priority = -1
-transparency = 1
-albedo_color = Color(0.49019608, 0.54901963, 0.92941177, 1)
-albedo_texture = SubResource("GradientTexture2D_suyxu")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e1j6l"]
-resource_local_to_scene = true
-render_priority = -1
-transparency = 1
-albedo_color = Color(0.49019608, 0.54901963, 0.92941177, 1)
-albedo_texture = SubResource("GradientTexture2D_suyxu")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pl11u"]
-resource_local_to_scene = true
-render_priority = -1
-transparency = 1
-albedo_color = Color(0.49019608, 0.54901963, 0.92941177, 1)
-albedo_texture = SubResource("GradientTexture2D_suyxu")
-
-[sub_resource type="Resource" id="Resource_sww3w"]
-resource_local_to_scene = true
-script = ExtResource("13_ca42v")
-can_select = false
-can_remove = false
-can_reorder = false
-metadata/_custom_type_script = "uid://c6xj7aq0a3xj7"
-
-[sub_resource type="Resource" id="Resource_suyxu"]
-resource_local_to_scene = true
-script = ExtResource("13_ca42v")
-can_select = false
-can_remove = false
-can_reorder = false
-metadata/_custom_type_script = "uid://c6xj7aq0a3xj7"
-
-[sub_resource type="Resource" id="Resource_sgl2t"]
-resource_local_to_scene = true
-script = ExtResource("13_ca42v")
-can_select = false
-can_remove = false
-can_reorder = false
-metadata/_custom_type_script = "uid://c6xj7aq0a3xj7"
-
-[sub_resource type="Resource" id="Resource_qouja"]
-resource_local_to_scene = true
-script = ExtResource("13_ca42v")
-can_select = false
-can_remove = false
-can_reorder = false
-metadata/_custom_type_script = "uid://c6xj7aq0a3xj7"
-
-[sub_resource type="Resource" id="Resource_wljb1"]
-resource_local_to_scene = true
-script = ExtResource("13_ca42v")
-can_select = false
-can_remove = false
-can_reorder = false
-metadata/_custom_type_script = "uid://c6xj7aq0a3xj7"
-
-[sub_resource type="Resource" id="Resource_bhx41"]
-resource_local_to_scene = true
-script = ExtResource("5_u5sy4")
-arc_angle_deg = 20.0
-arc_radius = 35.0
-
-[sub_resource type="Resource" id="Resource_qnb83"]
-resource_local_to_scene = true
-script = ExtResource("6_gee14")
-can_select = false
-can_remove = false
-can_reorder = false
-can_insert = false
-metadata/_custom_type_script = "uid://dkckfib3cljd1"
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v2yb1"]
-resource_local_to_scene = true
-render_priority = -1
-transparency = 1
-albedo_color = Color(0.7411765, 0.21568628, 0.27450982, 1)
-albedo_texture = SubResource("GradientTexture2D_suyxu")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_js0lu"]
-resource_local_to_scene = true
-render_priority = -1
-transparency = 1
-albedo_color = Color(0.7411765, 0.21568628, 0.27450982, 1)
-albedo_texture = SubResource("GradientTexture2D_suyxu")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gxtfn"]
-resource_local_to_scene = true
-render_priority = -1
-transparency = 1
-albedo_color = Color(0.7411765, 0.21568628, 0.27450982, 1)
-albedo_texture = SubResource("GradientTexture2D_suyxu")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_twgab"]
-resource_local_to_scene = true
-render_priority = -1
-transparency = 1
-albedo_color = Color(0.7411765, 0.21568628, 0.27450982, 1)
-albedo_texture = SubResource("GradientTexture2D_suyxu")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_02fa5"]
-resource_local_to_scene = true
-render_priority = -1
-transparency = 1
-albedo_color = Color(0.7411765, 0.21568628, 0.27450982, 1)
-albedo_texture = SubResource("GradientTexture2D_suyxu")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nepv3"]
-resource_local_to_scene = true
-render_priority = -1
-transparency = 1
-albedo_color = Color(0.7411765, 0.21568628, 0.27450982, 1)
-albedo_texture = SubResource("GradientTexture2D_suyxu")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7025r"]
-resource_local_to_scene = true
-render_priority = -1
-transparency = 1
-albedo_color = Color(0.7411765, 0.21568628, 0.27450982, 1)
-albedo_texture = SubResource("GradientTexture2D_suyxu")
 
 [sub_resource type="Gradient" id="Gradient_p57ef"]
 interpolation_color_space = 2
@@ -669,6 +443,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="shadow" type="Panel" parent="UI/mainHUD"]
+visible = false
 material = SubResource("CanvasItemMaterial_ca42v")
 layout_mode = 1
 anchors_preset = 15
@@ -687,10 +462,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 64
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 64
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/mainHUD/MarginContainer"]
 layout_mode = 2
@@ -704,16 +479,64 @@ alignment = 1
 [node name="opponentHUD" type="VBoxContainer" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 3
-theme_override_constants/separation = -30
+size_flags_vertical = 2
+theme_override_constants/separation = 0
 
-[node name="influenceIcon" type="TextureRect" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer2/opponentHUD"]
+[node name="playerName" type="Label" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer2/opponentHUD"]
+clip_contents = true
+layout_mode = 2
+text = "fissy"
+
+[node name="Panel" type="Panel" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer2/opponentHUD/playerName"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer2/opponentHUD"]
+layout_mode = 2
+
+[node name="opponentLife" type="TextureRect" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer2/opponentHUD/HBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 8
-texture = ExtResource("3_iywne")
+texture = ExtResource("5_dinhu")
 
-[node name="floatIcon" type="TextureRect" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer2/opponentHUD/influenceIcon"]
+[node name="life2" type="Label" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer2/opponentHUD/HBoxContainer/opponentLife"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "10"
+label_settings = SubResource("LabelSettings_u5sy4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer2/opponentHUD/HBoxContainer/opponentLife"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dinhu")
+
+[node name="influenceIcon" type="TextureRect" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer2/opponentHUD/HBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("3_iywne")
+expand_mode = 1
+
+[node name="floatIcon" type="TextureRect" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer2/opponentHUD/HBoxContainer/influenceIcon"]
 visible = false
 modulate = Color(0.5431912, 0.7049651, 1, 1)
 custom_minimum_size = Vector2(128, 128)
@@ -729,7 +552,7 @@ size_flags_vertical = 8
 texture = ExtResource("3_iywne")
 expand_mode = 1
 
-[node name="floatingLVL2" type="Label" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer2/opponentHUD/influenceIcon/floatIcon"]
+[node name="floatingLVL2" type="Label" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer2/opponentHUD/HBoxContainer/influenceIcon/floatIcon"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -742,7 +565,7 @@ label_settings = SubResource("LabelSettings_gee14")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="totalLVL2" type="Label" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer2/opponentHUD/influenceIcon"]
+[node name="totalLVL2" type="Label" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer2/opponentHUD/HBoxContainer/influenceIcon"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -757,37 +580,37 @@ label_settings = SubResource("LabelSettings_0tnpc")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="opponentLife" type="TextureRect" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer2/opponentHUD"]
-layout_mode = 2
-size_flags_horizontal = 0
-texture = SubResource("GradientTexture2D_p57ef")
-
-[node name="life2" type="Label" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer2/opponentHUD/opponentLife"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "10"
-label_settings = SubResource("LabelSettings_u5sy4")
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="playerHUD" type="VBoxContainer" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 3
-theme_override_constants/separation = -30
+size_flags_vertical = 8
+theme_override_constants/separation = 0
 alignment = 2
 
-[node name="lifeIcon" type="TextureRect" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer2/playerHUD"]
+[node name="playerName" type="Label" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer2/playerHUD"]
+clip_contents = true
+layout_mode = 2
+text = "dotspak"
+
+[node name="Panel" type="Panel" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer2/playerHUD/playerName"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer2/playerHUD"]
+layout_mode = 2
+
+[node name="lifeIcon" type="TextureRect" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer2/playerHUD/HBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = SubResource("GradientTexture2D_p57ef")
+texture = ExtResource("5_dinhu")
 
-[node name="life" type="Label" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer2/playerHUD/lifeIcon"]
+[node name="life" type="Label" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer2/playerHUD/HBoxContainer/lifeIcon"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -800,13 +623,25 @@ label_settings = SubResource("LabelSettings_u5sy4")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="influenceIcon" type="TextureRect" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer2/playerHUD"]
+[node name="Panel" type="Panel" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer2/playerHUD/HBoxContainer/lifeIcon"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dinhu")
+
+[node name="influenceIcon" type="TextureRect" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer2/playerHUD/HBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 8
+size_flags_vertical = 4
 texture = ExtResource("3_iywne")
+expand_mode = 1
 
-[node name="floatIcon" type="TextureRect" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer2/playerHUD/influenceIcon"]
+[node name="floatIcon" type="TextureRect" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer2/playerHUD/HBoxContainer/influenceIcon"]
 visible = false
 modulate = Color(0.5431912, 0.7049651, 1, 1)
 custom_minimum_size = Vector2(128, 128)
@@ -825,7 +660,7 @@ size_flags_vertical = 8
 texture = ExtResource("3_iywne")
 expand_mode = 1
 
-[node name="floatingLVL" type="Label" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer2/playerHUD/influenceIcon/floatIcon"]
+[node name="floatingLVL" type="Label" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer2/playerHUD/HBoxContainer/influenceIcon/floatIcon"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -838,7 +673,7 @@ label_settings = SubResource("LabelSettings_gee14")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="totalLVL" type="Label" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer2/playerHUD/influenceIcon"]
+[node name="totalLVL" type="Label" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer2/playerHUD/HBoxContainer/influenceIcon"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -888,17 +723,20 @@ scale = Vector2(0.211, 0.211)
 columns = 6
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/mainHUD/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(450, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 
 [node name="infoPanel" type="PanelContainer" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(530, 0)
+custom_minimum_size = Vector2(450, 0)
 layout_mode = 2
 size_flags_horizontal = 8
-theme_override_styles/panel = SubResource("StyleBoxFlat_gee14")
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_kvuet")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer/infoPanel"]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 0
 
@@ -931,23 +769,6 @@ grow_vertical = 2
 texture = ExtResource("4_gee14")
 expand_mode = 1
 stretch_mode = 6
-
-[node name="pullOutInfo" type="Button" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer/infoPanel/VBoxContainer/TextureRect"]
-texture_filter = 1
-custom_minimum_size = Vector2(32, 128)
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -64.0
-offset_right = 64.0
-offset_bottom = 64.0
-grow_vertical = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-icon = ExtResource("5_0tnpc")
-icon_alignment = 1
-expand_icon = true
 
 [node name="infoType" type="Label" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer/infoPanel/VBoxContainer/TextureRect"]
 unique_name_in_owner = true
@@ -991,14 +812,54 @@ text = "yoyoyo so what the heck is going on here anyways?I'm not quite sure what
 fit_content = true
 autowrap_mode = 2
 
-[node name="interactButtons" type="HBoxContainer" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer"]
-visible = false
+[node name="card" type="Control" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer/infoPanel"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="cardContainer" type="HBoxContainer" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer/infoPanel/card"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.6, 0.6)
+alignment = 2
+
+[node name="monolith" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer/infoPanel/card/cardContainer" instance=ExtResource("6_kvuet")]
+layout_mode = 2
+
+[node name="pullOutInfo" type="Button" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer/infoPanel"]
+z_index = 2
+texture_filter = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+icon = ExtResource("5_0tnpc")
+icon_alignment = 1
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="pass" type="VBoxContainer" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 10
+theme_override_constants/separation = 16
 alignment = 1
 
-[node name="confirm" type="Button" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer/interactButtons"]
+[node name="interactButtons" type="HBoxContainer" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer/pass"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="confirmButton" type="Button" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer/pass/interactButtons"]
+unique_name_in_owner = true
 texture_filter = 1
-custom_minimum_size = Vector2(256, 0)
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 32
@@ -1006,14 +867,15 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_5newe")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_37s47")
 theme_override_styles/hover = SubResource("StyleBoxFlat_bt5mj")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_e1j6l")
-text = "Confirm"
 icon = ExtResource("12_264po")
 alignment = 2
+icon_alignment = 1
 expand_icon = true
 
-[node name="cancel" type="Button" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer/interactButtons"]
+[node name="cancelButton" type="Button" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer/pass/interactButtons"]
+unique_name_in_owner = true
 texture_filter = 1
-custom_minimum_size = Vector2(256, 0)
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 32
@@ -1021,30 +883,22 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_264po")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_1kice")
 theme_override_styles/hover = SubResource("StyleBoxFlat_pl11u")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_bhx41")
-text = "Cancel"
 icon = ExtResource("13_1kice")
 alignment = 2
+icon_alignment = 1
 expand_icon = true
 
-[node name="HBoxContainer" type="VBoxContainer" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(530, 0)
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 10
-theme_override_constants/separation = 16
-alignment = 1
-
-[node name="draw" type="Button" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="draw" type="Button" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer/pass"]
 visible = false
 custom_minimum_size = Vector2(256, 64)
 layout_mode = 2
 size_flags_horizontal = 10
 text = "Draw Card"
 
-[node name="passButton" type="Button" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="passButton" type="Button" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer/pass"]
 unique_name_in_owner = true
 texture_filter = 1
-custom_minimum_size = Vector2(256, 64)
+custom_minimum_size = Vector2(256, 80)
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_constants/outline_size = 10
@@ -1054,8 +908,9 @@ icon = ExtResource("12_rysoc")
 alignment = 2
 expand_icon = true
 
-[node name="turnCounter" type="Label" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="turnCounter" type="Label" parent="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer/pass"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 32
@@ -1078,6 +933,7 @@ libraries = {
 
 [node name="border" type="Panel" parent="UI/mainHUD/MarginContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ca42v")
@@ -1128,105 +984,17 @@ metadata/_edit_lock_ = true
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
 
-[node name="front_0" parent="playerBoard/DragController" index="0"]
-drag_strategy = SubResource("Resource_1r01h")
-
-[node name="front_1" parent="playerBoard/DragController" index="1"]
-drag_strategy = SubResource("Resource_6bc8p")
-
-[node name="front_2" parent="playerBoard/DragController" index="2"]
-drag_strategy = SubResource("Resource_fy6ix")
-
-[node name="back_0" parent="playerBoard/DragController" index="3"]
-drag_strategy = SubResource("Resource_svpld")
-
-[node name="back_1" parent="playerBoard/DragController" index="4"]
-drag_strategy = SubResource("Resource_nc1hs")
-
-[node name="Hand" parent="playerBoard/DragController" index="8"]
-card_layout_strategy = SubResource("Resource_8ykwa")
-
-[node name="PlayZone" parent="playerBoard/DragController" index="9"]
-drag_strategy = SubResource("Resource_sic6o")
-
-[node name="front_0" parent="playerBoard/slotMeshes" index="0"]
-material_override = SubResource("StandardMaterial3D_264po")
-
-[node name="front_1" parent="playerBoard/slotMeshes" index="1"]
-material_override = SubResource("StandardMaterial3D_1kice")
-
-[node name="front_2" parent="playerBoard/slotMeshes" index="2"]
-surface_material_override/0 = SubResource("StandardMaterial3D_5newe")
-
-[node name="back_0" parent="playerBoard/slotMeshes" index="3"]
-surface_material_override/0 = SubResource("StandardMaterial3D_37s47")
-
-[node name="back_2" parent="playerBoard/slotMeshes" index="4"]
-material_override = SubResource("StandardMaterial3D_bt5mj")
-
-[node name="deck" parent="playerBoard/slotMeshes" index="5"]
-surface_material_override/0 = SubResource("StandardMaterial3D_e1j6l")
-
-[node name="discard" parent="playerBoard/slotMeshes" index="6"]
-surface_material_override/0 = SubResource("StandardMaterial3D_pl11u")
-
-[node name="void" parent="playerBoard/slotMeshes" index="7"]
-surface_material_override/0 = SubResource("StandardMaterial3D_pl11u")
-
 [node name="opponentBoard" parent="." instance=ExtResource("1_lnu2h")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -1, 0, 0, 0, 1, -4, 0, 0)
 boardSide = 1
 
-[node name="front_0" parent="opponentBoard/DragController" index="0"]
-drag_strategy = SubResource("Resource_sww3w")
-
-[node name="front_1" parent="opponentBoard/DragController" index="1"]
-drag_strategy = SubResource("Resource_suyxu")
-
-[node name="front_2" parent="opponentBoard/DragController" index="2"]
-drag_strategy = SubResource("Resource_sgl2t")
-
-[node name="back_0" parent="opponentBoard/DragController" index="3"]
-drag_strategy = SubResource("Resource_qouja")
-
-[node name="back_1" parent="opponentBoard/DragController" index="4"]
-drag_strategy = SubResource("Resource_wljb1")
-
-[node name="Hand" parent="opponentBoard/DragController" index="8"]
-card_layout_strategy = SubResource("Resource_bhx41")
-
-[node name="PlayZone" parent="opponentBoard/DragController" index="9"]
-drag_strategy = SubResource("Resource_qnb83")
-
-[node name="front_0" parent="opponentBoard/slotMeshes" index="0"]
-material_override = SubResource("StandardMaterial3D_v2yb1")
-
-[node name="front_1" parent="opponentBoard/slotMeshes" index="1"]
-material_override = SubResource("StandardMaterial3D_js0lu")
-
-[node name="front_2" parent="opponentBoard/slotMeshes" index="2"]
-surface_material_override/0 = SubResource("StandardMaterial3D_gxtfn")
-
-[node name="back_0" parent="opponentBoard/slotMeshes" index="3"]
-surface_material_override/0 = SubResource("StandardMaterial3D_twgab")
-
-[node name="back_2" parent="opponentBoard/slotMeshes" index="4"]
-material_override = SubResource("StandardMaterial3D_02fa5")
-
-[node name="deck" parent="opponentBoard/slotMeshes" index="5"]
-surface_material_override/0 = SubResource("StandardMaterial3D_nepv3")
-
-[node name="discard" parent="opponentBoard/slotMeshes" index="6"]
-surface_material_override/0 = SubResource("StandardMaterial3D_7025r")
-
-[node name="void" parent="opponentBoard/slotMeshes" index="7"]
-surface_material_override/0 = SubResource("StandardMaterial3D_7025r")
-
 [node name="Camera3D" type="Camera3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.9848078, -0.1736482, 0, 0.1736482, 0.9848078, -2, -5.5, 14.5)
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -2, -1, 20)
+projection = 1
 current = true
+size = 26.0
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 0.98480743, 0.17364812, 0, -0.17364812, 0.98480743, 0, 3.4777722, -14.829194)
@@ -1237,15 +1005,11 @@ speed_scale = 0.5
 process_material = SubResource("ParticleProcessMaterial_p57ef")
 draw_pass_1 = SubResource("QuadMesh_gee14")
 
-[connection signal="pressed" from="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer/infoPanel/VBoxContainer/TextureRect/pullOutInfo" to="." method="hide_info_box"]
-[connection signal="pressed" from="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/draw" to="playerBoard" method="draw_card"]
+[connection signal="pressed" from="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer/infoPanel/pullOutInfo" to="." method="hide_info_box"]
+[connection signal="pressed" from="UI/mainHUD/MarginContainer/HBoxContainer/VBoxContainer/pass/draw" to="playerBoard" method="draw_card"]
 [connection signal="cardSelected" from="playerBoard" to="." method="_on_player_card_selected"]
 [connection signal="floatingLVLChanged" from="playerBoard" to="." method="update_floatingLVl"]
 [connection signal="handCardSelected" from="playerBoard" to="." method="_on_player_board_hand_card_selected"]
 [connection signal="lifeChanged" from="playerBoard" to="." method="update_life"]
 [connection signal="lvlChanged" from="playerBoard" to="." method="update_lvl"]
-[connection signal="card_selected" from="playerBoard/DragController/Hand" to="." method="_full_reset"]
 [connection signal="lifeChanged" from="opponentBoard" to="." method="_on_opponent_board_life_changed"]
-
-[editable path="playerBoard"]
-[editable path="opponentBoard"]

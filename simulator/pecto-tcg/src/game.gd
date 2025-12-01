@@ -1,7 +1,8 @@
 extends Node3D
 class_name Game
 
-const HAND_OFFSET : Vector3 = Vector3(0, -3.5, -7.5)
+const HAND_OFFSET : Vector3 = Vector3(0, -13, -7.5)
+const HAND_SCALE : float = 2
 
 @onready var lifeLabel : Label = %life
 @onready var lvlLabel : Label = %totalLVL
@@ -13,6 +14,10 @@ const HAND_OFFSET : Vector3 = Vector3(0, -3.5, -7.5)
 @onready var turnLabel : Label = %turnLabel
 @onready var fader : ColorRect = %fader
 @onready var border : Panel = %border
+
+@onready var interactButtons : Control = %interactButtons
+@onready var confirmButton : Button = %confirmButton
+@onready var cancelButton : Button = %cancelButton
 
 var defaultCamPos : Vector3 = Vector3.ZERO
 
@@ -57,7 +62,13 @@ func _ready():
 	defaultCamPos = camera.global_position
 
 	povPlayer.toggle_play(false)
+	povPlayer.hand.scale = Vector3.ONE * HAND_SCALE
+	
 	opponentPlayer.toggle_play(false)
+	opponentPlayer.hand.drag_strategy.can_select = false
+	opponentPlayer.hand.drag_strategy.can_remove = false
+	opponentPlayer.hand.drag_strategy.can_insert = false
+
 
 	povPlayer.start_game()
 	await povPlayer.finishedSetup
@@ -74,6 +85,7 @@ func _ready():
 
 
 func _process(_delta) -> void:
+	for c in opponentPlayer.hand.cards: c.face_down = true
 	povPlayer.hand.global_position = camera.global_position + HAND_OFFSET
 
 	if !infoHidden && Input.is_action_just_pressed("ui_cancel"):
@@ -198,25 +210,13 @@ func _on_player_card_selected(card3D: Card3D) -> void:
 
 func update_info_box(card3D : PectoCard3D) -> void:
 	if currentDisplayCard:
-		if currentDisplayCard.card.cardName == card3D.card.cardName: 
-			return
+		if currentDisplayCard.card.cardName == card3D.card.cardName: return
 
-	var card : PectoCard = card3D.card
+	for n in %cardContainer.get_children(): n.queue_free()
+	var card : PectoCard = card3D.card.duplicate()
 	await hide_info_box(false)
 	currentDisplayCard = card3D
-
-	%infoName.text = card.get_card_name()
-	%infoArt.texture = card.get_card_art()
-	%infoText.text = card.get_card_text()
-	%infoSkill.text = card.get_card_skill()
-	%infoKeyword.text = card.get_card_keyword_text()
-	%infoKeyword.visible = !card.keywords.is_empty()
-
-	%infoType.text = ""
-	var types : PackedStringArray = card.get_card_types()
-	if types.size() > 1: types[0] = types[0] + " /"
-	for s : String in types: %infoType.text += s.capitalize() + " "
-
+	%cardContainer.add_child(card)
 	await show_info_box()
 
 
@@ -256,7 +256,6 @@ func trigger_interaction_layer(_player : int = 1) -> void:
 
 func _full_reset(_card: Variant) -> void:
 	clear_buttons()
-	#await reset_camera()
 
 
 func _on_player_board_hand_card_selected(card3D: PectoCard3D) -> void: update_info_box(card3D)
@@ -267,6 +266,32 @@ func get_opponent(player : PectoBoard3D) -> PectoBoard3D:
 
 func _on_opponent_board_life_changed(val: int) -> void: %life2.text = str(val)
 
-func select_card_target(targets : Array) -> Node:
-	await get_tree().create_timer(0.2).timeout
-	return targets[0]
+# sets the board to target select mode. If an empty array is returned from manual selection, 
+# the target was cancelled, or no valid targets existed. Both are treated the same.
+# -1 min = all are required
+func select_targets(player : PectoBoard3D, targets : Array, maxTargets : int = -1, minTargets : int = -1) -> Array:
+	if targets.is_empty(): return targets
+	print(player)
+	print(targets)
+
+	var chosenTargets : Array = []
+	passTurn.disabled = true
+	passTurn.text = "Confirm Targets"
+
+	# special targetting values
+	if maxTargets == -1: maxTargets = targets.size()
+	if minTargets == -1: minTargets = maxTargets
+
+	# logic for when a player selects a card
+	var addTarget = func(t):
+		if targets.has(t):
+			chosenTargets.append(t)
+			if chosenTargets.size() >= minTargets: passTurn.disabled = false
+			if chosenTargets.size() > maxTargets: chosenTargets.pop_front()
+
+	GameManager.playerBoards[0].cardSelected.connect(addTarget)
+	GameManager.playerBoards[1].cardSelected.connect(addTarget)
+	await passTurn.pressed
+	passTurn.text = "Pass Turn"
+
+	return chosenTargets

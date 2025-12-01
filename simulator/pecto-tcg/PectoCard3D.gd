@@ -5,6 +5,7 @@ class_name PectoCard3D
 @onready var backFace : SubViewport = %backFace
 @onready var anim : AnimationPlayer = $AnimationPlayer
 @onready var iconAnim : AnimationPlayer = $iconAnimator
+@onready var selectionArrow : Node3D = $selectionArrow
 
 var card : PectoCard
 var collection : CardCollection3D
@@ -57,35 +58,40 @@ func hide_icons() -> void:
 
 func attack() -> void:
 	var coord : Vector2 = controller.get_card_coord(self)
-	var opponent : PectoBoard3D = GameManager.gameScene.get_opponent(controller)
+	var opponent : PectoBoard3D = GameManager.playerBoards[1]
 	var targets : Array[Node] = []
 
-	# middle row attack logic
-	if coord.x == 1:
-		print("handling a middle row unit attack")
-		for i in range(3):
-			var t : PectoCard3D = opponent.get_card(Vector2(i, 0))
-			if t: targets.append(t)
-
-		# checks if the opposing middle row is open
+	# checks if the opposing zone is open
+	if card.type == 0:
 		if !opponent.get_card(coord):
-			targets.append(opponent)
-			for i in range(3):
-				var t : PectoCard3D = opponent.get_card(Vector2(i, 1))
+			if !card.has_keyword("muted"): targets.append(opponent)
+			if coord.x == 1:
+				# add both all back row as targets for center zone
+				for i in 2:
+					var t : PectoCard3D = opponent.get_card(Vector2(i, 1))
+					if t: targets.append(t)
+			else:
+				var t : PectoCard3D = opponent.get_card(Vector2(coord.x / 2, 1))
 				if t: targets.append(t)
-	
-	# standard attack logic
-	else:
-		print("handling a standard unit attack")
-		targets.append(opponent.get_card(coord))
-
-		# first pass checks if a unit was found
-		if targets.is_empty:
-			targets.pop_front()
-			coord.y = 1
-
-			if !card.has_keyword("Sealed"): targets.append(opponent)
+		
+		# standard attack logic
+		else:
+			print("handling a standard unit attack")
 			targets.append(opponent.get_card(coord))
+
+			# first pass checks if a unit was found
+			if targets.is_empty:
+				targets.pop_front()
+				coord.y = 1
+
+				if !card.has_keyword("muted"): targets.append(opponent)
+				targets.append(opponent.get_card(coord))
+	
+	# icon backstab logic
+	elif card.type == 0:
+		if coord.y == 1:
+			var t : PectoCard3D = opponent.get_card(Vector2(coord.x, 1))
+			if !t: targets.append(opponent)
 	
 	if targets.is_empty(): return
 
@@ -115,3 +121,6 @@ func active_anim(status : bool) -> void:
 	else: anim.play_backwards("inactive")
 
 func get_lvl() -> int: return card.lvl
+
+func show_arrow() -> void: selectionArrow.show()
+func hide_arrow() -> void: selectionArrow.hide()

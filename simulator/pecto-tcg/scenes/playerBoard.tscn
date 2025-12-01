@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://do6yql4uw2cjr"]
+[gd_scene load_steps=37 format=3 uid="uid://do6yql4uw2cjr"]
 
 [ext_resource type="Script" uid="uid://bu8m635jkfcgu" path="res://scenes/PectoBoard3D.gd" id="1_sic6o"]
 [ext_resource type="Script" uid="uid://bgkontnk0cnl" path="res://addons/card_3d/scripts/drag_controller.gd" id="2_8ykwa"]
@@ -79,6 +79,12 @@ resource_local_to_scene = true
 script = ExtResource("6_fy6ix")
 arc_angle_deg = 20.0
 arc_radius = 35.0
+
+[sub_resource type="Resource" id="Resource_25awo"]
+resource_local_to_scene = true
+script = ExtResource("9_qclna")
+can_insert = false
+metadata/_custom_type_script = "uid://drpbrbrd8kfxn"
 
 [sub_resource type="Resource" id="Resource_nx7c6"]
 script = ExtResource("8_fx3vf")
@@ -257,8 +263,9 @@ _drop_zone_collision_shape_3d = NodePath("../DropZone/CollisionShape3D")
 
 [node name="Hand" parent="DragController" instance=ExtResource("5_6bc8p")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 2, -8, 5)
+transform = Transform3D(1.693531, 0, 0.14816476, 0, 1.7, 0, -0.14816476, 0, 1.693531, 2, -13, 10)
 card_layout_strategy = SubResource("Resource_8ykwa")
+drag_strategy = SubResource("Resource_25awo")
 
 [node name="PlayZone" parent="DragController" instance=ExtResource("10_nc1hs")]
 unique_name_in_owner = true

@@ -55,6 +55,7 @@ var cardVisuals : CardVisuals
 
 @export var keywords : Array = [] :
 	set(val):
+		for k : String in val: k = k.to_lower()
 		keywords = val
 		update_card_visuals()
 		
@@ -201,7 +202,35 @@ func attack_aftermath(target : Node) -> void:
 
 func deal_damage(amount : int) -> void: force -= amount
 func heal_damage(amount : int) -> void: force += amount
-func has_keyword(key : String) -> bool: return keywords.has(key)
+func has_keyword(key : String) -> bool: return keywords.has(key.to_lower())
+
+
+func acquire_target(amount : int, targettablePlayers = ["self", "opponent"],
+	filter : Array = ["u", "i", "s", "t", "p"], minimum = -1, allTarget : bool = false, ) -> Array:
+	var possibleTargets : Array = []
+	var selfTargets : Array = GameManager.playerBoards[0].get_controlled_cards() if targettablePlayers.has("self") else []
+	var opponentTargets : Array = GameManager.playerBoards[1].get_controlled_cards() if targettablePlayers.has("opponent") else []
+
+	possibleTargets = selfTargets + opponentTargets
+
+	# filter out cards that can't be targetted
+	for card3D : PectoCard3D in possibleTargets:
+		match card3D.card.type:
+			0: if !filter.has("u"): possibleTargets.erase(card3D)
+			1: if !filter.has("i"): possibleTargets.erase(card3D)
+			2: if !filter.has("s"): possibleTargets.erase(card3D)
+			3: if !filter.has("t"): possibleTargets.erase(card3D)
+
+	# add players as targets if possible
+	if filter.has("p"):
+		possibleTargets.append(GameManager.playerBoards[0] if targettablePlayers.has("self") else null)
+		possibleTargets.append(GameManager.playerBoards[1] if targettablePlayers.has("self") else null)
+
+	# don't ask for targets if it should target all possible targets
+	if allTarget: return possibleTargets
+	return await GameManager.gameScene.select_targets(
+		get_physical_card().controller, possibleTargets, amount, minimum)
+
 #endregion
 
 #region functions
@@ -314,4 +343,5 @@ func get_card_skill() -> String: return cardVisuals.get_card_skill()
 func get_card_name() -> String: return cardVisuals.get_card_name()
 func get_card_art() -> Texture: return cardVisuals.get_card_art()
 func get_card_types() -> PackedStringArray: return cardVisuals.get_card_types()
+func get_physical_card() -> PectoCard3D: return get_parent().get_parent()
 #endregion

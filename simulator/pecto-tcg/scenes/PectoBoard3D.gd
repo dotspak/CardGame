@@ -55,6 +55,8 @@ signal handCardSelected(card : PectoCard3D)
 
 signal finishedSetup
 
+signal targettingComplete
+
 func _process(_delta):
 	if !Engine.is_editor_hint():
 		%deckCount.text = str(deck.cards.size())
@@ -207,6 +209,14 @@ func get_card(coord : Vector2 = Vector2.ZERO) -> PectoCard3D:
 
 
 func get_slot_from_coord(coord : Vector2 = Vector2.ZERO):
-	var string : String = "%s_%s" % [("front" if int(coord.y) == 0 else "back"), int(coord.x)]
+	var string : String = "%s_%s" % [("front" if int(coord.y) == 0 else "back"), str(int(coord.x))]
 	var z : GridSlot = dragController.find_child(string)
 	return z
+
+
+func get_controlled_cards() -> Array[PectoCard3D]:
+	var cards : Array[PectoCard3D]
+	for z : GridSlot in zones:
+		if !z.cards.is_empty():
+			cards.append(z.cards[0])
+	return cards

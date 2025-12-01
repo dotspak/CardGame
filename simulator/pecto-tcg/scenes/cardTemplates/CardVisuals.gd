@@ -213,8 +213,8 @@ func parse_card_text(string : String) -> String:
 				var sc = to_small_caps(value)
 				replacement = "[bgcolor=%s][b]%s%s[/b][/bgcolor]" % [color, icon, sc]
 			else:
-				var color : String = TEXT_TAGS[tag]["color"]
-				replacement = "[img=32 align=center]res://assets/forceBG.png[/img][b]%s[/b]" % [value]
+				# handles force icons
+				replacement = "[img=24]res://assets/forceBG.png[b]%s[/b][/img]" % [value]
 
 		output = output.substr(0, m.get_start()) + replacement + output.substr(m.get_end())
 	
@@ -253,9 +253,9 @@ func get_card_text() -> String: return %cardText.text
 func get_card_keyword_text() -> String: return %cardKeywords.text.strip_edges()
 func get_card_skill() -> String: return %cardSkill.text if skillName != "" else ""
 func get_card_name() -> String: 
-	return %cardName.text + " " + "[bgcolor=%s][b] %s [/b][/bgcolor]" % \
-		[Color("e44298").to_html(), force] + \
-		"/" + "[color=%s]LVL: %s" % [Color.WHITE.to_html(), lvl]
+	return parse_card_text(
+		%cardName.text + " " + "{force:%s}" % force + "/" 
+		+ "[color=%s]LVL: %s" % [Color.WHITE.to_html(), lvl])
 func get_card_art() -> Texture: return art
 func get_card_types() -> PackedStringArray: 
 	var types : PackedStringArray = []

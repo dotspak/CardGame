@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c4c6pl5m22jp2"]
+[gd_scene load_steps=7 format=3 uid="uid://c4c6pl5m22jp2"]
 
 [ext_resource type="Texture2D" uid="uid://b0psj1ihvfcu6" path="res://assets/cardBack2.png" id="1_afn23"]
+[ext_resource type="FontFile" uid="uid://d0fdt2wdmpnnu" path="res://assets/fonts/MedodicaRegular.otf" id="2_4f5rm"]
+[ext_resource type="Texture2D" uid="uid://b1f2r0svmhmej" path="res://assets/textTexture.png" id="2_p07je"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yayj7"]
 bg_color = Color(0.10980392, 0.10980392, 0.10980392, 1)
@@ -8,6 +10,17 @@ corner_radius_top_left = 48
 corner_radius_top_right = 48
 corner_radius_bottom_right = 48
 corner_radius_bottom_left = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_6vwk1"]
+font = ExtResource("2_4f5rm")
+font_size = 128
+font_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_color = Color(1, 1, 1, 1)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4f5rm"]
+blend_mode = 2
 
 [node name="cardBack" type="PanelContainer"]
 clip_children = 2
@@ -17,6 +30,33 @@ offset_bottom = 1050.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_yayj7")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(680, 980)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture = ExtResource("1_afn23")
 expand_mode = 1
+
+[node name="Label" type="Label" parent="TextureRect"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -750.0
+offset_top = -29.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "pecto"
+label_settings = SubResource("LabelSettings_6vwk1")
+horizontal_alignment = 2
+
+[node name="dots" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.11764706)
+material = SubResource("CanvasItemMaterial_4f5rm")
+layout_mode = 2
+texture = ExtResource("2_p07je")
+expand_mode = 1
+stretch_mode = 6
