@@ -180,9 +180,9 @@ Keywords are special words that are short-hand for a specific mechanic.
 
 | Keyword | Description |
 | - | - |
-| Static | Cannot move during the movement phase |
-| Bleed | When a card with bleed connects an attack with a target (regardless of damage dealt), they receive a bleed counter. If a target has 3 or more bleed counters, they perish (including players) |
-| Quick | A card with quick deals damage before non quick cards. If both cards are quick, damage resolves normally.|
+| Static | Cannot move during the movement phase. |
+| Bleed | When a card with bleed connects an attack with a target (regardless of damage dealt), they receive a bleed counter. If a target has 3 or more bleed counters, they perish (including players). |
+| Quick | A card with quick deals damage before non quick cards. If both cards are quick, damage resolves normally. |
 | Muted | Cannot deal combat damage to players. |
 | Safe | Cannot be targetted by destruction effects (can still be sacrificed). |
 | Sick | At the start of each turn, lose half of their current force, rounded up (always takes at least 1 damage). If a sick card connects an attack with a card (regardless of damage dealt), the card also becomes sick. |
