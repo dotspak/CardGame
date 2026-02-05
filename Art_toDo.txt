@@ -25,7 +25,7 @@ Artistic Golem
 Spooked Golem
 Lonely Drone
 Slumbering Titan
-Banish Watcher
+Banish Watcher ***
 Living Home
 Morgue
 Infection:Misdirection
@@ -35,8 +35,8 @@ Tonne
 Cursed Orb
 Polygeist
 Particle Cannon
-Crow Alchemist
-Big Boots
+Crow Alchemist ***
+Big Boots ***
 Hive Kicker
 False Power
 Doomsday Barrel
@@ -50,14 +50,14 @@ Wretched
 Helpful Honey Bee
 Crow Practitioner
 Repented
-Serendipity
+Serendipity ***
 Soul Baron
 Deconstructor
 Crusher Golem
 Specular Golem
-Flower Wrangler
-Chrysalis Beast
-Red Wizard
+Flower Wrangler 
+Chrysalis Beast ***
+Red Wizard ***
 Pheromone Den
 Door to Nowhere
 Pale Mask
@@ -74,12 +74,12 @@ Grave Digger
 Reap The Dead
 The Cure?
 Pesky Golem
-Bolt Spirit
+Bolt Spirit ***
 Drop of Marlita
 Burn
 Dissolve
 Melt
-Transmogriphy
+Transmogriphy ***
 Horror From Above
 Reaper
 Shiny Crow
@@ -108,7 +108,7 @@ Excavation
 Saturn Bear
 Empty Man
 Crow Devourer
-Void Saviour
+Void Saviour ***
 Bwyndolyn
 Hive Infiltrator
 Landterra
@@ -116,5 +116,5 @@ False Queen Carcass
 Death Pact
 Last Chance
 Fractal Blade
-Shattered Lord
+Shattered Lord ***
 Last Wish
