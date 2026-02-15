@@ -1,0 +1,16 @@
+Pecto Set 2 Additions:
+LVL X cards
+Frogs and Fish
+
+Frogs -> Play around with movement and fragile alot
+Fish -> Plays with adjacency typically for force gain
+
+Keywords:
+Warden -> takes half damage rounded down, cannot attack
+Backstab -> if an opponent does not control a card in the opposing back row, this card may attack the player directly while in the backrow.
+
+Set 3 Additions:
+Saga equivalent ?
+Proliferate equivalent -> More counter based strategies
+Red LVL cards (sac the required amount of cards to play the card)
+double keyword -> deals double damage
