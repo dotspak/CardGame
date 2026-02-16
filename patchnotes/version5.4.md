@@ -126,21 +126,26 @@ This terminology better reflects the mechanic’s actual behavior.
 
 Several visual and structural improvements have been made to card templates.
 
-Visual Indicators:
+### Visual Indicators
 
 - Each text box now includes a label indicating its function
 - Trigger badges now display an arrow symbol
 - Standard Skills now display a star symbol
 - Free Skills now display a cycle symbol
 
-FORCE Display Improvements:
+### FORCE Display Improvements
 
-- Non-units now display a greyed-out FORCE icon
+- Non-units (cards that can't gain FORCE) now display a greyed-out FORCE icon
 - All instances of “? FORCE” have been replaced with 0 FORCE
+
+### LVL Display Improvements
+
+- LVL is now displayed in card text with a ciruclar icon with a number
+- This puts it more in line with FORCE, instead of saying LVL 1 (even though it reads the same)
 
 This improves readability and removes ambiguity.
 
-### Card Number
+### Set number
 
 Each card now displays its official set number. This improves identification, collection tracking, and draft functionality.
 
