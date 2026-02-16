@@ -4,70 +4,145 @@
 
 ## Overview
 
-This is the last update before the Pecto Pounding invitational event, so it mostly focues on card balances and small gameplay tweaks/card udpates/terminology to smooth out rough areas of the game.
+Version 5.4 is the final update before the Pecto Pounding Invitational. This patch focuses on gameplay clarity, terminology refinement, and core system improvements.
+
+This update also introduces several foundational changes that simplify gameplay, improve consistency, and better support competitive play.
+
+Version 5.4 introduces major structural improvements to Pecto:
+
+- Influence replaced with the Turn Counter
+- Skills restricted from response usage
+- Face-down cards introduced as a core mechanic
+- Token behavior standardized
+- Enter trigger terminology improved
+- Card templates refined
+- Rarity and card numbering systems restored
+
+These changes improve clarity, consistency, and competitive integrity ahead of the Pecto Pounding Invitational.
 
 ---
 
 ## Game format Updates
 
-I have made the decision to restrict the game to 1v1 or 2v2. There are a few reasons for this, the main one being an update to the resource system to improve clarity, but also it greatly simplfies alot of wording with cards. This means the previous effort to make cards work in a 1v1v1v1 setting will be reverted.
+### Turn Counter (Replaces Influence)
 
-### Influence
+The Influence system has been removed and replaced by a new global resource called the Turn Counter.
 
-The influence system is being reworked. That being that the term "influence" is being removed from the game. Instead, a functionaly similar mechanic will be replacing it called turn count. The turn count will function the exact same as Yugioh, where it is a global counter that increases by 1 at the start of each player's turn. The turn counter will now act as the highest LVL card you can play from your hand outside of chaining.
+Turn Counter Rules:
 
-This also means that any effects related to modifying influence will be removed from the game entirely. Most of these effects are being moved over to card LVL modification for easier chaining, and some will effect the turn counter itself.
+- The Turn Counter increases by 1 at the start of each round.
+- A round begins after each player has completed their turn.
+- The Turn Counter is global and shared by all players.
+- Players may play cards with LVL less than or equal to the Turn Counter.
 
-Overall, this change should make the game more clear and have 1 less thing to keep track of since both players keep track of the same resource counter now.
+Additional Changes:
+
+- All effects that modified Influence have been removed or redesigned.
+- Most of these effects now modify card LVL instead.
+- Some cards may directly modify the Turn Counter itself.
+
+This change improves clarity by removing separate player-specific scaling resources and replacing them with a single shared progression system.
+
+### Skills/Casts
+
+Skills can no longer be used as responses. New universal rules:
+
+- Skills cannot be used as responses.
+- Cards may always be cast as responses.
+- These rules have no exceptions.
+
+This change reinforces the design philosophy that responses should require a meaningful resource investment. Since cards in Pecto resolve immediately when played, unrestricted skill responses created overly dominant early-game interactions.
+
+Responses are now tied strictly to card usage, ensuring proper tradeoffs and counterplay.
+
+### Face down cards
+
+Face-down cards are now a core game mechanic. During your turn, you may play cards face-down.Face-down cards follow these rules:
+
+They are treated as:
+
+- LVL 1 Units
+- 0 FORCE
+- No text
+- No type
+- Their original properties are hidden while face-down.
+
+When destroyed while face-down:
+
+- The card is sent to the discard pile.
+- It is then flipped face-up in the discard.
+- Perish triggers do not occur.
+
+Effects that reference: “If this card entered the discard while face-down” will trigger in this situation. These effects are known as Flip Tricks.
+
+When flipped face-up on the board:
+
+- The card re-enters play.
+- All Enter triggers activate.
+- Its LVL and FORCE reset to their original values.
+
+This mechanic primarily reduces early-game bricking while also enabling new flip-based strategies.
+
+## Discard Standardization
+
+Effects that previously instructed players to shuffle their discard and add cards from it to their hand have been standardized.
+
+Old wording example:
+> Shuffle your discard, then add X cards from it to your hand.
+
+New wording:
+> Add X random cards from your discard to your hand.
+
+This change improves clarity and removes unnecessary mechanical steps. Since the discard pile is already a public zone with no inherent ordering rules, shuffling it provided no meaningful gameplay value.
 
 ## General Gameplay updates
 
 ### Tokens
 
-- Tokens no longer enter the void when perishing: they enter the discard like any other card.
+Tokens now follow standard destruction rules.
 
-Tokens entering the void was intended to be a buff to the Celestial cards, but upon further examination this was not really necessary. To compensate, all Celestial tokens will now have the *doom* keyword (enters the void when they perish).
-
-This will buff based discard strategies, but void based strategies typically have stronger payoffs and more consistentcy so this is a fine tradeoff.
+- Tokens now enter the discard pile when they perish, then dissapear (not adding to your discard count)
+- Celestial tokens now have the Doom keyword.
+- This maintains Celestial identity while improving consistency for discard-based strategies and also being easier to understand.
 
 ### Bleed Keyword
 
-- Cards now perish when they have 2 bleed counters
-- Players now perish when they have 4 bleed counters
+- Cards perish after receiving 2 Bleed counters
+- Players perish after receiving 4 Bleed counters
 
 ### Set Trigger
 
-- Renamed to *Enter*, now also applies when an effect card is attached (note: *Enter* triggers do not apply if a non-effect card is attached).
+The Set trigger has been renamed to Enter. Enter triggers now occur when:
+
+- A card enters play
+- An effect card becomes attached to a card
+- Enter triggers do not occur when attaching non-effect cards.
+
+This terminology better reflects the mechanic’s actual behavior.
 
 ---
 
 ## Template Updates
 
-- Each text box now has a label at the top left indicating what the box represents.
-- Triggers now have an arrow symbol to the left of the badge.
-- Standard Skills now have a star symbol to the left of the badge.
-- Free Skills now have a cycle symbol to the left of the badge.
-- Cards with no force now have a greyed out force icon instead of lacking the symbol all together.
-- All instances of ? force cards have been replaced with 0 force for more clarity as they functionaly were the same.
+Several visual and structural improvements have been made to card templates.
 
-### Rarities
+Visual Indicators:
 
-Rarities were temporarily removed while I finalized the card list. In preparation for the simulator's dedicated draft mode, card rarities will now be returning.
+- Each text box now includes a label indicating its function
+- Trigger badges now display an arrow symbol
+- Standard Skills now display a star symbol
+- Free Skills now display a cycle symbol
 
-- Cards can have 1 of 4 rarities:
-  - Basic
-  - Rare
-  - Super Rare
-  - Divine Rare
-- These rarities are represented by a small circle symbol in the bottom right, as well as different FX on the card background.
-  - Basic cards have the default dark grey border
-  - Rare cards have a coloured border
-  - Super Rare cards have a gradient border
-  - Divine Rare cards have a special border
+FORCE Display Improvements:
+
+- Non-units now display a greyed-out FORCE icon
+- All instances of “? FORCE” have been replaced with 0 FORCE
+
+This improves readability and removes ambiguity.
 
 ### Card Number
 
-- Now that the set count has been finalized, each card now has a card number saying which card in the set it is.
+Each card now displays its official set number. This improves identification, collection tracking, and draft functionality.
 
 ---
 
@@ -86,7 +161,7 @@ A lot of cards received updates this patch. Cards that only received small stat 
 
 - Cockroach 🟩
   - Discard effect's drawback has been buffed to once per turn.
-  - Now gains 1 force upon procing its discard effect.
+  - Now gains 1 FORCE upon procing its discard effect.
 
 - Kick The Hive 🟩
   - Now creates a bug token with bleed when it receives an instance of damage.
@@ -107,7 +182,7 @@ A lot of cards received updates this patch. Cards that only received small stat 
 
 - Living Home 🟨
   - Now fits into its golem archetype more.
-  - Force increased from 2 to 4.
+  - FORCE increased from 2 to 4.
   - Gained Muted keyword
   - New Passive: "ENTER: Attach a unit from your hand or control. PERISH: Set an attached unit."
 
@@ -115,13 +190,13 @@ A lot of cards received updates this patch. Cards that only received small stat 
   - Now causes an opponent's units to lose LVL equal to its damage.
 
 - Green Imp 🟨
-  - Now causes an opponent's unit to lose force equal to its damage (non-lethal).
+  - Now causes an opponent's unit to lose FORCE equal to its damage (non-lethal).
 
 - Blue Imp 🟥
   - Can now only mill the opponent.
 
 - Grave Digger 🟩
-  - Now has a mill doubler effect and 2 force as opposed to being a pure spell card.
+  - Now has a mill doubler effect and 2 FORCE as opposed to being a pure spell card.
 
 - Combat Idol 🟨
   - No longer nullifies muted.
@@ -134,11 +209,11 @@ A lot of cards received updates this patch. Cards that only received small stat 
 
 - Abyssal Maw 🟨
   - Now adds bleed counters when it destroys a card.
-  - Sacrifice skill is now infnite below a certain amount of force.
+  - Sacrifice skill is now infnite below a certain amount of FORCE.
 
 - Sacrifcial Knife 🟩
-  - Now forces ALL players to sacrifice a card and draw a card (which gets around the "safe" keyword).
-  - Force reduced from 3 to 1.
+  - Now FORCEs ALL players to sacrifice a card and draw a card (which gets around the "safe" keyword).
+  - FORCE reduced from 3 to 1.
   - Gained Bleed keyword.
 
 - Pebble 🟩
@@ -160,7 +235,7 @@ A lot of cards received updates this patch. Cards that only received small stat 
 
 - Hive Infiltrator 🟩
   - If it were to perish, it instead flips itself face down until the end of the turn (which causes it to re-enter).
-  - Gains 2 Force on victor trigger.
+  - Gains 2 FORCE on victor trigger.
   - Gained Immortal.
 
 - Border of Life 🟨
