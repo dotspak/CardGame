@@ -24,9 +24,19 @@ These changes improve clarity, consistency, and competitive integrity ahead of t
 
 ## Game format Updates
 
-### Turn Counter (Replaces Influence)
+### Level Cap (Replaces Influence)
 
-The Influence system has been removed and replaced by a new global resource called the Turn Counter.
+The Influence system has been removed and replaced by a new resource called the Level Cap.
+
+Level Cap:
+
+Your Level Cap determines the highest LVL card you may play.
+At the start of your turn, set your Level Cap to the higher of:
+
+- Your Turn Counter
+- One plus the highest LVL among cards you control.
+
+Whenever a card enters play under your control, or a card you control’s LVL increases, if that card’s LVL plus 1 is greater than your Level Cap, increase your Level Cap to that amount until the start of your next turn.
 
 Turn Counter Rules:
 
@@ -39,9 +49,8 @@ Additional Changes:
 
 - All effects that modified Influence have been removed or redesigned.
 - Most of these effects now modify card LVL instead.
-- Some cards may directly modify the Turn Counter itself.
 
-This change improves clarity by removing separate player-specific scaling resources and replacing them with a single shared progression system.
+This change was intended to fix going second as you could often wipe the second player's board and they would lose on the spot. It is also intended to make the system more clear overall.
 
 ### Skills/Casts
 
@@ -57,14 +66,13 @@ Responses are now tied strictly to card usage, ensuring proper tradeoffs and cou
 
 ### Face down cards
 
-Face-down cards are now a core game mechanic. During your turn, you may play cards face-down.Face-down cards follow these rules:
+Face-down cards are a new mechanic of the game. Some cards flip cards upside down or right side up.
 
-They are treated as:
+A face down card is treated as:
 
-- LVL 1 Units
+- LVL 1
 - 0 FORCE
-- No text
-- No type
+- No text, type, skill, cast
 - Their original properties are hidden while face-down.
 
 When destroyed while face-down:
@@ -80,8 +88,6 @@ When flipped face-up on the board:
 - The card re-enters play.
 - All Enter triggers activate.
 - Its LVL and FORCE reset to their original values.
-
-This mechanic primarily reduces early-game bricking while also enabling new flip-based strategies.
 
 ## Discard Standardization
 
@@ -107,8 +113,9 @@ Tokens now follow standard destruction rules.
 
 ### Bleed Keyword
 
-- Cards perish after receiving 2 Bleed counters
-- Players perish after receiving 4 Bleed counters
+- When a Bleed card hits a target, that target gains 1 Bleed counter before damage occurs
+- A target with a bleed counter now takes additional combat damage equal to the number of bleed counters on them (including players)
+- This is intended to make bleed counters fairly lethal while not being a hard instant kill.
 
 ### Set Trigger
 
