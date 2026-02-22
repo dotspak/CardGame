@@ -151,13 +151,6 @@ Mulligans are now being properly introduced.
 - If and only if you have no LVL 1 cards in your hand, you can shuffle your hand into your deck and draw 5 new cards.
 - You may mulligan as many times as you like under these conditions.
 
-### Sacrificing
-
-- To combat attack sac loops, you can now only sacrifice active cards.
-- Many cards already said "sacrifice an active card", but any card that didn't have this effect was very exploitable.
-- Only allowing sacrifice of active cards means you can't attack/skill and then sacrifice the card.
-- Note: you can still destroy inactive cards, this only applies to the sacrifice term specifically.
-
 ### Life
 
 - Your starting life total is now 15 in standard 1v1.
