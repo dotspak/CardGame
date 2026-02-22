@@ -30,13 +30,13 @@ The Influence system has been removed and replaced by a new resource called the 
 
 Level Cap:
 
-Your Level Cap determines the highest LVL card you may play.
-At the start of your turn, set your Level Cap to the higher of:
+Your Level Cap determines the highest LVL card you may play (from your hand).
+Your LVL cap is equal to the higher of 2 things:
 
-- Your Turn Counter
-- One plus the highest LVL among cards you control.
+- The turn counter's value
+- The highest LVL card you control plus one.
 
-Whenever a card enters play under your control, or a card you control’s LVL increases, if that card’s LVL plus 1 is greater than your Level Cap, increase your Level Cap to that amount until the start of your next turn.
+This value constantly updates throughout the game.
 
 Turn Counter Rules:
 
@@ -49,8 +49,6 @@ Additional Changes:
 
 - All effects that modified Influence have been removed or redesigned.
 - Most of these effects now modify card LVL instead.
-
-This change was intended to fix going second as you could often wipe the second player's board and they would lose on the spot. It is also intended to make the system more clear overall.
 
 ### Skills/Casts
 
@@ -111,11 +109,25 @@ Tokens now follow standard destruction rules.
 - Celestial tokens now have the Doom keyword.
 - This maintains Celestial identity while improving consistency for discard-based strategies and also being easier to understand.
 
+Tokens are now universally considered LVL 1 unless stated otherwise.
+
 ### Bleed Keyword
 
-- When a Bleed card hits a target, that target gains 1 Bleed counter before damage occurs
-- A target with a bleed counter now takes additional combat damage equal to the number of bleed counters on them (including players)
+- When a Bleed card hits a target, that target gains 1 Bleed counter.
+- A target with a bleed counter now takes additional combat damage equal to the number of bleed counters on them.
 - This is intended to make bleed counters fairly lethal while not being a hard instant kill.
+
+### Quick Keyword
+
+- Has now been universally changed to "deals damage first when attacking".
+- This change was made so quick cards remain strong, but can actually be killed.
+
+### Immortal Keyword
+
+- No longer recovers damage at the end of the turn.
+- Now means cannot be destroyed by combat.
+- If an immortal card were to be destroyed by combat, it instead survives with 0 force, and remains at 0 force.
+- Immortal cards can still be destroyed via direct damage.
 
 ### Set Trigger
 
@@ -126,6 +138,36 @@ The Set trigger has been renamed to Enter. Enter triggers now occur when:
 - Enter triggers do not occur when attaching non-effect cards.
 
 This terminology better reflects the mechanic’s actual behavior.
+
+### Card Draw
+
+- Players now draw until they have 5 cards in hand at the start of the turn.
+- This is considered 1 instance of drawing cards.
+
+### Mulligans
+
+Mulligans are now being properly introduced.
+
+- If and only if you have no LVL 1 cards in your hand, you can shuffle your hand into your deck and draw 5 new cards.
+- You may mulligan as many times as you like under these conditions.
+
+### Sacrificing
+
+- To combat attack sac loops, you can now only sacrifice active cards.
+- Many cards already said "sacrifice an active card", but any card that didn't have this effect was very exploitable.
+- Only allowing sacrifice of active cards means you can't attack/skill and then sacrifice the card.
+- Note: you can still destroy inactive cards, this only applies to the sacrifice term specifically.
+
+### Life
+
+- Your starting life total is now 15 in standard 1v1.
+- This is due to the game becoming just a bit too fast.
+
+### Healing
+
+- Cards can now have healing effects.
+- When you heal, you gain that much life.
+- You can never go above your starting life total by healing.
 
 ---
 
