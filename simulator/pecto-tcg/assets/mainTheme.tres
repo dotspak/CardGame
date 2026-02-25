@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://dklws6or0v1o2"]
+[gd_resource type="Theme" format=3 uid="uid://dklws6or0v1o2"]
 
 [ext_resource type="FontFile" uid="uid://1kd62leqiy8y" path="res://assets/fonts/AveriaLibre-Bold.ttf" id="1_ubhg7"]
 [ext_resource type="FontFile" uid="uid://bamyp0uasi0pc" path="res://assets/fonts/AveriaLibre-Italic.ttf" id="2_m04c2"]
