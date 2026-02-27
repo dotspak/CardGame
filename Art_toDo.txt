@@ -35,8 +35,6 @@ Tonne
 Cursed Orb
 Polygeist
 Particle Cannon
-Crow Alchemist ***
-Big Boots ***
 Hive Kicker
 False Power
 Doomsday Barrel
@@ -50,13 +48,11 @@ Wretched
 Helpful Honey Bee
 Crow Practitioner
 Repented
-Serendipity ***
 Soul Baron
 Deconstructor
 Crusher Golem
 Specular Golem
 Flower Wrangler 
-Chrysalis Beast ***
 Red Wizard ***
 Pheromone Den
 Door to Nowhere
@@ -108,7 +104,6 @@ Excavation
 Saturn Bear
 Empty Man
 Crow Devourer
-Void Saviour ***
 Bwyndolyn
 Hive Infiltrator
 Landterra
