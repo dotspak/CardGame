@@ -1,10 +1,8 @@
-Woman From Venus
 Evil Egg
 Lesser Crow
 Skeleton
 Grub
 Roller
-Blood Rock
 Corrupted Piece
 Shrine/Home of Marlita
 Tunnel Of White Wind
@@ -14,7 +12,6 @@ Shiny Orb
 Royal Jelly
 Magic Magnet
 Worm Wood
-Auto-Shield
 Abstract Mirror
 Hexagonal Visionary
 Churn
@@ -33,7 +30,6 @@ Bountiful Harvest
 Card Dispenser
 Tonne
 Cursed Orb
-Polygeist
 Particle Cannon
 Crow Alchemist ***
 Big Boots ***
@@ -56,10 +52,8 @@ Deconstructor
 Crusher Golem
 Specular Golem
 Flower Wrangler 
-Chrysalis Beast ***
 Red Wizard ***
 Pheromone Den
-Door to Nowhere
 Pale Mask
 Temporary Relief
 Stone Generator
@@ -67,15 +61,12 @@ Crow's Nest
 Cleaver
 Combat Idol
 Big Catch
-Abyssal Maw
-Tight Spot
 Gargoyle
 Grave Digger
 Reap The Dead
 The Cure?
 Pesky Golem
 Bolt Spirit ***
-Drop of Marlita
 Burn
 Dissolve
 Melt
