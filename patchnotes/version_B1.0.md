@@ -8,10 +8,10 @@ This will be the final update before the Pecto Pounding Invitational. This updat
 
 This update also introduces several foundational changes that simplify gameplay, improve consistency, and better support competitive play.
 
-Version 5.4 introduces major structural improvements to Pecto:
+Beta 1.0 introduces major structural improvements to Pecto:
 
 - Influence replaced with the Level Cap
-- Updated card draw
+- Updated card draw system
 - Updated combat
 - Face-down cards introduced
 - Token behavior standardized
@@ -24,11 +24,9 @@ These changes improve clarity, consistency, and competitive integrity ahead of t
 
 ## Core Rule Updates
 
-### Level Cap (Replaces Influence)
+### Level Cap
 
 The Influence system has been removed and replaced by a new resource called the Level Cap.
-
-Level Cap:
 
 Your Level Cap determines the highest LVL card you may play (from your hand).
 Your LVL cap is equal to the higher of 2 things:
@@ -43,43 +41,32 @@ Additional Changes:
 - All effects that modified Influence have been removed or redesigned.
 - Most of these effects now modify card LVL instead.
 
-### Combat
+### Card Draw/Opening Hand/Mulligans
 
-Combat is receiving a minor update with major rammifications.
+It was often the case that games would result in one player using up their hand in an early turn and then be unable to recover for the rest of the game. This usually meant previously that the better opening hand always won.
 
-- If a card takes damage greater than or equal to their FORCE, they perish at the end of combat.
-- If a card survives combat, it now restores all damage received.
-- When a card you control destroys a card in combat, draw a card.
+To fix this, opening hands are being nerfed (but becoming more consistent), and card draw is being buffed.
 
-*Note: this means that if 2 cards trade in combat, both players draw a card.*
+Note: Along with these changes, you can no longer choose to go first or second. If you win the coin flip/dice roll at the start, you always go first (going first is almost always better anyways).
 
-This makes large FORCE cards much scarier while also heavily increasing board prescence.
+- Opening Hand
+  - You now start with 3 cards in your opening hand.
 
-This change also does a few things to the game overall:
+- Mulligans
+  - After seeing your opening 3 cards, you can send up to 3 cards back to your deck and draw a new replacement card.
+  - If the player replaced any cards this way, shuffle your deck.
 
-- Makes direct damage/force loss stronger
-- Indirectly nerfs sacrificing cards, which was too strong
-- Causes cards to perish less often overall
-- Buffs the VICTOR trigger
-- Gives you a solid reason to play higher LVL cards (typically higher LVL = higher FORCE = easier to trade/kill)
+- Card Draw
+  - At the start of your turn, you now draw up to 3 cards.
+  - If you already have 3 or more cards, instead draw 1 card.
 
-### Movement
+### Movement Phase
 
-The movement phase is being removed. The movement phase was a secret outlier that caused games to be too fast, and is being partially reverted.
+Movement is being nerfed a decent amount since it often created unwinnable scenerios. Movement now functions as such:
 
-Movement now works as such:
+- Once per turn, you can swap 2 cards you control, unless they are static or inactive.
 
-- At any point during your turn when you could perform an action, you may declare you are moving a card.
-- You may then swap zones with another card you control if they are both active and not static.
-- The card that was swapped with then becomes inactive.
-
-Here's a breakdown of how this works now:
-
-1. Player 1 declares they are moving Card A.
-2. They then swap zones with Card B.
-3. Card B is now inactive, but Card A remains active allowing it to attack.
-
-This now makes movement more punishing, but also less confusing overall.
+This means that you can swap any 2 cards and neither will become inactive, but you can no longer move a card to an open zone. It also means you cannot attack, swap, attack with new card, but you can swap 2 cards to have them attack different targets. This also removes any confusing adjaceny based rules and streamlines things further.
 
 ### Healing
 
@@ -116,6 +103,24 @@ When flipped face-up on the board:
 - All Enter triggers activate.
 - Its LVL and FORCE reset to their original values.
 
+### Casting Cards
+
+This change helps to make casting a bit easier to understand, as well as fixing some annoying templating issues with casting.
+
+When you cast a card:
+
+1. It becomes inactive
+2. Its cast ability resolves
+3. It is sent to the discard (does not count as perishing)
+
+This means that if a card's cast ability interacts with the discard in any way, this card is not included (unless the ability itself sends it to the discard first somehow).
+
+A card also can never target itself with its cast ability. The card is considered to not exist anymore the second the cast trigger resolves, despite staying on the field. Because of this, if a card had an ability that sets a card, you can set it in the zone this card was cast from.
+
+---
+
+## General Gameplay updates
+
 ### Tokens
 
 Tokens now follow standard destruction rules.
@@ -124,10 +129,6 @@ Tokens now follow standard destruction rules.
 - Celestial tokens now have the Doom keyword to compensate.
 
 Tokens are now universally considered LVL 1 unless stated otherwise.
-
----
-
-## General Gameplay updates
 
 ### Discard Standardization
 
@@ -155,11 +156,7 @@ These are functionaly similar but the new version has less loopholes and is over
 
 - Has now been universally changed to "deals damage first when attacking".
 - This change was made so quick cards remain strong, but can actually be killed.
-
-### Immortal Keyword
-
-- A card with immortal is now immune to non-combat damage.
-- This does not mean they are immune to direct FORCE loss (target card loses 1 FORCE).
+- Effectively this now means that quick cards always win trades on your turn.
 
 ### Sick Keyword
 
@@ -188,14 +185,9 @@ Here is how the trigger now functions:
 1. Something causes the card to perish (combat, damage, destruction, etc).
 2. The effects of the perish trigger are queued.
 3. The effects of the perish trigger resolve.
-4. The card actually perishing is queued.
+4. The card then perishes and is sent to the discard.
 
-### Mulligans
-
-Mulligans are now being properly introduced.
-
-- If and only if you have no LVL 1 cards in your hand, you can shuffle your hand into your deck and draw 5 new cards.
-- You may mulligan as many times as you like under these conditions.
+Similar to casting, the card is already considered to have perished so it cannot be targetted by its own perish effect.
 
 ### Life
 
@@ -217,7 +209,7 @@ Several visual and structural improvements have been made to card templates.
 ### FORCE Display Improvements
 
 - The concept of no-force cards have been removed, in favour of 0 FORCE with text that says "cannot gain FORCE".
-- All instances of “? FORCE” have been replaced with 0 FORCE
+- All instances of “? FORCE” have been replaced with 0 FORCE, since they defaulted to 0 anyways.
 
 ### LVL Display Improvements
 
