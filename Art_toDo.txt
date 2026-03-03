@@ -31,8 +31,6 @@ Card Dispenser
 Tonne
 Cursed Orb
 Particle Cannon
-Crow Alchemist ***
-Big Boots ***
 Hive Kicker
 False Power
 Doomsday Barrel
@@ -46,7 +44,6 @@ Wretched
 Helpful Honey Bee
 Crow Practitioner
 Repented
-Serendipity ***
 Soul Baron
 Deconstructor
 Crusher Golem
@@ -99,7 +96,6 @@ Excavation
 Saturn Bear
 Empty Man
 Crow Devourer
-Void Saviour ***
 Bwyndolyn
 Hive Infiltrator
 Landterra
