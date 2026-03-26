@@ -3,7 +3,7 @@ import io
 import requests
 
 SHEET_CSV_URL = (
-    "https://docs.google.com/spreadsheets/d/e/2PACX-1vRXr8Y7Cm_kUgUkpogX0h3OeTEX4gwGGGhdjoT9FMyvQX5sgsCBvQD1lBOTLkJkrVwZNKNZase3O6hd/pub?output=csv")
+    "https://docs.google.com/spreadsheets/d/e/2PACX-1vTYhtrbHahwLgravRO8e1m2GcwOCzW0F92NZk3dEtB0dtqLkYIw4b1EcRFC92rdwaMb6-YB7Kw8vzKE/pub?output=csv")
 
 def get_stats_with_pct(series):
     """Helper function to calculate counts and percentages."""
