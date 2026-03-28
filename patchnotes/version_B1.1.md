@@ -28,6 +28,7 @@ This change makes it so now every front row card has a specific card to attack i
 ### Card Draw
 
 - Card Draw has been simplified to be draw 2 per turn.
+- You no longer recycle your deck if your deck is empty. Instead, if you were to draw cards from your deck and its empty you take that much damage. So that means at the start of your turn if your deck is empty and you were to draw 2, you take 2 damage.
 
 ### Going First vs Second
 
@@ -45,6 +46,12 @@ This change makes it so now every front row card has a specific card to attack i
 - Removed.
 
 Effect has proven to be largely useless as well as quite confusing so for now it is being removed entirely. Due to this, some cards are going to be replaced outright since they only function as effect cards.
+
+### Response Keyword
+
+- Removed.
+
+This purely refers to cards that could be set from the hand as a response. The response keyword while not really problematic, did go against one of the core philosophies of the game which was having all interaction being visible and on the board at all times. The response keyword also added onto some game state deadlock.
 
 ### Muted Keyword
 
@@ -70,6 +77,8 @@ Direct damage is a much healthier system in Pecto since stat buffing cards is th
 
 This also removes a piece of rules complexity/annoyance related to destruction.
 
+Along with this change, if a card takes excess damage, the excess damage effectively does not exist. For example, Voodoo Demon says "When Voodoo Demon takes damage, add that many bleed counters to any target.". Voodoo Demon has 3 Force. If you dealt 5 damage to Voodoo Demon, it would only take 3 damage and add 3 bleed counters.
+
 ### Recursion
 
 Recursion is a very strong mechanic in Pecto, but is also one of the more fun/interesting things about the game. Due to this, recursion is not being removed but it is being toned down substantially.
@@ -80,7 +89,7 @@ Cards that bring things back from your discard in anyway must have some cost bey
 
 ### Life as a Resource
 
-Life costs are being largely increased overall this patch, as even 10 life is often difficult to break through.
+Life costs are being increased overall this patch, as 10 life is difficult to break through sometimes.
 
 ### LVL 5 Cards
 
@@ -95,10 +104,10 @@ Starting this patch I will be much more sparing with using these keywords, espec
 Due to the direct damage change listed above, stats are being buffed overall. Here is the new standard stat baseline across the board:
 
 - LVL 1: 1-2 FORCE
-- LVL 2: 3-4 FORCE
-- LVL 3: 4-5 FORCE
-- LVL 4: 5-6 FORCE
-- LVL 5: 7+ FORCE
+- LVL 2: 2-4 FORCE
+- LVL 3: 3-5 FORCE
+- LVL 4: 4-6 FORCE
+- LVL 5: 5+ FORCE
 
 Some cards will still remain understated depending on their effects, but largely cards with vastly understated FORCE are being removed. 0 FORCE cards in particular are going to be toned down so they can have more utility out of just activating them.
 
