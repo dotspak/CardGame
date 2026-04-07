@@ -6,7 +6,7 @@
 
 Following the Pecto Pounding, several core issues have become clear—primarily centered around card design and overall game balance.
 
-This update represents a shift in balance philosophy rather than a complete gameplay overhaul (although most cards will receive adjustments).
+This update represents a shift in balance philosophy rather than a complete gameplay overhaul, but there are a healthy amount of core gamplay changes as well.
 
 - Key Areas of Change
 - Card playability
@@ -16,18 +16,22 @@ This update represents a shift in balance philosophy rather than a complete game
 - Repeatable abilities
 - First vs. second player balance
 
+---
+
 ## Balance Philosophy Updates
 
 ### Destruction → Direct Damage
 
 Destruction has proven difficult to balance and frequently leads to unhealthy gameplay patterns. As a result:
 
-- Destruction is being removed and replaced with direct damage systems.
+- Destruction is being removed and replaced with direct damage.
 
 This aligns better with Pecto’s intended design, where:
 
 - Stat manipulation and combat matter more than binary removal.
 - Board presence is more meaningful.
+
+This means that anything that deals 4 or more damage is typically considered a "hard destruction effect" now, even though you could theoretically outscale the damage.
 
 Additional Rule Clarifications:
 
@@ -47,10 +51,6 @@ Recursion remains a core and enjoyable mechanic, but is being significantly tone
 - Many effects are now randomized:
   - Example: “Add 2 random cards from your discard to your hand”
 - Effects usually need sufficient valid targets to resolve.
-
-### Life as a Resource
-
-Life costs are being increased across the board to better support the 10-life system and improve game pacing.
 
 ### Keyword Usage (Muted, Static, Delayed)
 
@@ -98,7 +98,7 @@ When a card attacks, it targets the opposing front row zone.
 
 ### Healing
 
-- You can now gain life up to 20.
+- You can now gain life up to 20 (players still start at 10).
 - You cannot gain excess life.
 - 0 Healing no longer counts as healing.
 - Example: if you were at 19 and you healed 3, you would only heal 1.
@@ -123,8 +123,9 @@ Design goal:
 
 ### Turn Order Adjustments
 
-- The player going second may now attack on their first turn.
-- They cannot attack the player on that turn.
+- Players can now attack on their first turn, but cannot target the player for attacks.
+
+*This effectively means that the player going second gets the first attack.*
 
 ### 0 FORCE Cards
 
@@ -136,7 +137,9 @@ Cards with 0 base FORCE:
 - Display a greyed-out FORCE icon.
 - Are not intended for combat (but can still attack).
 
-All cards intended for combat now have at least 1 FORCE.
+All cards intended for combat now have at least 1 FORCE. 0 FORCE is typically used for cards designed to be more "artifact or spell-like" (cards like blast orb, dissolve, raster).
+
+*Note: this does not apply to a card that becomes 0 FORCE after being set, purely entering as 0.*
 
 ---
 
@@ -147,7 +150,7 @@ All cards intended for combat now have at least 1 FORCE.
 Replaces the Response keyword.
 
 - Spell cards can be set as a response.
-- Opponent receives priority before the spell resolves.
+- Opponent receives priority after a spell is set (on their turn).
 - After their response (or pass), you may activate the spell (cast, skill).
 
 ### NEW: Leech

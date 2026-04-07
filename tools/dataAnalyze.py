@@ -24,14 +24,12 @@ def analyze_card_data(url):
 
     # --- 1. Force Value Analysis ---
     print("Force Value Analysis")
-    force_stats = get_stats_with_pct(df['force'])
-    print(force_stats.to_string())
+    print(get_stats_with_pct(df['force']).to_string())
     print("\n" + "-" * 30 + "\n")
 
     # --- 2. LVL Value Analysis ---
     print("LVL Value Analysis")
-    lvl_stats = get_stats_with_pct(df['lvl'])
-    print(lvl_stats.to_string())
+    print(get_stats_with_pct(df['lvl']).to_string())
     print("\n" + "-" * 30 + "\n")
 
     # --- 3. Card Type Analysis ---
@@ -39,12 +37,20 @@ def analyze_card_data(url):
     for entry in df['subtype'].fillna('typeless'):
         split_types = [t.strip().lower() for t in str(entry).split('/')]
         all_types.extend(split_types)
-    
-    type_series = pd.Series(all_types)
-    
+
     print("Card Type Analysis")
-    type_stats = get_stats_with_pct(type_series)
-    print(type_stats.to_string())
+    print(get_stats_with_pct(pd.Series(all_types)).to_string())
+    print("\n" + "-" * 30 + "\n")
+
+    # --- 4. Keyword Analysis ---
+    all_keywords = []
+    for entry in df['keywords'].dropna():
+        split_types = [t.strip().lower() for t in str(entry).split(',')]
+        all_keywords.extend(split_types)
+    
+    print("Keyword Prominence Analysis")
+    print(get_stats_with_pct(pd.Series(all_keywords)).to_string())
+
 
 if __name__ == "__main__":
     try:
