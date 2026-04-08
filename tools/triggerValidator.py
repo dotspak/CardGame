@@ -6,11 +6,12 @@ TAGS = [
     "ENTER:",
     "PERISH:",
     "BEGIN:",
-    "CAST:",
     "VICTOR:",
     "END:",
     "MOVE:",
-    "RITUAL:"
+
+    "CAST:",
+    "RITUAL:",
 ]
 
 TEXT_COLUMN = "text"
