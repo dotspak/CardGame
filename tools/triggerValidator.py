@@ -1,7 +1,6 @@
 import pandas as pd
 
 CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQOXrQ7no2UmFB_beqtUqB_tmoMYNR6ndNPzUToxDwa00UukgbENansGoxMH0_zSg1YsJJ2iI1Whbrv/pub?output=csv"
-
 TAGS = [
     "ENTER:",
     "PERISH:",
@@ -15,7 +14,7 @@ TAGS = [
 ]
 
 TEXT_COLUMN = "text"
-NAME_COLUMN = "name" 
+NAME_COLUMN = "name"
 
 def check_missing_closing_brace(text: str, tags: list[str]) -> bool:
     for tag in tags:
