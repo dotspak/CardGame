@@ -55,12 +55,12 @@ def bold_special_tags(text: str, triggers: list[str]) -> str:
     text = clean_text(text)
     text = escape_md(text)
     text = replace_symbols(text)
-    text = re.sub(r"(?i)\b(CAST:)", r"**\1**", text)
-    text = re.sub(r"(?i)\b(RITUAL:?)", r"**\1**", text)
+    text = re.sub(r"(?i)\b(CAST:)", r"**↯\1**", text)
+    text = re.sub(r"(?i)\b(RITUAL:?)", r"**💀\1**", text)
 
     for trig in sorted(triggers, key=len, reverse=True):
         pattern = rf"(?i)\b({re.escape(trig)}:?)"
-        text = re.sub(pattern, r"**\1**", text)
+        text = re.sub(pattern, r"**⤷\1**", text)
 
     return text
 
@@ -82,7 +82,7 @@ def format_skill_text(raw_skill: str, triggers: list[str]) -> str:
     skill_name = match.group(2).strip()
     skill_body = match.group(3).strip()
 
-    label = "(F)" if skill_type == "fskill" else "(N)"
+    label = "(🗘) " if skill_type == "fskill" else "(★) "
 
     safe_name = discord.utils.escape_markdown(skill_name)
     formatted_body = bold_special_tags(skill_body, triggers)
@@ -173,6 +173,7 @@ async def pecto(interaction: discord.Interaction, card_name: str):
     art_filename = card.get("art", "").strip()
     path = os.path.join("../art/baseSet", art_filename)
     file = discord.File(path, filename=art_filename)
+    embed.set_image(url=f"attachment://{art_filename}")
 
     await interaction.response.send_message(embed=embed, file=file)
 
