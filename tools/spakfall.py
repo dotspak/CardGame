@@ -3,6 +3,7 @@ import discord
 import requests
 import re
 import os
+import random
 from io import StringIO
 from discord import app_commands
 from discord.ext import commands
@@ -20,6 +21,8 @@ TRIGGERS = [
     "VICTOR",
     "END",
 ]
+
+GUILD_ID = 1285253404137881711
 
 def load_cards_from_url(url: str) -> list[dict]:
     response = requests.get(url, timeout=10)
@@ -55,11 +58,21 @@ def bold_special_tags(text: str, triggers: list[str]) -> str:
     text = clean_text(text)
     text = escape_md(text)
     text = replace_symbols(text)
-    text = re.sub(r"(?i)\b(CAST:)", r"**↯\1**", text)
-    text = re.sub(r"(?i)\b(RITUAL:?)", r"**💀\1**", text)
+
+    text = re.sub(
+        r"\b(CAST:)",
+        r"**↯\1**",
+        text
+    )
+
+    text = re.sub(
+        r"\b(RITUAL:?)",
+        r"**💀\1**",
+        text
+    )
 
     for trig in sorted(triggers, key=len, reverse=True):
-        pattern = rf"(?i)\b({re.escape(trig)}:?)"
+        pattern = rf"\b({re.escape(trig)}:?)"
         text = re.sub(pattern, r"**⤷\1**", text)
 
     return text
@@ -75,14 +88,13 @@ def format_skill_text(raw_skill: str, triggers: list[str]) -> str:
         flags=re.IGNORECASE | re.DOTALL
     )
 
-    if not match:
-        return bold_special_tags(raw_skill, triggers)
+    if not match: return bold_special_tags(raw_skill, triggers)
 
     skill_type = match.group(1).lower()
-    skill_name = match.group(2).strip()
+    skill_name = match.group(2).strip().title()
     skill_body = match.group(3).strip()
 
-    label = "(🗘) " if skill_type == "fskill" else "(★) "
+    label = "🗘" if skill_type == "fskill" else "★"
 
     safe_name = discord.utils.escape_markdown(skill_name)
     formatted_body = bold_special_tags(skill_body, triggers)
@@ -98,40 +110,7 @@ def replace_symbols(text: str) -> str:
 
     return text
 
-# -------------------------------------
-cards_data = load_cards_from_url(CSV_URL)
-
-intents = discord.Intents.default()
-bot = commands.Bot(command_prefix="!", intents=intents)
-
-@bot.event
-async def on_ready():
-    print(f"Logged in as {bot.user}")
-    await bot.tree.sync()
-
-@bot.tree.command(name="pectosearch", description="Look up a Pecto card")
-@app_commands.describe(card_name="The name of the card")
-async def pecto(interaction: discord.Interaction, card_name: str):
-    global cards_data
-
-    try:
-        cards_data = load_cards_from_url(CSV_URL)
-    except Exception as e:
-        await interaction.response.send_message(
-            f"Failed to load card data: {e}",
-            ephemeral=True
-        )
-        return
-
-    card = find_card(cards_data, card_name)
-
-    if not card:
-        await interaction.response.send_message(
-            f'No card found for "{card_name}".',
-            ephemeral=True
-        )
-        return
-
+def generate_card(card):
     name = escape_md(card.get("name", ""))
     subtype = escape_md(card.get("subtype", ""))
     lvl = escape_md(card.get("lvl", ""))
@@ -174,7 +153,64 @@ async def pecto(interaction: discord.Interaction, card_name: str):
     path = os.path.join("../art/baseSet", art_filename)
     file = discord.File(path, filename=art_filename)
     embed.set_image(url=f"attachment://{art_filename}")
+    return embed, file
 
+
+# -------------------------------------
+# Bot Commands
+# -------------------------------------
+cards_data = load_cards_from_url(CSV_URL)
+
+intents = discord.Intents.default()
+bot = commands.Bot(command_prefix="!", intents=intents)
+
+@bot.tree.command(name="pectosearch", description="Look up a Pecto card")
+@app_commands.describe(card_name="The name of the card")
+async def card_search(interaction: discord.Interaction, card_name: str):
+    global cards_data
+    try: cards_data = load_cards_from_url(CSV_URL)
+    except Exception as e:
+        await interaction.response.send_message(
+            f"Failed to load card data: {e}",
+            ephemeral=True
+        )
+        return
+
+    card = find_card(cards_data, card_name)
+
+    if not card:
+        await interaction.response.send_message(f'No card found for "{card_name}".', ephemeral=True)
+        return
+    
+    embed, file = generate_card(card)
     await interaction.response.send_message(embed=embed, file=file)
+
+@bot.tree.command(name="randomcard", description="Get a random Pecto card")
+async def random_card(interaction: discord.Interaction):
+    global cards_data
+
+    try: cards_data = load_cards_from_url(CSV_URL)
+    except Exception as e:
+        await interaction.response.send_message(
+            f"Failed to load card data: {e}",
+            ephemeral=True
+        )
+        return
+
+    card = random.choice(cards_data)
+
+    if not card:
+        await interaction.response.send_message(f'Failed to find anything.', ephemeral=True)
+        return
+    
+    embed, file = generate_card(card)
+    await interaction.response.send_message(embed=embed, file=file)
+
+@bot.event
+async def on_ready():
+    print(f"Logged in as {bot.user}")
+    guild = discord.Object(id=GUILD_ID)
+    synced = await bot.tree.sync(guild=guild)
+    print(f"Synced {len(synced)} commands to guild.")
 
 bot.run(TOKEN)
