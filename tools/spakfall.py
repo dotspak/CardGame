@@ -168,14 +168,6 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 @app_commands.describe(card_name="The name of the card")
 async def card_search(interaction: discord.Interaction, card_name: str):
     global cards_data
-    try: cards_data = load_cards_from_url(CSV_URL)
-    except Exception as e:
-        await interaction.response.send_message(
-            f"Failed to load card data: {e}",
-            ephemeral=True
-        )
-        return
-
     card = find_card(cards_data, card_name)
 
     if not card:
@@ -188,15 +180,6 @@ async def card_search(interaction: discord.Interaction, card_name: str):
 @bot.tree.command(name="randomcard", description="Get a random Pecto card")
 async def random_card(interaction: discord.Interaction):
     global cards_data
-
-    try: cards_data = load_cards_from_url(CSV_URL)
-    except Exception as e:
-        await interaction.response.send_message(
-            f"Failed to load card data: {e}",
-            ephemeral=True
-        )
-        return
-
     card = random.choice(cards_data)
 
     if not card:

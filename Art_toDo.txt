@@ -1,19 +1,19 @@
-Evil Egg
+Combat Idol ***
+Shattered Lord ***
+Landterra
+
 Lesser Crow
 Skeleton
 Grub
 Roller
 Corrupted Piece
-Shrine/Home of Marlita
 Tunnel Of White Wind
-Arcane Eye
 Ectoplasm
 Shiny Orb
 Royal Jelly
 Magic Magnet
 Worm Wood
 Abstract Mirror
-Hexagonal Visionary
 Churn
 Tranquility
 Drill Master
@@ -21,11 +21,9 @@ Clone Element
 Artistic Golem
 Spooked Golem
 Lonely Drone
-Slumbering Titan
-Banish Watcher ***
 Living Home
 Morgue
-Infection:Misdirection
+Infection: Misdirection
 Bountiful Harvest
 Card Dispenser
 Tonne
@@ -38,8 +36,6 @@ Sap Spider
 Conjoined
 Doctor
 False Golem
-Pearl Aggressor
-Onyx Defender
 Wretched
 Helpful Honey Bee
 Crow Practitioner
@@ -49,26 +45,21 @@ Deconstructor
 Crusher Golem
 Specular Golem
 Flower Wrangler 
-Red Wizard ***
 Pheromone Den
 Pale Mask
 Temporary Relief
 Stone Generator
-Crow's Nest
 Cleaver
-Combat Idol
 Big Catch
 Gargoyle
 Grave Digger
 Reap The Dead
 The Cure?
 Pesky Golem
-Bolt Spirit ***
+Gluttonous Grouper
 Burn
 Dissolve
 Melt
-Transmogriphy ***
-Horror From Above
 Reaper
 Shiny Crow
 Miracle Machine
@@ -82,8 +73,6 @@ Melting Idol
 Barrier Lord
 Reconstruction
 Elder Spell
-It Gets Worse
-Madness Policy
 Mutation
 Powder
 The Flock
@@ -91,7 +80,6 @@ Honey Coating
 Holy Pulse
 Swarm
 Beehemoth Stinger
-Bloodsong
 Excavation
 Saturn Bear
 Empty Man
@@ -103,5 +91,4 @@ False Queen Carcass
 Death Pact
 Last Chance
 Fractal Blade
-Shattered Lord ***
 Last Wish
