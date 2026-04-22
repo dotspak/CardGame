@@ -51,6 +51,13 @@ This update introduces several core system changes aimed at improving gameplay f
 
 *This removes unintuitive edge cases and simplifies combat resolution. It also slightly increases the viability of reactive positioning and front-row setup.*
 
+### Game Actions & Responses
+
+- Players may now respond to any game action before it resolves, including attacks, skills, and casts.
+- After a response resolves, the original action will only resolve if its source is still in play and its conditions (including costs) can be met. Otherwise, the action fizzles.
+
+*This change unifies how interaction works across the game and increases counterplay. Actions are no longer guaranteed to resolve once activated, allowing players to disrupt both effects and their associated costs. This adds a new layer of strategy, especially around timing and resource use, while keeping the system simple with a single response window and no stack.*
+
 ### Reviving
 
 - “Set a card from the discard” has been standardized to the keyword Revive.
