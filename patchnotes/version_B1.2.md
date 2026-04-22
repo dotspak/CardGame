@@ -10,6 +10,16 @@ This update introduces several core system changes aimed at improving gameplay f
 
 ## Balance Updates
 
+### Force
+
+- Baseline FORCE values have been standardized:
+  - LVL 1: 2 FORCE
+  - LVL 2: 3 FORCE
+  - LVL 3: 4 FORCE
+  - LVL 3 cards retain greater variance, as they represent the primary source of high-impact effects.
+
+*These numbers are more for what is considerd an "on-par" card. Cards can still have stats above and below these values. Additionally, 4 FORCE is now the highest a card can be without being muted, delayed, or static.*
+
 ### Recursion
 
 - Recursion has been further reduced across the board.
@@ -21,19 +31,17 @@ This update introduces several core system changes aimed at improving gameplay f
 
 - Most instances of unrestricted tutoring have been replaced with:
   - “Look at the top 5 cards of your deck” effects.
+  - You are always guaranteed to draw 1 card with these effects if the search fails.
 - Additional effects that interact with the top of the deck have been introduced to support this direction.
 
 *Full-deck tutoring proved too consistent in a 20-card singleton format. Moving to top-of-deck filtering preserves decision-making while restoring variance.*
 
-### Force
+### Specific Value Searching
 
-- Baseline FORCE values have been standardized:
-  - LVL 1: 2 FORCE
-  - LVL 2: 3 FORCE
-  - LVL 3: 4 FORCE
-  - LVL 3 cards retain greater variance, as they represent the primary source of high-impact effects.
+- Effects that look at a specific number of cards from a pile now resolve using as many cards as possible.
+- If an effect would look at more cards than are available, it instead looks at all remaining cards.
 
-*These numbers are more for what is considerd an "on-par" card. Cards can still have stats above and below these values. Additionally, 4 FORCE is now the highest a card can be without being muted, delayed, or static.*
+*This change improves consistency and removes unnecessary failure cases. Effects now behave intuitively in low-resource situations, ensuring they still provide value instead of fizzling due to insufficient cards.*
 
 ---
 
@@ -45,23 +53,34 @@ This update introduces several core system changes aimed at improving gameplay f
 
 *Removing all restrictions prevents the degenerate strat of playing no cards on your first turn pretty much entirely and doesn't cause games to be overly explosive.*
 
+### Card Draw
+
+- Opening hand size increased from 3 → 4
+  - Players still draw on their first turn (effective starting hand: 5 cards)
+- Card draw on destruction reduced:
+  - Now triggers once per turn (down from twice)
+
+*Increasing starting hand size improves early-game consistency and reduces non-games. The draw reduction keeps overall card flow in check, especially with fewer zones in play.*
+
 ### Attacking
 
 - If a targeted card leaves play before an attack resolves, the attack now fizzles.
 
 *This removes unintuitive edge cases and simplifies combat resolution. It also slightly increases the viability of reactive positioning and front-row setup.*
 
-### Game Actions & Responses
-
-- Players may now respond to any game action before it resolves, including attacks, skills, and casts.
-- After a response resolves, the original action will only resolve if its source is still in play and its conditions (including costs) can be met. Otherwise, the action fizzles.
-
-*This change unifies how interaction works across the game and increases counterplay. Actions are no longer guaranteed to resolve once activated, allowing players to disrupt both effects and their associated costs. This adds a new layer of strategy, especially around timing and resource use, while keeping the system simple with a single response window and no stack.*
-
 ### Reviving
 
 - “Set a card from the discard” has been standardized to the keyword Revive.
 - Cards that enter the void after perishing can no longer be revived.
+
+### Game Actions & Responses
+
+- Game actions are now divided into three categories:
+  - Committed (Set, Cast): Resolve immediately. Players may respond after the effect resolves.
+  - Contestable (Attacks, Skills): Players may respond when the action is declared. If the source is no longer valid after the response, the action does not resolve.
+  - Uninteractable (Triggers): Cannot be responded to and resolve automatically.
+
+*This change standardizes how interaction works across the game while giving each action type a clear identity. Committed actions provide reliable value, contestable actions introduce counterplay and timing decisions, and triggers remain fast and seamless. This system increases depth without adding stack complexity and makes it easier to understand when and how players can respond.*
 
 ### 0 Force
 
@@ -76,20 +95,11 @@ This update introduces several core system changes aimed at improving gameplay f
 - Back row zones reduced from 3 → 2
 - Front-row cards can now attack any back-row card instead of attacking the player
 
-*Back-row strategies had become too safe and difficult to interact with. These changes make back-row positioning more deliberate and allow players to contest key pieces without sacrificing excessive tempo.*
-
-### Card Draw
-
-- Opening hand size increased from 3 → 4
-  - Players still draw on their first turn (effective starting hand: 5 cards)
-- Card draw on destruction reduced:
-  - Now triggers once per turn (down from twice)
-
-*Increasing starting hand size improves early-game consistency and reduces non-games. The draw reduction keeps overall card flow in check, especially with fewer zones in play.*
+*Back-row strategies had become too safe and difficult to interact with. These changes make back-row positioning more deliberate and allow players to contest key pieces without sacrificing excessive tempo. This also makes 5 zones less confusing, which was the primary reason 6 was introduced.*
 
 ### LVL System
 
-The LVL system has been updated to a simplified additive model:
+The LVL system has been updated to a simplified additive model (basically the same as 4.0):
 
 - You may always play LVL 1 cards.
 - You may also play cards with LVL less than or equal to the total LVL of cards you control.
