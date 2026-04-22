@@ -33,9 +33,17 @@ This update introduces several core system changes aimed at improving gameplay f
   - LVL 3: 4 FORCE
   - LVL 3 cards retain greater variance, as they represent the primary source of high-impact effects.
 
+*These numbers are more for what is considerd an "on-par" card. Cards can still have stats above and below these values. Additionally, 4 FORCE is now the highest a card can be without being muted, delayed, or static.*
+
 ---
 
 ## System Updates
+
+### Going Second
+
+- The player going second now has no restrictions.
+
+*Removing all restrictions prevents the degenerate strat of playing no cards on your first turn pretty much entirely and doesn't cause games to be overly explosive.*
 
 ### Attacking
 
