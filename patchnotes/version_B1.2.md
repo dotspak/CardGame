@@ -47,6 +47,14 @@ This update introduces several core system changes aimed at improving gameplay f
 
 ## System Updates
 
+### 0 Force
+
+- Cards can now exist on the board at 0 FORCE.
+- If a card loses FORCE outside of taking damage, it may be reduced to 0 FORCE (but not below).
+- NULL Force cards remain unchanged.
+
+*0 FORCE states introduce meaningful edge cases and interactions that were lost when previously removed. The added depth outweighs the minimal rules overhead.*
+
 ### Going Second
 
 - The player going second now has no restrictions.
@@ -56,9 +64,8 @@ This update introduces several core system changes aimed at improving gameplay f
 ### Card Draw
 
 - Opening hand size increased from 3 → 4
-  - Players still draw on their first turn (effective starting hand: 5 cards)
-- Card draw on destruction reduced:
-  - Now triggers once per turn (down from twice)
+- Players still draw on their first turn (effective starting hand: 5 cards)
+- The first 2 times you destroy an opponent's card during your turn, draw a card.
 
 *Increasing starting hand size improves early-game consistency and reduces non-games. The draw reduction keeps overall card flow in check, especially with fewer zones in play.*
 
@@ -75,35 +82,34 @@ This update introduces several core system changes aimed at improving gameplay f
 
 ### Game Actions & Responses
 
-- Game actions are now divided into three categories:
-  - Committed (Set, Cast): Resolve immediately. Players may respond after the effect resolves.
-  - Contestable (Attacks, Skills): Players may respond when the action is declared. If the source is no longer valid after the response, the action does not resolve.
-  - Uninteractable (Triggers): Cannot be responded to and resolve automatically.
+Game actions are now divided into three categories:
+
+- Committed (Set, Cast):
+  - Resolve immediately. Players may respond after the effect resolves.
+  - After the action resolves, the opponent may respond.
+  - These actions cannot be interrupted before resolving.
+
+- Contestable (Attacks, Skills):
+  - When a contestable action is declared:
+    - Targets are chosen immediately.
+    - Costs and conditions are paid when the action is activated.
+  - The opponent may respond before the action resolves.
+  - When the action resolves:
+    - If both the source and the target are still valid, the action resolves.
+    - Otherwise, the action fizzles.
+
+- Uninteractable (Triggers):
+  - Triggers are not game actions and cannot be responded to.
+  - Triggers resolve automatically after the effect that caused them.
 
 *This change standardizes how interaction works across the game while giving each action type a clear identity. Committed actions provide reliable value, contestable actions introduce counterplay and timing decisions, and triggers remain fast and seamless. This system increases depth without adding stack complexity and makes it easier to understand when and how players can respond.*
 
-### 0 Force
-
-- Cards can now exist on the board at 0 FORCE.
-- If a card loses FORCE outside of taking damage, it may be reduced to 0 FORCE (but not below).
-- NULL Force cards remain unchanged.
-
-*0 FORCE states introduce meaningful edge cases and interactions that were lost when previously removed. The added depth outweighs the minimal rules overhead.*
-
-### Game Board
-
-- Back row zones reduced from 3 → 2
-- Front-row cards can now attack any back-row card instead of attacking the player
-
-*Back-row strategies had become too safe and difficult to interact with. These changes make back-row positioning more deliberate and allow players to contest key pieces without sacrificing excessive tempo. This also makes 5 zones less confusing, which was the primary reason 6 was introduced.*
-
 ### LVL System
 
-The LVL system has been updated to a simplified additive model (basically the same as 4.0):
+- The minimum LVL cap is being removed.
+- Your LVL cap is now always equal to the highest LVL card you control + 1.
+  - This means if you control no cards: highest LVL = 0 + 1 = 1
+  - LVL 1 cards are therefore always playable.
+- Tokens and face downs count as LVL 1 cards.
 
-- You may always play LVL 1 cards.
-- You may also play cards with LVL less than or equal to the total LVL of cards you control.
-- Face-down cards are LVL 1 by default.
-- Tokens have no LVL and are effectively LVL 0.
-
-*With LVL capped at 3, the minimum LVL system wasn’t doing much anymore. Removing it cuts down on tracking and shifts progression to board investment instead of turn count. This system is more flexible, but also more volatile, so we’ll be keeping a close eye on it.*
+*With LVL capped at 3, the minimum LVL system wasn’t doing much anymore. Removing it cuts down on tracking and shifts progression to board investment instead of turn count. This system is more flexible, but also more volatile, so I’ll be keeping a close eye on it.*
