@@ -7,11 +7,11 @@ import random
 from io import StringIO
 from discord import app_commands
 from discord.ext import commands
+from dotenv import load_dotenv
 
 FORCE_EMOJI = "<:FORCE:1492236260243275989>"
 NULL_EMOJI = "<:NULL:1492236289167200347>"
 
-TOKEN = "MTQ5MjIxNzUzOTQ2MjE3MjcwMg.Gj0DRL.zehz3k8-PF3KJLTVr1S8TNBkrEHnkV95rD0fNo"
 CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQOXrQ7no2UmFB_beqtUqB_tmoMYNR6ndNPzUToxDwa00UukgbENansGoxMH0_zSg1YsJJ2iI1Whbrv/pub?output=csv"
 
 TRIGGERS = [
@@ -24,33 +24,45 @@ TRIGGERS = [
 
 GUILD_ID = 1285253404137881711
 
+envPath = f"{os.path.dirname(os.path.abspath(__file__))}/.env"
+load_dotenv(envPath)
+
+TOKEN : str = str(os.getenv('TOKEN'))
+print(envPath + " returns token: " + TOKEN)
+
+
 def load_cards_from_url(url: str) -> list[dict]:
     response = requests.get(url, timeout=10)
     response.raise_for_status()
     return list(csv.DictReader(StringIO(response.text)))
 
+
 def normalize(text: str) -> str: return str(text).strip().lower()
 
-def find_card(cards: list[dict], card_name: str) -> dict | None:
+
+def find_card(cards: list[dict], card_name: str) -> tuple[dict | None, int | None]:
     target = normalize(card_name)
 
-    for card in cards:
+    for i, card in enumerate(cards):
         if normalize(card.get("name", "")) == target:
-            return card
+            return card, i
 
-    for card in cards:
+    for i, card in enumerate(cards):
         if target in normalize(card.get("name", "")):
-            return card
+            return card, i
 
-    return None
+    return None, None
+
 
 def escape_md(text: str) -> str:
     if not text: return ""
     return discord.utils.escape_markdown(str(text))
 
+
 def clean_text(text: str) -> str:
     if not text: return ""
     return str(text).replace("}", "").strip()
+
 
 def bold_special_tags(text: str, triggers: list[str]) -> str:
     if not text: return ""
@@ -77,6 +89,7 @@ def bold_special_tags(text: str, triggers: list[str]) -> str:
 
     return text
 
+
 def format_skill_text(raw_skill: str, triggers: list[str]) -> str:
     if not raw_skill: return ""
 
@@ -102,6 +115,7 @@ def format_skill_text(raw_skill: str, triggers: list[str]) -> str:
     if formatted_body: return f"**{label}{safe_name}:**\n{formatted_body}"
     return f"**{label} - {safe_name}:**"
 
+
 def replace_symbols(text: str) -> str:
     if not text: return ""
 
@@ -110,7 +124,8 @@ def replace_symbols(text: str) -> str:
 
     return text
 
-def generate_card(card):
+
+def generate_card(card, idx):
     name = escape_md(card.get("name", ""))
     subtype = escape_md(card.get("subtype", ""))
     lvl = escape_md(card.get("lvl", ""))
@@ -149,8 +164,12 @@ def generate_card(card):
     )
 
     # get art for card
-    art_filename = card.get("art", "").strip()
-    path = os.path.join("../art/baseSet", art_filename)
+    id_str = f"{idx:03d}"
+    art_filename = id_str + card.get("nickname") + ".png"
+
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    path = os.path.join(base_dir, "art", art_filename)
+
     file = discord.File(path, filename=art_filename)
     embed.set_image(url=f"attachment://{art_filename}")
     return embed, file
@@ -168,25 +187,25 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 @app_commands.describe(card_name="The name of the card")
 async def card_search(interaction: discord.Interaction, card_name: str):
     global cards_data
-    card = find_card(cards_data, card_name)
+    card, idx = find_card(cards_data, card_name)
 
     if not card:
         await interaction.response.send_message(f'No card found for "{card_name}".', ephemeral=True)
         return
     
-    embed, file = generate_card(card)
+    embed, file = generate_card(card, idx)
     await interaction.response.send_message(embed=embed, file=file)
 
 @bot.tree.command(name="randomcard", description="Get a random Pecto card")
 async def random_card(interaction: discord.Interaction):
     global cards_data
-    card = random.choice(cards_data)
+    card, idx = find_card(cards_data, str(random.choice(cards_data).get("name")))
 
     if not card:
         await interaction.response.send_message(f'Failed to find anything.', ephemeral=True)
         return
     
-    embed, file = generate_card(card)
+    embed, file = generate_card(card, idx)
     await interaction.response.send_message(embed=embed, file=file)
 
 @bot.event
@@ -196,4 +215,4 @@ async def on_ready():
     synced = await bot.tree.sync(guild=guild)
     print(f"Synced {len(synced)} commands to guild.")
 
-bot.run(TOKEN)
+bot.run(str(TOKEN))
