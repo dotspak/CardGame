@@ -119,3 +119,11 @@ Formal rules:
 - LVL Cap: highest LVL you control +1.
 
 *With LVL capped at 3, the minimum LVL system wasn’t doing much for the game anymore. Removing it cuts down on tracking and shifts progression to board investment instead of turn count. This system is more flexible, but also more volatile, so I’ll be keeping a close eye on it.*
+
+### Discard + Void
+
+- Discarded and Voided now refer only to cards that are sent to those zones from outside play.
+- If a card says “when/if a card is discarded”, it means a card is put into the discard without perishing.
+  - The same applies to “when/if a card is voided.”
+- A card only perishes if it is put into the discard from play.
+- If a card would be put into the discard from play but goes to the void instead, it does not perish.
