@@ -65,7 +65,8 @@ This update introduces several core system changes aimed at improving gameplay f
 
 - Opening hand size increased from 3 → 4
 - Players still draw on their first turn (effective starting hand: 5 cards)
-- The first 2 times you destroy an opponent's card during your turn, draw a card.
+- Break Bonus:
+  - The first time you destroy an opponent’s card during your turn, draw 2 cards. That card’s controller draws 1 card.
 
 *Increasing starting hand size improves early-game consistency and reduces non-games. The draw reduction keeps overall card flow in check, especially with fewer zones in play.*
 
@@ -112,4 +113,9 @@ Game actions are now divided into three categories:
   - LVL 1 cards are therefore always playable.
 - Tokens and face downs count as LVL 1 cards.
 
-*With LVL capped at 3, the minimum LVL system wasn’t doing much anymore. Removing it cuts down on tracking and shifts progression to board investment instead of turn count. This system is more flexible, but also more volatile, so I’ll be keeping a close eye on it.*
+Formal rules:
+
+- You may play cards with LVL up to 1 higher than the highest LVL among cards you control.
+- LVL Cap: highest LVL you control +1.
+
+*With LVL capped at 3, the minimum LVL system wasn’t doing much for the game anymore. Removing it cuts down on tracking and shifts progression to board investment instead of turn count. This system is more flexible, but also more volatile, so I’ll be keeping a close eye on it.*
