@@ -6,6 +6,8 @@
 
 This update introduces several core system changes aimed at improving gameplay flow, increasing interaction, and reducing degenerate strategies. Many of these adjustments are foundational and will continue to be monitored closely.
 
+*This update was initially scoped as much smaller, but many potential fixes came to light. The patch is larger than intended due to this.*
+
 ---
 
 ## Balance Updates
@@ -127,3 +129,12 @@ Formal rules:
   - The same applies to “when/if a card is voided.”
 - A card only perishes if it is put into the discard from play.
 - If a card would be put into the discard from play but goes to the void instead, it does not perish.
+
+---
+
+## General updates
+
+To add more overall interaction to the game, I've added 2 basic generic skills with similar effects. These skills were added to cards that were lacking valid interaction or were just weaker overall.
+
+- Hurt: Deal 1 damage to a card
+- Cleave: Deal 2 damage to a card
