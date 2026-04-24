@@ -22,7 +22,8 @@ load_dotenv(envPath)
 TOKEN : str = str(os.getenv('TOKEN'))
 
 # intent + bot setup
-intents = discord.Intents.default()
+intents = discord.Intents.all()
+intents.message_content = True
 bot = commands.Bot(command_prefix="!", intents=intents)
 
 # searches the csv for the card passed
@@ -153,6 +154,7 @@ def replace_symbols(text: str) -> str:
     text = re.sub(r'NULL', NULL_EMOJI, text)
     return text
 
+
 async def card_name_autocomplete(interaction: discord.Interaction, current: str) -> list[app_commands.Choice[str]]:
     current = normalize(current)
     matches = []
@@ -163,23 +165,17 @@ async def card_name_autocomplete(interaction: discord.Interaction, current: str)
         if len(matches) >= 25: break
     return matches
 
+
 def normalize(text: str) -> str: return str(text).strip().lower()
 def escape_md(text: str) -> str: return "" if not text else discord.utils.escape_markdown(str(text))
 def clean_text(text: str) -> str: return "" if not text else str(text).replace("}", "").strip()
-
-
-@bot.event
-async def on_ready():
-    print(f"Logged in as {bot.user}")
-    guild = discord.Object(id=GUILD_ID)
-    synced = await bot.tree.sync(guild=guild)
-    print(f"Synced {len(synced)} commands to guild.")
 
 
 @bot.tree.command(name="pectosearch", description="Look up a Pecto card")
 @app_commands.describe(card_name="The name of the card")
 @app_commands.autocomplete(card_name=card_name_autocomplete)
 async def card_search(interaction: discord.Interaction, card_name: str):
+    global data
     await run_discord_command(
         card_name, interaction=interaction)
 
@@ -189,6 +185,14 @@ async def random_card(interaction: discord.Interaction):
     global data
     await run_discord_command(
         random.choice(data).get("name"), interaction=interaction)
+
+
+@bot.event
+async def on_ready():
+    print(f"Logged in as {bot.user}")
+    guild = discord.Object(id=GUILD_ID)
+    bot.tree.clear_commands(guild=guild)
+    print(f"Synced {len(await bot.tree.sync())} commands to guild.")
 
 
 data = load_cards_from_url(CSV_URL)
