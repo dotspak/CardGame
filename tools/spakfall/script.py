@@ -6,7 +6,7 @@ import os
 import random
 from io import StringIO
 from discord import app_commands
-from discord.ext import commands
+from discord.ext import commands, tasks
 from dotenv import load_dotenv
 
 # constants
@@ -185,15 +185,36 @@ async def random_card(interaction: discord.Interaction):
     global data
     await run_discord_command(
         random.choice(data).get("name"), interaction=interaction)
+    
+
+@tasks.loop(minutes=10)
+async def refresh_card_data():
+    global data
+    try:
+        new_data = load_cards_from_url(CSV_URL)
+        if new_data:
+            data = new_data
+            print(f"Card data refreshed: {len(data)} cards loaded.")
+    except Exception as e:
+        print(f"Failed to refresh card data: {e}")
 
 
 @bot.event
 async def on_ready():
     print(f"Logged in as {bot.user}")
+
+    if not refresh_card_data.is_running():
+        refresh_card_data.start()
+
     guild = discord.Object(id=GUILD_ID)
     bot.tree.clear_commands(guild=guild)
     print(f"Synced {len(await bot.tree.sync())} commands to guild.")
+    print("Spakfall online.")
 
 
-data = load_cards_from_url(CSV_URL)
+try: data = load_cards_from_url(CSV_URL)
+except Exception as e:
+    print(f"inital load failed: {e}")
+    data = []
+
 bot.run(str(TOKEN))
