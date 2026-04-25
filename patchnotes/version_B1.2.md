@@ -72,12 +72,6 @@ This update introduces several core system changes aimed at improving gameplay f
 
 *Increasing starting hand size improves early-game consistency and reduces non-games. The draw reduction keeps overall card flow in check, especially with fewer zones in play.*
 
-### Attacking
-
-- If a targeted card leaves play before an attack resolves, the attack now fizzles.
-
-*This removes unintuitive edge cases and simplifies combat resolution. It also slightly increases the viability of reactive positioning and front-row setup.*
-
 ### Reviving
 
 - “Set a card from the discard” has been standardized to the keyword Revive.
@@ -100,6 +94,7 @@ Game actions are now divided into three categories:
   - When the action resolves:
     - If both the source and the target are still valid, the action resolves.
     - Otherwise, the action fizzles.
+  - *Note: this means that attacks now fizzle if their target is removed*
 
 - Uninteractable (Triggers):
   - Triggers are not game actions and cannot be responded to.

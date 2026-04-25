@@ -21,13 +21,11 @@ def check_missing_closing_brace(text: str, tags: list[str]) -> bool:
         start = 0
         while True:
             idx = text.find(tag, start)
-            if idx == -1:
-                break
+            if idx == -1: break
 
             # Look for a closing brace after the found tag
             closing_idx = text.find("}", idx)
-            if closing_idx == -1:
-                return True
+            if closing_idx == -1: return True
 
             start = idx + len(tag)
 
