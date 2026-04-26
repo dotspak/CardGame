@@ -88,14 +88,6 @@ In addition to this, you are now able to move cards one per turn as a response (
 - A card only perishes if it is put into the discard from play.
 - If a card would be put into the discard from play but goes to the void instead, it does not perish.
 
-### 0 Force
-
-- Cards can now exist on the board at 0 FORCE.
-- If a card loses FORCE outside of taking damage, it may be reduced to 0 FORCE (but not below).
-- NULL Force cards remain unchanged.
-
-*0 FORCE states introduce meaningful edge cases and interactions that were lost when previously removed. The added depth outweighs the minimal rules overhead.*
-
 ### Going Second
 
 - The player going second now has no restrictions.
@@ -106,6 +98,22 @@ In addition to this, you are now able to move cards one per turn as a response (
 
 - “Set a card from the discard” has been standardized to the keyword Revive.
 - Cards that enter the void after perishing can no longer be revived.
+
+---
+
+## New Keywords
+
+### Warden
+
+- Back row cards you control in the same column as this card cannot be targetted for attacks.
+
+*This keyword keeps some of the old defensive play possible while not making it a hard rule for every card.*
+
+### Harmless
+
+- Does not deal combat damage.
+
+*This keyword is basically replacing static, because its a much more fun mechanic.*
 
 ---
 
@@ -131,7 +139,7 @@ In addition to this, you are now able to move cards one per turn as a response (
 ### Tutoring
 
 - Most instances of unrestricted tutoring have been replaced with:
-  - “Look at the top 5 cards of your deck” effects.
+  - “Look at the top X cards of your deck” effects.
   - You are always guaranteed to draw 1 card with these effects if the search fails.
 - Additional effects that interact with the top of the deck have been introduced to support this direction.
 
