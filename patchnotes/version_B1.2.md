@@ -49,7 +49,7 @@ Formal rules:
 - Opening hand size increased from 3 → 4
 - Players still draw on their first turn (effective starting hand: 5 cards)
 - Break Bonus:
-  - The first time you destroy an opponent’s card during your turn, draw 2 cards. That card’s controller draws 1 card.
+  - The first time you destroy an opponent’s card during your turn, draw a card.
 
 *Increasing starting hand size improves early-game consistency and reduces non-games. The draw reduction keeps overall card flow in check, especially with fewer zones in play.*
 
@@ -75,8 +75,6 @@ Game actions are now divided into three categories:
 - Uninteractable (Triggers):
   - Triggers are not game actions and cannot be responded to.
   - Triggers resolve automatically after the effect that caused them.
-
-In addition to this, you are now able to move cards one per turn as a response (works the same as your turn).
 
 *This change standardizes how interaction works across the game while giving each action type a clear identity. Committed actions provide reliable value, contestable actions introduce counterplay and timing decisions, and triggers remain fast and seamless. This system increases depth without adding stack complexity and makes it easier to understand when and how players can respond.*
 

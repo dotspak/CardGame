@@ -1,9 +1,9 @@
 import pandas as pd
 import io
 import requests
+import csvLink
 
-SHEET_CSV_URL = (
-    "https://docs.google.com/spreadsheets/d/e/2PACX-1vQOXrQ7no2UmFB_beqtUqB_tmoMYNR6ndNPzUToxDwa00UukgbENansGoxMH0_zSg1YsJJ2iI1Whbrv/pub?output=csv")
+CSV_URL = csvLink.get_csv_url()
 
 def get_stats_with_pct(series):
     counts = series.value_counts(dropna=False)
@@ -50,5 +50,5 @@ def analyze_card_data(url):
 
 
 if __name__ == "__main__":
-    try: analyze_card_data(SHEET_CSV_URL)
+    try: analyze_card_data(CSV_URL)
     except Exception as e: print(f"Error: Could not process the CSV. {e}")

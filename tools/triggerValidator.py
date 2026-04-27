@@ -1,6 +1,7 @@
 import pandas as pd
+import csvLink
 
-CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQOXrQ7no2UmFB_beqtUqB_tmoMYNR6ndNPzUToxDwa00UukgbENansGoxMH0_zSg1YsJJ2iI1Whbrv/pub?output=csv"
+CSV_URL = csvLink.get_csv_url()
 TAGS = [
     "ENTER:",
     "PERISH:",
