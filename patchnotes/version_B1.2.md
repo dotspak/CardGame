@@ -4,7 +4,7 @@
 
 ## Overview
 
-While initially scoped as much smaller, this update made many potential improvments to the core of the game come to light. The patch is larger than intended due to this. This update introduces several core system changes aimed at improving gameplay flow, increasing interaction, and reducing degenerate strategies. Many of these adjustments are foundational and will continue to be monitored closely.
+While initially scoped as much smaller, this update made many potential improvments to the core of the game come to light. The patch is larger than intended due to this. This update introduces several core system changes aimed at improving gameplay flow, increasing interaction, and reducing degenerate strategies.
 
 ---
 
@@ -12,22 +12,24 @@ While initially scoped as much smaller, this update made many potential improvme
 
 ### Attacking
 
-When you declare an attack, you now choose a specific target.
+When you declare an attack, you choose a zone to attack.
 
-- If the front-row zone is open, you may target the player.
-- If the front and back row are open, you must target the player when attacking.
-- If the target or source of your attack is no longer valid when the attack resolves, the attack fizzles.
-- Targets are locked on declaration — attacks do not change targets after being declared.
-- If a targeted card moves to a new zone, it remains the target as long as it is still in play.
-- Attacks targeting the player always resolve unless the attacking card is removed or gains MUTED before resolution.
+- You may target the front-row or back-row zone in the same column.
+- If the front-row zone is open, you may instead target the player.
+- If both the front and back row are open, you can only target the player.
 
-*Target locking and movement tracking have been formalized to ensure combat remains clear and predictable. Movement can now reposition cards for future interactions, but it does not invalidate attacks that have already been declared.*
+At resolution:
 
-### Front-row/Back-row Targeting
+- If a card is in the targeted zone, they fight.
+- If the targeted zone is empty, the attack instead deals damage to the player.
 
-- You may now target either the front-row or back-row card in the same column when declaring an attack
+Additional rules:
 
-*Back-row cards were previously too safe, leading to stalled boards and low interaction. This change makes them actively contestable while preserving the tempo tradeoff of attacking them. Players can now pressure key back-row cards without sacrificing too much momentum.*
+- Attacks always resolve unless the attacking card is removed or gains MUTED before resolution.
+- If a card moves into the targeted zone before resolution, it becomes the new defender.
+- If a card leaves the targeted zone before resolution, it is no longer involved in the attack.
+
+*Attacks now resolve based on zones rather than specific cards. This ensures combat always results in damage, while still allowing movement and positioning to influence outcomes.*
 
 ### LVL System
 
@@ -42,7 +44,7 @@ Formal rules:
 - You may play cards with LVL up to 1 higher than the highest LVL among cards you control.
 - LVL Cap: highest LVL you control +1.
 
-*With LVL capped at 3, the minimum LVL system wasn’t doing much for the game anymore. Removing it cuts down on tracking and shifts progression to board investment instead of turn count. This system is more flexible, but also more volatile, so I’ll be keeping a close eye on it.*
+*With LVL capped at 3, the minimum LVL system wasn’t doing much for the game anymore. Removing it cuts down on tracking and shifts progression to board investment instead of turn count.*
 
 ### Card Draw
 
@@ -50,8 +52,6 @@ Formal rules:
 - Players still draw on their first turn (effective starting hand: 5 cards)
 - Break Bonus:
   - The first time you destroy an opponent’s card during your turn, draw a card.
-
-*Increasing starting hand size improves early-game consistency and reduces non-games. The draw reduction keeps overall card flow in check, especially with fewer zones in play.*
 
 ### Game Actions & Responses
 
@@ -70,7 +70,8 @@ Game actions are now divided into three categories:
   - When the action resolves:
     - If both the source and the target are still valid, the action resolves.
     - Otherwise, the action fizzles.
-  - *Note: this means that attacks now fizzle if their target is removed*
+  
+*In the case of attacks, since a zone is always valid, an attack can never fizzle (despite being in this category).*
 
 - Uninteractable (Triggers):
   - Triggers are not game actions and cannot be responded to.
