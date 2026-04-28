@@ -10,6 +10,10 @@ Steal (Skill)
 
 - Attach 1 card from the top of your deck and the top opponent's deck to Card Snatcher.
 
+Messiah [3]/LVL 3
+
+While Messiah is in your front-row, you cannot lose the game.
+
 ## Void Archetype
 
 Void Scholar [1]/LVL 1
