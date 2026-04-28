@@ -110,7 +110,7 @@ Game actions are now divided into three categories:
 
 ### Harmless
 
-- Does not deal combat damage.
+- Cannot declare attacks.
 
 *This keyword is basically replacing static, because its a much more fun mechanic.*
 
