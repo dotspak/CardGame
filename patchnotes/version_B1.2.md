@@ -6,6 +6,8 @@
 
 While initially scoped as much smaller, this update made many potential improvments to the core of the game come to light. The patch is larger than intended due to this. This update introduces several core system changes aimed at improving gameplay flow, increasing interaction, and reducing degenerate strategies.
 
+The resource system has also been completely reworked to feel more meaningful, while still keeping the similar vibe of chaining cards together.
+
 ---
 
 ## System Updates
@@ -33,25 +35,25 @@ Additional rules:
 
 ### LVL System
 
-- The minimum LVL cap is being removed.
-- Your LVL cap is now always equal to the highest LVL card you control + 1.
-  - This means if you control no cards: highest LVL = 0 + 1 = 1
-  - LVL 1 cards are therefore always playable.
-- Tokens and face downs count as LVL 1 cards.
+The LVL System is being completely reworked, although it likely won't feel too different.
 
-Formal rules:
+LVL Cap
 
-- You may play cards with LVL up to 1 higher than the highest LVL among cards you control.
-- LVL Cap: highest LVL you control +1.
+- At the start of your turn, your LVL Cap becomes equal to the highest LVL among cards you control, with a minimum of 1.
+- You may play cards from your hand with LVL equal to or less than your LVL Cap.
+- Each time you play a card from your hand, increase your LVL Cap by 1 until end of turn.
+- Tokens and face-down cards are LVL 0.
+- Your LVL Cap may increase above 3.
 
-*With LVL capped at 3, the minimum LVL system wasn’t doing much for the game anymore. Removing it cuts down on tracking and shifts progression to board investment instead of turn count.*
+*The previous LVL system was functional, but had a few major flaws. Most notably, controlling a single LVL 2 card effectively allowed any card to be played, since LVL 3 is the current maximum. The system was also harder to explain than it needed to be, especially for newer players. This new version makes board presence much more important while still giving players a natural way to build upward during their turn. Your highest-LVL card now helps determine where your turn starts, but each card played from hand pushes your LVL Cap higher. This keeps the resource system meaningful throughout the game, especially in the early turns, without causing players to become completely stuck.*
 
 ### Card Draw
 
 - Opening hand size increased from 3 → 4
-- Players still draw on their first turn (effective starting hand: 5 cards)
-- Break Bonus:
-  - The first time you destroy an opponent’s card during your turn, draw a card.
+- At the start of your turn, draw a card. Draw additional cards equal to the number of back row cards you control.
+- Break Bonus: The first time you destroy an opponent’s card during your turn, draw a card.
+
+*These changes ensure players do not run out of cards through the system alone, while tying card advantage directly to board presence. Back-row cards now provide meaningful card flow, giving players a clear reason to build and protect their board.*
 
 ### Game Actions & Responses
 
