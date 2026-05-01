@@ -102,7 +102,12 @@ Game actions are now divided into three categories:
 
 ---
 
-## New Keywords
+## Keywords
+
+### Bleed/Wounds
+
+- When a card takes damage, it takes additional damage equal to its wounds, then remove them.
+- When a player takes combat damage, they take additional damage equal to their wounds, then remove them.
 
 ### Warden
 
