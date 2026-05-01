@@ -6,15 +6,15 @@
 
 While initially scoped as much smaller, this update made many potential improvments to the core of the game come to light. The patch is larger than intended due to this. This update introduces several core system changes aimed at improving gameplay flow, increasing interaction, and reducing degenerate strategies.
 
-The resource system has also been completely reworked to feel more meaningful, while still keeping the similar vibe of chaining cards together.
+The overall goal of this update is to further shift Pecto into a high tempo board-state war, where every card played is important.
 
 ---
 
 ## System Updates
 
-### Attacking
+### REWORKED: Attacking
 
-When you declare an attack, you choose a zone to attack.
+When you declare an attack, you choose a zone with a card in it to attack.
 
 - You may target the front-row or back-row zone in the same column.
 - If the front-row zone is open, you may instead target the player.
@@ -33,11 +33,7 @@ Additional rules:
 
 *Attacks now resolve based on zones rather than specific cards. This ensures combat always results in damage, while still allowing movement and positioning to influence outcomes.*
 
-### LVL System
-
-The LVL System is being completely reworked, although it likely won't feel too different.
-
-LVL Cap
+### REWORKED: LVL System
 
 - At the start of your turn, your LVL Cap becomes equal to the highest LVL among cards you control, with a minimum of 1.
 - You may play cards from your hand with LVL equal to or less than your LVL Cap.
@@ -47,7 +43,7 @@ LVL Cap
 
 *The previous LVL system was functional, but had a few major flaws. Most notably, controlling a single LVL 2 card effectively allowed any card to be played, since LVL 3 is the current maximum. The system was also harder to explain than it needed to be, especially for newer players. This new version makes board presence much more important while still giving players a natural way to build upward during their turn. Your highest-LVL card now helps determine where your turn starts, but each card played from hand pushes your LVL Cap higher. This keeps the resource system meaningful throughout the game, especially in the early turns, without causing players to become completely stuck.*
 
-### Card Draw
+### UPDATED: Card Draw
 
 - Opening hand size increased from 3 → 4
 - At the start of your turn, draw a card. Draw additional cards equal to the number of back row cards you control.
@@ -55,7 +51,7 @@ LVL Cap
 
 *These changes ensure players do not run out of cards through the system alone, while tying card advantage directly to board presence. Back-row cards now provide meaningful card flow, giving players a clear reason to build and protect their board.*
 
-### Game Actions & Responses
+### UPDATED: Game Actions & Responses
 
 Game actions are now divided into three categories:
 
@@ -81,7 +77,7 @@ Game actions are now divided into three categories:
 
 *This change standardizes how interaction works across the game while giving each action type a clear identity. Committed actions provide reliable value, contestable actions introduce counterplay and timing decisions, and triggers remain fast and seamless. This system increases depth without adding stack complexity and makes it easier to understand when and how players can respond.*
 
-### Discard + Void
+### NEW: Discard + Void
 
 - Discarded and Voided now refer only to cards that are sent to those zones from outside play.
 - If a card says “when/if a card is discarded”, it means a card is put into the discard without perishing.
@@ -89,13 +85,13 @@ Game actions are now divided into three categories:
 - A card only perishes if it is put into the discard from play.
 - If a card would be put into the discard from play but goes to the void instead, it does not perish.
 
-### Going Second
+### BUFF: Going Second
 
 - The player going second now has no restrictions.
 
 *Removing all restrictions prevents the degenerate strat of playing no cards on your first turn pretty much entirely and doesn't cause games to be overly explosive.*
 
-### Reviving
+### NEW: Reviving
 
 - “Set a card from the discard” has been standardized to the keyword Revive.
 - Cards that enter the void after perishing can no longer be revived.
@@ -104,18 +100,17 @@ Game actions are now divided into three categories:
 
 ## Keywords
 
-### Bleed/Wounds
+### NERF: Bleed/Wounds
 
-- When a card takes damage, it takes additional damage equal to its wounds, then remove them.
-- When a player takes combat damage, they take additional damage equal to their wounds, then remove them.
+- Wounds now only pop from combat damage.
 
-### Warden
+### NEW: Warden
 
 - Back row cards you control in the same column as this card cannot be targetted for attacks.
 
 *This keyword keeps some of the old defensive play possible while not making it a hard rule for every card.*
 
-### Harmless
+### NEW: Harmless
 
 - Cannot declare attacks.
 
