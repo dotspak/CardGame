@@ -34,3 +34,7 @@ Back-row cards do not deal combat damage.
 Players cannot activate responses during the Attack Phase.
 
 After the Attack Phase, the active player gets a second main phase.
+
+## Card Draw
+
+Card draw now only uses the back row draw rule, which gives player 1 a small buff.
