@@ -11,7 +11,6 @@ Tunnel Of White Wind
 Ectoplasm
 Shiny Orb
 Royal Jelly
-Magic Magnet
 Worm Wood
 Abstract Mirror
 Churn
@@ -42,7 +41,6 @@ Crow Practitioner
 Repented
 Soul Baron
 Deconstructor
-Crusher Golem
 Specular Golem
 Flower Wrangler 
 Pheromone Den
@@ -90,5 +88,4 @@ Landterra
 False Queen Carcass
 Death Pact
 Last Chance
-Fractal Blade
 Last Wish
