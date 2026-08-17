@@ -17,6 +17,9 @@ This update makes several large-scale changes that move the game in a much clean
 * This change primarily affects attacking, as the previous retargeting rules have been removed.
 * Castable cards are now strong defensive tools: if one is attacked, you can cast it in response, gain its effect, and cause the attack to fizzle.
 
+* You can no longer choose to attack a card in the back row if there is a card in the front row.
+* You may only choose to attack a card in the back row if the front row is open.
+
 ### REWORKED: Harmless Keyword → Passive Mechanic
 
 The Harmless keyword had become oversaturated, so it has been replaced with a built-in mechanic rather than remaining a keyword.
@@ -33,14 +36,20 @@ The Harmless keyword had become oversaturated, so it has been replaced with a bu
 * The stack was previously replaced with a queue in an attempt to simplify the game’s logic, but the queue ultimately made interactions more complicated rather than easier.
 * Reintroducing the stack makes card effects less clunky to explain and allows interactions to resolve much more cleanly.
 
-### REWORKED: Bleed and Leech
+*In addition to this change, the categories of game actions are being removed. Triggers can now be responded to.*
+
+### BUFF: Bleed and Leech
 
 * Bleed and Leech have been updated to **Bleed X** and **Leech X**.
 * Each keyword now applies its effect according to its X value.
 
-### REWORKED: Healing
+### BUFF: Healing
 
 * Healing is no longer limited by maximum health.
+
+### REMOVED: Warden Keyword
+
+* Due to the back row targetting change, Warden is being removed as its redundant.
 
 ---
 
@@ -50,7 +59,7 @@ The resource system is the largest change in this patch. I loved the chaining sy
 
 Because of this, I am replacing the chaining system with a more conventional resource system while preserving Pecto’s no-ramping structure.
 
-*Note: I am still working out the best way to visually represent this system, but its mechanics are complete.*
+*Note: I am still working out the best way to visually represent this system, but its mechanics are complete. This is why the mechanic is just being called "resources" for now instead of a proper name.*
 
 ### NEW: Resource System
 
@@ -69,7 +78,6 @@ These changes prevent truly dead hands and create a more consistent push and pul
 * For example: **“PERISH: Your next card costs 2 less.”** This reduces that card’s LVL by 2 when determining its cost.
 * A card’s cost can be reduced to 0, but never below 0.
 * Cost reduction carries over between turns and can be stockpiled.
-* This is the closest the new system comes to allowing resources to be saved between turns.
 
 ### REWORKED: Card Draw, Mulligans, and Opening Hands
 
@@ -84,9 +92,18 @@ While I liked the back-row draw system in theory, it was simply too snowball-hea
 
 ---
 
+## Balance Updates
+
+### Ritual costs
+
+* Most ritual costs have been removed from the game due to the introduction of a finite resource.
+* Some cards have retained their rituals to keep the card's identity.
+
+---
+
 ## Format Updates
 
-### REWORKED: Standard Draft
+### Standard Draft
 
 Standard Draft now follows a more traditional pack-drafting structure.
 
@@ -98,7 +115,7 @@ Standard Draft now follows a more traditional pack-drafting structure.
 
 Draft formats now allow any number of copies of the same card. This does not affect Full Set Draft, since that format only includes one copy of each card to begin with.
 
-### REWORKED: Constructed
+### Constructed
 
 * Constructed decks may now contain up to 2 copies of each card.
 

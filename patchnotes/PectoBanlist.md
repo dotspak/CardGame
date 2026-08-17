@@ -7,3 +7,8 @@ Nothing.
 ## Banned List
 
 Nothing.
+
+## Watch List
+
+Monolith
+Door to Nowhere
