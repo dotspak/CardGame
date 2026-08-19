@@ -38,18 +38,7 @@ The Harmless keyword had become oversaturated, so it has been replaced with a bu
 
 *In addition to this change, the categories of game actions are being removed. Triggers can now be responded to.*
 
-### BUFF: Bleed and Leech
 
-* Bleed and Leech have been updated to **Bleed X** and **Leech X**.
-* Each keyword now applies its effect according to its X value.
-
-### BUFF: Healing
-
-* Healing is no longer limited by maximum health.
-
-### REMOVED: Warden Keyword
-
-* Due to the back row targetting change, Warden is being removed as its redundant.
 
 ---
 
@@ -61,43 +50,48 @@ Because of this, I am replacing the chaining system with a more conventional res
 
 *Note: I am still working out the best way to visually represent this system, but its mechanics are complete. This is why the mechanic is just being called "resources" for now instead of a proper name.*
 
-### NEW: Resource System
+### Resource System
 
 * At the start of each turn, you receive 6 resources to play cards.
 * Your resources always reset to exactly 6. They cannot normally be stockpiled between turns.
 * A card’s LVL determines how many resources you must spend to play it.
-
   * Card LVLs now range from 0–4 instead of 1–3.
   * LVL 0 and LVL 4 cards are intentionally rare. LVL 0 cards generally serve as simple utility pieces, while LVL 4 cards represent huge tempo swings or potential checkmate pieces.
 
 These changes prevent truly dead hands and create a more consistent push and pull around resource management while preserving the board-centric, sequencing-first gameplay Pecto is known for.
 
-### NEW: Cost Reduction
+### Card Draw/Opening Hands/Mulligans
 
-* Rather than generating additional resources, cards can reduce the cost of the next card you play.
-* For example: **“PERISH: Your next card costs 2 less.”** This reduces that card’s LVL by 2 when determining its cost.
-* A card’s cost can be reduced to 0, but never below 0.
-* Cost reduction carries over between turns and can be stockpiled.
+* At the start of each turn, draw until you have 4 cards in hand.
+* This also means you have an opening hand of 4 now.
+* Mulligans have been removed.
 
-### REWORKED: Card Draw, Mulligans, and Opening Hands
-
-* At the start of each turn, draw 2 cards.
-
-While I liked the back-row draw system in theory, it was simply too snowball-heavy and punishing in practice. Drawing 2 cards each turn avoids the sluggishness of drawing only 1 card, without creating the excessive hand replenishment caused by drawing up to a fixed hand size. It also slightly reduces the value of additional card-draw effects.
-
-* After turn order is decided, each player draws an opening hand of 4 cards.
-* You may choose any number of those cards and place them on the bottom of your deck.
-* After making all of your choices, draw the same number of replacement cards.
-* This mulligan can only be performed once.
+While I liked the back-row draw system in theory, it was simply too snowball-heavy and punishing in practice. This version also slightly reduces the value of additional card-draw effects. The removal of mulligans is to reduce the amount of identical opening hands.
 
 ---
 
 ## Balance Updates
 
-### Ritual costs
+### BUFF: Card Draw Cards
 
-* Most ritual costs have been removed from the game due to the introduction of a finite resource.
-* Some cards have retained their rituals to keep the card's identity.
+* Most card draw cards are now lower LVL than before due to card draw being a turn extender more than straight advantage.
+
+### BUFF: Bleed and Leech
+
+* Bleed and Leech have been updated to **Bleed X** and **Leech X**.
+* Each keyword now applies its effect according to its X value.
+
+### BUFF: Healing
+
+* Healing is no longer limited by maximum health.
+
+### BUFF: Sick
+
+* Sick damage is now rounded up and can therefore be lethal.
+
+### REMOVED: Warden Keyword
+
+* Due to the back row targetting change, Warden is being removed as its redundant.
 
 ---
 
@@ -114,13 +108,3 @@ Standard Draft now follows a more traditional pack-drafting structure.
 * Once drafting is complete, each player cuts 4 cards from their pool to build a 20-card deck.
 
 Draft formats now allow any number of copies of the same card. This does not affect Full Set Draft, since that format only includes one copy of each card to begin with.
-
-### Constructed
-
-* Constructed decks may now contain up to 2 copies of each card.
-
-Constructed is moving away from singleton because allowing 2 copies of a card creates more room for focused strategies. Pecto’s card pool is much more mechanically open than those of many other card games—there are no traditional card types and only one universal resource—so this added consistency does not feel overly repetitive. A 20-card deck is not simply dominated by monsters or spells; it is shaped by the strategy the player chooses to pursue.
-
-Alongside this change, I plan to eventually introduce a limited and banned list that will not apply to draft formats. The list will not become active until after the game’s official release and the formation of a proper metagame, though I will maintain a soft watchlist in the meantime. I also hope to avoid standard rotation and instead use the limited and banned list only when necessary, ideally limiting problematic cards rather than banning them outright.
-
-I will be watching and testing this change very closely. I want to move away from singleton for several reasons, but Constructed may eventually need to increase from 20-card decks to 30-card decks. Draft decks will remain at 20 cards regardless.
