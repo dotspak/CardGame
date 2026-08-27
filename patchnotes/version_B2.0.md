@@ -26,8 +26,8 @@ The Harmless keyword had become oversaturated, so it has been replaced with a bu
 
 * A card can now be **Passive**.
 * Passive cards cannot declare attacks.
-* A passive card is represented by a greyed-out FORCE icon.
-* Being passive does not change how the card’s FORCE works in combat; it only prevents the card from attacking.
+* A passive card is represented by a greyed-out :NULL: icon.
+* Being passive does not change how the card’s :FORCE: works in combat; it only prevents the card from attacking.
 * Overall, this is a much cleaner system than the Harmless keyword.
 
 ### REINTRODUCED: The Stack
@@ -37,8 +37,6 @@ The Harmless keyword had become oversaturated, so it has been replaced with a bu
 * Reintroducing the stack makes card effects less clunky to explain and allows interactions to resolve much more cleanly.
 
 *In addition to this change, the categories of game actions are being removed. Triggers can now be responded to.*
-
-
 
 ---
 
@@ -58,12 +56,13 @@ Because of this, I am replacing the chaining system with a more conventional res
   * Card LVLs now range from 0–4 instead of 1–3.
   * LVL 0 and LVL 4 cards are intentionally rare. LVL 0 cards generally serve as simple utility pieces, while LVL 4 cards represent huge tempo swings or potential checkmate pieces.
 
+
 These changes prevent truly dead hands and create a more consistent push and pull around resource management while preserving the board-centric, sequencing-first gameplay Pecto is known for.
 
 ### Card Draw/Opening Hands/Mulligans
 
-* At the start of each turn, draw until you have 4 cards in hand.
-* This also means you have an opening hand of 4 now.
+* At the start of each turn, draw until you have 5 cards in hand.
+* This also means you have an opening hand of 5 now.
 * Mulligans have been removed.
 
 While I liked the back-row draw system in theory, it was simply too snowball-heavy and punishing in practice. This version also slightly reduces the value of additional card-draw effects. The removal of mulligans is to reduce the amount of identical opening hands.
@@ -91,7 +90,22 @@ While I liked the back-row draw system in theory, it was simply too snowball-hea
 
 ### REMOVED: Warden Keyword
 
-* Due to the back row targetting change, Warden is being removed as its redundant.
+* Due to the back row targetting change being removed, Warden is also being removed as its redundant.
+
+### BUFF: Durability
+
+* To counteract the increasing threat of control and splashable damage, most engine pieces that can't attack have been buffed to at least 2:FORCE:.
+* Some cards have alternatively received the SAFE keyword instead.
+* Cards that can only be activated on the opponent's turn now have the SAFE keyword (Powder, Null and Creation)
+* Spell type cards that exist only to be immediately CAST remain as 0:NULL:.
+
+### Bead Tokens
+
+* Removed in favour of Ghost tokens instead
+
+### Mineral Tokens
+
+* Removed in favour of Object tokens instead
 
 ---
 
