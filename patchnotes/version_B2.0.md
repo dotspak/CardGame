@@ -4,7 +4,7 @@
 
 ## Overview
 
-This update makes several large-scale changes that move the game in a much cleaner direction overall. While some of these changes make Pecto slightly more similar to other card games—particularly its resource system—the game still retains plenty of the flair that makes it unique.
+This update makes several large-scale changes that move the game in a much cleaner direction overall, notably the new resource system.
 
 ---
 
@@ -51,11 +51,10 @@ Because of this, I am replacing the chaining system with a more conventional res
 ### Resource System
 
 * At the start of each turn, you receive 6 resources to play cards.
-* Your resources always reset to exactly 6. They cannot normally be stockpiled between turns.
+* Your resources always reset to exactly 6. They cannot be stockpiled between turns.
 * A card’s LVL determines how many resources you must spend to play it.
   * Card LVLs now range from 0–4 instead of 1–3.
   * LVL 0 and LVL 4 cards are intentionally rare. LVL 0 cards generally serve as simple utility pieces, while LVL 4 cards represent huge tempo swings or potential checkmate pieces.
-
 
 These changes prevent truly dead hands and create a more consistent push and pull around resource management while preserving the board-centric, sequencing-first gameplay Pecto is known for.
 
@@ -70,6 +69,10 @@ While I liked the back-row draw system in theory, it was simply too snowball-hea
 ---
 
 ## Balance Updates
+
+### NERF: Victor Trigger
+
+* Similar to the Quick keyword, the Victor trigger now only occurs when attacking, not blocking.
 
 ### BUFF: Card Draw Cards
 
