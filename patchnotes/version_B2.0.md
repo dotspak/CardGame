@@ -4,7 +4,7 @@
 
 ## Overview
 
-This update makes several large-scale changes that move the game in a much cleaner direction overall, notably the new resource system.
+This update makes several large-scale changes to ensure games of Pecto do not result in non-games like previous updates often did.
 
 ---
 
@@ -15,61 +15,72 @@ This update makes several large-scale changes that move the game in a much clean
 * Anything that targets a card or player now follows more conventional fizzling rules.
 * If the target or declarer of an action is no longer valid when that action resolves, the action fizzles.
 * This change primarily affects attacking, as the previous retargeting rules have been removed.
-* Castable cards are now strong defensive tools: if one is attacked, you can cast it in response, gain its effect, and cause the attack to fizzle.
-
 * You can no longer choose to attack a card in the back row if there is a card in the front row.
-* You may only choose to attack a card in the back row if the front row is open.
+* You may only choose to attack a card in the back row if the front row is open instead of your player attack.
+* Castable cards are now strong defensive tools: if one is attacked, you can cast it in response, gain its effect, and cause the attack to fizzle.
 
 ### REWORKED: Harmless Keyword → Passive Mechanic
 
 The Harmless keyword had become oversaturated, so it has been replaced with a built-in mechanic rather than remaining a keyword.
 
 * A card can now be **Passive**.
-* Passive cards cannot declare attacks.
+* Passive cards cannot declare attacks or deal damage in combat.
 * A passive card is represented by a greyed-out :NULL: icon.
-* Being passive does not change how the card’s :FORCE: works in combat; it only prevents the card from attacking.
-* Overall, this is a much cleaner system than the Harmless keyword.
+
+### REWORKED: FORCE/Damage/Loss of Force
+
+* Any instance of "a card loses X:FORCE:" has now been replaced with "a card takes X non-lethal damage".
+* In addition to this, cards can now be at the lowest 1:FORCE:.
+* If a card were to perish due to non-lethal damage, it instead survives at 1:FORCE: (any excess damage does not count as being dealt).
+  * If a card ever has 0 or less :FORCE:, it perishes.
+* A card can now have ?:FORCE:.
+  * A card with ? :FORCE: effectively doesn't interact with the :FORCE: system at all.
+  * These cards cannot gain or lose :FORCE:, deal 0 damage if they enter combat, and always perish if they are dealt damage.
+  * This category of cards largely applies to "spell type cards" that solely exist to be activated.
+  * Note: Due to these cards effectively having no :FORCE:, they do not take Sick damage.
 
 ### REINTRODUCED: The Stack
 
-* After a lot of deliberation, Pecto will once again use a full stack system, functioning essentially the same way as the stack in *Magic: The Gathering*.
+* After a lot of deliberation, Pecto will once again use a full stack system.
 * The stack was previously replaced with a queue in an attempt to simplify the game’s logic, but the queue ultimately made interactions more complicated rather than easier.
 * Reintroducing the stack makes card effects less clunky to explain and allows interactions to resolve much more cleanly.
+* In addition to this, you can now ONLY respond to a card being activated (attack, skill, cast).
+  * This means you can not respond to a card being played or moved. Triggers also cannot be responded to.
+* If a card is destroyed before its effect resolves, the effect fizzles.
 
-*In addition to this change, the categories of game actions are being removed. Triggers can now be responded to.*
+*In addition to this change, the categories of game actions are being removed.*
 
 ---
 
 ## Resources
 
-The resource system is the largest change in this patch. I loved the chaining system and the interesting games it created around 60% of the time. However, the other 40% often became non-games where one player popped off, wiped the opponent’s board, and effectively ended the game on the spot. Even worse, players could sometimes begin with completely dead hands, making the game feel unplayable from turn one.
+The resource system was actually meant to change this patch to something more traditional, but after heavy testing, the other changes this patch have nullified the issues that the old chaining system has so it will be staying. However, card draw and mulligans are being updated.
 
-Because of this, I am replacing the chaining system with a more conventional resource system while preserving Pecto’s no-ramping structure.
+### Card Draw
 
-*Note: I am still working out the best way to visually represent this system, but its mechanics are complete. This is why the mechanic is just being called "resources" for now instead of a proper name.*
+* At the start of each turn, draw 2 cards.
+* The first time you destroy an opponent's card each turn, draw a card.
 
-### Resource System
+### Opening Hand/Mulligans
 
-* At the start of each turn, you receive 6 resources to play cards.
-* Your resources always reset to exactly 6. They cannot be stockpiled between turns.
-* A card’s LVL determines how many resources you must spend to play it.
-  * Card LVLs now range from 0–4 instead of 1–3.
-  * LVL 0 and LVL 4 cards are intentionally rare. LVL 0 cards generally serve as simple utility pieces, while LVL 4 cards represent huge tempo swings or potential checkmate pieces.
+* Both players start with 5 cards and don't draw on their first turn.
+* Similar to Pokemon, if you have no LVL 1 cards in your hand, reveal your hand and then mulligan (shuffle your hand into your deck and draw 5 new cards). Repeat this process until you have at least 1 LVL 1 card in your hand.
+* You get to choose whether you go first or second after seeing your opening hand.
 
-These changes prevent truly dead hands and create a more consistent push and pull around resource management while preserving the board-centric, sequencing-first gameplay Pecto is known for.
-
-### Card Draw/Opening Hands/Mulligans
-
-* At the start of each turn, draw until you have 5 cards in hand.
-* This also means you have an opening hand of 5 now.
+*This system was introduced to ensure players can always play on their first turn, as well as removing some opening hand consistency.*
 
 ---
 
 ## Balance Updates
 
+### NEW: Flank keyword
+
+* A card with **Flank** attacks the player directly when declaring an attack, but cannot attack cards.
+* This keyword is being introduced to re-add some power to aggro strategies, mainly bugs.
+
 ### NERF: Victor Trigger
 
-* Similar to the Quick keyword, the Victor trigger now only occurs when attacking, not blocking.
+* Similar to the **Quick** keyword, the Victor trigger now only occurs when attacking, not blocking.
 
 ### BUFF: Card Draw Cards
 
@@ -86,7 +97,7 @@ These changes prevent truly dead hands and create a more consistent push and pul
 
 ### BUFF: Sick
 
-* Sick damage is now rounded up and can therefore be lethal.
+* **Sick** damage is now rounded up and can therefore be lethal.
 
 ### REMOVED: Warden Keyword
 
@@ -95,9 +106,8 @@ These changes prevent truly dead hands and create a more consistent push and pul
 ### BUFF: Durability
 
 * To counteract the increasing threat of control and splashable damage, most engine pieces that can't attack have been buffed to at least 2:FORCE:.
-* Some cards have alternatively received the SAFE keyword instead.
-* Cards that can only be activated on the opponent's turn now have the SAFE keyword (Powder, Null and Creation)
-* Spell type cards that exist only to be immediately CAST remain as 0:NULL:.
+* Some cards have alternatively received the **Safe** keyword instead.
+* Cards that can only be activated on the opponent's turn now have the **Safe** keyword (Powder, Null and Creation)
 
 ### Bead Tokens
 
