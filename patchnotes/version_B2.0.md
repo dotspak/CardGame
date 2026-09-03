@@ -62,9 +62,6 @@ These changes prevent truly dead hands and create a more consistent push and pul
 
 * At the start of each turn, draw until you have 5 cards in hand.
 * This also means you have an opening hand of 5 now.
-* Mulligans have been removed.
-
-While I liked the back-row draw system in theory, it was simply too snowball-heavy and punishing in practice. This version also slightly reduces the value of additional card-draw effects. The removal of mulligans is to reduce the amount of identical opening hands.
 
 ---
 
@@ -104,11 +101,11 @@ While I liked the back-row draw system in theory, it was simply too snowball-hea
 
 ### Bead Tokens
 
-* Removed in favour of Ghost tokens instead
+* Removed in favour of Ghost tokens.
 
 ### Mineral Tokens
 
-* Removed in favour of Object tokens instead
+* Removed in favour of Object tokens.
 
 ---
 
