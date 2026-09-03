@@ -17,7 +17,7 @@ def analyze_card_data(url):
     response = requests.get(url)
     df = pd.read_csv(io.StringIO(response.text))
 
-    print("--- Card Game Analysis ---\n")
+    print("--- Pecto Stat Analysis ---\n")
 
     # Force Value Analysis ---
     print("Force Value Analysis")
@@ -47,6 +47,14 @@ def analyze_card_data(url):
     
     print("Keyword Prominence Analysis")
     print(get_stats_with_pct(pd.Series(all_keywords)).to_string())
+
+     # Attacker Analysis ---
+    non_attacker_counter = 0
+    for entry in df['attacker']:
+        if entry == 'n': non_attacker_counter += 1
+
+    print("\n----------------------------------\n")
+    print("Passive % of cards: ", round((non_attacker_counter / df['attacker'].size) * 100, 2), "\n")
 
 
 if __name__ == "__main__":
