@@ -88,8 +88,7 @@ The resource system was actually meant to change this patch to something more tr
 
 ### BUFF: Bleed and Leech
 
-* Bleed and Leech have been updated to **Bleed X** and **Leech X**.
-* Each keyword now applies its effect according to its X value.
+* Bleed and Leech now apply 2 wounds and HEAL 2 respectively.
 
 ### BUFF: Healing
 
