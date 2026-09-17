@@ -22,7 +22,7 @@ Attack Trigger:
   - Attack trigger resolves at the same time as declaring the attack
   - Defending player gets their normal response after
 
-Warden:
+Defend Trigger:
 
 - An effect that occurs when a card is targetted for an attack.
 - Ordering works as such:

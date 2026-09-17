@@ -12,6 +12,9 @@ This update makes several large-scale changes to ensure games of Pecto do not re
 
 ### REWORKED: Targeting
 
+* Cards can no longer target a player for an attack on the first turn they are played.
+  * Cards can still target cards for attacks the first turn they're played.
+  * In Pecto terms, effectively every card enters with MUTED until the end of the turn its played.
 * Anything that targets a card or player now follows more conventional fizzling rules.
 * If the target or declarer of an action is no longer valid when that action resolves, the action fizzles.
 * This change primarily affects attacking, as the previous retargeting rules have been removed.
