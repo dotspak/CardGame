@@ -55,6 +55,19 @@ The Harmless keyword had become oversaturated, so it has been replaced with a bu
 
 *In addition to this change, the categories of game actions are being removed.*
 
+### REWORKED: Castable Cards -> Spellskills and Spell cards
+
+* The term "cast" is being functionally removed from the game.
+* Any effect that was previously a cast effect is know being retooled to be a "spellskill", and now goes in the activation box like skills.
+  * This means that a card can no longer be cast and have a skill.
+* Cards can now only be activated, and the bottom box always refers to a card's 1 potential activation.
+* Cards with a spell skill are now referred to as "spell cards".
+* Any effect that referred to "when a card is cast" is now reworded to "when a spell card is activated".
+* Any reference to a "castable card" has now been replaced with "spell card".
+* Spellskills do not have skill names like normal or reusable skills, they are all referred to as "spell" in a bluebox.
+
+*Spellskills and spell cards are functionally identical to previous patch this is mostly just a formatting change.*
+
 ---
 
 ## Resources

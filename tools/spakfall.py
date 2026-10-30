@@ -77,7 +77,10 @@ def format_skill_text(raw: str, triggers: list[str]) -> str:
     skillName = match.group(2).strip().title()
     skillBody = match.group(3).strip()
 
-    label = "🗘" if skillType == "fskill" else "★"
+    label = "↯"
+    if skillType == "fskill": label = "🗘"
+    if skillType == "skill": label = "★"
+  
     safeName = discord.utils.escape_markdown(skillName)
     formattedBody = bold_special_tags(skillBody, triggers)
 
@@ -103,9 +106,9 @@ def generate_embed(card):
 
     # create the card header
     statParts = []
-    
-    if force: statParts.append(f"{force}{FORCE_EMOJI if force!="?" else NULL_EMOJI}")
+
     if lvl: statParts.append(f"LVL {lvl}")
+    if force: statParts.append(f"{force}{FORCE_EMOJI if force!="?" else NULL_EMOJI}")
     if statParts: headerParts.append("/".join(statParts))
     if subtype: headerParts.append(f"*{subtype}*")
 
