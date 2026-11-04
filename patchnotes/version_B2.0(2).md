@@ -2,12 +2,6 @@
 
 ---
 
-## Overview
-
-This update makes several large-scale changes to ensure games of Pecto do not result in non-games like previous updates often did.
-
----
-
 ## System Updates
 
 ### Resources
@@ -25,7 +19,7 @@ This update makes several large-scale changes to ensure games of Pecto do not re
 ### Opening Hand/Mulligans
 
 * Both players start with 5 cards.
-* You turn order is decided before seeing your opening hand.
+* You turn order is decided after seeing your opening hand.
 * You may mulligan your hand once to get a new hand by shuffling your hand into your deck and drawing 5 new cards.
 
 *This system was introduced to ensure players can always play on their first turn, as well as removing some opening hand consistency.*
@@ -88,6 +82,10 @@ The Harmless keyword had become oversaturated, so it has been replaced with a bu
 
 *Spellskills and spell cards are functionally identical to previous patch this is mostly just a formatting change.*
 
+### REMOVED: Face-down cards
+
+* Any instances of face-down cards have been removed from the game.
+
 ---
 
 ## Balance Updates
@@ -114,18 +112,6 @@ The Harmless keyword had become oversaturated, so it has been replaced with a bu
 * **Sick** damage is now rounded up and can therefore be lethal.
 * Cards no longer gain **Sick** when a **Sick** card deals combat damage to another card.
 
-### NERF: Victor Trigger
-
-* Similar to the **Quick** keyword, the Victor trigger now only occurs when attacking, not blocking.
-
-### BUFF: Card Draw Cards
-
-* Most card draw cards are now lower LVL than before due to card draw being a turn extender more than straight advantage.
-
-### BUFF: Healing
-
-* Healing is no longer limited by maximum health.
-
 ### REMOVED: Warden Keyword
 
 * Due to the back row targetting change being removed, Warden is also being removed as its redundant.
@@ -135,17 +121,10 @@ The Harmless keyword had become oversaturated, so it has been replaced with a bu
 * Quick has been a historically toxic design for the game and is typically given to strong VICTOR cards.
 * It is being removed to promote more healthy design for these cards instead of an auto win tool.
 
-### Ghost Tokens
+### REWORKED: Delayed Keyword
 
-* Ghost Tokens are now 1FORCE/FLANK.
-
-### Bead Tokens
-
-* Removed in favour of Ghost tokens.
-
-### Mineral Tokens
-
-* Removed.
+* A Delayed card no longer enters inactive.
+* Cards with Delayed cannot be activated the first turn they are set but can move and be used for resources.
 
 ---
 
